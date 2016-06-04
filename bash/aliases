@@ -1,0 +1,36 @@
+
+alias ll='ls -lhG'  # -l long listing, human readable, no group info
+
+alias tu='top -o cpu'   # sorted by cpu
+alias tm='top -o vsize' # sorted by memory
+
+alias g="git status"
+
+# Git
+alias ungit="find . -name '.git' -exec rm -rf {} \;"
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gca='git commit -v -a'
+alias gco='git checkout'
+alias gd='git diff'
+alias gdm='git diff master'
+alias gl='git pull'
+alias gnp="git-notpushed"
+alias gp='git push'
+alias gst='git status'
+alias gt='git status'
+alias g='git status'
+alias eg='vi .git/config'
+
+# Kill process pattern
+function killnamed () { 
+    ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
+}
+
+# Setup a tunnel
+function tunnelssh() { 
+  # ssh -N -L 8090:<target-host>:8080 <ops>
+  # localhost:8090
+  ssh -L 7997:127.0.0.1:7997 $1
+}
