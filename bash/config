@@ -1,2 +1,0 @@
-
-PS1="\n\u: \w \[$EBLACK\]$(vcprompt)\[$NO_COLOR\] \n-> "
