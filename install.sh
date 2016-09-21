@@ -59,8 +59,6 @@ install_dot_pkgs()
     exit 1;
   fi
   
-  echo "Configuring zsh as default shell"
-  chsh -s $(which zsh)
 }
 
 continue_with_dot_config()
@@ -68,6 +66,9 @@ continue_with_dot_config()
   echo "Continue with dot config"
   #source install/backup.sh
   source install/link.sh
+
+  echo "Set zsh as the default shell"
+  chsh -s $(which zsh)
 }
 
 main
