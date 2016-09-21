@@ -10,8 +10,8 @@ fi
 echo -e "\n\nInstalling homebrew packages..."
 echo "=============================="
 
-egrep -v "^$|^[[:space:]]*#"  $DOTFILES_DEST/install/brew_list.txt | while read -r file ; do
-   echo "brew install $file"
+egrep -v "^$|^[[:space:]]*#"  $DOTFILES_DEST/install/brew_list.txt | while read -r package ; do
+   brew install $package
 done
 
 exit 0
