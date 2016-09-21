@@ -67,7 +67,7 @@ continue_with_dot_config()
 {
   echo "Continue with dot config"
   #source install/backup.sh
-  #source install/link.sh
+  source install/link.sh
 }
 
 main
