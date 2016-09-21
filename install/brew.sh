@@ -13,5 +13,3 @@ echo "=============================="
 egrep -v "^$|^[[:space:]]*#"  $DOTFILES_DEST/install/brew_list.txt | while read -r package ; do
    brew install $package
 done
-
-exit 0
