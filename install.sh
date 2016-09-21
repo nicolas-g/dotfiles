@@ -7,7 +7,7 @@ DOTFILES_DEST=$HOME/.dotfiles
 
 main()
 {
-  echo "Start dotfiles.."
+  echo -e "\nStart dotfiles.."
   clone_dotfiles
   install_dot_pkgs
   continue_with_dot_config
@@ -16,21 +16,21 @@ main()
 
 clone_dotfiles()
 {
-    echo 'Setting up the dotfiles repo.'
+    echo -e "\n\nSetting up the dotfiles repo."
 
     if [ ! -d $DOTFILES_DEST ]; then
 
-      echo "Cloning $DOTFILES_URL into $DOTFILES_DEST..."
+      echo -e "\nCloning $DOTFILES_URL into $DOTFILES_DEST..."
       cd
       git clone $DOTFILES_URL $DOTFILES_DEST
       cd $DOTFILES_DEST
 
-      #echo "Initializing submodule(s)"
+      #echo -e "Initializing submodule(s)"
       #git submodule $verbosity init --recursive
       #git submodule $verbosity update
 
     else
-      echo "Existing dotfiles found in $DOTFILES_DEST."
+      echo -e "\nExisting dotfiles found in $DOTFILES_DEST."
       cd $DOTFILES_DEST
       git pull origin master
     fi
@@ -55,7 +55,7 @@ install_dot_pkgs()
     #rm -f ~/dotfiles/crontab.tmp
   
   else
-    echo "This is not a supported platform.."
+    echo -e "\nThis is not a supported platform.."
     exit 1;
   fi
   
@@ -63,13 +63,13 @@ install_dot_pkgs()
 
 continue_with_dot_config()
 {
-  echo "Continue with dot config"
+  echo -e "\n\nContinue with dot config"
   #source install/backup.sh
   source install/link.sh
 
-  echo "Set zsh as the default shell"
+  echo -e "\n\nSet zsh as the default shell"
   chsh -s $(which zsh)
 }
 
 main
-echo "dotfiles done."
+echo -e "\n\ndotfiles done!"
