@@ -1,0 +1,73 @@
+---
+
+homebrew_packages:
+  ### Essentials
+  - aspell
+  - bat
+  - git
+  - telnet
+  - tmux
+  - reattach-to-user-namespace 		# enable MacOS for tmux (pbcopy/pbpaste)
+  - tree
+  - vault
+  - vim
+  - watch
+  - wget
+  - zsh
+  - zsh-autosuggestions
+  - zsh-completions
+  - zsh-git-prompt
+  - zsh-history-substring-search
+  - zsh-lovers
+  - zsh-syntax-highlighting
+  - peco
+  - parallel
+  ### DevOps
+  - aws-iam-tools
+  - awscli
+  ### K8s
+  - kops
+  - kompose
+  - kube-ps1
+  - kubectx
+  - kubernetes-cli
+  - kubernetes-helm
+  - kustomize
+  - rancher-cli
+  ### Productivity
+  - hub 			# Github cli
+  - ipcalc
+  - jq
+  - tldr
+  ### Extras
+  - aircrack-ng
+  - gist
+  - googler
+  - pwgen
+  ### Fun
+  - pianobar
+
+homebrew_cask_packages:
+  ### Essentials
+  - docker
+  - dropbox
+  - google-chrome
+  - firefox
+  - keybase
+  - minikube
+  - laplock
+  - slack
+  - vagrant
+  - virtualbox
+  - vlc
+  ### DevOps
+  - google-cloud-sdk
+  ### Extras
+  - cheatsheet
+  - limechat
+  - santa			# binary whitelisting/blacklisting system for macOS
+  - selfcontrol 		# avoid distracting websites
+  - skitch
+  - vagrant-manager
+  ### Troubleshooting
+  - wireshark

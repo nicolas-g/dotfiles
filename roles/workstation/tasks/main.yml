@@ -1,0 +1,4 @@
+---
+
+- name: Include packages.yml
+  include: packages.yml
