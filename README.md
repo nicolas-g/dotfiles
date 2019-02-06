@@ -33,18 +33,9 @@ brew tap caskroom/cask
 brew install brew-cask
 brew tap caskroom/versions
 
-brew install git
-brew install wget
-brew install tree
 
-brew cask install dropbox
-brew cask install firefox
-brew cask install google-chrome
-brew cask install spotify
-brew cask install virtualbox
-brew cask install vlc
+# worth creating aliases
 
-# worth create aliases 
 ## Update App Store apps
 sudo softwareupdate -i -a
 
@@ -52,12 +43,19 @@ sudo softwareupdate -i -a
 brew update
 brew upgrade
 
+```
+ln -s /Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt /usr/local/bin/veracrypt
+```
 
-TODO: 
+TODO:
 =====
 Script to create crontab :
 ```
 0 13 * 2 * /usr/local/bin/brew list > ~/.dotfiles/brew_list.txt
 ```
+
+XCode Developer CLI tools are used by various apps that manipulate core OSX features. So make sure to install the Xcode CLI tools by running the following command.
+$ xcode-select —-install
+
 
 brew install macvim --override-system-vim
