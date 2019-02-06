@@ -19,6 +19,7 @@ homebrew_packages:
   - zsh-git-prompt
   - zsh-history-substring-search
   - zsh-lovers
+  - zsh-navigation-tools
   - zsh-syntax-highlighting
   - peco
   - parallel
@@ -44,6 +45,7 @@ homebrew_packages:
   - gist
   - googler
   - pwgen
+  - veracrypt
   ### Fun
   - pianobar
 
@@ -53,6 +55,7 @@ homebrew_cask_packages:
   - dropbox
   - google-chrome
   - firefox
+  - iterm2
   - keybase
   - minikube
   - laplock
