@@ -1,0 +1,37 @@
+---
+
+- block:
+
+  - name: configs | Deploy {{ home_dir }}/.vimrc
+    copy:
+      src: vimrc
+      dest: "{{ home_dir }}/.vimrc"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: configs | Deploy {{ home_dir }}/.aliases
+    copy:
+      src: aliases
+      dest: "{{ home_dir }}/.aliases"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: configs | Deploy {{ home_dir }}/.bashrc
+    copy:
+      src: bashrc
+      dest: "{{ home_dir }}/.bashrc"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: configs | Deploy {{ home_dir }}/.zshrc
+    copy:
+      src: zshrc
+      dest: "{{ home_dir }}/.zshrc"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  tags: configs

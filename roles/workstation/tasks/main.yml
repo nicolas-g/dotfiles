@@ -2,3 +2,6 @@
 
 - name: Include packages.yml
   include: packages.yml
+
+- name: Include configs.yml
+  include: configs.yml

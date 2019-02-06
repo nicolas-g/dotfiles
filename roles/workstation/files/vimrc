@@ -1,0 +1,6 @@
+
+"this will suppress common lines and only show the diffs
+set diffopt=filler,context:0
+
+" Automatically removing all trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
