@@ -2,19 +2,60 @@
 
 - block:
 
+  - name: Ensuring Xcode Command Lines Tools are installed
+    shell: xcode-select -p
+    changed_when: false
+    register: "check_xcode_command_line_tools"
+
+  - name: Installing Xcode Command Line Tools
+    command: "xcode-select --install"
+    when: check_xcode_command_line_tools is not defined
+
+  - name: packages | Download Homebrew installer
+    get_url:
+      url: https://raw.githubusercontent.com/Homebrew/install/master/install
+      dest: /tmp/homebrew_install
+      mode: 0440
+
+  - name: packages | Run Homebrew install script
+    command: "/usr/bin/ruby /tmp/homebrew_install"
+    args:
+      creates: "/usr/local/Homebrew/bin/brew"
+
   - name: packages | Install Homebrew packages
     homebrew:
-      name: "{{ item.name | default(item) }}"
-      state: "{{ item.state | default('latest') }}"
+      name: "{{ item.name }}"
+      state: "{{ item.state | default('present') }}"
       version: "{{ item.version | default(omit) }}"
-      update_homebrew: yes
-    with_items: "{{ homebrew_packages }}"
+    with_items:
+      - "{{ homebrew_packages }}"
+      - "{{ homebrew_k8s_packages }}"
+    tags: brew_install
 
   - name: packages | Install Homebrew Cask packages
     homebrew_cask:
-      name: "{{ item.name | default(item) }}"
-      state: "{{ item.state | default('latest') }}"
-      update_homebrew: yes
+      name: "{{ item.name }}"
+      state: "{{ item.state | default('present') }}"
     with_items: "{{ homebrew_cask_packages }}"
+
+  - name: packages | Download oh-my-zsh installer
+    get_url:
+      url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+      dest: /tmp/oh-my-zsh-install.sh
+      mode: 0550
+
+  - name: packages | Install oh-my-zsh
+    command: "sh /tmp/oh-my-zsh-install.sh"
+    args:
+      creates: "{{ home_dir }}/.oh-my-zsh"
+
+#  - name: packages | Install Pip packages
+#    pip:
+#      name: "{{ item.name | default(item) }}"
+#      state: "{{ item.state | default('upgraded') }}"
+#      version: "{{ item.version | default(omit) }}"
+#      executable: "{{ item.executable | default(omit) }}"
+#    with_items: "{{ pip_packages }}"
+#
 
   tags: packages

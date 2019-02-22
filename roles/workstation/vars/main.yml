@@ -1,76 +1,153 @@
 ---
 
+github_name: "Nicolas G."
+github_email: "nicolasg@gmail.com"
+
 homebrew_packages:
   ### Essentials
-  - aspell
-  - bat
-  - git
-  - telnet
-  - tmux
-  - reattach-to-user-namespace 		# enable MacOS for tmux (pbcopy/pbpaste)
-  - tree
-  - vault
-  - vim
-  - watch
-  - wget
-  - zsh
-  - zsh-autosuggestions
-  - zsh-completions
-  - zsh-git-prompt
-  - zsh-history-substring-search
-  - zsh-lovers
-  - zsh-navigation-tools
-  - zsh-syntax-highlighting
-  - peco
-  - parallel
+  - name: aspell
+  - name: bat
+  - name: git
+  - name: telnet
+  - name: tmux
+  - name: reattach-to-user-namespace 		# enable MacOS for tmux (pbcopy/pbpaste)
+  - name: tree
+  - name: vault
+  - name: vim
+  - name: watch
+  - name: wget
+  - name: zsh
+  - name: zsh-autosuggestions
+  - name: zsh-completions
+  - name: zsh-git-prompt
+  - name: zsh-history-substring-search
+  - name: zsh-lovers
+  - name: zsh-navigation-tools
+  - name: zsh-syntax-highlighting
+  - name: peco
+  - name: parallel
   ### DevOps
-  - aws-iam-tools
-  - awscli
-  ### K8s
-  - kops
-  - kompose
-  - kube-ps1
-  - kubectx
-  - kubernetes-cli
-  - kubernetes-helm
-  - kustomize
-  - rancher-cli
+  - name: awscli
   ### Productivity
-  - hub 			# Github cli
-  - ipcalc
-  - jq
-  - tldr
+  - name: hub 			# Github cli
+  - name: ipcalc
+  - name: jq
+  - name: tldr
   ### Extras
-  - aircrack-ng
-  - gist
-  - googler
-  - pwgen
-  - veracrypt
+  - name: aircrack-ng
+  - name: gist
+  - name: googler
+  - name: pwgen
   ### Fun
-  - pianobar
+  - name: pianobar
+
+homebrew_k8s_packages:
+  ### k8s ###
+  - name: kops
+  - name: kompose
+  - name: kube-ps1
+  - name: kubectx
+  - name: kubernetes-cli
+  - name: kubernetes-helm
+  - name: kustomize
+  - name: rancher-cli
 
 homebrew_cask_packages:
   ### Essentials
-  - docker
-  - dropbox
-  - google-chrome
-  - firefox
-  - iterm2
-  - keybase
-  - minikube
-  - laplock
-  - slack
-  - vagrant
-  - virtualbox
-  - vlc
+#  - name: docker
+#  - name: dropbox
+#  - name: caffeine
+  - name: google-backup-and-sync
+  - name: google-chrome
+  - name: firefox
+  - name: iterm2
+  - name: keybase
+  - name: minikube
+  - name: laplock
+  - name: slack
+  - name: tunnelblick
+  - name: vagrant
+  - name: virtualbox
+  - name: vlc
   ### DevOps
-  - google-cloud-sdk
+  - name: google-cloud-sdk
   ### Extras
-  - cheatsheet
-  - limechat
-  - santa			# binary whitelisting/blacklisting system for macOS
-  - selfcontrol 		# avoid distracting websites
-  - skitch
-  - vagrant-manager
+  - name: cheatsheet
+  - name: limechat
+  - name: remote-desktop-manager
+  - name: santa			# binary whitelisting/blacklisting system for macOS
+  - name: selfcontrol 		# avoid distracting websites
+  - name: skitch
+  - name: vagrant-manager
+  - name: veracrypt
   ### Troubleshooting
-  - wireshark
+  - name: wireshark
+
+
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Add wisely, as too many plugins slow down shell startup.
+zsh_plugins:
+  - git
+  - colored-man
+  - colorize
+  - pip
+  - python
+  - osx
+  - zsh-syntax-highlighting
+  # - aws # this plugin seems to be heavy and slow down
+  #- bundler
+  #- dotenv
+  #- osx
+  #- geeknote
+  #- autoenv
+  #- boot2docker
+  #- brew
+  #- cask
+  #- command-not-found
+  #- common-aliases
+  #- cp
+  #- docker
+  #- docker-compose
+  #- dotenv
+  #- geeknote
+  #- git-extras
+  #- git-flow
+  #- git-flow-avh
+  #- git-hubflow
+  #- git-prompt
+  #- git-remote-branch
+  #- gitfast
+  #- github
+  #- gitignore
+  #- go
+  #- golang
+  #- gpg-agent
+  #- history
+  #- history-substring-search
+  #- httpie
+  #- iwhois
+  #- gnu-utils
+  #- jira
+  #- jsontools
+  #- macports
+  #- man
+  #- kubectl
+  #- nmap
+  #- rsync
+  #- screen
+  #- ssh-agent
+  #- terraform
+  #- themes
+  #- tmux
+  #- tmux-cssh
+  #- vagrant
+  #- vault
+  #- vi-mode
+  #- vim-interaction
+  #- virtualenv
+  #- virtualenvwrapper
+  #- zsh-navigation-tools
+  #- zsh_reload
+  #- repo
+  #- sudo
