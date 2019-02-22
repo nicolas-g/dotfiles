@@ -1,58 +1,43 @@
+DRAFT
+-----
+
 A never ending project..
 
-Install
-=======
-
-### Config files
-~/.bashrc
-```
-source ~/.dotfiles/bashrc
-```
-
-~/.bash_profile
-```
-if [ -f ~/.bashrc ];
-then
-    source ~/.bashrc
-fi
-```
-
-### Symlinks
-```
-ln -s ~/.dotfiles/ssh/config ~/.ssh/config
-```
+Ansible playbook to setup my machine and manage my dot files.
+=============================================================
+* shell aliases, environments
+* homebrew packages
+* various configs for MacOS, vim, git, ansible, tmux and zsh/bash
 
 ```
-ln -s ~/.dotfiles/git/config ~/.gitconfig
+roles/workstation
+├── files
+│   ├── ansible.cfg
+│   ├── bashrc
+│   ├── env
+│   └── vimrc
+├── tasks
+│   ├── ansible_conf.yml
+│   ├── configs.yml
+│   ├── main.yml
+│   ├── osx_wallpaper.yml
+│   └── packages.yml
+├── templates
+│   ├── aliases.j2
+│   ├── gitconfig.j2
+│   ├── tmux.conf
+│   └── zshrc.j2
+└── vars
+    ├── main.yml
 ```
 
-Software
-========
-curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install
-brew tap caskroom/cask
-brew install brew-cask
-brew tap caskroom/versions
+## TBD
 
-
-# worth creating aliases
-
-## Update App Store apps
+#### Update App Store apps
 sudo softwareupdate -i -a
-
-## Update Homebrew (Cask) & packages
-brew update
-brew upgrade
-
-```
-ln -s /Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt /usr/local/bin/veracrypt
-```
 
 TODO:
 =====
-Script to create crontab :
-```
-0 13 * 2 * /usr/local/bin/brew list > ~/.dotfiles/brew_list.txt
-```
 
 XCode Developer CLI tools are used by various apps that manipulate core OSX features. So make sure to install the Xcode CLI tools by running the following command.
 $ xcode-select —-install
