@@ -23,3 +23,4 @@ fi
 
 
 export MAGNETIC_ANSIBLE=~/src/Magnetic/NGAnsible
+export ANSIBLE_CONFIG=~/.ansible.cfg
