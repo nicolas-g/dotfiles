@@ -37,6 +37,7 @@ homebrew_packages:
   - name: aircrack-ng
   - name: gist
   - name: googler
+  - name: prettyping
   - name: pwgen
   ### Fun
   - name: pianobar
