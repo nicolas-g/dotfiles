@@ -33,6 +33,7 @@
       mode: 0644
       owner: "{{ user }}"
       group: "{{ group }}"
+    tags: env
 
   - name: configs | Deploy {{ home_dir }}/.bashrc
     copy:
