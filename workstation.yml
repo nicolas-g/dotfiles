@@ -1,4 +1,5 @@
 ---
+# ansible-playbook workstation.yml -D -t ansible_conf --ask-vault-pass
 
 - hosts: localhost
   connection: local
