@@ -1,0 +1,10 @@
+[user]
+        name = {{ github_name }}
+        email = {{ github_email }}
+[alias]
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+        # to see the lines that changed :
+        # git lg -p
+[core]
+        excludesfile = ~/.gitignore_global

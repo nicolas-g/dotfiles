@@ -11,9 +11,18 @@
       group: "{{ group }}"
 
   - name: configs | Deploy {{ home_dir }}/.aliases
-    copy:
-      src: aliases
+    template:
+      src: aliases.j2
       dest: "{{ home_dir }}/.aliases"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+    tags: alias
+
+  - name: configs | Deploy {{ home_dir }}/.env
+    copy:
+      src: env
+      dest: "{{ home_dir }}/.env"
       mode: 0644
       owner: "{{ user }}"
       group: "{{ group }}"
@@ -27,8 +36,8 @@
       group: "{{ group }}"
 
   - name: configs | Deploy {{ home_dir }}/.zshrc
-    copy:
-      src: zshrc
+    template:
+      src: "zshrc.j2"
       dest: "{{ home_dir }}/.zshrc"
       mode: 0644
       owner: "{{ user }}"
@@ -38,6 +47,14 @@
     template:
       src: tmux.conf
       dest: "{{ home_dir }}/.tmux.conf"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: configs | Deploy {{ home_dir }}/.gitconfig
+    template:
+      src: gitconfig.j2
+      dest: "{{ home_dir }}/.gitconfig"
       mode: 0644
       owner: "{{ user }}"
       group: "{{ group }}"

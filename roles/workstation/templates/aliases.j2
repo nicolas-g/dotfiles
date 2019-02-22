@@ -1,0 +1,78 @@
+###############
+### Aliases ###
+###############
+
+# http://marc-abramowitz.com/archives/2011/10/17/easy-access-to-truecrypt-from-the-command-line-in-os-x/
+alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
+
+# Filesystem
+alias ..='cd ..'               	# Go up one directory
+alias ...='cd ../..'        	# Go up two directories
+alias ....='cd ../../..'    	# And for good measure
+alias ll='ls -lhG'  		# -l long listing, human readable, no group info
+alias tu='top -o cpu'   	# sorted by cpu
+alias tm='top -o vsize' 	# sorted by memory
+alias top="sudo htop"
+alias cat='bat -up --paging never'
+alias ping='prettyping --nolegend'
+alias vi="vim"
+
+# K8s
+alias ksys="kubectl -n kube-system"
+alias k="kubectl"
+alias kctx="kubectx"
+alias kns="kubens"
+
+### Nifty extras
+alias pyservethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
+
+##### curl for useragents
+alias curlie="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\""
+alias curlff="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.0 (.NET CLR 3.5.30729)\""
+
+alias sshtunnel='
+echo "### Local port forwarding ###"
+echo "# forward connections from my local <local-port> to <target-machine>:<remote-port> through <jump-host> server"
+echo "ssh -N -L <local-port>:<target-machine>:<remote-port> <jump-host>"
+echo "-f \ Forks the process to the background"
+echo "-N \ do not execute remote command "
+echo "-n \ redirect stdin from /dev/null "
+echo "\n### Remote port forwarding ###"
+echo "# port on which th remote server will listen forward connections to my local machine"
+echo "ssh -R <remote-port>:localhost:<local-port> <jump-host>"'
+
+### Git
+alias g=git
+alias ga='git add'
+alias gb='git branch'
+alias gba='git branch -a'
+alias gc='git commit -v'
+alias gco='git checkout'
+alias gd='git diff'
+alias gdm='git diff master'
+alias gpul='git pull'
+alias gl="git log --oneline --decorate --color"
+alias gp='git push'
+alias gst='git status'
+alias gnuke="git clean -df && git reset --hard"
+
+# HG ALIASES
+alias hgst='hg status'
+alias hgd='hg diff | $GIT_EDITOR -'
+alias hgo='hg outgoing'
+
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+# add support for ctrl+o to open selected file in VS Code
+
+### Vagrant
+alias v="vagrant global-status"
+alias vup="vagrant up"
+alias vhalt="vagrant halt"
+alias vssh="vagrant ssh"
+alias vreload="vagrant reload"
+alias vrebuild="vagrant destroy --force && vagrant up"
+
+### OSX
+{% if ansible_distribution == "MacOSX" %}
+alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+{% endif %}
