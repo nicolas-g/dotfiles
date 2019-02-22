@@ -2,6 +2,13 @@
 
 - block:
 
+  - name: configs | Collect only facts returned by facter
+    setup:
+      gather_subset:
+        - '!all'
+        - '!any'
+        - facter
+
   - name: configs | Deploy {{ home_dir }}/.vimrc
     copy:
       src: vimrc
