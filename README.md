@@ -31,6 +31,7 @@ cd dotfiles
 
 # Install requirements
 pip install -r requirements
+```
 
 Ansible playbook to setup my machine and manage my dot files.
 =============================================================
