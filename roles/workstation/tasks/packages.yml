@@ -37,6 +37,8 @@
       name: "{{ item.name }}"
       state: "{{ item.state | default('present') }}"
     with_items: "{{ homebrew_cask_packages }}"
+    ignore_errors: True # so it doesn't fail for software that was already installed without homebrew
+    tags: brew_cask_install
 
   - name: packages | Download oh-my-zsh installer
     get_url:

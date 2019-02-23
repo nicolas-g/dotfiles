@@ -55,9 +55,9 @@ homebrew_k8s_packages:
 
 homebrew_cask_packages:
   ### Essentials
-#  - name: docker
-#  - name: dropbox
-#  - name: caffeine
+  - name: docker
+  - name: dropbox
+  - name: caffeine
   - name: google-backup-and-sync
   - name: google-chrome
   - name: firefox
@@ -76,7 +76,7 @@ homebrew_cask_packages:
   - name: cheatsheet
   - name: limechat
   - name: remote-desktop-manager
-  - name: santa	# binary whitelisting/blacklisting system for macOS
+  - name: santa # binary whitelisting/blacklisting system for macOS
   - name: selfcontrol # avoid distracting websites
   - name: skitch
   - name: vagrant-manager
