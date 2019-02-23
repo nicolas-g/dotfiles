@@ -3,6 +3,35 @@ DRAFT
 
 A never ending project..
 
+## Required Manual steps
+```
+# Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew doctor
+brew update
+
+# Install python
+brew install python
+
+# Install virtualenv
+pip3 install virtualenv
+
+# Crete virtualenv project folder
+mkdir ~/venv
+virtualenv ~/venv/ansible
+source ~/venv/ansible/bin/activate
+
+# Create source projects folder
+mkdir ~/src
+cd ~/src
+
+# Clone this repo
+git clone https://github.com/nicolas-g/dotfiles
+cd dotfiles
+
+# Install requirements
+pip install -r requirements
+
 Ansible playbook to setup my machine and manage my dot files.
 =============================================================
 * shell aliases, environments
