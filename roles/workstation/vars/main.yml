@@ -10,7 +10,7 @@ homebrew_packages:
   - name: git
   - name: telnet
   - name: tmux
-  - name: reattach-to-user-namespace 		# enable MacOS for tmux (pbcopy/pbpaste)
+  - name: reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
   - name: tree
   - name: vault
   - name: vim
@@ -29,7 +29,7 @@ homebrew_packages:
   ### DevOps
   - name: awscli
   ### Productivity
-  - name: hub 			# Github cli
+  - name: hub # Github cli
   - name: ipcalc
   - name: jq
   - name: tldr
@@ -76,8 +76,8 @@ homebrew_cask_packages:
   - name: cheatsheet
   - name: limechat
   - name: remote-desktop-manager
-  - name: santa			# binary whitelisting/blacklisting system for macOS
-  - name: selfcontrol 		# avoid distracting websites
+  - name: santa	# binary whitelisting/blacklisting system for macOS
+  - name: selfcontrol # avoid distracting websites
   - name: skitch
   - name: vagrant-manager
   - name: veracrypt
