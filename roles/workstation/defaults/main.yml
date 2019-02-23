@@ -1,0 +1,5 @@
+---
+
+user: "nicolasg"
+group: "staff"
+home_dir: "/Users/{{ user }}"
