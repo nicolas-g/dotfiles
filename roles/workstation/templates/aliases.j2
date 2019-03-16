@@ -76,3 +76,12 @@ alias vrebuild="vagrant destroy --force && vagrant up"
 {% if ansible_distribution == "MacOSX" %}
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 {% endif %}
+
+alias run-terraform="~/src/Magnetic/NGTerraform/bin/run-terraform"
+alias terraform-resource-update.sh="~/src/Magnetic/NGTerraform/bin/terraform-resource-update.sh"
+
+
+### functions
+# Example: $ qps nginx-access.log , will count the line per second or in the example case the incoming web requests per second
+function qps () { tail -f "$1" | pv --line-mode --rate --timer -b  > /dev/null ;}
+alias rps='qps'
