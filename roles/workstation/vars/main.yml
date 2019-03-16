@@ -55,6 +55,8 @@ homebrew_k8s_packages:
 
 homebrew_cask_packages:
   ### Essentials
+  - name: 1password
+  - name: authy
   - name: docker
   - name: dropbox
   - name: caffeine
@@ -75,6 +77,7 @@ homebrew_cask_packages:
   ### Extras
   - name: cheatsheet
   - name: limechat
+  - name: whatsapp
   - name: remote-desktop-manager
   - name: santa # binary whitelisting/blacklisting system for macOS
   - name: selfcontrol # avoid distracting websites
