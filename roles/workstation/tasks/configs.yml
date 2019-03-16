@@ -8,6 +8,7 @@
         - '!all'
         - '!any'
         - facter
+    tags: always
 
   - name: configs | Deploy {{ home_dir }}/.vimrc
     copy:
