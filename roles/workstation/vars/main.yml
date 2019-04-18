@@ -44,6 +44,7 @@ homebrew_packages:
 
 homebrew_k8s_packages:
   ### k8s ###
+  - name: istioctl
   - name: kops
   - name: kompose
   - name: kube-ps1
@@ -60,6 +61,7 @@ homebrew_cask_packages:
   - name: docker
   - name: dropbox
   - name: caffeine
+  - name: viber
   - name: google-backup-and-sync
   - name: google-chrome
   - name: firefox
@@ -74,6 +76,7 @@ homebrew_cask_packages:
   - name: vlc
   ### DevOps
   - name: google-cloud-sdk
+  - name: rancher-cli
   ### Extras
   - name: cheatsheet
   - name: limechat
@@ -93,7 +96,7 @@ homebrew_cask_packages:
 # Add wisely, as too many plugins slow down shell startup.
 zsh_plugins:
   - git
-  - colored-man
+  - colored-man-pages
   - colorize
   - pip
   - python
