@@ -8,6 +8,7 @@ homebrew_packages:
   - name: aspell
   - name: bat
   - name: git
+  - name: gnu-sed
   - name: telnet
   - name: tmux
   - name: reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
