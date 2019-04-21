@@ -69,6 +69,8 @@ sudo softwareupdate -i -a
 TODO:
 =====
 
+create virtual_envs (ansible/magic-wormhole ?)
+
 XCode Developer CLI tools are used by various apps that manipulate core OSX features. So make sure to install the Xcode CLI tools by running the following command.
 $ xcode-select —-install
 
