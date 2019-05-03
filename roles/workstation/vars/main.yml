@@ -98,12 +98,13 @@ homebrew_cask_packages:
 # Add wisely, as too many plugins slow down shell startup.
 zsh_plugins:
   - git
+  - git-prompt
   - colored-man-pages
   - colorize
   - pip
   - python
   - osx
-  - zsh-syntax-highlighting
+  - history-substring-search
   # - aws # this plugin seems to be heavy and slow down
   #- bundler
   #- dotenv
