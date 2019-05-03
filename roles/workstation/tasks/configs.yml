@@ -10,14 +10,6 @@
         - facter
     tags: always
 
-  - name: configs | Deploy {{ home_dir }}/.vimrc
-    copy:
-      src: vimrc
-      dest: "{{ home_dir }}/.vimrc"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
   - name: configs | Deploy {{ home_dir }}/.aliases
     template:
       src: aliases.j2
@@ -40,14 +32,6 @@
     copy:
       src: bashrc
       dest: "{{ home_dir }}/.bashrc"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
-  - name: configs | Deploy {{ home_dir }}/.zshrc
-    template:
-      src: "zshrc.j2"
-      dest: "{{ home_dir }}/.zshrc"
       mode: 0644
       owner: "{{ user }}"
       group: "{{ group }}"

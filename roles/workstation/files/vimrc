@@ -6,4 +6,4 @@ set diffopt=filler,context:0
 autocmd BufWritePre * %s/\s\+$//e
 
 " copy stuff from vim to OS buffer
-set clipbaord=unnamed
+set clipboard=unnamed

@@ -3,8 +3,14 @@
 - name: Include packages.yml
   include: packages.yml
 
+- name: Include vim.yml
+  include: vim.yml
+
 - name: Include configs.yml
   include: configs.yml
+
+- name: Include zsh.yml
+  include: zsh.yml
 
 - name: Include ansible_conf.yml
   include: ansible_conf.yml

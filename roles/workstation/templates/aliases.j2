@@ -15,7 +15,10 @@ alias tm='top -o vsize' 	# sorted by memory
 alias top="sudo htop"
 alias cat='bat -up --paging never'
 alias ping='prettyping --nolegend'
-alias vi="vim"
+alias vi='vim'
+{% if ansible_distribution == "MacOSX" %}
+alias sed='/usr/local/bin/gsed'
+{% endif %}
 
 # K8s
 alias ksys="kubectl -n kube-system"
