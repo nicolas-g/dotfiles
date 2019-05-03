@@ -29,6 +29,7 @@ homebrew_packages:
   - name: parallel
   ### DevOps
   - name: awscli
+  - name: terragrunt
   ### Productivity
   - name: hub # Github cli
   - name: ipcalc
