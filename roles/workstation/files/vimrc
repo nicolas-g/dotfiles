@@ -4,3 +4,6 @@ set diffopt=filler,context:0
 
 " Automatically removing all trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
+
+" copy stuff from vim to OS buffer
+set clipbaord=unnamed
