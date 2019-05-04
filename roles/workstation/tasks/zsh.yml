@@ -1,0 +1,35 @@
+---
+
+- block:
+
+  - name: zsh | Deploy {{ home_dir }}/.zshrc
+    template:
+      src: "zshrc.j2"
+      dest: "{{ home_dir }}/.zshrc"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: zsh | Deploy {{ home_dir }}/.fzf.zsh
+    copy:
+      src: "fzf.zsh"
+      dest: "{{ home_dir }}/.fzf.zsh"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+
+#  - name: zsh | Clone zsh-syntax-highlighting plugin repo
+#    git:
+#       repo: https://github.com/zsh-users/zsh-completions
+#       dest: "~/.oh-my-zsh/custom/plugins/zsh-completions"
+#       force: yes
+#    tags: this
+#
+#  - name: zsh | Clone zsh-syntax-highlighting plugin repo
+#    git:
+#       repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+#       dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+#       force: yes
+
+  tags: zsh
