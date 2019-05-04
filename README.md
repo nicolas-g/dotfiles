@@ -73,6 +73,8 @@ check how to use already installed :
 * https://github.com/psprint/zsh-navigation-tools
 * https://grml.org/zsh/#zshlovers
 
+create virtual_envs (ansible/magic-wormhole ?)
+
 XCode Developer CLI tools are used by various apps that manipulate core OSX features. So make sure to install the Xcode CLI tools by running the following command.
 $ xcode-select —-install
 
