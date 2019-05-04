@@ -19,6 +19,10 @@ alias vi='vim'
 {% if ansible_distribution == "MacOSX" %}
 alias sed='/usr/local/bin/gsed'
 {% endif %}
+alias fzf_preview="fzf --preview 'head -100 {}'"
+alias fzf_grep='grep --line-buffered --color=never -r "" * | fzf'
+# with ag - respects .agignore and .gitignore
+alias fzf_ag='ag --nobreak --nonumbers --noheading . | fzf'
 
 # K8s
 alias ksys="kubectl -n kube-system"
@@ -62,6 +66,10 @@ alias gl="git log --oneline --decorate --color"
 alias gp='git push'
 alias gst='git status'
 alias gnuke="git clean -df && git reset --hard"
+alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
+_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
+_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
+
 
 # HG ALIASES
 alias hgst='hg status'
@@ -86,9 +94,3 @@ alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 alias run-terraform="~/src/Magnetic/NGTerraform/bin/run-terraform"
 alias terraform-resource-update.sh="~/src/Magnetic/NGTerraform/bin/terraform-resource-update.sh"
-
-
-### functions
-# Example: $ qps nginx-access.log , will count the line per second or in the example case the incoming web requests per second
-function qps () { tail -f "$1" | pv --line-mode --rate --timer -b  > /dev/null ;}
-alias rps='qps'

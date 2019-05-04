@@ -21,6 +21,7 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
 
 export MAGNETIC_ANSIBLE=~/src/Magnetic/NGAnsible
 export ANSIBLE_CONFIG=~/.ansible.cfg

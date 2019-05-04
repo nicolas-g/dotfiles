@@ -19,6 +19,15 @@
       group: "{{ group }}"
     tags: alias
 
+  - name: configs | Deploy {{ home_dir }}/.functions
+    copy:
+      src: functions
+      dest: "{{ home_dir }}/.functions"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+    tags: functions
+
   - name: configs | Deploy {{ home_dir }}/.env
     copy:
       src: env
