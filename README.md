@@ -69,6 +69,10 @@ sudo softwareupdate -i -a
 TODO:
 =====
 
+check how to use already installed :
+* https://github.com/psprint/zsh-navigation-tools
+* https://grml.org/zsh/#zshlovers
+
 XCode Developer CLI tools are used by various apps that manipulate core OSX features. So make sure to install the Xcode CLI tools by running the following command.
 $ xcode-select —-install
 
@@ -79,9 +83,22 @@ fonts : https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e01095
 brew install macvim --override-system-vim
 
 
+kube-ps1 is not w2orking (https://github.com/jonmosco/kube-ps1)
+investigate kube-tmux (https://github.com/jonmosco/kube-tmux)
+
+
 OSX defaults:
 https://github.com/paulirish/dotfiles/blob/master/.osx#L163
 https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c491c9/install.sh#L514
 https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 https://github.com/driesvints/dotfiles/blob/master/.macos
+
+
+
+Terraform official script
+```
+TERRAFORM_LATEST_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M ".current_version")
+curl --silent --location https://releases.hashicorp.com/terraform/${TERRAFORM_LATEST_VERSION}/terraform_${TERRAFORM_LATEST_VERSION}_linux_amd64.zip --output /tmp/terraform_linux_amd64.zip
+unzip -o /tmp/terraform_linux_amd64.zip -d /usr/local/bin/
+```
