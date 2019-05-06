@@ -78,7 +78,7 @@ create virtual_envs (ansible/magic-wormhole ?)
 XCode Developer CLI tools are used by various apps that manipulate core OSX features. So make sure to install the Xcode CLI tools by running the following command.
 $ xcode-select —-install
 
-pianobar config
+gpg encryption (pianobar)
 
 fonts : https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c491c9/install.sh#L238
 
