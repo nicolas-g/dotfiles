@@ -92,6 +92,8 @@ homebrew_cask_packages:
   ### Troubleshooting
   - name: wireshark
 
+pip_packages:
+  - tmuxp
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/

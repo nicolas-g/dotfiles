@@ -1,0 +1,13 @@
+---
+
+- block:
+
+  - name: vim | Deploy {{ home_dir }}/.vimrc
+    copy:
+      src: vimrc
+      dest: "{{ home_dir }}/.vimrc"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  tags: vim

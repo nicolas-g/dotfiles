@@ -1,0 +1,38 @@
+#
+# http://tmuxp.git-pull.com/en/latest/examples.html#examples
+#
+session_name: DevOps
+#environment:
+#  VAULT_ADDR=http://127.0.0.1:8200
+#  VAULT_UNSEAL_KEY=YYY
+#  VAULT_ROOT_TOKEN=XXX
+windows:
+  - window_name: Ansible
+    start_directory: ~/src/Magnetic/NGAnsible/
+    panes:
+      - shell_command:
+        - source ~/venv/ansible/bin/activate
+        - gst
+  - window_name: Terraform
+    start_directory: ~/src/Magnetic/NGTErraform
+    panes:
+      - shell_command:
+        - gst
+  - window_name: Dotfiles
+    start_directory: ~/src/nicolas-g/dotfiles
+    panes:
+      - shell_command:
+        - gst
+  - window_name: Notes
+    start_directory: ~/src/nicolas-g/cheat-sheet
+    panes:
+      - shell_command:
+        - gst
+  - window_name: Music
+    shell_command_before: pianobar
+    focus: true
+    panes:
+      - blank
+#      - shell_command:
+#        - pianobar
+#  - window_name: HVault

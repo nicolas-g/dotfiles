@@ -2,6 +2,14 @@
 
 - block:
 
+  - name: configs | Create {{ home_dir }}/.config dir
+    file:
+      path: "{{ home_dir }}/.config"
+      state: directory
+      mode: 0755
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
   - name: configs | Collect only facts returned by facter
     setup:
       gather_subset:
@@ -45,14 +53,6 @@
       owner: "{{ user }}"
       group: "{{ group }}"
 
-  - name: configs | Deploy {{ home_dir }}/.tmux.conf
-    template:
-      src: tmux.conf
-      dest: "{{ home_dir }}/.tmux.conf"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
   - name: configs | Deploy {{ home_dir }}/.gitconfig
     template:
       src: gitconfig.j2
@@ -68,5 +68,11 @@
       mode: 0755
       owner: "{{ user }}"
       group: "{{ group }}"
+
+  - name: Include tmux.yml
+    include: tmux.yml
+
+  - name: Include pianobar.yml
+    include: pianobar.yml
 
   tags: configs
