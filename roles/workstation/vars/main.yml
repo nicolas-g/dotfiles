@@ -8,6 +8,7 @@ homebrew_packages:
   - name: aspell
   - name: bat
   - name: git
+  - name: go
   - name: gnu-sed
   - name: telnet
   - name: tmux
