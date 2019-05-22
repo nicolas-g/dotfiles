@@ -84,12 +84,22 @@ fonts : https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e01095
 
 brew install macvim --override-system-vim
 
-
+### Kubectl
+https://github.com/ahmetb/kubectl-aliases
 kube-ps1 is not w2orking (https://github.com/jonmosco/kube-ps1)
-investigate kube-tmux (https://github.com/jonmosco/kube-tmux)
+kubectl plugin list / https://github.com/kubernetes-sigs/krew
+
+
+### Tmux
+https://github.com/samoshkin/tmux-config
+https://github.com/jonmosco/kube-tmux/blob/master/kube.tmux
+
+### Vim
+fzf Vim https://github.com/junegunn/fzf.vim
 
 
 OSX defaults:
+https://github.com/mathiasbynens/dotfiles/blob/master/.macos#L415
 https://github.com/paulirish/dotfiles/blob/master/.osx#L163
 https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c491c9/install.sh#L514
