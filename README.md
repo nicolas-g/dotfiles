@@ -114,3 +114,40 @@ TERRAFORM_LATEST_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check
 curl --silent --location https://releases.hashicorp.com/terraform/${TERRAFORM_LATEST_VERSION}/terraform_${TERRAFORM_LATEST_VERSION}_linux_amd64.zip --output /tmp/terraform_linux_amd64.zip
 unzip -o /tmp/terraform_linux_amd64.zip -d /usr/local/bin/
 ```
+
+
+## Manual post steps
+
+
+copy zsh_history
+
+add terraform
+
+git clone git@github.com:Magnetic/NGAnsible.git
+git clone git@github.com:Magnetic/NGTerraform.git
+
+set appled id finger print :
+
+authy
+* use gVoice number
+* enable master password
+
+add wroskspaces in Slack  (work,kubernetes)
+
+openvpn config
+
+#### iTemr key for similalr ctrl + > move
+```
+Preferences > Keys (or Preferences > Profiles > Keys)
+Click the plus.
+move forward one word
+
+option+right
+send escape sequence
+f
+move back one word
+
+option+left
+send escape sequence
+b
+```
