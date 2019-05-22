@@ -1,0 +1,32 @@
+---
+
+- block:
+
+    # Hot corners
+    # Possible values:
+    #  0: no-op
+    #  2: Mission Control
+    #  3: Show application windows
+    #  4: Desktop
+    #  5: Start screen saver
+    #  6: Disable screen saver
+    #  7: Dashboard
+    # 10: Put display to sleep
+    # 11: Launchpad
+    # 12: Notification Center
+    # 13: Lock screen
+
+    #Note: not working !
+  - name: Set Top Left Hot corner to Lock Screen
+    shell: defaults write com.apple.dock wvous-tl-corner -int 13
+
+  - name: configs | Create {{ home_dir }}/Desktop/screenshots
+    file:
+      path: "{{ home_dir }}/Desktop/screenshots"
+      state: directory
+      mode: 0755
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: Save screenshots to the {{ home_dir }}/Desktop/screenshots
+    shell: defaults write com.apple.screencapture location -string "{{ home_dir }}/Desktop/screenshots"
