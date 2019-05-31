@@ -7,6 +7,7 @@ homebrew_packages:
   ### Essentials
   - name: aspell
   - name: bat
+  - name: fzf
   - name: git
   - name: go
   - name: gnu-sed
