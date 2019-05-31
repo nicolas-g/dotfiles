@@ -61,6 +61,7 @@ homebrew_k8s_packages:
 homebrew_cask_packages:
   ### Essentials
   - name: 1password
+  - name: alacritty
   - name: authy
   - name: docker
   - name: dropbox

@@ -1,0 +1,21 @@
+---
+
+- block:
+
+  - name: alacritty | Create {{ home_dir }}/.config/alacritty dir
+    file:
+      path: "{{ home_dir }}/.config/alacritty"
+      state: directory
+      mode: 0755
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: alacritty | Deploy {{ home_dir }}/.config/alacritty/config
+    template:
+      src: alacritty.yml.j2
+      dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  tags: alacritty
