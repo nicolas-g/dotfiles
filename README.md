@@ -18,8 +18,8 @@ pip3 install virtualenv
 
 # Crete virtualenv project folder
 mkdir ~/venv
-virtualenv ~/venv/ansible
-source ~/venv/ansible/bin/activate
+virtualenv ~/venv/dotfiles
+source ~/venv/dotfiles/bin/activate
 
 # Create source projects folder
 mkdir ~/src
@@ -30,7 +30,13 @@ git clone https://github.com/nicolas-g/dotfiles
 cd dotfiles
 
 # Install requirements
-pip install -r requirements
+pip install -r requirements.txt
+
+touch roles/workstation/vars/secrets.yml
+ANSIBLE_VAULT_PASS: "changeme"
+PIANOBAR_USER_NAME: "changeme"
+PIANOBAR_USER_PASSWORD: "changeme"
+
 ```
 
 Ansible playbook to setup my machine and manage my dot files.
@@ -151,3 +157,9 @@ option+left
 send escape sequence
 b
 ```
+
+#### Manual post tasks
+* System Preferences -> Touch ID
+* System Preferences -> Desktop & Screen saver -> Screen saver -> Hot Corners
+* System Preferences -> Dock : (size,automatically hide and show the dock)
+* iTerm2 -> Preferences -> Load preferences from a custom folder or URL
