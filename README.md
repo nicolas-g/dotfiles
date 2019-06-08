@@ -1,6 +1,5 @@
 DRAFT
 -----
-
 A never ending project..
 
 ## Required Manual steps
@@ -36,7 +35,6 @@ touch roles/workstation/vars/secrets.yml
 ANSIBLE_VAULT_PASS: "changeme"
 PIANOBAR_USER_NAME: "changeme"
 PIANOBAR_USER_PASSWORD: "changeme"
-
 ```
 
 Ansible playbook to setup my machine and manage my dot files.
@@ -67,13 +65,15 @@ roles/workstation
     ├── main.yml
 ```
 
-## TBD
-
-#### Update App Store apps
-sudo softwareupdate -i -a
-
 TODO:
 =====
+
+use pyenv and pip env ? https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c
+
+Update App Store apps
+```
+sudo softwareupdate -i -a
+```
 
 check how to use already installed :
 * https://github.com/psprint/zsh-navigation-tools
