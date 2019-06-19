@@ -47,6 +47,7 @@ homebrew_packages:
   - name: aircrack-ng
   - name: gist
   - name: googler
+  - name: youtube-dl
   - name: prettyping
   - name: pwgen
   - name: pv
@@ -91,6 +92,7 @@ homebrew_cask_packages:
   - name: cheatsheet
   - name: limechat
   - name: whatsapp
+  - name: mpv
   - name: remote-desktop-manager
   - name: santa # binary whitelisting/blacklisting system for macOS
   - name: selfcontrol # avoid distracting websites
