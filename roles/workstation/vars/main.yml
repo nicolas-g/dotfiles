@@ -38,9 +38,12 @@ homebrew_packages:
   - name: awscli
   - name: terragrunt
   ### Productivity
+  - name: datamash
   - name: hub # Github cli
   - name: ipcalc
   - name: jq
+  - name: magic-wormhole
+  - name: teleconsole
   - name: tldr
   - name: pianobar
   ### Extras
