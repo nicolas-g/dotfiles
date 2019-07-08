@@ -9,6 +9,9 @@
 - name: Include configs.yml
   include: configs.yml
 
+- name: Include ssh.yml
+  include: ssh.yml
+
 - name: Include zsh.yml
   include: zsh.yml
 
