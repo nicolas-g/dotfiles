@@ -1,5 +1,5 @@
-DRAFT
------
+Dotfiles & Dev workstation environment setup
+============================================
 A never ending project..
 
 ## Required Manual steps
@@ -92,7 +92,7 @@ brew install macvim --override-system-vim
 
 ### Kubectl
 https://github.com/ahmetb/kubectl-aliases
-kube-ps1 is not w2orking (https://github.com/jonmosco/kube-ps1)
+kube-ps1 is not working (https://github.com/jonmosco/kube-ps1)
 kubectl plugin list / https://github.com/kubernetes-sigs/krew
 
 
@@ -124,15 +124,12 @@ unzip -o /tmp/terraform_linux_amd64.zip -d /usr/local/bin/
 
 ## Manual post steps
 
-
 copy zsh_history
-
-add terraform
 
 git clone git@github.com:Magnetic/NGAnsible.git
 git clone git@github.com:Magnetic/NGTerraform.git
 
-set appled id finger print :
+set Apple ID finger print :
 
 authy
 * use gVoice number
@@ -142,7 +139,7 @@ add wroskspaces in Slack  (work,kubernetes)
 
 openvpn config
 
-#### iTemr key for similalr ctrl + > move
+#### iTerm key for similar ctrl + > move
 ```
 Preferences > Keys (or Preferences > Profiles > Keys)
 Click the plus.
