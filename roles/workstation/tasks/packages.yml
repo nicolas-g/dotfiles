@@ -11,35 +11,6 @@
     command: "xcode-select --install"
     when: check_xcode_command_line_tools is not defined
 
-  - name: packages | Download Homebrew installer
-    get_url:
-      url: https://raw.githubusercontent.com/Homebrew/install/master/install
-      dest: /tmp/homebrew_install
-      mode: 0440
-
-  - name: packages | Run Homebrew install script
-    command: "/usr/bin/ruby /tmp/homebrew_install"
-    args:
-      creates: "/usr/local/Homebrew/bin/brew"
-
-  - name: packages | Install Homebrew packages
-    homebrew:
-      name: "{{ item.name }}"
-      state: "{{ item.state | default('present') }}"
-      version: "{{ item.version | default(omit) }}"
-    with_items:
-      - "{{ homebrew_packages }}"
-      - "{{ homebrew_k8s_packages }}"
-    tags: brew_install
-
-  - name: packages | Install Homebrew Cask packages
-    homebrew_cask:
-      name: "{{ item.name }}"
-      state: "{{ item.state | default('present') }}"
-    with_items: "{{ homebrew_cask_packages }}"
-    ignore_errors: True # so it doesn't fail for software that was already installed without homebrew
-    tags: brew_cask_install
-
   - name: packages | Download oh-my-zsh installer
     get_url:
       url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh

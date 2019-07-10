@@ -1,0 +1,52 @@
+---
+
+- block:
+
+  - name: homebrew | Download Homebrew installer
+    get_url:
+      url: https://raw.githubusercontent.com/Homebrew/install/master/install
+      dest: /tmp/homebrew_install
+      mode: 0440
+
+  - name: homebrew | Run Homebrew installer
+    command: "/usr/bin/ruby /tmp/homebrew_install"
+    args:
+      creates: "/usr/local/Homebrew/bin/brew"
+
+  - name: homebrew | Check for brew installed formulas 
+    shell: brew list | grep {{ item }}
+    register: brew_installed_list
+    with_items:
+      - "{{ homebrew_packages }}"
+      - "{{ homebrew_k8s_packages }}"
+    ignore_errors: true
+    tags: brew_install
+
+  - name: homebrew | Install brew missing formulas
+    homebrew:
+      name: "{{ item }}"
+      state: "present"
+    with_items:
+      - "{{ homebrew_packages }}"
+      - "{{ homebrew_k8s_packages }}"
+    when: item not in brew_installed_list.results|map(attribute='stdout')
+    tags: brew_install
+
+  - name: homebrew | Check for brew installed casks
+    shell: brew cask list | grep {{ item }}
+    register: brew_cask_installed_list
+    with_items: "{{ homebrew_cask_packages }}"
+    ignore_errors: true
+    tags: brew_cask_install
+
+  - name: homebrew | Install brew missing casks
+    homebrew_cask:
+      name: "{{ item }}"
+      state: "present"
+    with_items: "{{ homebrew_cask_packages }}"
+    when: item not in brew_cask_installed_list.results|map(attribute='stdout')
+    ignore_errors: True       # for software that is already installed without homebrew
+    tags: brew_cask_install
+
+
+  tags: homebrew

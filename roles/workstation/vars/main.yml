@@ -5,108 +5,108 @@ github_email: "nicolasg@gmail.com"
 
 homebrew_packages:
   ### Essentials
-  - name: aspell
-  - name: bat
-  - name: fzf
-  - name: git
-  - name: go
-  - name: gnu-sed
-  - name: gnu-tar
-  - name: gnu-time
-  - name: gnu-which
-  - name: ripgrep
-  - name: gnupg
-  - name: telnet
-  - name: tmux
-  - name: reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
-  - name: tree
-  - name: vault
-  - name: vim
-  - name: watch
-  - name: wget
-  - name: zsh
-  - name: zsh-autosuggestions
-  - name: zsh-completions
-  - name: zsh-git-prompt
-  - name: zsh-history-substring-search
-  - name: zsh-lovers
-  - name: zsh-navigation-tools
-  - name: zsh-syntax-highlighting
-  - name: peco
-  - name: parallel
+  - aspell
+  - bat
+  - fzf
+  - git
+  - go
+  - gnu-sed
+  - gnu-tar
+  - gnu-time
+  - gnu-which
+  - ripgrep
+  - gnupg
+  - telnet
+  - tmux
+  - reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
+  - tree
+  - vault
+  - vim
+  - watch
+  - wget
+  - zsh
+  - zsh-autosuggestions
+  - zsh-completions
+  - zsh-git-prompt
+  - zsh-history-substring-search
+  - zsh-lovers
+  - zsh-navigation-tools
+  - zsh-syntax-highlighting
+  - peco
+  - parallel
   ### DevOps
-  - name: awscli
-  - name: terragrunt
+  - awscli
+  - terragrunt
   ### Productivity
-  - name: datamash
-  - name: hub # Github cli
-  - name: ipcalc
-  - name: jq
-  - name: magic-wormhole
-  - name: teleconsole
-  - name: tldr
-  - name: pianobar
+  - datamash
+  - hub # Github cli
+  - ipcalc
+  - jq
+  - magic-wormhole
+  - teleconsole
+  - tldr
+  - pianobar
   ### Extras
-  - name: aircrack-ng
-  - name: gist
-  - name: googler
-  - name: youtube-dl
-  - name: prettyping
-  - name: pwgen
-  - name: pv
+  - aircrack-ng
+  - gist
+  - googler
+  - htop
+  - youtube-dl
+  - mtr
+  - nmap
+  - prettyping
+  - pwgen
+  - pv
+  - step
 
 homebrew_k8s_packages:
   ### k8s ###
-  - name: istioctl
-  - name: kops
-  - name: kompose
-  - name: kube-ps1
-  - name: kubectx
-  - name: kubernetes-cli
-  - name: kubernetes-helm
-  - name: kustomize
-  - name: rancher-cli
+  - istioctl
+  - kops
+  - kompose
+  - kube-ps1
+  - kubectx
+  - kubernetes-cli
+  - kubernetes-helm
+  - kustomize
+  - rancher-cli
 
 homebrew_cask_packages:
   ### Essentials
-  - name: 1password
-  - name: alacritty
-  - name: authy
-  - name: docker
-  - name: dropbox
-  - name: caffeine
-  - name: viber
-  - name: google-backup-and-sync
-  - name: google-chrome
-  - name: firefox
-  - name: iterm2
-  - name: keybase
-  - name: minikube
-  - name: laplock
-  - name: slack
-  - name: tunnelblick
-  - name: vagrant
-  - name: virtualbox
-  - name: vlc
+  - 1password
+  - alacritty
+  - authy
+  - docker
+  - dropbox
+  - caffeine
+  - viber
+  - google-backup-and-sync
+  - google-chrome
+  - firefox
+  - iterm2
+  - keybase
+  - minikube
+  - laplock
+  - slack
+  - tunnelblick
+  - vagrant
+  - virtualbox
+  - vlc
   ### DevOps
-  - name: google-cloud-sdk
-  - name: rancher-cli
+  - google-cloud-sdk
   ### Extras
-  - name: cheatsheet
-  - name: limechat
-  - name: whatsapp
-  - name: mpv
-  - name: remote-desktop-manager
-  - name: santa # binary whitelisting/blacklisting system for macOS
-  - name: selfcontrol # avoid distracting websites
-  - name: skitch
-  - name: vagrant-manager
-  - name: veracrypt
+  - cheatsheet
+  - limechat
+  - whatsapp
+  - mpv
+  - remote-desktop-manager
+  - santa # binary whitelisting/blacklisting system for macOS
+  - selfcontrol # avoid distracting websites
+  - skitch
+  - vagrant-manager
+  - veracrypt
   ### Troubleshooting
-  - name: wireshark
-  - name: mtr
-  - name: nmap
-  - name: htop
+  - wireshark
 
 pip_packages:
   - tmuxp
