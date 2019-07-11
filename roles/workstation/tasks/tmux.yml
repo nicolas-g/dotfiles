@@ -11,9 +11,17 @@
       group: "{{ group }}"
 
   - name: tmux | Deploy {{ home_dir }}/.tmux.conf
-    template:
+    copy:
       src: tmux.conf
       dest: "{{ home_dir }}/.tmux.conf"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: tmux | Deploy {{ home_dir }}/.tmux/tmux-macos.conf
+    copy:
+      src: tmux-macos.conf
+      dest: "{{ home_dir }}/.tmux/tmux-macos.conf"
       mode: 0644
       owner: "{{ user }}"
       group: "{{ group }}"
