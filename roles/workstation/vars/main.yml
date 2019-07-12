@@ -9,13 +9,16 @@ homebrew_packages:
   - bat
   - fzf
   - git
-  - go
+  - gnupg
   - gnu-sed
   - gnu-tar
   - gnu-time
   - gnu-which
+  - go
+  - lastpass-cli
+  - peco
+  - parallel
   - ripgrep
-  - gnupg
   - telnet
   - tmux
   - reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
@@ -31,8 +34,6 @@ homebrew_packages:
   - zsh-lovers
   - zsh-navigation-tools
   - zsh-syntax-highlighting
-  - peco
-  - parallel
   ### DevOps
   - awscli
   - terragrunt
