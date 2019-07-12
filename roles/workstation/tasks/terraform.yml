@@ -1,0 +1,23 @@
+---
+
+- block:
+
+  - name: terraform | Install Terragrunt
+    homebrew:
+      name: terragrunt
+      state: "present"
+    tags: brew_install
+
+    # we use our own install script instead of homebrew
+    # to get the most up to date version and for better flexibility
+    # to install different Terraform versions
+  - name: terraform | Deploy /usr/local/bin/tf_latest_install.sh
+    copy:
+      src: tf_latest_install.sh
+      dest: /usr/local/bin/tf_latest_install.sh
+      mode: 0755
+
+  - name: terraform | run /usr/local/bin/tf_latest_install.sh
+    shell: /usr/local/bin/tf_latest_install.sh
+
+  tags: terraform

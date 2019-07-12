@@ -111,15 +111,6 @@ https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 https://github.com/driesvints/dotfiles/blob/master/.macos
 
 
-
-Terraform official script
-```
-TERRAFORM_LATEST_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M ".current_version")
-curl --silent --location https://releases.hashicorp.com/terraform/${TERRAFORM_LATEST_VERSION}/terraform_${TERRAFORM_LATEST_VERSION}_linux_amd64.zip --output /tmp/terraform_linux_amd64.zip
-unzip -o /tmp/terraform_linux_amd64.zip -d /usr/local/bin/
-```
-
-
 ## Manual post steps
 
 copy zsh_history

@@ -58,14 +58,6 @@
       owner: "{{ user }}"
       group: "{{ group }}"
 
-  - name: configs | Create {{ home_dir }}/.aws dir
-    file:
-      path: "{{ home_dir }}/.aws"
-      state: directory
-      mode: 0755
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
   - name: Include tmux.yml
     include: tmux.yml
 

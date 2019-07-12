@@ -34,9 +34,6 @@ homebrew_packages:
   - zsh-lovers
   - zsh-navigation-tools
   - zsh-syntax-highlighting
-  ### DevOps
-  - awscli
-  - terragrunt
   ### Productivity
   - datamash
   - hub # Github cli

@@ -1,0 +1,45 @@
+---
+
+- block:
+
+  - name: awscli | Create {{ home_dir }}/.aws dir
+    file:
+      path: "{{ home_dir }}/.aws"
+      state: directory
+      mode: 0755
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - set_fact:
+       AWSxspdev_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='name') }}"
+       AWSxspdev_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='password') }}"
+       AWSxspsb_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='name') }}"
+       AWSxspsb_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='password') }}"
+       AWSxspstg_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='name') }}"
+       AWSxspstg_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='password') }}"
+       AWSxspprod_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='name') }}"
+       AWSxspprod_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='password') }}"
+
+  - name: awscli | Install awscli
+    homebrew:
+      name: awscli
+      state: "present"
+    tags: brew_install
+
+  - name: awscli | Deploy {{ home_dir }}/.aws/config
+    copy:
+      src: awscli_config
+      dest: "{{ home_dir }}/.aws/config"
+      mode: 0400
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: awscli | Deploy {{ home_dir }}/.aws/credentials
+    template:
+      src: awscli_credentials.j2
+      dest: "{{ home_dir }}/.aws/credentials"
+      mode: 0400
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  tags: awscli

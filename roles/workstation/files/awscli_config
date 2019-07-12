@@ -1,0 +1,17 @@
+# export AWS_PROFILE=<profile-name>
+
+[default]
+region = us-east-1
+output = text
+
+[profile xspdev]
+region = us-east-1
+
+[profile xspprod]
+region = us-east-1
+
+[profile xspsb]
+region = us-east-1
+
+[profile xspstg]
+region = us-east-1
