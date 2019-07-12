@@ -28,9 +28,14 @@
       group: "{{ group }}"
     tags: functions
 
+  - set_fact:
+      NS1_APIKEY: "{{ lookup('lastpass', 'dotfiles/NS1_APIKEY') }}"
+      DATADOG_API_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_API_KEY') }}"
+      DATADOG_APP_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_APP_KEY') }}"
+
   - name: configs | Deploy {{ home_dir }}/.env
-    copy:
-      src: env
+    template:
+      src: env.j2
       dest: "{{ home_dir }}/.env"
       mode: 0644
       owner: "{{ user }}"
