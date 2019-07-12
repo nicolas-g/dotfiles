@@ -2,6 +2,9 @@
 
 - block:
 
+  - set_fact:
+      ANSIBLE_VAULT_PASS: "{{ lookup('lastpass', 'dotfiles/ANSIBLE_VAULT_PASS') }}"
+
   - name: ansible_conf | Deploy {{ home_dir }}/.ansible.cfg
     copy:
       src: ansible.cfg

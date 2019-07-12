@@ -10,14 +10,6 @@
       owner: "{{ user }}"
       group: "{{ group }}"
 
-  - name: configs | Collect only facts returned by facter
-    setup:
-      gather_subset:
-        - '!all'
-        - '!any'
-        - facter
-    tags: always
-
   - name: configs | Deploy {{ home_dir }}/.aliases
     template:
       src: aliases.j2

@@ -2,6 +2,10 @@
 
 - block:
 
+  - set_fact:
+      GCLOUD_ACCOUNT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_ACCOUNT') }}"
+      GCLOUD_PROJECT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_PROJECT') }}"
+
   - name: gcloud | Install gcloud
     homebrew_cask:
       name: google-cloud-sdk
