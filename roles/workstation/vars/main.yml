@@ -21,7 +21,6 @@ homebrew_packages:
   - reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
   - tree
   - vault
-  - vim
   - watch
   - wget
   - zsh
@@ -92,8 +91,6 @@ homebrew_cask_packages:
   - vagrant
   - virtualbox
   - vlc
-  ### DevOps
-  - google-cloud-sdk
   ### Extras
   - cheatsheet
   - limechat

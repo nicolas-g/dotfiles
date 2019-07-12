@@ -1,9 +1,91 @@
 
-"this will suppress common lines and only show the diffs
-set diffopt=filler,context:0
 
-" Automatically removing all trailing whitespace
-autocmd BufWritePre * %s/\s\+$//e
+" Automatically install Plug if Vim starts without it
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" copy stuff from vim to OS buffer
-set clipboard=unnamed
+
+call plug#begin('~/.vim/plugged')
+
+" Vim help for vim-plug itself (:help plug-options)
+Plug 'junegunn/vim-plug'
+
+Plug 'tomtom/tcomment_vim'
+Plug 'pearofducks/ansible-vim'
+Plug 'tpope/vim-fugitive' "https://github.com/tpope/vim-fugitive#screencasts
+Plug 'git://git.wincent.com/command-t.git'
+Plug 'itchyny/lightline.vim'
+
+" # in some secure file sourced in your .bashrc, .bash_profile, .zshrc, etc.
+" export GITHUB_TOKEN="<your 40 char token>"
+" let g:github_dashboard = { 'username': 'you', 'password': $GITHUB_TOKEN }
+Plug 'junegunn/vim-github-dashboard' "https://github.com/junegunn/vim-github-dashboard#commands
+
+" FuzzyFinder https://github.com/junegunn/fzf#as-vim-plugin
+"" Plug '/usr/local/opt/fzf'
+
+"" Plug 'sheerun/vim-polyglot'
+"" Plug 'vim-syntastic/syntastic' "https://github.com/vim-syntastic/syntastic#3-recommended-settings
+"" Plug 'tpope/vim-sensible'
+""
+"" Plug 'SirVer/ultisnips' "https://github.com/SirVer/ultisnips#quick-start
+
+" Plug 'junegunn/seoul256.vim'
+" Plug 'junegunn/limelight.vim'
+
+" Post-update hooks:
+" some plugins that require extra steps after installation or update. In that
+" case, use `do` option to describe the task to be performed.
+" NOTE: For MacOS it requires cmake/macvim to work
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
+
+Plug 'fatih/vim-go', { 'for' : ['go', 'markdown'] } "Loads only when editing golang files
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' } "If the value starts with :, it will be recognized as a Vim command
+
+" Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } "Loads only when I’m editing markdown files:
+" Plug 'AlexJF/rename.vim', { 'on': 'Rename' } "Loads only when I issue the Rename command
+"
+
+call plug#end()
+
+" reload (:source ~/.vimrc) or run :PlugInstall to install the plugins
+" ------------------------------------------------------------------
+" | Command                             | Description
+" ------------------------------------------------------------------
+" | `PlugInstall [name ...] [#threads]` | Install plugins
+" |
+" | `PlugUpdate [name ...] [#threads]`  | Install or update plugins
+" |
+" | `PlugClean[!]`                      | Remove unlisted plugins (bang version will clean without prompt)
+" |
+" | `PlugUpgrade`                       | Upgrade vim-plug itself
+" |
+" | `PlugStatus`                        | Check the status of plugins
+" |
+" | `PlugDiff`                          | Examine changes from the previous update and the pending changes
+" |
+" | `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins
+" ------------------------------------------------------------------
+
+set diffopt=filler,context:0 "suppress common lines and only show the diffs
+
+autocmd BufWritePre * %s/\s\+$//e "remove all trailing whitespace
+
+set clipboard=unnamed "copy stuff from vim to OS buffer
+
+au BufRead,BufNewFile */*Ansible/*.yml set filetype=yaml.ansible
+
+"
+" NERDTree
+"
+" Map `Ctrl+n` to open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+" default arrows
+"let g:NERDTreeDirArrowExpandable = '▸'
+"let g:NERDTreeDirArrowCollapsible = '▾'
