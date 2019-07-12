@@ -18,8 +18,12 @@
 - name: Include zsh.yml
   include: zsh.yml
 
+- name: Include gcloud.yml
+  include: gcloud.yml
+
 - name: Include ansible_conf.yml
   include: ansible_conf.yml
 
 - name: Include macos.yml
   include: macos.yml
+

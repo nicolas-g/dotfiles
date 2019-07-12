@@ -1,0 +1,27 @@
+---
+
+- block:
+
+  - name: gcloud | Install gcloud
+    homebrew_cask:
+      name: google-cloud-sdk
+      state: "present"
+    tags: brew_cask_install
+
+  - name: gcloud | Create {{ home_dir }}/.config/gcloud/configurations dir
+    file:
+      path: "{{ home_dir }}/.config/gcloud"
+      state: directory
+      mode: 0755
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_default
+    template:
+      src: gcloud_config.j2
+      dest: "{{ home_dir }}/.config/gcloud/configurations/config_default"
+      mode: 0644
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  tags: gcloud
