@@ -1,5 +1,8 @@
 ---
 
+- name: Include check-prereqs.yml
+  include: check-prereqs.yml
+
 - name: Include packages.yml
   include: packages.yml
 
@@ -26,4 +29,3 @@
 
 - name: Include macos.yml
   include: macos.yml
-

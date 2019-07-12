@@ -1,0 +1,31 @@
+---
+
+- block:
+
+  - name: check-prereqs | Collect only facts returned by facter
+    setup:
+      gather_subset:
+        - '!all'
+        - '!any'
+        - facter
+
+  - name: check-prereqs | Check if Ansible version is supported
+    assert:
+      that: ansible_version.full is version_compare(ansible_version_role, '>=')
+      msg:
+          - "WARNING: The playbook you are running is only marked as working with Ansible {{ ansible_version_role }}"
+          - "The executing version detected is {{ ansible_version.full }}."
+          - "Declare that this version works after verification by setting the `ansible_version_role` variable appropriately."
+    run_once: true
+
+  - name: check-prereqs | Check if target operating system is supported
+    assert:
+      that:
+        - ansible_distribution == ansible_distribution_role
+        - ansible_distribution_major_version|int in ansible_distribution_major_versions_role
+      msg:
+          - "WARNING: The playbook you are running is only marked as working with OS {{ ansible_distribution_role }} version(s) {{ ansible_distribution_major_versions_role }}"
+          - "The current OS and version detected is '{{ ansible_distribution }} {{ ansible_distribution_major_version }}'"
+          - "Declare that this OS and version works after verification by setting the `ansible_distribution_role` `ansible_distribution_major_versions_role` variable appropriately."
+
+  tags: [always,check-prereqs]
