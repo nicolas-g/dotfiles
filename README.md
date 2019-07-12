@@ -31,10 +31,8 @@ cd dotfiles
 # Install requirements
 pip install -r requirements.txt
 
-touch roles/workstation/vars/secrets.yml
-ANSIBLE_VAULT_PASS: "changeme"
-PIANOBAR_USER_NAME: "changeme"
-PIANOBAR_USER_PASSWORD: "changeme"
+brew install lastpass-cli
+lpass login {{ USER_NAME }}
 ```
 
 Ansible playbook to setup my machine and manage my dot files.
