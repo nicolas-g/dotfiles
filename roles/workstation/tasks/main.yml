@@ -12,7 +12,7 @@
 - name: Include vim.yml
   include: vim.yml
 
-- name: Include configs.yml
+- name: Include dotfiles.yml
   include: configs.yml
 
 - name: Include tmux.yml
