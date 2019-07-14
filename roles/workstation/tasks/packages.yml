@@ -11,15 +11,5 @@
     command: "xcode-select --install"
     when: check_xcode_command_line_tools is not defined
 
-  - name: packages | Download oh-my-zsh installer
-    get_url:
-      url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-      dest: /tmp/oh-my-zsh-install.sh
-      mode: 0550
-
-  - name: packages | Install oh-my-zsh
-    command: "sh /tmp/oh-my-zsh-install.sh"
-    args:
-      creates: "{{ home_dir }}/.oh-my-zsh"
 
   tags: packages
