@@ -2,9 +2,6 @@
 
 - block:
 
-  - set_fact:
-      ANSIBLE_VAULT_PASS: "{{ lookup('lastpass', 'dotfiles/ANSIBLE_VAULT_PASS') }}"
-
   - name: ansible_conf | Deploy {{ home_dir }}/.ansible.cfg
     copy:
       src: ansible.cfg
@@ -13,8 +10,8 @@
       owner: "{{ user }}"
       group: "{{ group }}"
 
-  - name: include_vars roles/workstation/vars/secrets.yml
-    include_vars: roles/workstation/vars/secrets.yml
+  - set_fact:
+      ANSIBLE_VAULT_PASS: "{{ lookup('lastpass', 'dotfiles/ANSIBLE_VAULT_PASS') }}"
 
   - name: ansible_conf | Deploy {{ home_dir }}/.vault_pass
     copy:
