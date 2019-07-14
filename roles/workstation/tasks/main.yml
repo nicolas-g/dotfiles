@@ -9,11 +9,11 @@
 - name: Include homebrew.yml
   include: homebrew.yml
 
-- name: Include vim.yml
-  include: vim.yml
-
 - name: Include dotfiles.yml
   include: configs.yml
+
+- name: Include vim.yml
+  include: vim.yml
 
 - name: Include tmux.yml
   include: tmux.yml
