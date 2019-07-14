@@ -11,13 +11,13 @@
       group: "{{ group }}"
 
   - set_fact:
-       AWSxspdev_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='name') }}"
+       AWSxspdev_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='username') }}"
        AWSxspdev_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='password') }}"
-       AWSxspsb_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='name') }}"
+       AWSxspsb_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='username') }}"
        AWSxspsb_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='password') }}"
-       AWSxspstg_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='name') }}"
+       AWSxspstg_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='username') }}"
        AWSxspstg_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='password') }}"
-       AWSxspprod_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='name') }}"
+       AWSxspprod_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='username') }}"
        AWSxspprod_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='password') }}"
 
   - name: awscli | Install awscli
