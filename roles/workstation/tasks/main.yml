@@ -15,6 +15,12 @@
 - name: Include configs.yml
   include: configs.yml
 
+- name: Include tmux.yml
+  include: tmux.yml
+
+- name: Include alacritty.yml
+  include: alacritty.yml
+
 - name: Include terraform.yml
   include: terraform.yml
 
@@ -32,6 +38,9 @@
 
 - name: Include ansible_conf.yml
   include: ansible_conf.yml
+
+- name: Include pianobar.yml
+  include: pianobar.yml
 
 - name: Include macos.yml
   include: macos.yml

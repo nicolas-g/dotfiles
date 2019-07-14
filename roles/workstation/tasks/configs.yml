@@ -58,13 +58,4 @@
       owner: "{{ user }}"
       group: "{{ group }}"
 
-  - name: Include tmux.yml
-    include: tmux.yml
-
-  - name: Include alacritty.yml
-    include: alacritty.yml
-
-  - name: Include pianobar.yml
-    include: pianobar.yml
-
   tags: configs
