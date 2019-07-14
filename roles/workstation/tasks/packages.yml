@@ -22,12 +22,4 @@
     args:
       creates: "{{ home_dir }}/.oh-my-zsh"
 
-#  - name: packages | Install Pip packages
-#    pip:
-#      name: "{{ item.name | default(item) }}"
-#      state: "{{ item.state | default('upgraded') }}"
-#      version: "{{ item.version | default(omit) }}"
-#      executable: "{{ item.executable | default(omit) }}"
-#    with_items: "{{ pip_packages }}"
-
   tags: packages

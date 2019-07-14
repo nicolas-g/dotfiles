@@ -103,9 +103,6 @@ homebrew_cask_packages:
   ### Troubleshooting
   - wireshark
 
-pip_packages:
-  - tmuxp
-
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
