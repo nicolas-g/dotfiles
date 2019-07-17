@@ -17,7 +17,7 @@
       mode: 0644
       owner: "{{ user }}"
       group: "{{ group }}"
-    tags: alias
+    tags: aliases
 
   - name: configs | Deploy {{ home_dir }}/.functions
     copy:
