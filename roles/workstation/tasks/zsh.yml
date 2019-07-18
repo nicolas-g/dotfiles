@@ -2,7 +2,7 @@
 
 - block:
 
-  - name: packages | Download oh-my-zsh installer
+  - name: zsh | Download oh-my-zsh installer
     get_url:
       url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
       dest: /tmp/oh-my-zsh-install.sh
