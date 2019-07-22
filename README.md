@@ -79,28 +79,16 @@ check how to use already installed :
 
 create virtual_envs (ansible/magic-wormhole ?)
 
-XCode Developer CLI tools are used by various apps that manipulate core OSX features. So make sure to install the Xcode CLI tools by running the following command.
-$ xcode-select —-install
-
-gpg encryption (pianobar)
-
 fonts : https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c491c9/install.sh#L238
-
-brew install macvim --override-system-vim
 
 ### Kubectl
 https://github.com/ahmetb/kubectl-aliases
 kube-ps1 is not working (https://github.com/jonmosco/kube-ps1)
 kubectl plugin list / https://github.com/kubernetes-sigs/krew
 
-
 ### Tmux
 https://github.com/samoshkin/tmux-config
 https://github.com/jonmosco/kube-tmux/blob/master/kube.tmux
-
-### Vim
-fzf Vim https://github.com/junegunn/fzf.vim
-
 
 OSX defaults:
 https://github.com/mathiasbynens/dotfiles/blob/master/.macos#L415
@@ -120,7 +108,7 @@ git clone git@github.com:Magnetic/NGTerraform.git
 
 set Apple ID finger print :
 
-authy
+2F auth:
 * use gVoice number
 * enable master password
 
