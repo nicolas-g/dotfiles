@@ -10,7 +10,7 @@
   include: homebrew.yml
 
 - name: Include dotfiles.yml
-  include: configs.yml
+  include: dotfiles.yml
 
 - name: Include vim.yml
   include: vim.yml
@@ -44,3 +44,6 @@
 
 - name: Include macos.yml
   include: macos.yml
+
+- name: Include open_vpn.yml
+  include: open_vpn.yml

@@ -1,0 +1,23 @@
+client
+remote {{ OPENVPN_XSPDEV_IP }} 1194       # Use the IP and not the DNS address !!!
+
+proto udp
+nobind
+
+dev tun
+resolv-retry infinite
+persist-key
+persist-tun
+ping-restart 60
+ping 10
+
+verb 3
+mute 20
+mute-replay-warnings
+
+tls-auth ta.key 1
+cipher AES-256-CBC
+
+ca ca.crt
+cert ngeorgakopoulos.crt
+key ngeorgakopoulos.key

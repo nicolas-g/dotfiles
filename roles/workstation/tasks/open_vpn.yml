@@ -1,0 +1,30 @@
+---
+
+- block:
+
+  - name: openvpn | Install brew tunnelblick
+    homebrew:
+      name: "tunnelblick"
+      state: "present"
+    tags: brew_install
+
+  - name: openvpn | Create {{ home_dir }}/.ovpn dir
+    file:
+      path: "{{ home_dir }}/.ovpn"
+      state: directory
+      mode: 0700
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  - set_fact:
+      OPENVPN_XSPDEV_IP: "{{ lookup('lastpass', 'dotfiles/OpenVPN_XSPDEV', field='ip_address') }}"
+
+  - name: openvpn | Deploy {{ home_dir }}/xspdev/xspdev.conf"
+    template:
+      src: ovpn.conf.j2
+      dest: "{{ home_dir }}/.ovpn/xspdev/xspdev.conf"
+      mode: 0600
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
+  tags: openvpn
