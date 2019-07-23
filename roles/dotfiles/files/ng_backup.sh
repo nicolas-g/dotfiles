@@ -43,7 +43,7 @@ for f in $(cat /tmp/git_files_to_delete.txt | awk '{ print $2 }' ) ; do
 done
 
 # create backup archive
-cd ; cat /tmp/files_to_backup.txt | zip -er@ /tmp/backup_dotfiles.zip
+cd ; cat /tmp/files_to_backup.txt | zip -er@ ~/Desktop/backup_dotfiles.zip
 
 exit
 
