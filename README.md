@@ -1,15 +1,16 @@
-Dotfiles & Dev workstation environment setup
-============================================
+My Dotfiles Project
+===================
 A never ending project..
 
-Ansible playbook to setup my local dev machine and manage my dot files:
+I"m using Ansible in order to setup my local dev machine and manage my dot files as for example:
 * shell aliases, environments
 * homebrew packages
 * various configs for MacOS, vim, git, ansible, tmux and zsh/bash
+* etc ...
 
-#### Role layout
+#### Project Layout
 ```
-roles/workstation
+roles/dotfiles
 ├── defaults
 │   └── main.yml
 ├── files
@@ -94,7 +95,7 @@ echo "lpass login {{ USER_NAME }}"
 
 Now you should be ready to run Ansible
 ```bash
-ansible-playbook workstation.yml -v -D
+ansible-playbook dotfiles.yml -v -D
 ```
 
 ## Todo
@@ -114,12 +115,12 @@ create virtual_envs (ansible/magic-wormhole ?)
 
 fonts : https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c491c9/install.sh#L238
 
-### Kubectl
+#### Kubectl
 https://github.com/ahmetb/kubectl-aliases
 kube-ps1 is not working (https://github.com/jonmosco/kube-ps1)
 kubectl plugin list / https://github.com/kubernetes-sigs/krew
 
-### Tmux
+#### Tmux
 https://github.com/samoshkin/tmux-config
 https://github.com/jonmosco/kube-tmux/blob/master/kube.tmux
 
@@ -147,7 +148,7 @@ send escape sequence
 b
 ```
 
-#### Manual post tasks
+### Manual post tasks
 * System Preferences -> Touch ID (set Apple ID finger print)
 * System Preferences -> Desktop & Screen saver -> Screen saver -> Hot Corners
 * System Preferences -> Dock : (size,automatically hide and show the dock)
