@@ -1,5 +1,5 @@
 ---
-# ansible-playbook workstation.yml -D -t ansible_conf --ask-vault-pass
+# ansible-playbook dotfiles.yml -D -t ansible_conf --ask-vault-pass
 
 - hosts: localhost
   connection: local
@@ -7,4 +7,4 @@
   become: no
 
   roles:
-    - { role : workstation, tags: [ 'workstation-role' ] }
+    - { role : dotfiles, tags: [ 'dotfiles-role' ] }
