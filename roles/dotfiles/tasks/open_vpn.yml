@@ -3,7 +3,7 @@
 - block:
 
   - name: openvpn | Install brew tunnelblick
-    homebrew:
+    homebrew_cask:
       name: "tunnelblick"
       state: "present"
     tags: brew_install
