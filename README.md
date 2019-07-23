@@ -2,8 +2,65 @@ Dotfiles & Dev workstation environment setup
 ============================================
 A never ending project..
 
-## Required Manual steps
+Ansible playbook to setup my local dev machine and manage my dot files:
+* shell aliases, environments
+* homebrew packages
+* various configs for MacOS, vim, git, ansible, tmux and zsh/bash
+
+#### Role layout
 ```
+roles/workstation
+├── defaults
+│   └── main.yml
+├── files
+│   ├── ansible.cfg
+│   ├── awscli_config
+│   ├── bashrc
+│   ├── functions
+│   ├── fzf.zsh
+│   ├── ng_backup.sh
+│   ├── tf_latest_install.sh
+│   ├── tmux-macos.conf
+│   ├── tmux.conf
+│   ├── tmux_devops_session.yml
+│   └── vimrc
+├── tasks
+│   ├── alacritty.yml
+│   ├── ansible_conf.yml
+│   ├── awscli.yml
+│   ├── check-prereqs.yml
+│   ├── dotfiles.yml
+│   ├── extras.yml
+│   ├── gcloud.yml
+│   ├── homebrew.yml
+│   ├── macos.yml
+│   ├── main.yml
+│   ├── open_vpn.yml
+│   ├── packages.yml
+│   ├── pianobar.yml
+│   ├── ssh.yml
+│   ├── terraform.yml
+│   ├── tmux.yml
+│   ├── vim.yml
+│   └── zsh.yml
+├── templates
+│   ├── alacritty.yml.j2
+│   ├── aliases.j2
+│   ├── awscli_credentials.j2
+│   ├── env.j2
+│   ├── gcloud_config.j2
+│   ├── gitconfig.j2
+│   ├── ovpn.conf.j2
+│   ├── pianobar_connfig.j2
+│   ├── ssh_config.j2
+│   └── zshrc.j2
+└── vars
+    └── main.yml
+```
+
+## Instalation
+Run the bellow script to install Homebrew and setup the python virtual environment so you can run Ansible
+```bash
 # Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
@@ -32,39 +89,15 @@ cd dotfiles
 pip install -r requirements.txt
 
 brew install lastpass-cli
-lpass login {{ USER_NAME }}
+echo "lpass login {{ USER_NAME }}"
 ```
 
-Ansible playbook to setup my machine and manage my dot files.
-=============================================================
-* shell aliases, environments
-* homebrew packages
-* various configs for MacOS, vim, git, ansible, tmux and zsh/bash
-
-```
-roles/workstation
-├── files
-│   ├── ansible.cfg
-│   ├── bashrc
-│   ├── env
-│   └── vimrc
-├── tasks
-│   ├── ansible_conf.yml
-│   ├── configs.yml
-│   ├── main.yml
-│   ├── osx_wallpaper.yml
-│   └── packages.yml
-├── templates
-│   ├── aliases.j2
-│   ├── gitconfig.j2
-│   ├── tmux.conf
-│   └── zshrc.j2
-└── vars
-    ├── main.yml
+Now you should be ready to run Ansible
+```bash
+ansible-playbook workstation.yml -v -D
 ```
 
-TODO:
-=====
+## Todo
 
 use pyenv and pip env ? https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c
 
@@ -98,24 +131,6 @@ https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c49
 https://github.com/mathiasbynens/dotfiles/blob/master/.macos
 https://github.com/driesvints/dotfiles/blob/master/.macos
 
-
-## Manual post steps
-
-copy zsh_history
-
-git clone git@github.com:Magnetic/NGAnsible.git
-git clone git@github.com:Magnetic/NGTerraform.git
-
-set Apple ID finger print :
-
-2F auth:
-* use gVoice number
-* enable master password
-
-add wroskspaces in Slack  (work,kubernetes)
-
-openvpn config
-
 #### iTerm key for similar ctrl + > move
 ```
 Preferences > Keys (or Preferences > Profiles > Keys)
@@ -133,7 +148,17 @@ b
 ```
 
 #### Manual post tasks
-* System Preferences -> Touch ID
+* System Preferences -> Touch ID (set Apple ID finger print)
 * System Preferences -> Desktop & Screen saver -> Screen saver -> Hot Corners
 * System Preferences -> Dock : (size,automatically hide and show the dock)
 * iTerm2 -> Preferences -> Load preferences from a custom folder or URL
+* add wroskspaces in Slack
+** spotinst.slack.com
+** kubernetes.slack.com
+** istio.slack.com
+** rancher-users.slack.com
+** confluentcommunity.slack.com
+** datadoghq.slack.com
+* 2F auth
+** use "g" number
+** enable master password
