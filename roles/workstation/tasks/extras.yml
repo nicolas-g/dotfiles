@@ -1,0 +1,11 @@
+---
+
+- block:
+
+  - name: extras | Deploy /usr/local/bin/tf_latest_install.sh
+    copy:
+      src: ng_backup.sh
+      dest: /usr/local/bin/ng_backup.sh
+      mode: 0755
+
+  tags: extras
