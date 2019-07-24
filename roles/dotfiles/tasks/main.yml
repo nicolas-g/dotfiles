@@ -50,3 +50,6 @@
 
 - name: Include extras.yml
   include: extras.yml
+
+- name: Include cron.yml
+  include: cron.yml

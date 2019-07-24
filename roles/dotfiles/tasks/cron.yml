@@ -1,0 +1,12 @@
+---
+
+- block:
+
+  - name: cron | Disable Netskope
+    cron:
+      name: "Disable Netskope"
+      minute: "0"
+      hour: "9"
+      job: "sudo launchctl unload /Library/LaunchDaemons/com.netskope.stagentsvc.plist"
+
+  tags: cron
