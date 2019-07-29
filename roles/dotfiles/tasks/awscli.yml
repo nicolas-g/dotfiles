@@ -22,7 +22,7 @@
 
   - name: awscli | Install awscli
     homebrew:
-      name: awscli
+      name: "awscli,aws-iam-authenticator"
       state: "present"
     tags: brew_install
 
