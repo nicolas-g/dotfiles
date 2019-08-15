@@ -6,6 +6,7 @@ src
 .config
 .kube
 .ovpn
+.password-store
 .ssh
 .zsh_history
 Desktop/desktop_backup
