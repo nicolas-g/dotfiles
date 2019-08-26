@@ -2,13 +2,24 @@
 
 - block:
 
-  - name: cron | Disable Netskope
+  - name: cron | Backup shell history
     cron:
-      name: "Disable Netskope"
+      name: "Backup Shell history"
       minute: "0"
-      hour: "9"
-      job: "launchctl unload /Library/LaunchDaemons/com.netskope.stagentsvc.plist"
+      hour: "13"
+      job: "backup"
+
+  - name: cron | Disable {{ item }} launchctl services
+    cron:
+      name: "Disable {{ item }}"
+      minute: "*/15"
+      hour: "*"
+      job: "launchctl unload {{ item }}"
     become: yes
     become_method: sudo
+    loop:
+      - "/Library/LaunchDaemons/com.netskope.stagentsvc.plist"
+      - "launchctl unload /Library/LaunchDaemons/com.microsoft.*"
+      - "launchctl unload /Library/LaunchDaemons/com.avecto.*"
 
   tags: cron
