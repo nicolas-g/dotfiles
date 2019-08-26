@@ -16,6 +16,7 @@ homebrew_packages:
   - gnu-which
   - go
   - lastpass-cli
+  - pass
   - peco
   - parallel
   - ripgrep
@@ -73,12 +74,14 @@ homebrew_cask_packages:
   - 1password
   - alacritty
   - authy
+  - bitbar
   - docker
   - dropbox
   - caffeine
   - viber
   - google-backup-and-sync
   - google-chrome
+  - gpg-suite
   - firefox
   - iterm2
   - keybase
@@ -89,6 +92,7 @@ homebrew_cask_packages:
   - virtualbox
   - vlc
   ### Extras
+  - cloudapp
   - cheatsheet
   - limechat
   - whatsapp
