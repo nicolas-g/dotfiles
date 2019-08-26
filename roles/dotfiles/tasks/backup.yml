@@ -16,6 +16,6 @@
       name: "Backup Shell history"
       minute: "0"
       hour: "13"
-      job: "ng_backup_history.sh"
+      job: "/usr/local/bin/ng_backup_history.sh"
 
   tags: backup
