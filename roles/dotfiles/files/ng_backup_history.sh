@@ -5,6 +5,7 @@
 # Must contain backup.monthly backup.weekly backup.daily folders
 BACKUP_DIR=/keybase/private/nicolasg7/backups
 
+# Create required directories if they don't exist
 [ -d $BACKUP_DIR/backup.daily ] || mkdir $BACKUP_DIR/backup.daily
 [ -d $BACKUP_DIR/backup.weekly ] || mkdir $BACKUP_DIR/backup.weekly
 [ -d $BACKUP_DIR/backup.monthly ] || mkdir $BACKUP_DIR/backup.monthly
@@ -15,7 +16,7 @@ BACKUP_FILE=/Users/ngeorgakopoulos/.zsh_history
 email_notificaton=nicolasg@gmail.com
 
 # Destination file names
-date_daily=`date +"%d-%m-%Y"`
+date_daily=`date +"%d-%m-%Y_%s"`
 #date_weekly=`date +"%V sav. %m-%Y"`
 #date_monthly=`date +"%m-%Y"`
 
