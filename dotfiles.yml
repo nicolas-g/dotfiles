@@ -7,4 +7,5 @@
   become: no
 
   roles:
+    - { role : hashicorp-vault, tags: [ 'hashicorp-vault-role' ] }
     - { role : dotfiles, tags: [ 'dotfiles-role' ] }

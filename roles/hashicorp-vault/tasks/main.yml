@@ -1,0 +1,7 @@
+---
+
+- name: Include hvault-install.yml
+  include: hvault-install.yml
+
+- name: Include hvault-config.yml
+  include: hvault-config.yml
