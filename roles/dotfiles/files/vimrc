@@ -80,6 +80,12 @@ set clipboard=unnamed "copy stuff from vim to OS buffer
 
 au BufRead,BufNewFile */*Ansible/*.yml set filetype=yaml.ansible
 
+" # turn off auto-insert of comments
+augroup auto_comment
+    au!
+    au FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+augroup END
+
 "
 " NERDTree
 "
