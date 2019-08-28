@@ -1,0 +1,66 @@
+---
+
+- block:
+
+  - name: hvauth-config | Read Vault Rootkey
+    command: "cat {{ vault_keys_dir }}/rootkey"
+    register: rootkey
+    changed_when: false
+
+  tags: hvault-config
+
+- block:
+
+  - name: hvauth-config | enable Vault auth backends
+    hashivault_auth_method:
+      method_type: "{{ item }}"
+    with_items: "{{ auth_backends_list }}"
+    register: 'vault_auth_enable'
+
+  - name: hvauth-config | get existing Vault auth backends
+    hashivault_auth_list:
+    changed_when: false
+    register: 'current_vault_auth_backends_list'
+
+  - name: hvauth-config | display existing Vault auth backends
+    debug:
+      var: "{{ item }}"
+      verbosity: 1
+    with_items: current_vault_auth_backends_list
+
+  - name: hvauth-config | get existing Vault audit list
+    hashivault_audit_list:
+    changed_when: False
+    register: 'vault_audit_list'
+
+  - name: hvauth-config | enable Vault audit backend
+    hashivault_audit_enable:
+      name: "{{ item.name }}"
+      options: "{{ item.options }}"
+    register: 'vault_audit_enable'
+    with_items: "{{ vault_audit_backend_list }}"
+
+  - name: hvauth-config | get existing hashivault_secret_list
+    hashivault_secret_list:
+    register: 'hashivault_secret_list'
+
+  - name: hvauth-config | debug hashivault_secret_list
+    debug:
+      var: hashivault_secret_list
+      verbosity: 1
+
+  - name: hvauth-config | Enable Vault secret engines
+    hashivault_secret_enable:
+      name: "{{ item }}"
+      backend: "{{ item }}"
+    with_items: "{{ vault_secret_engines_list_enabled }}"
+
+  - name: debug vault_userpass_create
+    debug:
+      var: vault_userpass_create
+      verbosity: 2
+
+  environment:
+    VAULT_TOKEN: "{{ rootkey.stdout }}"
+
+  tags: hvault-config

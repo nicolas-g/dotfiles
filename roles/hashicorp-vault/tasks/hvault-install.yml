@@ -1,0 +1,107 @@
+---
+
+
+
+- block:
+
+  - name: hvault-install | Brew install Hashicorp Vault
+    homebrew:
+      name: "vault"
+      state: "present"
+
+  - name: hvault-install | Create Vault directories
+    file:
+      state: directory
+      path: "{{ item }}"
+      mode: 0700
+    with_items:
+      - "{{ vault_logs_dir }}"
+      - "{{ vault_data_dir }}"
+      - "{{ vault_config_dir }}"
+      - "{{ vault_keys_dir }}"
+
+  - name: hvault-install | Deploy vault config file
+    template:
+      src: "hvault_config.hcl.j2"
+      dest: "{{ vault_config_dir }}/config.hcl"
+      mode: 0640
+
+#  - name: hvault-install | set environment variables for Vault
+#    copy:
+#      dest: /etc/profile.d/vault.sh
+#      content: "export VAULT_ADDR={{ vault_web_protocol }}://{{ vault_addr_env }}:{{ vault_port }}"
+#      owner: root
+#      group: root
+#      mode: 644
+
+    # result from running `vault -autocomplete-install`
+  # - name: Insert/Update Vault shell autocomplete
+  #   blockinfile:
+  #     path: ~/.zshrc
+  #     marker: "### Ansible Hashicrop Vault ###"
+  #     #insertafter: "<body>"
+  #     block: |
+  #       autoload -U +X bashcompinit && bashcompinit
+  #       complete -o nospace -C /usr/local/bin/vault vault
+
+  - name: hvault-install | Get Vault status
+    hashivault_status:
+    register: 'vault_status'
+
+  - when: "vault_status.status.initialized == False"
+    block:
+
+    - name: hvault-install | Vault init
+      hashivault_init:
+      register: vault_init_results
+
+    - name: hvault-install | Debug Vault Init output
+      debug:
+        msg: "{{ vault_init_results }}"
+        verbosity: 2
+
+    - name: hvault-install | Save Vault Unseal Keys
+      copy:
+        dest: "{{ vault_keys_dir }}/unseal_key_{{ item.0 }}"
+        content: "{{ item.1 }}"
+      with_indexed_items: "{{ vault_init_results.keys_base64 }}"
+
+    - name: hvault-install | Save Vault Root Key
+      copy:
+        content: "{{ vault_init_results.root_token }}"
+        dest: "{{ vault_keys_dir }}/rootkey"
+
+  - name: hvault-install | Vault status
+    hashivault_status:
+    register: 'vault_status'
+
+  - when: "vault_status.status.sealed == True and vault_status.status.initialized == True"
+    block:
+
+      - name: hvault-install | Read Unseal Keys contents
+        command: cat {{ item }}
+        register: unseal_keys
+        with_fileglob: "{{ vault_keys_dir }}/unseal_key_*"
+
+      - name: hvault-install | Display Unseal Keys contents
+        debug:
+          msg: "{{ item.stdout }}"
+          verbosity: 2
+        with_items: "{{ unseal_keys.results }}"
+
+      - name: hvault-install | Unseal Vault
+        hashivault_unseal:
+          keys: "{{ item.stdout }}"
+        with_items: "{{ unseal_keys.results }}"
+
+    tags: hvault-unseal
+
+
+  - name: hvault-install | Vault status
+    hashivault_status:
+    register: 'vault_status'
+
+  environment:
+    VAULT_ADDR: "{{ vault_web_protocol }}://{{ vault_addr_env }}:{{ vault_port }}"
+
+  tags: hvault-install
