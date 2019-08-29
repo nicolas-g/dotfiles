@@ -2,6 +2,9 @@
 ###################
 # Hashicorp Vault #
 ###################
+
+vault_version: "1.2.2"
+
 vault_addr_env : 127.0.0.1
 vault_port : 8200
 vault_web_protocol: "http"
@@ -11,11 +14,12 @@ vault_logs_dir: "{{ vault_config_dir }}/log"
 vault_data_dir: "{{ vault_config_dir }}/data"
 vault_keys_dir: "{{ vault_config_dir }}/keys"
 
-#vault_install_dir: "/usr/local/bin"
-#vault_download_dir: "/tmp"
-#vault_checksum_file: "vault_{{ vault_version }}_SHA256SUMS"
-#vault_pkg_url: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_linux_amd64.zip"
-#vault_checksum_file_url: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version}}_SHA256SUMS"
+# https://releases.hashicorp.com/vault/1.2.2/vault_1.2.2_darwin_amd64.zip
+vault_install_dir: "/usr/local/bin"
+vault_download_dir: "/tmp"
+vault_checksum_file: "vault_{{ vault_version }}_SHA256SUMS"
+vault_pkg_url: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version }}_{{ ansible_system | lower }}_amd64.zip"
+vault_checksum_file_url: "https://releases.hashicorp.com/vault/{{ vault_version }}/vault_{{ vault_version}}_SHA256SUMS"
 
 vault_secret_engines_list_enabled:
   - aws
