@@ -100,7 +100,8 @@ ansible-playbook dotfiles.yml -v -D
 
 ## Todo
 
-use pyenv and pip env ? https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c
+* use pyenv and pip env ? https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c
+* zsh auto notify : https://github.com/MichaelAquilina/zsh-auto-notify
 
 Update App Store apps
 ```
