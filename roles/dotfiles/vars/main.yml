@@ -94,7 +94,6 @@ homebrew_cask_packages:
   ### Extras
   - cloudapp
   - cheatsheet
-  - limechat
   - whatsapp
   - mpv
   - remote-desktop-manager
