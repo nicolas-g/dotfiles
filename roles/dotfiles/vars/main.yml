@@ -87,6 +87,7 @@ homebrew_cask_packages:
   - keybase
   - minikube
   - laplock
+  - signal
   - slack
   - vagrant
   - virtualbox
