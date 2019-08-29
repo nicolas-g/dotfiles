@@ -24,7 +24,6 @@ homebrew_packages:
   - tmux
   - reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
   - tree
-  - vault
   - watch
   - wget
   - zsh
@@ -166,7 +165,6 @@ zsh_plugins:
   #- tmux
   #- tmux-cssh
   #- vagrant
-  #- vault
   #- vi-mode
   #- vim-interaction
   #- virtualenv
