@@ -3,8 +3,8 @@
 - name: Include check-prereqs.yml
   include: check-prereqs.yml
 
-- name: Include packages.yml
-  include: packages.yml
+- name: Include macos.yml
+  include: macos.yml
 
 - name: Include homebrew.yml
   include: homebrew.yml
@@ -41,9 +41,6 @@
 
 - name: Include pianobar.yml
   include: pianobar.yml
-
-- name: Include macos.yml
-  include: macos.yml
 
 - name: Include open_vpn.yml
   include: open_vpn.yml
