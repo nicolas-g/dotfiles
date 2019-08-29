@@ -93,6 +93,9 @@ source ~/.functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# k8s krew plugin
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
 GPG_TTY=$(tty)
 export GPG_TTY
 
