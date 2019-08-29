@@ -1,0 +1,36 @@
+---
+
+- block:
+
+  - name: hv-init | Get Vault status
+    hashivault_status:
+    register: 'vault_status'
+
+  - when: "vault_status.status.initialized == False"
+    block:
+
+    - name: hv-init | Vault init
+      hashivault_init:
+      register: vault_init_results
+
+    - name: hv-init | Debug Vault init output
+      debug:
+        msg: "{{ vault_init_results }}"
+        verbosity: 2
+
+    - name: hv-init | Save created Unseal Keys
+      copy:
+        dest: "{{ vault_keys_dir }}/unseal_key_{{ item.0 }}"
+        content: "{{ item.1 }}"
+      with_indexed_items: "{{ vault_init_results.keys_base64 }}"
+
+    - name: hv-init | Save Root Key
+      copy:
+        content: "{{ vault_init_results.root_token }}"
+        dest: "{{ vault_keys_dir }}/rootkey"
+
+    - name: hv-init | Get Vault status
+      hashivault_status:
+      register: 'vault_status'
+
+  tags: hv-init

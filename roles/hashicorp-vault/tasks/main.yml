@@ -1,7 +1,21 @@
 ---
 
-- name: Include hvault-install.yml
-  include: hvault-install.yml
+- block:
 
-- name: Include hvault-config.yml
-  include: hvault-config.yml
+  - name: Include hv-install.yml
+    include: hv-install.yml
+
+  - name: Include hv-config.yml
+    include: hv-config.yml
+
+  - name: Include hv-init.yml
+    include: hv-init.yml
+
+  - name: Include hv-unseal.yml
+    include: hv-unseal.yml
+
+  - name: Include hv-cmd.yml
+    include: hv-cmd.yml
+
+  environment:
+    VAULT_ADDR: "{{ vault_web_protocol }}://{{ vault_addr_env }}:{{ vault_port }}"
