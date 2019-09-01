@@ -3,9 +3,6 @@
 - name: Include check-prereqs.yml
   include: check-prereqs.yml
 
-- name: Include macos.yml
-  include: macos.yml
-
 - name: Include homebrew.yml
   include: homebrew.yml
 

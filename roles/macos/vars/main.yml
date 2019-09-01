@@ -1,0 +1,41 @@
+---
+
+dockitems_to_remove:
+  - Launchpad
+  - Mail
+  - Safari
+  - Contacts
+  - Notes
+  - Reminders
+  - Maps
+  - Photos
+  - Messages
+  - FaceTime
+  - iTunes
+  - iBooks
+  - System Preferences
+  - Calendar
+  #- App Store
+
+dockitems_to_persist:
+  - name: Google Chrome
+    path: "/Applications/Google Chrome.app"
+    pos: 1
+  - name: Microsoft Outlook
+    path: "/Applications/Microsoft\ Outlook.app"
+    pos: 2
+  - name: Self Service
+    path: "/Applications/Self\ Service.app"
+    pos: 3
+  - name: Microsoft Teams
+    path: "/Applications/Microsoft\ Teams.app"
+    pos: 4
+  - name: Slack
+    path: /Applications/Slack.app
+    pos: 5
+  - name: Alacritty
+    path: /Applications/Alacritty.app
+    pos: 6
+  - name: Viber
+    path: /Applications/Viber.app
+    pos: 7
