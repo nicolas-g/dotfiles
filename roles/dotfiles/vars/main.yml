@@ -67,6 +67,7 @@ homebrew_k8s_packages:
   - kubernetes-helm
   - kustomize
   - rancher-cli
+  - k3d
 
 homebrew_cask_packages:
   ### Essentials
