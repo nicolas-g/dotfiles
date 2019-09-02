@@ -39,3 +39,6 @@ dockitems_to_persist:
   - name: Viber
     path: /Applications/Viber.app
     pos: 7
+  - name: WhatsApp
+    path: /Applications/WhatsApp.app
+    pos: 8
