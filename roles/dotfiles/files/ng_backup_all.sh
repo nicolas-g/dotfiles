@@ -2,8 +2,11 @@
 
 cat > /tmp/files_to_backup.txt << EOF
 src
+.aws
 .bash_history
 .config
+.gnupg
+.krew
 .kube
 .ovpn
 .password-store
