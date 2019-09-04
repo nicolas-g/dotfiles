@@ -23,7 +23,6 @@ alias fzf_preview="fzf --preview 'head -100 {}'"
 alias fzf_grep='grep --line-buffered --color=never -r "" * | fzf'
 # with ag - respects .agignore and .gitignore
 alias fzf_ag='ag --nobreak --nonumbers --noheading . | fzf'
-alias tmux_devops='source ~/venv/dotfiles/bin/activate; tmux attach -t DevOps || tmuxp load ~/.tmux/devops_session.yml'
 
 # K8s
 alias ksys="kubectl -n kube-system"
@@ -36,7 +35,8 @@ alias kctx="kubectx"
 alias kns="kubens"
 
 ### Nifty extras
-alias pyservethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
+alias ng_tmux_devops='source ~/venv/dotfiles/bin/activate; tmux attach -t DevOps || tmuxp load ~/.tmux/devops_session.yml'
+alias ng_pyservethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
 ### Hashicorp Vault
 alias ng_hv-server-start="vault server -config /keybase/private/nicolasg7/hvault/config.hcl &"

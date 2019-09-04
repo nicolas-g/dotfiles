@@ -33,6 +33,3 @@ windows:
     focus: true
     panes:
       - blank
-#      - shell_command:
-#        - pianobar
-#  - window_name: HVault
