@@ -50,3 +50,7 @@
 
 - name: Include cron.yml
   include: cron.yml
+
+- name: Include codefresh.yml
+  include: codefresh.yml
+

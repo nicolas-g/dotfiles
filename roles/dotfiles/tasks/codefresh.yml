@@ -1,0 +1,17 @@
+---
+
+# https://codefresh-io.github.io/cli/completion/codefresh-completion/
+
+- block:
+
+  - name: codefresh | tap Codefresh homebrew repo
+    homebrew_tap:
+      name: codefresh-io/cli
+      state: present
+
+  - name: codefresh | install Codefresh CLI
+    homebrew:
+      name: codefresh
+      state: present
+
+  tags: codefresh
