@@ -43,6 +43,7 @@ homebrew_packages:
   - teleconsole
   - tldr
   - pianobar
+  - pre-commit
   ### Extras
   - aircrack-ng
   - gist
