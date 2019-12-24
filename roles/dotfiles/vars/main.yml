@@ -39,6 +39,7 @@ homebrew_packages:
   - hub # Github cli
   - ipcalc
   - jq
+  - yamllint
   - magic-wormhole
   - teleconsole
   - tldr
