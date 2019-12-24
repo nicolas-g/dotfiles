@@ -1,7 +1,14 @@
 [user]
         name = {{ github_name }}
         email = {{ github_email }}
+
+        # gpg --list-secret-keys --keyid-format LONG
+        # sec   rsa4096/6BB79E0176752876
         signingkey = 6BB79E0176752876
+
+        # test by running
+        # echo "test" | gpg --clearsign
+
 [alias]
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
@@ -11,3 +18,5 @@
         excludesfile = ~/.gitignore_global
 [commit]
 	gpgsign = true
+[gpg]
+	program = /usr/local/MacGPG2/bin/gpg
