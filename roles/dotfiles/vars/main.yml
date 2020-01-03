@@ -47,6 +47,7 @@ homebrew_packages:
   - pre-commit
   ### Extras
   - aircrack-ng
+  - figlet
   - gist
   - googler
   - htop
