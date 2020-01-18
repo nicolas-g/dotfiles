@@ -12,13 +12,16 @@
       - "macvim"
     tags: brew_install
 
-  - name: vim | Deploy {{ home_dir }}/.vimrc
+  - name: vim | Deploy {{ home_dir }}/.{{ item }}
     copy:
-      src: vimrc
-      dest: "{{ home_dir }}/.vimrc"
+      src: "{{ item }}"
+      dest: "{{ home_dir }}/.{{ item }}"
       mode: 0644
       owner: "{{ user }}"
       group: "{{ group }}"
+    loop:
+      - "vimrc"
+      - "vimrc.plug"
 
   - name: vim | Clone zsh-completions plugin repo
     git:
