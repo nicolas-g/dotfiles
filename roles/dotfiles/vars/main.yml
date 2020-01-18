@@ -52,6 +52,7 @@ homebrew_packages:
   - gist
   - googler
   - htop
+  - links
   - youtube-dl
   - mtr
   - nmap
