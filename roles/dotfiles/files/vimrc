@@ -19,6 +19,14 @@ Plug 'tpope/vim-fugitive' "https://github.com/tpope/vim-fugitive#screencasts
 Plug 'git://git.wincent.com/command-t.git'
 Plug 'itchyny/lightline.vim'
 
+" Syntax Checking/Highlighting
+Plug 'vim-syntastic/syntastic'
+Plug 'nvie/vim-flake8' " add PEP 8 checking with this nifty little plugin
+
+" Color schemes work in conjunction with the basic color scheme that you are using. Check out solarized for GUI mode, and Zenburn for terminal mode
+Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
+
 " # in some secure file sourced in your .bashrc, .bash_profile, .zshrc, etc.
 " export GITHUB_TOKEN="<your 40 char token>"
 " let g:github_dashboard = { 'username': 'you', 'password': $GITHUB_TOKEN }
@@ -72,6 +80,10 @@ call plug#end()
 " | `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins
 " ------------------------------------------------------------------
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim "for usage instructions and configuration details -> :help ctrlp.txt
+
+set encoding=utf-8
+
 set diffopt=filler,context:0 "suppress common lines and only show the diffs
 
 autocmd BufWritePre * %s/\s\+$//e "remove all trailing whitespace
@@ -95,3 +107,18 @@ map <C-n> :NERDTreeToggle<CR>
 " default arrows
 "let g:NERDTreeDirArrowExpandable = '▸'
 "let g:NERDTreeDirArrowCollapsible = '▾'
+
+" add the proper PEP 8 indentation
+au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79 expandtab autoindent fileformat=unix
+
+" For other full stack development
+au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
+
+" YouCompleteMe configs
+
+let g:ycm_autoclose_preview_window_after_completion=1 " ensures that the auto-complete window goes away when you’re done with it
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR> "defines a shortcut for goto definition
+
+" make your code look pretty after installing syntastic and vim-flake8 plugins
+let python_highlight_all=1
+syntax on

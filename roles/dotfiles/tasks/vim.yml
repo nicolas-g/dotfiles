@@ -20,4 +20,16 @@
       owner: "{{ user }}"
       group: "{{ group }}"
 
+  - name: vim | Clone zsh-completions plugin repo
+    git:
+      repo: https://github.com/ctrlpvim/ctrlp.vim
+      dest: "{{ home_dir }}/.vim/bundle/ctrlp.vim"
+      force: yes
+    tags: this
+
+  - name: vim | Install powerline-status
+    pip:
+      name: powerline-status
+    tags: this
+
   tags: vim
