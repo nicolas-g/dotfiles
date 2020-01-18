@@ -1,38 +1,34 @@
 ---
-
 - block:
+    # required for Vim YouCompleteMe plugin to work on MacOS
+    - name: vim | Install brew cmake/macvim
+      homebrew:
+        name: '{{ item }}'
+        state: 'present'
+      with_items:
+        - 'cmake'
+        - 'macvim'
+      tags: brew_install
 
-  # required for Vim YouCompleteMe plugin to work on MacOS
-  - name: vim | Install brew cmake/macvim
-    homebrew:
-      name: "{{ item }}"
-      state: "present"
-    with_items:
-      - "cmake"
-      - "macvim"
-    tags: brew_install
+    - name: vim | Deploy {{ home_dir }}/.{{ item }}
+      copy:
+        src: '{{ item }}'
+        dest: '{{ home_dir }}/.{{ item }}'
+        mode: 0644
+        owner: '{{ user }}'
+        group: '{{ group }}'
+      loop:
+        - 'vimrc'
+        - 'vimrc.plug'
 
-  - name: vim | Deploy {{ home_dir }}/.{{ item }}
-    copy:
-      src: "{{ item }}"
-      dest: "{{ home_dir }}/.{{ item }}"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-    loop:
-      - "vimrc"
-      - "vimrc.plug"
+    - name: vim | Clone zsh-completions plugin repo
+      git:
+        repo: https://github.com/ctrlpvim/ctrlp.vim
+        dest: '{{ home_dir }}/.vim/bundle/ctrlp.vim'
+        force: yes
 
-  - name: vim | Clone zsh-completions plugin repo
-    git:
-      repo: https://github.com/ctrlpvim/ctrlp.vim
-      dest: "{{ home_dir }}/.vim/bundle/ctrlp.vim"
-      force: yes
-    tags: this
-
-  - name: vim | Install powerline-status
-    pip:
-      name: powerline-status
-    tags: this
+    - name: vim | Install powerline-status
+      pip:
+        name: powerline-status
 
   tags: vim
