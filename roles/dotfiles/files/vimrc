@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
 " Vim help for vim-plug itself (:help plug-options)
 Plug 'junegunn/vim-plug'
 
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' } "# https://github.com/prettier/vim-prettier#configuration
+
 Plug 'tomtom/tcomment_vim'
 Plug 'pearofducks/ansible-vim'
 Plug 'tpope/vim-fugitive' "https://github.com/tpope/vim-fugitive#screencasts
