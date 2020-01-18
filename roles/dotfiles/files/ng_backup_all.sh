@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ $(pwd) != $HOME ]; then
+  echo "You must run this command from your home dir...";
+  echo "aborting!"
+  exit 1;
+fi
+
 cat > /tmp/files_to_backup.txt << EOF
 src
 .aws
@@ -14,6 +20,8 @@ src
 .zsh_history
 Desktop/desktop_backup
 EOF
+
+backup_location=${1:-/keybase/private/nicolasg7/backups}
 
 # create empty files
 > /tmp/tf_files_to_delete.txt
@@ -47,7 +55,6 @@ for f in $(cat /tmp/git_files_to_delete.txt | awk '{ print $2 }' ) ; do
 done
 
 # create backup archive
-cd ; cat /tmp/files_to_backup.txt | zip -er@ ~/Desktop/backup_dotfiles.zip
+cd ; cat /tmp/files_to_backup.txt | zip -er@ $backup_location/backup_dotfiles.zip
 
-exit
-
+exit 0
