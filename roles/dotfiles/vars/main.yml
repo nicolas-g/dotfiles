@@ -16,9 +16,10 @@ homebrew_packages:
   - gnu-which
   - go
   - lastpass-cli
+  - parallel
   - pass
   - peco
-  - parallel
+  - prettier
   - ripgrep
   - telnet
   - tmux
