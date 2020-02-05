@@ -165,7 +165,6 @@ zsh_plugins:
   #- rsync
   #- screen
   #- ssh-agent
-  #- terraform
   #- themes
   #- tmux
   #- tmux-cssh
