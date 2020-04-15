@@ -11,8 +11,8 @@ windows:
     start_directory: ~/src/DeloitteHux/NGAnsible/
     panes:
       - shell_command:
-        - source ~/venv/ansible/bin/activate
         - gst
+        - unset PYENV_VERSION
   - window_name: Terraform
     start_directory: ~/src/DeloitteHux/NGTErraform
     panes:
@@ -22,8 +22,8 @@ windows:
     start_directory: ~/src/nicolas-g/dotfiles
     panes:
       - shell_command:
-        - source ~/venv/dotfiles/bin/activate
         - gst
+        - unset PYENV_VERSION
   - window_name: Notes
     start_directory: ~/src/nicolas-g/cheat-sheet
     panes:
@@ -33,8 +33,8 @@ windows:
     start_directory: ~/src/DeloitteHux/Ansible-k8s
     panes:
       - shell_command:
-        - source ~/venv/ansible2.9/bin/activate
         - gst
+        - unset PYENV_VERSION
   - window_name: Music
     shell_command_before: pianobar
     focus: true

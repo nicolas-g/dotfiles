@@ -95,12 +95,16 @@ source ~/.functions
 
 # k8s krew plugin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+export PATH="$(consolidate-path "$PATH")"
 
 GPG_TTY=$(tty)
 export GPG_TTY
 
 source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 ### Ansible Hashicrop Vault ###
 autoload -U +X bashcompinit && bashcompinit

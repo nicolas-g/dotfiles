@@ -35,7 +35,7 @@ alias kctx="kubectx"
 alias kns="kubens"
 
 ### Nifty extras
-alias ng_tmux_devops='source ~/venv/dotfiles/bin/activate; tmux attach -t DevOps || tmuxp load ~/.tmux/devops_session.yml'
+alias ng_tmux_devops='tmux attach -t DevOps || tmuxp load ~/.tmux/devops_session.yml'
 alias ng_pyservethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
 ### Hashicorp Vault
@@ -63,6 +63,7 @@ alias ga='git add'
 alias gb='git branch'
 alias gba='git branch -a'
 alias gc='git commit -v'
+alias gcnv='git commit --no-verify'
 alias gco='git checkout'
 alias gd='git diff'
 alias gdm='git diff master'

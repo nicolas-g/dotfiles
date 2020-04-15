@@ -41,4 +41,15 @@
        dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
        force: yes
 
+  # Removes Tmux duplicates from PATH
+  # https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
+  # https://coderwall.com/p/4l16zq/pyenv-inside-tmux-with-zsh-on-a-mac
+  - name: zsh | Deploy consolidate-path
+    copy:
+      src: "consolidate-path.sh"
+      dest: /usr/local/bin/consolidate-path
+      mode: 0755
+      owner: "{{ user }}"
+      group: "{{ group }}"
+
   tags: zsh
