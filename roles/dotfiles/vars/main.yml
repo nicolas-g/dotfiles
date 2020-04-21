@@ -53,6 +53,7 @@ homebrew_packages:
   - googler
   - htop
   - links
+  - lftp
   - youtube-dl
   - mtr
   - nmap
@@ -102,6 +103,7 @@ homebrew_cask_packages:
   - cheatsheet
   - whatsapp
   - mpv
+  - microsoft-azure-storage-explorer
   - remote-desktop-manager
   - santa # binary whitelisting/blacklisting system for macOS
   - selfcontrol # avoid distracting websites
