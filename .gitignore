@@ -4,3 +4,6 @@
 
 # vim
 [._]*.swp
+
+# Python pyenv
+.python-version
