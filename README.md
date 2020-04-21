@@ -1,5 +1,4 @@
-My Dotfiles Project
-===================
+# My Dotfiles Project
 A never ending project..
 
 I"m using Ansible in order to setup my local dev machine and manage my dot files as for example:
@@ -59,39 +58,13 @@ roles/dotfiles
     └── main.yml
 ```
 
-## Instalation
-Run the bellow script to install Homebrew and setup the python virtual environment so you can run Ansible
-```bash
-# Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brew doctor
-brew update
-
-# Install python
-brew install python
-
-# Install virtualenv
-pip3 install virtualenv
-
-# Crete virtualenv project folder
-mkdir ~/venv
-virtualenv ~/venv/dotfiles
-source ~/venv/dotfiles/bin/activate
-
-# Create source projects folder
-mkdir ~/src
-cd ~/src
-
-# Clone this repo
-git clone https://github.com/nicolas-g/dotfiles
-cd dotfiles
-
-# Install requirements
-pip install -r requirements.txt
-
-brew install lastpass-cli
-echo "lpass login {{ USER_NAME }}"
+## Installation requirements
+Run
 ```
+run_me_first.sh
+```
+
+## Usage
 
 Now you should be ready to run Ansible
 ```bash
@@ -100,7 +73,42 @@ ansible-playbook dotfiles.yml -v -D
 
 ## Todo
 
-* use pyenv and pip env ? https://hackernoon.com/reaching-python-development-nirvana-bb5692adf30c
+### Local monitoring
+https://github.com/prometheus/node_exporter/issues/610
+
+I am using below command to run a node_export docker container on Mac.
+```
+docker run -d -p 9100:9100 \
+  -v "/proc:/host/proc:ro" \
+  -v "/sys:/host/sys:ro" \
+  -v "/:/rootfs:ro" \
+  --net="host" \
+  quay.io/prometheus/node-exporter \
+    -collector.procfs /host/proc \
+    -collector.sysfs /host/sys \
+    -collector.filesystem.ignored-mount-points "^/(sys|proc|dev|host|etc)($|/)"
+```
+The container can be run but the port number 9100 is not listenning. Is there anything need to be configured on Mac? As I know, Mac doesn't have /proc directory.
+
+Here is the command that worked for me on Docker for Mac:
+
+```
+docker service create --name node \
+ --mode global \
+ --mount type=bind,source=/proc,target=/host/proc \
+ --mount type=bind,source=/sys,target=/host/sys \
+ --mount type=bind,source=/,target=/rootfs \
+ --network prom \
+ prom/node-exporter \
+  --path.procfs /host/proc \
+  --path.sysfs /host/sys \
+  --collector.filesystem.ignored-mount-points "^/(sys|proc|dev|host|etc)($|/)"
+```
+prom is a separately created overlay network.
+
+
+### Others
+
 * zsh auto notify : https://github.com/MichaelAquilina/zsh-auto-notify
 
 Update App Store apps
@@ -164,3 +172,4 @@ b
 * 2F auth
 ** use "g" number
 ** enable master password
+* setup DasKeyboard (https://www.youtube.com/watch?v=St2jUxnCVKI)
