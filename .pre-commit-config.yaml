@@ -2,17 +2,19 @@
 # See https://pre-commit.com/hooks.html for more hooks
 
 repos:
-  # - repo: https://github.com/ansible/ansible-lint.git
-  #   rev: v4.2.0
-  #   hooks:
-  #     - id: ansible-lint
-  #       # always_run: true
-  #       # pass_filenames: false
-  #       # files: \.(yaml|yml)$
-  #       types: [yaml]
-  #       # verbose: true
-  #       entry: env ANSIBLE_LIBRARY=./library ansible-lint --force-color -p
-  #       #entry: ansible-lint
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: v4.2.0
+    hooks:
+      - id: ansible-lint
+        name: ansible-lint-NG
+        # always_run: true
+        pass_filenames: false
+        # files: \.(yaml|yml)$
+        types: [text, yaml]
+        # verbose: true
+        args: [-c, .ansible-lint.yml]
+        #entry: env ANSIBLE_LIBRARY=./library ansible-lint --force-color -p
+        #entry: ansible-lint
 
   # - repo: https://github.com/adrienverge/yamllint.git
   #   rev: v1.20.0
