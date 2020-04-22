@@ -1,43 +1,41 @@
 ---
-
 - block:
+    - set_fact:
+        GCLOUD_ACCOUNT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_ACCOUNT') }}"
+        GCLOUD_PROJECT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_PROJECT') }}"
 
-  - set_fact:
-      GCLOUD_ACCOUNT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_ACCOUNT') }}"
-      GCLOUD_PROJECT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_PROJECT') }}"
+    - name: gcloud | Install gcloud
+      homebrew_cask:
+        name: google-cloud-sdk
+        state: "present"
+      tags: brew_cask_install
 
-  - name: gcloud | Install gcloud
-    homebrew_cask:
-      name: google-cloud-sdk
-      state: "present"
-    tags: brew_cask_install
+    - name: gcloud | Create {{ home_dir }}/.config/gcloud dir
+      file:
+        path: "{{ home_dir }}/.config/{{ item }}"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop:
+        - "gcloud"
+        - "gcloud/configurations"
+        - "gcloud/credentials"
 
-  - name: gcloud | Create {{ home_dir }}/.config/gcloud dir
-    file:
-      path: "{{ home_dir }}/.config/{{ item }}"
-      state: directory
-      mode: 0755
-      owner: "{{ user }}"
-      group: "{{ group }}"
-    loop:
-      - "gcloud"
-      - "gcloud/configurations"
-      - "gcloud/credentials"
+    - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_default
+      template:
+        src: gcloud_config.j2
+        dest: "{{ home_dir }}/.config/gcloud/configurations/config_default"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
-  - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_default
-    template:
-      src: gcloud_config.j2
-      dest: "{{ home_dir }}/.config/gcloud/configurations/config_default"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
-  - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/credentials/
-    copy:
-      src: hux402gcpdev-1927c8baca0c.json
-      dest: "{{ home_dir }}/.config/gcloud/credentials/"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
+    - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/credentials/
+      copy:
+        src: hux402gcpdev-1927c8baca0c.json
+        dest: "{{ home_dir }}/.config/gcloud/credentials/"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
   tags: gcloud

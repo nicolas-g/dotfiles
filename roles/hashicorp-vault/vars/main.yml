@@ -5,8 +5,8 @@
 
 vault_version: "1.2.2"
 
-vault_addr_env : 127.0.0.1
-vault_port : 8200
+vault_addr_env: 127.0.0.1
+vault_port: 8200
 vault_web_protocol: "http"
 
 vault_config_dir: "/keybase/private/nicolasg7/hvault"
@@ -34,8 +34,10 @@ auth_backends_list:
   - "userpass"
 
 vault_audit_backend_list:
-  -  { name: 'file', options: 'file_path=/keybase/private/nicolasg7/hvault/log/audit.log' }
-
+  - {
+      name: "file",
+      options: "file_path=/keybase/private/nicolasg7/hvault/log/audit.log",
+    }
 # vault_github_organization: "Magnetic"
 # vault_github_organization_team:
 #   - { team_name: 'Admins', vault_policy: 'admins' }

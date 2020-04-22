@@ -1,18 +1,16 @@
 ---
-
 - block:
+    #https://github.com/kubernetes-sigs/krew
 
-  #https://github.com/kubernetes-sigs/krew
+    - name: krew | Deploy krew install script
+      copy:
+        src: krew_installer.sh
+        dest: /tmp/krew_installer.sh
+        mode: 0755
 
-  - name: krew | Deploy krew install script
-    copy:
-      src: krew_installer.sh
-      dest: /tmp/krew_installer.sh
-      mode: 0755
-
-  - name: krew | Run k8s krew_installer.sh
-    shell: /tmp/krew_installer.sh
-    args:
-      creates: ~/.krew/bin/kubectl-krew
+    - name: krew | Run k8s krew_installer.sh
+      shell: /tmp/krew_installer.sh
+      args:
+        creates: ~/.krew/bin/kubectl-krew
 
   tags: krew

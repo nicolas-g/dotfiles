@@ -1,62 +1,60 @@
 ---
-
 - block:
+    - name: configs | Create {{ home_dir }}/.config dir
+      file:
+        path: "{{ home_dir }}/.config"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
-  - name: configs | Create {{ home_dir }}/.config dir
-    file:
-      path: "{{ home_dir }}/.config"
-      state: directory
-      mode: 0755
-      owner: "{{ user }}"
-      group: "{{ group }}"
+    - name: configs | Deploy {{ home_dir }}/.aliases
+      template:
+        src: aliases.j2
+        dest: "{{ home_dir }}/.aliases"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: aliases
 
-  - name: configs | Deploy {{ home_dir }}/.aliases
-    template:
-      src: aliases.j2
-      dest: "{{ home_dir }}/.aliases"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-    tags: aliases
+    - name: configs | Deploy {{ home_dir }}/.functions
+      copy:
+        src: functions
+        dest: "{{ home_dir }}/.functions"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: functions
 
-  - name: configs | Deploy {{ home_dir }}/.functions
-    copy:
-      src: functions
-      dest: "{{ home_dir }}/.functions"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-    tags: functions
+    - set_fact:
+        NS1_APIKEY: "{{ lookup('lastpass', 'dotfiles/NS1_APIKEY') }}"
+        DATADOG_API_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_API_KEY') }}"
+        DATADOG_APP_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_APP_KEY') }}"
 
-  - set_fact:
-      NS1_APIKEY: "{{ lookup('lastpass', 'dotfiles/NS1_APIKEY') }}"
-      DATADOG_API_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_API_KEY') }}"
-      DATADOG_APP_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_APP_KEY') }}"
+    - name: configs | Deploy {{ home_dir }}/.env
+      template:
+        src: env.j2
+        dest: "{{ home_dir }}/.env"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: env
 
-  - name: configs | Deploy {{ home_dir }}/.env
-    template:
-      src: env.j2
-      dest: "{{ home_dir }}/.env"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-    tags: env
+    - name: configs | Deploy {{ home_dir }}/.bashrc
+      copy:
+        src: bashrc
+        dest: "{{ home_dir }}/.bashrc"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
-  - name: configs | Deploy {{ home_dir }}/.bashrc
-    copy:
-      src: bashrc
-      dest: "{{ home_dir }}/.bashrc"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
-  - name: configs | Deploy {{ home_dir }}/.gitconfig
-    template:
-      src: gitconfig.j2
-      dest: "{{ home_dir }}/.gitconfig"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-    tags: git
+    - name: configs | Deploy {{ home_dir }}/.gitconfig
+      template:
+        src: gitconfig.j2
+        dest: "{{ home_dir }}/.gitconfig"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: git
 
   tags: configs

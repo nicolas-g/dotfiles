@@ -1,62 +1,60 @@
 ---
-
 - block:
+    - name: hv-cmd | Read Vault RootKey
+      command: "cat {{ vault_keys_dir }}/rootkey"
+      register: rootkey
+      changed_when: false
 
-  - name: hv-cmd | Read Vault RootKey
-    command: "cat {{ vault_keys_dir }}/rootkey"
-    register: rootkey
-    changed_when: false
+    - name: hv-cmd | Enable Vault auth backends
+      hashivault_auth_method:
+        method_type: "{{ item }}"
+      loop: "{{ auth_backends_list }}"
+      register: vault_auth_enable
 
-  - name: hv-cmd | Enable Vault auth backends
-    hashivault_auth_method:
-      method_type: "{{ item }}"
-    loop: "{{ auth_backends_list }}"
-    register: 'vault_auth_enable'
+    - name: hv-cmd | Get existing Vault auth backends
+      hashivault_auth_list:
+      changed_when: false
+      register: "current_vault_auth_backends_list"
 
-  - name: hv-cmd | Get existing Vault auth backends
-    hashivault_auth_list:
-    changed_when: false
-    register: 'current_vault_auth_backends_list'
+    - name: hv-cmd | Display existing Vault auth backends
+      debug:
+        var: "{{ item }}"
+        verbosity: 2
+      with_items: "current_vault_auth_backends_list"
 
-  - name: hv-cmd | Display existing Vault auth backends
-    debug:
-      var: "{{ item }}"
-      verbosity: 2
-    with_items: 'current_vault_auth_backends_list'
+    - name: hv-cmd | Get existing Vault audit list
+      hashivault_audit_list:
+      changed_when: False
+      register: "vault_audit_list"
 
-  - name: hv-cmd | Get existing Vault audit list
-    hashivault_audit_list:
-    changed_when: False
-    register: 'vault_audit_list'
+    - name: hv-cmd | Enable Vault audit backend
+      hashivault_audit_enable:
+        name: "{{ item.name }}"
+        options: "{{ item.options }}"
+      register: "vault_audit_enable"
+      loop: "{{ vault_audit_backend_list }}"
 
-  - name: hv-cmd | Enable Vault audit backend
-    hashivault_audit_enable:
-      name: "{{ item.name }}"
-      options: "{{ item.options }}"
-    register: 'vault_audit_enable'
-    loop: "{{ vault_audit_backend_list }}"
+    - name: hv-cmd | Get existing Vault secrets list
+      hashivault_secret_list:
+      register: "hashivault_secret_list"
 
-  - name: hv-cmd | Get existing Vault secrets list
-    hashivault_secret_list:
-    register: 'hashivault_secret_list'
+    - name: hv-cmd | Debug hashivault_secret_list
+      debug:
+        var: hashivault_secret_list
+        verbosity: 2
 
-  - name: hv-cmd | Debug hashivault_secret_list
-    debug:
-      var: hashivault_secret_list
-      verbosity: 2
+    - name: hv-cmd | Enable Vault secret engines
+      hashivault_secret_enable:
+        name: "{{ item }}"
+        backend: "{{ item }}"
+      loop: "{{ vault_secret_engines_list_enabled }}"
 
-  - name: hv-cmd | Enable Vault secret engines
-    hashivault_secret_enable:
-      name: "{{ item }}"
-      backend: "{{ item }}"
-    loop: "{{ vault_secret_engines_list_enabled }}"
+    - name: debug vault_userpass_create
+      debug:
+        var: vault_userpass_create
+        verbosity: 2
 
-  - name: debug vault_userpass_create
-    debug:
-      var: vault_userpass_create
-      verbosity: 2
-
-    environment:
-      VAULT_TOKEN: "{{ rootkey.stdout }}"
+      environment:
+        VAULT_TOKEN: "{{ rootkey.stdout }}"
 
   tags: hv-cmd

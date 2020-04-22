@@ -1,5 +1,4 @@
 ---
-
 - name: Include check-prereqs.yml
   include: check-prereqs.yml
 
@@ -56,4 +55,3 @@
 
 - name: Include codefresh.yml
   include: codefresh.yml
-

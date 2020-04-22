@@ -1,24 +1,22 @@
 ---
-
 - block:
+    - name: python | Install pyenv
+      homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - "pyenv"
+        - "pyenv-virtualenv"
+        - "pyenv-virtualenvwrapper"
 
-  - name: python | Install pyenv
-    homebrew:
-      name: '{{ item }}'
-      state: 'present'
-    loop:
-      - 'pyenv'
-      - 'pyenv-virtualenv'
-      - 'pyenv-virtualenvwrapper'
+    - name: python | pyenv install python if it's not aleready installed
+      shell: "pyenv install -s 3.7.6"
+      args:
+        chdir: "{{ home_dir }}"
 
-  - name: python | pyenv install python if it's not aleready installed
-    shell: "pyenv install -s 3.7.6"
-    args:
-      chdir: "{{ home_dir }}"
-
-  - name: python | pyenv set python global version
-    shell: "pyenv global 3.7.6"
-    args:
-      chdir: "{{ home_dir }}"
+    - name: python | pyenv set python global version
+      shell: "pyenv global 3.7.6"
+      args:
+        chdir: "{{ home_dir }}"
 
   tags: python

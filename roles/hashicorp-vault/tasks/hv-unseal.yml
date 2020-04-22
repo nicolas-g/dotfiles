@@ -1,28 +1,25 @@
 ---
-
 - block:
+    - name: hvault-unseal | Get Vault status
+      hashivault_status:
+      register: "vault_status"
 
-  - name: hvault-unseal | Get Vault status
-    hashivault_status:
-    register: 'vault_status'
+    - when: "vault_status.status.sealed == True and vault_status.status.initialized == True"
+      block:
+        - name: hv-unseal | Read Unseal Keys
+          command: cat {{ item }}
+          register: unseal_keys
+          with_fileglob: "{{ vault_keys_dir }}/unseal_key_*"
 
-  - when: "vault_status.status.sealed == True and vault_status.status.initialized == True"
-    block:
+        - name: hv-unseal | Display Unseal Keys values
+          debug:
+            msg: "{{ item.stdout }}"
+            verbosity: 2
+          loop: "{{ unseal_keys.results }}"
 
-      - name: hv-unseal | Read Unseal Keys
-        command: cat {{ item }}
-        register: unseal_keys
-        with_fileglob: "{{ vault_keys_dir }}/unseal_key_*"
-
-      - name: hv-unseal | Display Unseal Keys values
-        debug:
-          msg: "{{ item.stdout }}"
-          verbosity: 2
-        loop: "{{ unseal_keys.results }}"
-
-      - name: hv-unseal | Unseal Vault
-        hashivault_unseal:
-          keys: "{{ item.stdout }}"
-        loop: "{{ unseal_keys.results }}"
+        - name: hv-unseal | Unseal Vault
+          hashivault_unseal:
+            keys: "{{ item.stdout }}"
+          loop: "{{ unseal_keys.results }}"
 
   tags: hv-unseal

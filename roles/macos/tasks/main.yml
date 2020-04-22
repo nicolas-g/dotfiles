@@ -1,20 +1,18 @@
 ---
-
 - block:
+    - name: Ensuring Xcode Command Lines Tools are installed
+      shell: xcode-select -p
+      changed_when: false
+      register: "check_xcode_command_line_tools"
 
-  - name: Ensuring Xcode Command Lines Tools are installed
-    shell: xcode-select -p
-    changed_when: false
-    register: "check_xcode_command_line_tools"
+    - name: Installing Xcode Command Line Tools
+      command: "xcode-select --install"
+      when: check_xcode_command_line_tools is not defined
 
-  - name: Installing Xcode Command Line Tools
-    command: "xcode-select --install"
-    when: check_xcode_command_line_tools is not defined
+    - name: Include macos-defaults.yml
+      include: macos-defaults.yml
 
-  - name: Include macos-defaults.yml
-    include: macos-defaults.yml
-
-  - name: Include macos-dock
-    include: macos-dock.yml
+    - name: Include macos-dock
+      include: macos-dock.yml
 
   tags: macos

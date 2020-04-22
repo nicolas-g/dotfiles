@@ -1,29 +1,27 @@
 ---
-
 - block:
+    - name: cron | Backup shell history
+      cron:
+        name: "Backup Shell history"
+        minute: "0"
+        hour: "13"
+        job: "sudo /usr/local/bin/ng_backup_history.sh"
 
-  - name: cron | Backup shell history
-    cron:
-      name: "Backup Shell history"
-      minute: "0"
-      hour: "13"
-      job: "sudo /usr/local/bin/ng_backup_history.sh"
-
-  - name: cron | Disable {{ item | basename }} launchctl services
-    cron:
-      name: "Disable {{ item | basename }}"
-      minute: "*/15"
-      hour: "*"
-      job: "/bin/launchctl unload {{ item }}"
-    become: yes
-    become_method: sudo
-    loop:
-      - "/Library/LaunchDaemons/com.netskope.stagentsvc.plist" # Netskope
-      - "/Library/LaunchDaemons/com.microsoft.*"
-      - "/Library/LaunchDaemons/com.avecto.*" # BeyondTrust PAM
-      - "/Library/LaunchDaemons/com.adobe.*"
-      - "/Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist" # Cisco Umbrella Roaming Client
-      - "/Library/LaunchDaemons/com.netskope.stagentsvc.plist" # Netskope
-      - "/Library/LaunchDaemons/com.cylance.cyoptics_service.plist" # Cylance
+    - name: cron | Disable {{ item | basename }} launchctl services
+      cron:
+        name: "Disable {{ item | basename }}"
+        minute: "*/15"
+        hour: "*"
+        job: "/bin/launchctl unload {{ item }}"
+      become: yes
+      become_method: sudo
+      loop:
+        - "/Library/LaunchDaemons/com.netskope.stagentsvc.plist" # Netskope
+        - "/Library/LaunchDaemons/com.microsoft.*"
+        - "/Library/LaunchDaemons/com.avecto.*" # BeyondTrust PAM
+        - "/Library/LaunchDaemons/com.adobe.*"
+        - "/Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist" # Cisco Umbrella Roaming Client
+        - "/Library/LaunchDaemons/com.netskope.stagentsvc.plist" # Netskope
+        - "/Library/LaunchDaemons/com.cylance.cyoptics_service.plist" # Cylance
 
   tags: cron

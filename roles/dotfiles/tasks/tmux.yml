@@ -1,37 +1,35 @@
 ---
-
 - block:
+    - name: tmux | Create {{ home_dir }}/.tmux dir
+      file:
+        path: "{{ home_dir }}/.tmux"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
-  - name: tmux | Create {{ home_dir }}/.tmux dir
-    file:
-      path: "{{ home_dir }}/.tmux"
-      state: directory
-      mode: 0755
-      owner: "{{ user }}"
-      group: "{{ group }}"
+    - name: tmux | Deploy {{ home_dir }}/.tmux.conf
+      copy:
+        src: tmux.conf
+        dest: "{{ home_dir }}/.tmux.conf"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
-  - name: tmux | Deploy {{ home_dir }}/.tmux.conf
-    copy:
-      src: tmux.conf
-      dest: "{{ home_dir }}/.tmux.conf"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
+    - name: tmux | Deploy {{ home_dir }}/.tmux/tmux-macos.conf
+      copy:
+        src: tmux-macos.conf
+        dest: "{{ home_dir }}/.tmux/tmux-macos.conf"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
-  - name: tmux | Deploy {{ home_dir }}/.tmux/tmux-macos.conf
-    copy:
-      src: tmux-macos.conf
-      dest: "{{ home_dir }}/.tmux/tmux-macos.conf"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
-  - name: tmux | Deploy {{ home_dir }}/.tmux/devops_session.yml
-    copy:
-      src: tmux_devops_session.yml
-      dest: "{{ home_dir }}/.tmux/devops_session.yml"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
+    - name: tmux | Deploy {{ home_dir }}/.tmux/devops_session.yml
+      copy:
+        src: tmux_devops_session.yml
+        dest: "{{ home_dir }}/.tmux/devops_session.yml"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
   tags: tmux

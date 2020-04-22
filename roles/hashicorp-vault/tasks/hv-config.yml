@@ -1,23 +1,21 @@
 ---
-
 - block:
+    - name: hv-config | Create Vault directories
+      file:
+        state: directory
+        path: "{{ item }}"
+        mode: 0700
+      loop:
+        - "{{ vault_logs_dir }}"
+        - "{{ vault_data_dir }}"
+        - "{{ vault_config_dir }}"
+        - "{{ vault_keys_dir }}"
 
-  - name: hv-config | Create Vault directories
-    file:
-      state: directory
-      path: "{{ item }}"
-      mode: 0700
-    loop:
-      - "{{ vault_logs_dir }}"
-      - "{{ vault_data_dir }}"
-      - "{{ vault_config_dir }}"
-      - "{{ vault_keys_dir }}"
-
-  - name: hv-config | Deploy vault config file
-    template:
-      src: "hvault_config.hcl.j2"
-      dest: "{{ vault_config_dir }}/config.hcl"
-      mode: 0640
+    - name: hv-config | Deploy vault config file
+      template:
+        src: "hvault_config.hcl.j2"
+        dest: "{{ vault_config_dir }}/config.hcl"
+        mode: 0640
 
   # - name: hv-config | set environment variables for Vault
   #   copy:
@@ -27,7 +25,7 @@
   #     group: root
   #     mode: 644
 
-    # result from running `vault -autocomplete-install`
+  # result from running `vault -autocomplete-install`
   # - name: Insert/Update Vault shell autocomplete
   #   blockinfile:
   #     path: ~/.zshrc

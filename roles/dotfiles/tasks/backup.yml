@@ -1,21 +1,19 @@
 ---
-
 - block:
+    - name: backup | Deploy backup scripts
+      copy:
+        src: "{{ item }}"
+        dest: /usr/local/bin/{{ item }}
+        mode: 0755
+      loop:
+        - "ng_backup_all.sh"
+        - "ng_backup_history.sh"
 
-  - name: backup | Deploy backup scripts
-    copy:
-      src: "{{ item }}"
-      dest: /usr/local/bin/{{ item }}
-      mode: 0755
-    loop:
-      - "ng_backup_all.sh"
-      - "ng_backup_history.sh"
-
-  - name: backup | Cron to backup shell history
-    cron:
-      name: "Backup Shell history"
-      minute: "0"
-      hour: "13"
-      job: "sudo /usr/local/bin/ng_backup_history.sh"
+    - name: backup | Cron to backup shell history
+      cron:
+        name: "Backup Shell history"
+        minute: "0"
+        hour: "13"
+        job: "sudo /usr/local/bin/ng_backup_history.sh"
 
   tags: backup

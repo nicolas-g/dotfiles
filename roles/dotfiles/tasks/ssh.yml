@@ -1,25 +1,23 @@
 ---
-
 - block:
+    - name: ssh | Create ssh dirs
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      with_items:
+        - "{{ home_dir }}/.ssh"
+        - "{{ home_dir }}/.ssh/config.d"
+        - "{{ home_dir }}/.ssh/sockets"
 
-  - name: ssh | Create ssh dirs
-    file:
-      path: "{{ item }}"
-      state: directory
-      mode: 0700
-      owner: "{{ user }}"
-      group: "{{ group }}"
-    with_items:
-      - "{{ home_dir }}/.ssh"
-      - "{{ home_dir }}/.ssh/config.d"
-      - "{{ home_dir }}/.ssh/sockets"
-
-  - name: ssh | Deploy {{ home_dir }}/.ssh/config
-    template:
-      src: ssh_config.j2
-      dest: "{{ home_dir }}/.ssh/config"
-      mode: 0600
-      owner: "{{ user }}"
-      group: "{{ group }}"
+    - name: ssh | Deploy {{ home_dir }}/.ssh/config
+      template:
+        src: ssh_config.j2
+        dest: "{{ home_dir }}/.ssh/config"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
   tags: ssh

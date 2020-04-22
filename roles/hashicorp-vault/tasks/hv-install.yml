@@ -1,58 +1,56 @@
 ---
-
 - block:
+    - name: check-prereqs | Collect only facts returned by facter
+      setup:
+        gather_subset:
+          - "!all"
+          - "!any"
+          - facter
 
-  - name: check-prereqs | Collect only facts returned by facter
-    setup:
-      gather_subset:
-        - '!all'
-        - '!any'
-        - facter
+    - name: hv-install | Download Vault package checksum file
+      get_url:
+        url: "{{ vault_checksum_file_url }}"
+        dest: "{{ vault_download_dir }}"
 
-  - name: hv-install | Download Vault package checksum file
-    get_url:
-      url: "{{ vault_checksum_file_url }}"
-      dest: "{{ vault_download_dir }}"
+    - name: hv-install | Extract checksum value
+      shell: >
+        grep {{ ansible_system | lower }} {{ vault_download_dir }}/{{ vault_checksum_file }} | grep 64 | cut -f1 -d' '
+      register: vault_checksum_value
+      changed_when: "vault_checksum_value.rc != 0"
 
-  - name: hv-install | Extract checksum value
-    shell: >
-      grep {{ ansible_system | lower }} {{ vault_download_dir }}/{{ vault_checksum_file }} | grep 64 | cut -f1 -d' '
-    register: vault_checksum_value
-    changed_when: "vault_checksum_value.rc != 0"
+    - name: hv-install | Download Vault package
+      get_url:
+        url: "{{ vault_pkg_url }}"
+        dest: "{{ vault_download_dir }}"
+        sha256sum: "{{ vault_checksum_value.stdout }}"
 
-  - name: hv-install | Download Vault package
-    get_url:
-      url: "{{ vault_pkg_url }}"
-      dest: "{{ vault_download_dir }}"
-      sha256sum: "{{ vault_checksum_value.stdout }}"
+    - name: hv-install | Unarchive Vault package
+      unarchive:
+        src: "{{ vault_download_dir }}/vault_{{ vault_version }}_{{ ansible_system }}_amd64.zip"
+        dest: "{{ vault_install_dir }}/"
+        remote_src: yes
+        mode: 0755
 
-  - name: hv-install | Unarchive Vault package
-    unarchive:
-      src: "{{ vault_download_dir }}/vault_{{ vault_version }}_{{ ansible_system }}_amd64.zip"
-      dest: "{{ vault_install_dir }}/"
-      remote_src: yes
-      mode: 0755
+    - block:
+        - name: hv-install | Check Vault mlock capability
+          command: "setcap -v cap_ipc_lock=+ep {{ vault_install_dir }}/vault"
+          changed_when: false
+          register: vault_mlock_capability
+          failed_when: "'differs in [pe]' not in vault_mlock_capability.stdout and 'OK' not in vault_mlock_capability.stdout"
 
-  - block:
-    - name: hv-install | Check Vault mlock capability
-      command: "setcap -v cap_ipc_lock=+ep {{ vault_install_dir }}/vault"
-      changed_when: false
-      register: vault_mlock_capability
-      failed_when: "'differs in [pe]' not in vault_mlock_capability.stdout and 'OK' not in vault_mlock_capability.stdout"
+        - name: hv-install | Activate non root mlock capability if not enabled already
+          command: "setcap cap_ipc_lock=+ep {{ vault_install_dir }}/vault"
+          when: "'differs in [pe]' in vault_mlock_capability.stdout"
+      when: ansible_os_family != 'Darwin' and ansible_os_family != 'Windows'
 
-    - name: hv-install | Activate non root mlock capability if not enabled already
-      command: "setcap cap_ipc_lock=+ep {{ vault_install_dir }}/vault"
-      when: "'differs in [pe]' in vault_mlock_capability.stdout"
-    when: ansible_os_family != 'Darwin' and ansible_os_family != 'Windows'
-
-  - name: hv-install | Cleanup files
-    file:
-      path: "{{ item }}"
-      state: "absent"
-    loop:
-      - "{{ vault_download_dir }}/vault_{{ vault_version }}_{{ ansible_system }}_amd64.zip"
-      - "{{ vault_download_dir }}/{{ vault_checksum_file }}"
-    when: vault_files_cleanup | d() | bool
+    - name: hv-install | Cleanup files
+      file:
+        path: "{{ item }}"
+        state: "absent"
+      loop:
+        - "{{ vault_download_dir }}/vault_{{ vault_version }}_{{ ansible_system }}_amd64.zip"
+        - "{{ vault_download_dir }}/{{ vault_checksum_file }}"
+      when: vault_files_cleanup | d() | bool
 
   tags:
     - hv-install

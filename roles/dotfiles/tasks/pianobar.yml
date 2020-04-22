@@ -1,25 +1,23 @@
 ---
-
 - block:
+    - set_fact:
+        PANDORA_USER_NAME: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_NAME') }}"
+        PANDORA_USER_PASSWORD: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_PASSWORD') }}"
 
-  - set_fact:
-      PANDORA_USER_NAME: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_NAME') }}"
-      PANDORA_USER_PASSWORD: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_PASSWORD') }}"
+    - name: pianobar | Create {{ home_dir }}/.config/pianobar dir
+      file:
+        path: "{{ home_dir }}/.config/pianobar"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
-  - name: pianobar | Create {{ home_dir }}/.config/pianobar dir
-    file:
-      path: "{{ home_dir }}/.config/pianobar"
-      state: directory
-      mode: 0755
-      owner: "{{ user }}"
-      group: "{{ group }}"
-
-  - name: pianobar | Deploy {{ home_dir }}/.config/pianobar/config
-    template:
-      src: pianobar_connfig.j2
-      dest: "{{ home_dir }}/.config/pianobar/config"
-      mode: 0644
-      owner: "{{ user }}"
-      group: "{{ group }}"
+    - name: pianobar | Deploy {{ home_dir }}/.config/pianobar/config
+      template:
+        src: pianobar_connfig.j2
+        dest: "{{ home_dir }}/.config/pianobar/config"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
   tags: pianobar
