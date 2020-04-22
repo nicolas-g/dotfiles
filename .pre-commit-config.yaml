@@ -2,19 +2,55 @@
 # See https://pre-commit.com/hooks.html for more hooks
 
 repos:
+  # Ansible lint roles
+  - repo: https://github.com/zerodowntime/ansible-lint-roles-precommit-hook.git
+    rev: v1.0.0
+    hooks:
+      - id: ansible-lint-roles
+        files: /tasks/ # reflects tasks
+        exclude: (roles.d) # I have own roles in `roles` dir and 3rd-party roles in `roles.d`
+        args: [-c, .ansible-lint.yml]
+        stages: [commit]
+
+  # Ansible lint playbooks
   - repo: https://github.com/ansible/ansible-lint.git
     rev: v4.2.0
     hooks:
       - id: ansible-lint
-        name: ansible-lint-NG
-        # always_run: true
-        pass_filenames: false
-        # files: \.(yaml|yml)$
-        types: [text, yaml]
-        # verbose: true
+        name: Ansible lint for playbooks
+        types: [text, yaml] # reflects yaml changes
+        files: /playbooks/ # we have all playbooks in 1 dir so we can contrain its path
         args: [-c, .ansible-lint.yml]
-        #entry: env ANSIBLE_LIBRARY=./library ansible-lint --force-color -p
-        #entry: ansible-lint
+        pass_filenames: true
+        always_run: false
+        stages: [manual] # I have it manually because in playbooks I use `lookup env pwd` which breaks my paths
+
+  # Ansible lint inventory
+  - repo: https://github.com/ansible/ansible-lint.git
+    rev: v4.2.0
+    hooks:
+      - id: ansible-lint
+        name: Ansible lint for inventory
+        types: [text, yaml] # reflects yaml changes
+        files: /inventory/
+        exclude: vault
+        args: [-c, .ansible-lint.yml]
+        pass_filenames: true
+        stages: [commit]
+
+  # - repo: https://github.com/ansible/ansible-lint.git
+  #   rev: v4.2.0
+  #   hooks:
+  #     - id: ansible-lint
+  #       name: ansible-lint-NG
+  #       # always_run: true
+  #       pass_filenames: false
+  #       # files: \.(yaml|yml)$
+  #       types: [text, yaml]
+  #       # verbose: true
+  #       args: [-c, .ansible-lint.yml]
+  #       #entry: env ANSIBLE_LIBRARY=./library ansible-lint --force-color -p
+  #       #entry: ansible-lint
 
   # - repo: https://github.com/adrienverge/yamllint.git
   #   rev: v1.20.0
