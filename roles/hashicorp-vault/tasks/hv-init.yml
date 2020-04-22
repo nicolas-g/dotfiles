@@ -4,7 +4,7 @@
       hashivault_status:
       register: "vault_status"
 
-    - when: "vault_status.status.initialized == False"
+    - when: not vault_status.status.initialized
       block:
         - name: hv-init | Vault init
           hashivault_init:

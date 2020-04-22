@@ -23,7 +23,8 @@ repos:
         args: [-c, .ansible-lint.yml]
         pass_filenames: true
         always_run: false
-        stages: [manual] # I have it manually because in playbooks I use `lookup env pwd` which breaks my paths
+        #stages: [manual] # I have it manually because in playbooks I use `lookup env pwd` which breaks my paths
+        stages: [commit]
 
   # Ansible lint inventory
   - repo: https://github.com/ansible/ansible-lint.git

@@ -1,6 +1,6 @@
 ---
 - block:
-    - name: hv-cmd | Read Vault RootKey
+    - name: hv-cmd | Read Vault rootkey
       command: "cat {{ vault_keys_dir }}/rootkey"
       register: rootkey
       changed_when: false
@@ -14,13 +14,13 @@
     - name: hv-cmd | Get existing Vault auth backends
       hashivault_auth_list:
       changed_when: false
-      register: "current_vault_auth_backends_list"
+      register: current_vault_auth_backends_list
 
     - name: hv-cmd | Display existing Vault auth backends
       debug:
         var: "{{ item }}"
         verbosity: 2
-      with_items: "current_vault_auth_backends_list"
+      with_items: "{{ current_vault_auth_backends_list }}"
 
     - name: hv-cmd | Get existing Vault audit list
       hashivault_audit_list:
