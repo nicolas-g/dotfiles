@@ -6,7 +6,7 @@
         state: "present"
 
     - name: macos-dock | Remove all crap from Dock
-      shell: dockutil --remove '{{ item }}'
+      command: dockutil --remove '{{ item }}'
       ignore_errors: true
       with_items: "{{ dockitems_to_remove }}"
 
@@ -15,7 +15,7 @@
       with_items: "{{ dockitems_to_persist }}"
 
     - name: macos-dock | Fix order
-      shell: dockutil --move '{{ item.name }}' --position {{ item.pos }}
+      command: dockutil --move '{{ item.name }}' --position {{ item.pos }}
       with_items: "{{ dockitems_to_persist }}"
 
   tags: macos-dock
