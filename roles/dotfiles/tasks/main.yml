@@ -11,6 +11,9 @@
 - name: Include dotfiles.yml
   include: dotfiles.yml
 
+- name: Include git.yml
+  include: git.yml
+
 - name: Include vim.yml
   include: vim.yml
 

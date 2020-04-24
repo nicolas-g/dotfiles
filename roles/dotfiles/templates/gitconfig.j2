@@ -4,10 +4,13 @@
 
         # gpg --list-secret-keys --keyid-format LONG
         # sec   rsa4096/6BB79E0176752876
+        #
+        # test by running:
+        # echo "test" | gpg --clearsign
         signingkey = 6BB79E0176752876
 
-        # test by running
-        # echo "test" | gpg --clearsign
+[includeIf "gitdir:src/{{ github_work_organization }}/"]
+    path = ~/src/{{ github_work_organization }}/.gitconfig
 
 [alias]
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -20,3 +23,5 @@
 	gpgsign = true
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg
+[hub]
+	protocol = https

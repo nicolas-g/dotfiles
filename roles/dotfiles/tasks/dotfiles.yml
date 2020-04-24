@@ -48,13 +48,4 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: configs | Deploy {{ home_dir }}/.gitconfig
-      template:
-        src: gitconfig.j2
-        dest: "{{ home_dir }}/.gitconfig"
-        mode: 0644
-        owner: "{{ user }}"
-        group: "{{ group }}"
-      tags: git
-
   tags: configs

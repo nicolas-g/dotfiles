@@ -35,7 +35,7 @@ alias kctx="kubectx"
 alias kns="kubens"
 
 ### Nifty extras
-alias ng_tmux_devops='tmux attach -t DevOps || tmuxp load ~/.tmux/devops_session.yml'
+alias ng_tmux_devops='cd ; tmux attach -t DevOps || tmuxp load ~/.tmux/devops_session.yml'
 alias ng_pyservethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test()'"
 
 ### Hashicorp Vault
@@ -98,5 +98,5 @@ alias vrebuild="vagrant destroy --force && vagrant up"
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 {% endif %}
 
-alias run-terraform="~/src/DeloitteHux/NGTerraform/bin/run-terraform"
-alias terraform-resource-update.sh="~/src/DeloitteHux/NGTerraform/bin/terraform-resource-update.sh"
+alias run-terraform="~/src/{{ github_work_organization }}/NGTerraform/bin/run-terraform"
+alias terraform-resource-update.sh="~/src/{{ github_work_organization }}/NGTerraform/bin/terraform-resource-update.sh"
