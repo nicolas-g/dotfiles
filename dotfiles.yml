@@ -1,6 +1,5 @@
+#!/usr/bin/env ansible-playbook dotfiles.yml -D --check --ask-become-pass --ask-vault-pass
 ---
-# ansible-playbook dotfiles.yml -D -t ansible_conf --ask-vault-pass
-
 - hosts: localhost
   connection: local
   gather_facts: no
