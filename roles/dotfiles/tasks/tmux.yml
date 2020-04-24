@@ -25,8 +25,8 @@
         group: "{{ group }}"
 
     - name: tmux | Deploy {{ home_dir }}/.tmux/devops_session.yml
-      copy:
-        src: tmux_devops_session.yml
+      template:
+        src: tmux_devops_session.yml.j2
         dest: "{{ home_dir }}/.tmux/devops_session.yml"
         mode: 0644
         owner: "{{ user }}"
