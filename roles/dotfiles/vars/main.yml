@@ -6,6 +6,7 @@ homebrew_packages:
   ### Essentials
   - aspell
   - bat
+  - coreutils
   - fzf
   - git
   - gnupg
