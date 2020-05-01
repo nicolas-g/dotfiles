@@ -61,6 +61,7 @@ echo "ssh -R <remote-port>:localhost:<local-port> <jump-host>"'
 alias g=git
 alias ga='git add'
 alias gb='git branch'
+alias gdmb="git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 alias gba='git branch -a'
 alias gc='git commit -v'
 alias gcnv='git commit --no-verify'
