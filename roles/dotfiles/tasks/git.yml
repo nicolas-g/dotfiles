@@ -8,7 +8,6 @@
         owner: "{{ user }}"
         group: "{{ group }}"
       loop:
-        - ".gitconfig/hooks"
         - "src"
         - "src/{{ github_work_organization }}"
 
