@@ -9,6 +9,7 @@ homebrew_packages:
   - coreutils
   - fzf
   - git
+  - git-extras
   - gnupg
   - gnu-sed
   - gnu-tar
@@ -118,6 +119,7 @@ homebrew_cask_packages:
 # Add wisely, as too many plugins slow down shell startup.
 zsh_plugins:
   - git
+  - git-extras
   - git-prompt
   - colored-man-pages
   - colorize
@@ -141,7 +143,6 @@ zsh_plugins:
   #- docker-compose
   #- dotenv
   #- geeknote
-  #- git-extras
   #- git-flow
   #- git-flow-avh
   #- git-hubflow
