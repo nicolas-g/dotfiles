@@ -1,7 +1,4 @@
 ---
-github_name: "Nicolas G."
-github_email: "nicolasg@gmail.com"
-
 homebrew_packages:
   ### Essentials
   - aspell
