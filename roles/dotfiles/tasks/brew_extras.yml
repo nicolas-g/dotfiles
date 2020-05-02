@@ -1,0 +1,38 @@
+---
+- block:
+    - name: brew-extras | Check for brew extas installed formulas
+      shell: brew list | grep {{ item }}
+      register: brew_installed_list
+      with_items:
+        - "{{ homebrew_extras }}"
+      ignore_errors: true
+      check_mode: no
+      tags: brew_install
+
+    - name: brew-extras | Install brew extas missing formulas
+      homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - "{{ homebrew_extras }}"
+      when: item not in brew_installed_list.results|map(attribute='stdout')
+      tags: brew_install
+
+    - name: brew-extras | Check for brew extras installed casks
+      shell: brew cask list | grep {{ item }}
+      register: brew_cask_installed_list
+      loop: "{{ homebrew_cask_extras }}"
+      ignore_errors: true
+      check_mode: no
+      tags: brew_cask_install
+
+    - name: brew-extras | Install brew extas missing casks
+      homebrew_cask:
+        name: "{{ item }}"
+        state: "present"
+      loop: "{{ homebrew_cask_extras }}"
+      when: item not in brew_cask_installed_list.results|map(attribute='stdout')
+      ignore_errors: True # for software that is already installed without homebrew
+      tags: brew_cask_install
+
+  tags: ["brew", "brew-extras", "homebrew", "homebrew-extras"]

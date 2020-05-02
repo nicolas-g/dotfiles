@@ -1,0 +1,38 @@
+---
+- block:
+    - name: brew-essentials | Check for brew essentials installed formulas
+      shell: brew list | grep {{ item }}
+      register: brew_installed_list
+      with_items:
+        - "{{ homebrew_essentials }}"
+      ignore_errors: true
+      check_mode: no
+      tags: brew_install
+
+    - name: brew-essentials | Install brew essentials missing formulas
+      homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - "{{ homebrew_essentials }}"
+      when: item not in brew_installed_list.results|map(attribute='stdout')
+      tags: brew_install
+
+    - name: brew-essentials | Check for brew essentials installed casks
+      shell: brew cask list | grep {{ item }}
+      register: brew_cask_installed_list
+      loop: "{{ homebrew_cask_essentials }}"
+      ignore_errors: true
+      check_mode: no
+      tags: brew_cask_install
+
+    - name: brew-essentials | Install brew essentials missing casks
+      homebrew_cask:
+        name: "{{ item }}"
+        state: "present"
+      loop: "{{ homebrew_cask_essentials }}"
+      when: item not in brew_cask_installed_list.results|map(attribute='stdout')
+      ignore_errors: True # for software that is already installed without homebrew
+      tags: brew_cask_install
+
+  tags: ["brew", "brew-essentials", "homebrew", "homebrew-essentials"]

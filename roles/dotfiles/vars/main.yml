@@ -1,8 +1,5 @@
 ---
-homebrew_packages:
-  ### Essentials
-  - aspell
-  - bat
+homebrew_essentials:
   - coreutils
   - fzf
   - git
@@ -12,19 +9,57 @@ homebrew_packages:
   - gnu-tar
   - gnu-time
   - gnu-which
-  - go
+  - helm
   - lastpass-cli
-  - parallel
-  - pass
-  - peco
+  - kubectx
+  - kubernetes-cli
+  - pre-commit
   - prettier
-  - ripgrep
-  - telnet
   - tmux
   - reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
+  - telnet
   - tree
   - watch
   - wget
+
+homebrew_extras:
+  - aircrack-ng
+  - aspell
+  - bat
+  - datamash
+  - gist
+  - go
+  - googler
+  - htop
+  - hub # Github cli
+  - k3d
+  - kops
+  - kompose
+  - kube-ps1
+  - kustomize
+  - ipcalc
+  - istioctl
+  - jq
+  - yamllint
+  - teleconsole
+  - tldr
+  - figlet
+  - links
+  - lftp
+  - youtube-dl
+  - magic-wormhole
+  - mtr
+  - nmap
+  - pass
+  - parallel
+  - peco
+  - pianobar
+  - prettyping
+  - pwgen
+  - pv
+  - rancher-cli
+  - ripgrep
+  - step
   - zsh
   - zsh-autosuggestions
   - zsh-completions
@@ -33,70 +68,31 @@ homebrew_packages:
   - zsh-lovers
   - zsh-navigation-tools
   - zsh-syntax-highlighting
-  ### Productivity
-  - datamash
-  - hub # Github cli
-  - ipcalc
-  - jq
-  - yamllint
-  - magic-wormhole
-  - teleconsole
-  - tldr
-  - pianobar
-  - pre-commit
-  ### Extras
-  - aircrack-ng
-  - figlet
-  - gist
-  - googler
-  - htop
-  - links
-  - lftp
-  - youtube-dl
-  - mtr
-  - nmap
-  - prettyping
-  - pwgen
-  - pv
-  - step
 
-homebrew_k8s_packages:
-  ### k8s ###
-  - istioctl
-  - kops
-  - kompose
-  - kube-ps1
-  - kubectx
-  - kubernetes-cli
-  - kubernetes-helm
-  - kustomize
-  - rancher-cli
-  - k3d
-
-homebrew_cask_packages:
-  ### Essentials
+homebrew_cask_essentials:
   - 1password
   - alacritty
   - authy
-  - bitbar
   - docker
   - dropbox
+  - google-chrome
+  - gpg-suite
+  - keybase
+  - slack
+
+homebrew_cask_extras:
+  - bitbar
   - caffeine
   - viber
   - google-backup-and-sync
-  - google-chrome
-  - gpg-suite
   - firefox
   - iterm2
-  - keybase
-  - minikube
   - laplock
+  - minikube
   - signal
-  - slack
   - vagrant
   - virtualbox
   - vlc
-  ### Extras
   - cloudapp
   - cheatsheet
   - whatsapp
@@ -108,7 +104,6 @@ homebrew_cask_packages:
   - skitch
   - vagrant-manager
   - veracrypt
-  ### Troubleshooting
   - wireshark
 
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
