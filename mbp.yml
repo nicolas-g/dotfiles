@@ -1,4 +1,4 @@
-#!/usr/bin/env ansible-playbook dotfiles.yml -D --check --ask-become-pass --ask-vault-pass
+#!/usr/bin/env ansible-playbook mbp.yml -D --check --ask-become-pass --ask-vault-pass
 ---
 - hosts: localhost
   connection: local
