@@ -4,14 +4,17 @@
 region = us-east-1
 output = text
 
-[xspdev]
+[profile xspdev]
 region = us-east-1
 
-[xspprod]
+[profile xspprod]
 region = us-east-1
 
-[xspsb]
+[profile xspsb]
 region = us-east-1
 
-[xspstg]
+[profile xspstg]
+region = us-east-1
+
+[profile xsplegacy]
 region = us-east-1

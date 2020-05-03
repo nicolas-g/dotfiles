@@ -17,6 +17,8 @@
         AWSxspstg_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='password') }}"
         AWSxspprod_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='username') }}"
         AWSxspprod_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='password') }}"
+        AWSxsplegacy_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxsplegacy', field='username') }}"
+        AWSxsplegacy_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxsplegacy', field='password') }}"
 
     - name: awscli | Install awscli
       homebrew:
