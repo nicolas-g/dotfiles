@@ -1,4 +1,6 @@
 ---
+ansible_version_role: 2.9.7
+
 homebrew_essentials:
   - coreutils
   - fzf
