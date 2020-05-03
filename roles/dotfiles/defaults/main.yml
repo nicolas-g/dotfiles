@@ -5,4 +5,5 @@ home_dir: "/Users/{{ user }}"
 
 ansible_distribution_role: "MacOSX"
 ansible_distribution_major_versions_role: [10]
+ansible_hardcode_facts: True
 install_packages: False

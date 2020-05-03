@@ -1,11 +1,27 @@
 ---
 - block:
+    # Because facts gathering can take some time and get's annoying if you need to run Ansible often
+    # I have hardcoded the values here when the var `ansible_hardcode_facts` is set to `True`
+    # To get the current Ansible facts run the bellow command:
+    #
+    #   ansible -m setup -a"gather_subset=facter" localhost | egrep "ansible_distribution|ansible_distribution_major_version|ansible_machine|ansible_os_family|ansible_system"
+    #
+    - name: check-prereqs | Hardcode facts
+      set_fact:
+        ansible_distribution: "MacOSX"
+        ansible_distribution_major_version: "10"
+        ansible_machine: "x86_64"
+        ansible_os_family: "Darwin"
+        ansible_system: "Darwin"
+      when: ansible_hardcode_facts | d() | bool
+
     - name: check-prereqs | Collect only facts returned by facter
       setup:
         gather_subset:
           - "!all"
           - "!any"
           - facter
+      when: ansible_hardcode_facts is not defined or ansible_hardcode_facts == False
 
     - name: check-prereqs | Check if Ansible version is supported
       assert:
