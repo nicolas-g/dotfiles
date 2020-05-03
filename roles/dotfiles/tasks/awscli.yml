@@ -22,7 +22,8 @@
       homebrew:
         name: "awscli,aws-iam-authenticator"
         state: "present"
-      tags: brew_install
+      when: install_packages
+      tags: brew
 
     - name: awscli | Deploy {{ home_dir }}/.aws/config
       copy:

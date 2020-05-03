@@ -5,10 +5,11 @@
         name: "{{ item.pkg_name }}"
         state: "present"
         install_options: "{{ item.install_options | default(omit) }}"
+      when: install_packages
       loop:
         - { pkg_name: "tfenv" }
         - { pkg_name: "terragrunt", install_options: "ignore-dependencies" } # terragrunt will try to install Terraform as a dendency and will conflict with tfenv
-      tags: brew_install
+      tags: brew
 
     - name: terraform | Create ~/.tfenv directory
       file:

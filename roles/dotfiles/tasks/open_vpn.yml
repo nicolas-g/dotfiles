@@ -4,7 +4,8 @@
       homebrew_cask:
         name: "tunnelblick"
         state: "present"
-      tags: brew_install
+      when: install_packages
+      tags: brew
 
     - name: openvpn | Create {{ home_dir }}/.ovpn dir
       file:

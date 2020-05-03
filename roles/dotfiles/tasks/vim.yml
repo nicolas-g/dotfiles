@@ -8,7 +8,8 @@
       with_items:
         - "cmake"
         - "macvim"
-      tags: brew_install
+      when: install_packages
+      tags: brew
 
     - name: vim | Deploy {{ home_dir }}/.{{ item }}
       copy:
@@ -30,5 +31,6 @@
     - name: vim | Install powerline-status
       pip:
         name: powerline-status
+      when: install_packages
 
   tags: vim

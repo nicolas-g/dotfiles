@@ -8,6 +8,7 @@
       homebrew_cask:
         name: google-cloud-sdk
         state: "present"
+      when: install_packages
       tags: brew_cask_install
 
     - name: gcloud | Create {{ home_dir }}/.config/gcloud dir

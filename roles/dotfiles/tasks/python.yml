@@ -4,6 +4,7 @@
       homebrew:
         name: "{{ item }}"
         state: "present"
+      when: install_packages
       loop:
         - "pyenv"
         - "pyenv-virtualenv"

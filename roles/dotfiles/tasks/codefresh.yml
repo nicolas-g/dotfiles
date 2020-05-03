@@ -12,4 +12,5 @@
         name: codefresh
         state: present
 
+  when: install_packages
   tags: codefresh
