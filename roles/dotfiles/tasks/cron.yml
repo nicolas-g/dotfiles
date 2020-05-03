@@ -12,7 +12,7 @@
         name: "Disable {{ item | basename }}"
         minute: "*/15"
         hour: "*"
-        job: "/bin/launchctl unload {{ item }}"
+        job: "/bin/launchctl unload {{ item }} >/tmp/{{ item | basename }}_stdout.log 2>/tmp/{{ item | basename }}_stderr.log"
       become: yes
       become_method: sudo
       loop:
