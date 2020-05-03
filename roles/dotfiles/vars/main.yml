@@ -37,6 +37,7 @@ homebrew_extras:
   - k3d
   - kops
   - kompose
+  - krew
   - kube-ps1
   - kustomize
   - ipcalc

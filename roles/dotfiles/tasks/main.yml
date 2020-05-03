@@ -35,9 +35,6 @@
 - name: Include zsh.yml
   include: zsh.yml
 
-- name: Include krew.yml
-  include: krew.yml
-
 - name: Include gcloud.yml
   include: gcloud.yml
 
