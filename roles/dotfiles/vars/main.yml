@@ -53,6 +53,7 @@ homebrew_extras:
   - magic-wormhole
   - mtr
   - nmap
+  - octant
   - pass
   - parallel
   - peco
