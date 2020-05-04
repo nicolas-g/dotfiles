@@ -13,7 +13,7 @@
 
     - name: configs | Deploy {{ home_dir }}/src/{{ github_work_organization }}/.gitconfig
       template:
-        src: "{{ github_work_organization }}_gitconfig.j2"
+        src: "github_work_organization_gitconfig.j2"
         dest: "{{ home_dir }}/src/{{ github_work_organization }}/.gitconfig"
         mode: 0644
         owner: "{{ user }}"
