@@ -6,11 +6,23 @@
       homebrew_tap:
         name: codefresh-io/cli
         state: present
+      when: install_packages
 
     - name: codefresh | install Codefresh CLI
       homebrew:
         name: codefresh
         state: present
+      when: install_packages
 
-  when: install_packages
+    - set_fact:
+        CODEFRESH_API_KEY: "{{ lookup('lastpass', 'dotfiles/CODEFRESH', field='API_KEY') }}"
+
+    - name: codefresh | Deploy {{ home_dir }}/.cfconfig
+      template:
+        src: "codefresh_cfconfig.j2"
+        dest: "{{ home_dir }}/.cfconfig"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
   tags: codefresh
