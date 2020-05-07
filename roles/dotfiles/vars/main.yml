@@ -44,6 +44,7 @@ homebrew_extras:
   - istioctl
   - jq
   - yamllint
+  - the_silver_searcher # ag
   - teleconsole
   - tldr
   - figlet
