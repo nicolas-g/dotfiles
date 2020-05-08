@@ -11,6 +11,15 @@
         - "src"
         - "src/{{ github_work_organization }}"
 
+    - name: configs | Create {{ home_dir }}/{{ item }} dir
+      file:
+        src: "gitignore_global"
+        dest: "{{ home_dir }}/.gitignore_global"
+        state: file
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
     - name: configs | Deploy {{ home_dir }}/src/{{ github_work_organization }}/.gitconfig
       template:
         src: "github_work_organization_gitconfig.j2"
