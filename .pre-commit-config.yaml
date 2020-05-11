@@ -9,7 +9,7 @@ repos:
       - id: ansible-lint-roles
         files: /tasks/ # reflects tasks
         exclude: (roles.d) # I have own roles in `roles` dir and 3rd-party roles in `roles.d`
-        args: [-c, .ansible-lint.yml]
+        args: [-c, .ansible-lint]
         stages: [commit]
 
   # Ansible lint playbooks
