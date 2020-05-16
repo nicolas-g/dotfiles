@@ -5,7 +5,7 @@
         name: "Backup Shell history"
         minute: "0"
         hour: "13"
-        job: "sudo /usr/local/bin/ng_backup_history.sh"
+        job: "/usr/local/bin/ng_backup_history.sh"
 
     - name: cron | Disable {{ item | basename }} launchctl services
       cron:

@@ -3,17 +3,9 @@
     - name: backup | Deploy backup scripts
       copy:
         src: "{{ item }}"
-        dest: /usr/local/bin/{{ item }}
+        dest: "/usr/local/bin/{{ item }}"
         mode: 0755
       loop:
         - "ng_backup_all.sh"
         - "ng_backup_history.sh"
-
-    - name: backup | Cron to backup shell history
-      cron:
-        name: "Backup Shell history"
-        minute: "0"
-        hour: "13"
-        job: "/usr/local/bin/ng_backup_history.sh >/tmp/ng_backup_history_stdout.log 2>/tmp/ng_backup_history_stderr.log"
-
   tags: backup
