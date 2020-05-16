@@ -1,0 +1,32 @@
+---
+- block:
+    - name: azure | Install azure-cli
+      homebrew:
+        name: "azure-cli"
+        state: "present"
+      when: install_packages
+      tags: brew
+
+    - name: azure | Install microsoft-azure-storage-explorer
+      homebrew_cask:
+        name: "microsoft-azure-storage-explorer"
+        state: "present"
+      when: install_packages
+      tags: brew
+
+    # aws-azure-login (use Azure AD to access AWS)
+    - name: azure | Create {{ home_dir }}/.npm-global dir
+      file:
+        path: "{{ home_dir }}/.npm-global"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: azure | npm install aws-azure-login
+      npm:
+        name: "aws-azure-login"
+        global: yes
+        state: present
+
+  tags: azure
