@@ -41,6 +41,7 @@ homebrew_extras:
   - kube-ps1
   - kustomize
   - ipcalc
+  - iproute2mac
   - istioctl
   - jq
   - yamllint
