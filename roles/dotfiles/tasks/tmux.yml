@@ -16,6 +16,23 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: tmux | Clone tmux plugins
+      git:
+        repo: "{{ item }}"
+        dest: "~/.tmux/plugins/{{ item | basename }}"
+        force: yes
+        depth: 1
+      loop:
+        - https://github.com/tmux-plugins/tmux-yank
+        - https://github.com/tmux-plugins/tmux-resurrect
+        - https://github.com/tmux-plugins/tmux-continuum
+        - https://github.com/tmux-plugins/tmux-sessionist
+        - https://github.com/tmux-plugins/tmux-logging
+        - https://github.com/tmux-plugins/tmux-open
+        - https://github.com/tmux-plugins/tmux-urlview
+      notify:
+        - "install and update plugins"
+
     - name: tmux | Deploy {{ home_dir }}/.tmux/tmux-macos.conf
       copy:
         src: tmux-macos.conf
@@ -31,5 +48,11 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
+
+    - name: tmux | Install urlview dependency for tmux-urlview plugin
+      homebrew:
+        name: "urlview"
+        state: "present"
+      when: install_packages
 
   tags: tmux
