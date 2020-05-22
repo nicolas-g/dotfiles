@@ -1,5 +1,6 @@
 ---
 ansible_version_role: 2.9.7
+python_version: "3.7.6"
 
 homebrew_essentials:
   - coreutils
