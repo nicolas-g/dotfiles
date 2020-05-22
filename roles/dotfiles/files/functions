@@ -2,27 +2,6 @@
 ### functions ###
 #################
 
-
-ng_download_terraform () {
-
-  # get OS Platform architecture
-  os_platform=$(uname | tr '[:upper:]' '[:lower:]')
-
-  # get Terraform latest version
-  TERRAFORM_LATEST_VERSION=$(curl -s https://checkpoint-api.hashicorp.com/v1/check/terraform | jq -r -M ".current_version")
-
-  # Set Terraform Specific version
-  TERRAFORM_SPECIFIC_VERSION="0.11.14"
-
-  # Choose Terraform version to use
-  TERRAFORM_VERSION="$TERRAFORM_SPECIFIC_VERSION"
-
-  # Download Terraform
-  curl --silent --location https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_${os_platform}_amd64.zip --output /tmp/terraform_${os_platform}_amd64.zip
-  unzip -o /tmp/terraform_${os_platform}_amd64.zip -d /usr/local/bin/terraform_$TERRAFORM_VERSION
-}
-
-
 # Example: $ qps nginx-access.log , will count the line per second or in the example case the incoming web requests per second
 function ng_qps () { tail -f "$1" | pv --line-mode --rate --timer -b  > /dev/null ;}
 alias ng_rps='ng_qps'
