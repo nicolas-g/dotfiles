@@ -55,3 +55,6 @@ map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR> "defines a shortc
 " make your code look pretty after installing syntastic and vim-flake8 plugins
 let python_highlight_all=1
 syntax on
+
+set spell spelllang=en " (or `en_us`)
+set spellfile=~/src/nicolas-g/dotfiles/vimspellen.utf-8.add "  the name of your spellfile must end in .{encoding}.add where {encoding} is the character encoding of the file
