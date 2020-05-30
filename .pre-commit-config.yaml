@@ -106,7 +106,20 @@ repos:
         #
         # github.com/codespell-project/codespell
         # codespell - Checks for common misspellings in text files.
+
         #
+
+  #- repo: https://github.com/openstack-dev/bashate
+  - repo: https://github.com/openstack/bashate
+    rev: 2.0.0
+    hooks:
+      - id: bashate
+        name: bashate
+        description: This hook runs bashate for linting shell scripts
+        entry: bashate
+        language: python
+        types: [shell]
+        verbose: true
 
   - repo: https://github.com/milin/giticket
     rev: 6f166c66f2423e8e27898b39385d1166f9b643a3
