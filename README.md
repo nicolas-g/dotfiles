@@ -188,3 +188,7 @@ b
   ** use "g" number
   ** enable master password
 - setup DasKeyboard (https://www.youtube.com/watch?v=St2jUxnCVKI)
+
+```
+Go to System Preferences > Security & Privacy and give Full Disk Access to Alacritty.
+```
