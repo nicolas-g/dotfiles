@@ -9,6 +9,13 @@
       command: "xcode-select --install"
       when: check_xcode_command_line_tools is not defined
 
+    - name: Creates the "locate" database if it doesn't exist
+      command:
+        cmd: "launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist"
+        creates: /var/db/locate.database
+      become: yes
+      become_method: sudo
+
     - name: Include macos-defaults.yml
       include: macos-defaults.yml
 
