@@ -66,6 +66,7 @@ homebrew_extras:
   - pv
   - rancher-cli
   - ripgrep
+  - shellcheck
   - step
   - zsh
   - zsh-autosuggestions
@@ -117,7 +118,6 @@ homebrew_cask_extras:
 zsh_plugins:
   - git
   - git-extras
-  - git-prompt
   - colored-man-pages
   - colorize
   - pip
