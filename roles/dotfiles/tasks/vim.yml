@@ -3,11 +3,8 @@
     # required for Vim YouCompleteMe plugin to work on MacOS
     - name: vim | Install brew cmake/macvim
       homebrew:
-        name: "{{ item }}"
+        name: "['cmake', 'macvim']"
         state: "present"
-      with_items:
-        - "cmake"
-        - "macvim"
       when: install_packages
       tags: brew
 

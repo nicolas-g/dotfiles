@@ -1,6 +1,6 @@
 ---
 - block:
-    - name: configs | Create {{ home_dir }}/{{ item }} dir
+    - name: git | Create {{ home_dir }}/{{ item }} dir
       file:
         path: "{{ home_dir }}/{{ item}}"
         state: directory
@@ -11,8 +11,8 @@
         - "src"
         - "src/{{ github_work_organization }}"
 
-    - name: configs | Create {{ home_dir }}/{{ item }} dir
-      file:
+    - name: git | Create {{ home_dir }}/.gitignore_global
+      copy:
         src: "gitignore_global"
         dest: "{{ home_dir }}/.gitignore_global"
         state: file
@@ -20,7 +20,7 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: configs | Deploy {{ home_dir }}/src/{{ github_work_organization }}/.gitconfig
+    - name: git | Deploy {{ home_dir }}/src/{{ github_work_organization }}/.gitconfig
       template:
         src: "github_work_organization_gitconfig.j2"
         dest: "{{ home_dir }}/src/{{ github_work_organization }}/.gitconfig"
@@ -28,7 +28,7 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: configs | Deploy {{ home_dir }}/.gitconfig
+    - name: git | Deploy {{ home_dir }}/.gitconfig
       template:
         src: gitconfig.j2
         dest: "{{ home_dir }}/.gitconfig"
