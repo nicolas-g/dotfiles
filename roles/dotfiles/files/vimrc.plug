@@ -32,7 +32,7 @@ Plug 'git://git.wincent.com/command-t.git'
 Plug 'itchyny/lightline.vim'
 
 " Syntax Checking/Highlighting
-Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic' "https://github.com/vim-syntastic/syntastic#3-recommended-settings
 Plug 'nvie/vim-flake8' " add PEP 8 checking with this nifty little plugin
 
 " Color schemes work in conjunction with the basic color scheme that you are using. Check out solarized for GUI mode, and Zenburn for terminal mode
@@ -48,7 +48,6 @@ Plug 'junegunn/vim-github-dashboard' "https://github.com/junegunn/vim-github-das
 "" Plug '/usr/local/opt/fzf'
 
 "" Plug 'sheerun/vim-polyglot'
-"" Plug 'vim-syntastic/syntastic' "https://github.com/vim-syntastic/syntastic#3-recommended-settings
 "" Plug 'tpope/vim-sensible'
 ""
 "" Plug 'SirVer/ultisnips' "https://github.com/SirVer/ultisnips#quick-start
@@ -69,6 +68,10 @@ Plug 'fatih/vim-go', { 'for' : ['go', 'markdown'] } "Loads only when editing gol
 
 " Plug 'plasticboy/vim-markdown', { 'for': 'markdown' } "Loads only when I’m editing markdown files:
 " Plug 'AlexJF/rename.vim', { 'on': 'Rename' } "Loads only when I issue the Rename command
-"
+
+
+" Terraform
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
 
 call plug#end()

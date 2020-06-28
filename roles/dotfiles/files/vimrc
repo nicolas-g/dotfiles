@@ -50,6 +50,7 @@ au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth
 " YouCompleteMe configs
 
 let g:ycm_autoclose_preview_window_after_completion=1 " ensures that the auto-complete window goes away when you’re done with it
+let g:ycm_path_to_python_interpreter='/usr/bin/python' " you need to first run `cd ~/.vim/plugged/YouCompleteMe && /usr/bin/python install.py`
 map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR> "defines a shortcut for goto definition
 
 " make your code look pretty after installing syntastic and vim-flake8 plugins
@@ -58,3 +59,38 @@ syntax on
 
 set spell spelllang=en " (or `en_us`)
 set spellfile=~/src/nicolas-g/dotfiles/vimspellen.utf-8.add "  the name of your spellfile must end in .{encoding}.add where {encoding} is the character encoding of the file
+
+" wrap at 68 characters and turn on spell checking, but only for Git commit messages
+au FileType gitcommit set tw=68 spell
+
+" Syntastic Plugin settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Syntastic  https://github.com/juliosueiras/vim-terraform-completion#minimal-configuration
+" (Optional)Remove Info(Preview) window
+set completeopt-=preview
+
+" (Optional)Hide Info(Preview) window after completions
+autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+" (Optional) Enable terraform plan to be include in filter
+let g:syntastic_terraform_tffilter_plan = 1
+
+" (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+let g:terraform_completion_keys = 1
+
+" (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+let g:terraform_registry_module_completion = 0
+
+" https://github.com/hashivim/vim-terraform#usage
+let g:terraform_align=1
+let g:terraform_fold_sections=0
+let g:terraform_fmt_on_save=1
