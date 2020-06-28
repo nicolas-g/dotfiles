@@ -1,5 +1,5 @@
-ansible==2.9.9
+ansible==2.9.10
 ansible-lint==4.2.0
-tmuxp==1.5.3
-ansible-modules-hashivault==4.0.0
-hvac==0.9.5
+tmuxp==1.5.4
+ansible-modules-hashivault==4.5.2
+hvac==0.10.4
