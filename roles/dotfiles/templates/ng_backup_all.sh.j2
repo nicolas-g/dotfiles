@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $(pwd) != $HOME ]; then
+if [ "$(pwd)" != "$HOME" ]; then
   echo "You must run this command from your home dir...";
   echo "aborting!"
   exit 1;
@@ -21,17 +21,18 @@ src
 Desktop/desktop_backup
 EOF
 
-backup_location=${1:-/keybase/private/nicolasg7/backups}
+backup_location=${1:-/Volumes/Keybase/private/{{ keybase_user_id }}/backups}
 
 # create empty files
-> /tmp/tf_files_to_delete.txt
-> /tmp/git_files_to_delete.txt
+: > /tmp/tf_files_to_delete.txt
+: > /tmp/git_files_to_delete.txt
 
 # list `.terraform` cache dirs
-find ~/src -name ".terraform"  -exec du -ksh  {}>> /tmp/tf_files_to_delete.txt  \;
+find ~/src -name ".terraform"  -exec sh -c 'du -ksh "$1" >> /tmp/tf_files_to_delete.txt' _ {}  \;
+
 
 # list `.git` config dirs
-find ~/src -name .git -type d -exec du -ksh  {} >> /tmp/git_files_to_delete.txt  \;
+find ~/src -name ".git"  -exec sh -c 'du -ksh "$1" >> /tmp/git_files_to_delete.txt' _ {}  \;
 
 echo "TF files to be deleted"
 cat /tmp/tf_files_to_delete.txt
@@ -48,7 +49,7 @@ echo "Cleaning Git cache files"
 for f in $(cat /tmp/git_files_to_delete.txt | awk '{ print $2 }' ) ; do
   cd `dirname "$f"`
   echo "cleaning Git $f"
-  echo `pwd`
+  echo $(pwd)
   git for-each-ref --format="delete %(refname)" refs/original | git update-ref --stdin
   git reflog expire --expire=now --all
   git gc --prune=now
