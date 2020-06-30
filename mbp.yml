@@ -5,6 +5,18 @@
   gather_facts: no
   become: no
 
+  pre_tasks:
+    - block:
+        - name: mbp| Check if myvalues.yml file exists
+          stat:
+            path: myvalues.yml
+          register: stat_result
+        - name: mpb | Include myvalues.yml vars file
+          include_vars:
+            file: myvalues.yml
+          when: stat_result.stat.exists
+      tags: always
+
   roles:
     - { role: hashicorp-vault, tags: ["hashicorp-vault-role"] }
     - { role: dotfiles, tags: ["dotfiles-role"] }
