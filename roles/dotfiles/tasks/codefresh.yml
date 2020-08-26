@@ -4,21 +4,15 @@
 - block:
     - name: codefresh | tap Codefresh homebrew repo
       homebrew_tap:
-        name: "codefresh-io/{{ item }}"
+        name: "codefresh-io/cli"
         state: present
       when: install_packages
-      loop:
-        - cli
-        - venona
 
     - name: codefresh | install Codefresh CLI
       homebrew:
-        name: "{{ item }}"
+        name: "codefresh"
         state: present
       when: install_packages
-      loop:
-        - codefresh
-        - venona
 
     - set_fact:
         CODEFRESH_API_KEY: "{{ lookup('lastpass', 'dotfiles/CODEFRESH', field='API_KEY') }}"
