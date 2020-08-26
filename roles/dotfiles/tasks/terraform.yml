@@ -8,6 +8,7 @@
       when: install_packages
       loop:
         - { pkg_name: "tfenv" }
+        - { pkg_name: "tgenv" }
         - { pkg_name: "terragrunt", install_options: "ignore-dependencies" } # terragrunt will try to install Terraform as a dependency and will conflict with tfenv
       tags: brew
 
