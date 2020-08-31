@@ -1,15 +1,19 @@
 ---
 - block:
-    - name: terraform | Install Terragrunt & tfenv
+    - name: terraform | brew tap sigsegv13/tgenv
+      homebrew_tap:
+        name: sigsegv13/tgenv
+        state: present
+
+    - name: terraform | Install Terraform relevant packages
       homebrew:
         name: "{{ item.pkg_name }}"
-        state: "present"
+        state: "latest"
         install_options: "{{ item.install_options | default(omit) }}"
-      when: install_packages
+      when: install_packages | d() | bool
       loop:
         - { pkg_name: "tfenv" }
         - { pkg_name: "tgenv" }
-        - { pkg_name: "terragrunt", install_options: "ignore-dependencies" } # terragrunt will try to install Terraform as a dependency and will conflict with tfenv
       tags: brew
 
     - name: terraform | Create ~/.tfenv directory
@@ -27,11 +31,17 @@
         dest: ~/.tfenv/use-gpgv
         mode: 0400
 
-    - name: terraform | Install different Terraform versions
-      shell: "/usr/local/bin/tfenv install {{ item }}"
+    - name: terraform | Install Terraform environments
+      command: "/usr/local/bin/tfenv install {{ item }}"
       loop:
         - "latest"
         - "latest:^0.11"
+        - "latest:^0.12"
+      register: cmd_result
+      changed_when: '"already installed" not in cmd_result.stdout'
+
+    - name: terraform | Install Terragrunt
+      command: "/usr/local/bin/tgenv install latest"
       register: cmd_result
       changed_when: '"already installed" not in cmd_result.stdout'
 
