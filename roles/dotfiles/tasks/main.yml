@@ -23,9 +23,6 @@
 - name: Include alacritty.yml
   include: alacritty.yml
 
-- name: Include terraform.yml
-  include: terraform.yml
-
 - name: Include awscli.yml
   include: awscli.yml
 

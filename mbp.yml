@@ -20,4 +20,5 @@
   roles:
     - { role: hashicorp-vault, tags: ["hashicorp-vault-role"] }
     - { role: dotfiles, tags: ["dotfiles-role"] }
+    - { role: terraform, tags: ["terraform-role"] }
     - { role: macos, tags: ["macos-role"] }
