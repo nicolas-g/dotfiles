@@ -1,7 +1,4 @@
 ---
-- name: Include check-prereqs.yml
-  include: check-prereqs.yml
-
 - name: Include brew_essentials.yml
   include: brew_essentials.yml
 

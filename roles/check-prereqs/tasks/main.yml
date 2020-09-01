@@ -1,0 +1,45 @@
+---
+- block:
+    # Since facts gathering can slow down each run and be annoying when you run Ansible multiple
+    # times, we have hard coded the values here and use them when the var `ansible_hardcode_facts` flag is set to `True`
+    # To get the current Ansible facts run the bellow command:
+    #
+    #   ansible -m setup -a"gather_subset=facter" localhost | egrep "ansible_distribution|ansible_distribution_major_version|ansible_machine|ansible_os_family|ansible_system"
+    #
+    - name: check-prereqs | Hard-coded facts
+      set_fact:
+        ansible_distribution: "{{ ansible_distribution_hard_coded }}"
+        ansible_distribution_major_version: "{{ ansible_distribution_major_version_hard_coded }}"
+        ansible_machine: "{{ ansible_machine_hard_coded }}"
+        ansible_os_family: "{{ ansible_os_family_hard_coded }}"
+        ansible_system: "{{ ansible_system_hard_coded }}"
+      when: ansible_hardcode_facts | d() | bool
+
+    - name: check-prereqs | Collect only facts returned by facter
+      setup:
+        gather_subset:
+          - "!all"
+          - "!any"
+          - facter
+      when: not ansible_hardcode_facts
+
+    - name: check-prereqs | Check if Ansible version is supported
+      assert:
+        that: ansible_version.full is version_compare(ansible_supported_version, '>=')
+        msg:
+          - "WARNING: The playbook you are running is only marked as working with Ansible {{ ansible_supported_version }}"
+          - "The executing version detected is {{ ansible_version.full }}."
+          - "Declare that this version works after verification by setting the `ansible_version_role` variable appropriately."
+      run_once: true
+
+    - name: check-prereqs | Check if target operating system is supported
+      assert:
+        that:
+          - ansible_distribution == ansible_supported_os
+          - ansible_distribution_major_version|int in ansible_supported_os_version
+        msg:
+          - "WARNING: The playbook you are running is only marked as working with OS {{ ansible_supported_os }} version(s) {{ ansible_supported_os_version }}"
+          - "The current OS and version detected is '{{ ansible_distribution }} {{ ansible_distribution_major_version }}'"
+          - "Declare that this OS and version works after verification by setting the `ansible_supported_os` `ansible_supported_os_version` variable appropriately."
+
+  tags: [always, check-prereqs]
