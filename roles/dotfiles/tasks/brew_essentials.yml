@@ -33,5 +33,5 @@
       ignore_errors: True # for software that is already installed without homebrew
       tags: brew_cask
 
-  when: install_packages
+  when: install_packages | d() | bool
   tags: ["brew", "brew-essentials", "homebrew", "homebrew-essentials"]

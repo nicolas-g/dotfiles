@@ -5,7 +5,7 @@
       homebrew:
         name: "['cmake', 'macvim']"
         state: "present"
-      when: install_packages
+      when: install_packages | d() | bool
       tags: brew
 
     - name: vim | Deploy {{ home_dir }}/.{{ item }}

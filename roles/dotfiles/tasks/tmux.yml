@@ -53,6 +53,6 @@
       homebrew:
         name: "urlview"
         state: "present"
-      when: install_packages
+      when: install_packages | d() | bool
 
   tags: tmux

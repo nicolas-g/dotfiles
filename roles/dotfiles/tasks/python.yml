@@ -4,7 +4,7 @@
       homebrew:
         name: "{{ item }}"
         state: "present"
-      when: install_packages
+      when: install_packages | d() | bool
       loop:
         - "pyenv"
         - "pyenv-virtualenv"

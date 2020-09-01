@@ -6,7 +6,7 @@
       homebrew_tap:
         name: "codefresh-io/cli"
         state: present
-      when: install_packages
+      when: install_packages | d() | bool
 
     - name: codefresh | install Codefresh CLI
       homebrew:

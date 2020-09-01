@@ -4,14 +4,14 @@
       homebrew:
         name: "azure-cli"
         state: "present"
-      when: install_packages
+      when: install_packages | d() | bool
       tags: brew
 
     - name: azure | Install microsoft-azure-storage-explorer
       homebrew_cask:
         name: "microsoft-azure-storage-explorer"
         state: "present"
-      when: install_packages
+      when: install_packages | d() | bool
       tags: brew
 
     # aws-azure-login (use Azure AD to access AWS)
