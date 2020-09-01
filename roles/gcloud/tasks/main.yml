@@ -1,11 +1,5 @@
 ---
 - block:
-    - name: gcloud | Set Gcloud secret facts
-      set_fact:
-        GCLOUD_ACCOUNT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_ACCOUNT') }}"
-        GCLOUD_PROJECT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_PROJECT') }}"
-      no_log: True
-
     - name: gcloud | Install gcloud
       homebrew_cask:
         name: google-cloud-sdk
@@ -25,20 +19,13 @@
         - "gcloud/configurations"
         - "gcloud/credentials"
 
-    - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_default
+    - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}
       template:
-        src: gcloud_config.j2
-        dest: "{{ home_dir }}/.config/gcloud/configurations/config_default"
+        src: config.j2
+        dest: "{{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-
-    - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/credentials/
-      copy:
-        src: hux402gcpdev-1927c8baca0c.json
-        dest: "{{ home_dir }}/.config/gcloud/credentials/"
-        mode: 0644
-        owner: "{{ user }}"
-        group: "{{ group }}"
+      loop: "{{ gcloud_configs }}"
 
   tags: gcloud
