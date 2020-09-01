@@ -6,6 +6,7 @@
       with_items:
         - "{{ homebrew_extras }}"
       ignore_errors: true
+      changed_when: false
       check_mode: no
 
     - name: brew-extras | Install brew extas missing formulas
@@ -21,6 +22,7 @@
       register: brew_cask_installed_list
       loop: "{{ homebrew_cask_extras }}"
       ignore_errors: true
+      changed_when: false
       check_mode: no
       tags: brew_cask
 

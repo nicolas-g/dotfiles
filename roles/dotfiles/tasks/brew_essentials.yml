@@ -6,6 +6,7 @@
       with_items:
         - "{{ homebrew_essentials }}"
       ignore_errors: true
+      changed_when: false
       check_mode: no
 
     - name: brew-essentials | Install brew essentials missing formulas
@@ -21,6 +22,7 @@
       register: brew_cask_installed_list
       loop: "{{ homebrew_cask_essentials }}"
       ignore_errors: true
+      changed_when: false
       check_mode: no
       tags: brew_cask
 

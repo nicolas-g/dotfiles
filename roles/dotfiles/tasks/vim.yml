@@ -3,10 +3,13 @@
     # required for Vim YouCompleteMe plugin to work on MacOS
     - name: vim | Install brew cmake/macvim
       homebrew:
-        name: "['cmake', 'macvim']"
+        name: "{{ item }}"
         state: "present"
       when: install_packages | d() | bool
       tags: brew
+      loop:
+        - "cmake"
+        - "macvim"
 
     - name: vim | Deploy {{ home_dir }}/.{{ item }}
       copy:
@@ -28,6 +31,6 @@
     - name: vim | Install powerline-status
       pip:
         name: powerline-status
-      when: install_packages
+      when: install_packages | d() | bool
 
   tags: vim

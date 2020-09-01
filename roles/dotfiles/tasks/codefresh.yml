@@ -12,9 +12,10 @@
       homebrew:
         name: "codefresh"
         state: present
-      when: install_packages
+      when: install_packages | d() | bool
 
-    - set_fact:
+    - name: codefresh | Set CODEFRESH_API_KEY secret fact
+      set_fact:
         CODEFRESH_API_KEY: "{{ lookup('lastpass', 'dotfiles/CODEFRESH', field='API_KEY') }}"
 
     - name: codefresh | Deploy {{ home_dir }}/.cfconfig
