@@ -14,7 +14,7 @@
 
     - name: ssh | Deploy {{ home_dir }}/.ssh/config
       template:
-        src: ssh_config.j2
+        src: config.j2
         dest: "{{ home_dir }}/.ssh/config"
         mode: 0600
         owner: "{{ user }}"
