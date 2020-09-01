@@ -1,7 +1,7 @@
 ---
-ansible_hardcode_facts: False
+use_ansible_hard_coded_facts: False
 # Since facts gathering can slow down each run and be annoying when you run Ansible multiple
-# times, we have hard coded the values here and use them when the var `ansible_hardcode_facts` flag is set to `True`
+# times, we have hard coded the values here and use them when the var `use_ansible_hard_coded_facts` flag is set to `True`
 # To get the current Ansible facts run the bellow command:
 #
 #   ansible -m setup -a"gather_subset=facter" localhost | egrep "ansible_distribution|ansible_distribution_major_version|ansible_machine|ansible_os_family|ansible_system"
