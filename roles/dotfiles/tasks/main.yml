@@ -20,9 +20,6 @@
 - name: Include alacritty.yml
   include: alacritty.yml
 
-- name: Include awscli.yml
-  include: awscli.yml
-
 - name: Include azure.yml
   include: azure.yml
 

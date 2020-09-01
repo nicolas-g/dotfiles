@@ -1,6 +1,6 @@
 ---
 - block:
-    - name: awscli | Create {{ home_dir }}/.aws dir
+    - name: aws | Create {{ home_dir }}/.aws dir
       file:
         path: "{{ home_dir }}/.aws"
         state: directory
@@ -8,7 +8,8 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - set_fact:
+    - name: aws | Set secret facts
+      set_fact:
         AWSxspdev_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='username') }}"
         AWSxspdev_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='password') }}"
         AWSxspsb_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='username') }}"
@@ -25,27 +26,29 @@
         AWSwnba_sbx2_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSwnba-sbx2', field='password') }}"
       no_log: True
 
-    - name: awscli | Install awscli
+    - name: aws | Install awscli
       homebrew:
         name: "awscli,aws-iam-authenticator"
         state: "present"
       when: install_packages | d() | bool
       tags: brew
 
-    - name: awscli | Deploy {{ home_dir }}/.aws/config
+    - name: aws | Deploy {{ home_dir }}/.aws/config
       copy:
-        src: awscli_config
+        src: config
         dest: "{{ home_dir }}/.aws/config"
         mode: 0400
         owner: "{{ user }}"
         group: "{{ group }}"
+        backup: True
 
-    - name: awscli | Deploy {{ home_dir }}/.aws/credentials
+    - name: aws | Deploy {{ home_dir }}/.aws/credentials
       template:
-        src: awscli_credentials.j2
+        src: credentials.j2
         dest: "{{ home_dir }}/.aws/credentials"
         mode: 0400
         owner: "{{ user }}"
         group: "{{ group }}"
+        backup: True
 
-  tags: awscli
+  tags: aws

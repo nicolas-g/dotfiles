@@ -24,5 +24,6 @@
     - { role: dotfiles, tags: ["dotfiles-role"] }
     - { role: ansible, tags: ["ansible-role"] }
     - { role: terraform, tags: ["terraform-role"] }
+    - { role: aws, tags: ["aws-role"] }
     - { role: macos, tags: ["macos-role"] }
     - { role: cronjobs, tags: ["cronjobs-role"] }
