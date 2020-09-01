@@ -18,3 +18,9 @@ region = us-east-1
 
 [profile xsplegacy]
 region = us-east-1
+
+[profile wnba]
+region=us-west-2
+
+[profile wnba-sbx2]
+region=us-east-1

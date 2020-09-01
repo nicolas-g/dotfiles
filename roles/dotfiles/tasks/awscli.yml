@@ -19,12 +19,17 @@
         AWSxspprod_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='password') }}"
         AWSxsplegacy_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxsplegacy', field='username') }}"
         AWSxsplegacy_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxsplegacy', field='password') }}"
+        AWSwnba_prod_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSwnba-prod', field='username') }}"
+        AWSwnba_prod_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSwnba-prod', field='password') }}"
+        AWSwnba_sbx2_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSwnba-sbx2', field='username') }}"
+        AWSwnba_sbx2_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSwnba-sbx2', field='password') }}"
+      no_log: True
 
     - name: awscli | Install awscli
       homebrew:
         name: "awscli,aws-iam-authenticator"
         state: "present"
-      when: install_packages
+      when: install_packages | d() | bool
       tags: brew
 
     - name: awscli | Deploy {{ home_dir }}/.aws/config
