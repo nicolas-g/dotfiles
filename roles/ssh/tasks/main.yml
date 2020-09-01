@@ -20,4 +20,15 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: ssh | Deploy {{ home_dir }}/.ssh/config.d/{{ item }}
+      copy:
+        src: "{{ item }}"
+        dest: "{{ home_dir }}/.ssh/config.d/"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop:
+        - vagrant
+        - forwards
+
   tags: ssh

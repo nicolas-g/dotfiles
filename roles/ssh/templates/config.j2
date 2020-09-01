@@ -73,27 +73,4 @@ Host *
   ForwardX11 no
   ForwardX11Trusted yes
 
-# Vagrant
-Host 192.168.33.* *.myvagrant.local
-  StrictHostKeyChecking no
-  UserKnownHostsFile=/dev/null
-  User root
-  LogLevel ERROR
 
-## Forward all local port 3128 traffic to port 3128 on the remote vps1.cyberciti.biz server ##
-## $ ssh -f -N proxyus ##
-Host proxyus
-  HostName vps1.cyberciti.biz
-  User breakfree
-  IdentityFile ~/.ssh/vps1.cyberciti.biz.key
-  LocalForward 3128 127.0.0.1:3128
-
-# This will allow us to use port 8080 on the local machine
-# in order to access example.com at port 80 from the remote machine
-Host local_to_remote
-    LocalForward 8080 example.com:80
-
-# This will allow us to offer access to internal.com at port 443
-# to the remote machine through port 7777 on the other side
-Host remote_to_local
-    RemoteForward 7777 internal.com:443
