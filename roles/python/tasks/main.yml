@@ -11,12 +11,12 @@
         - "pyenv-virtualenvwrapper"
 
     - name: python | pyenv install python if it's not already installed
-      shell: "pyenv install -s {{ python_version }}"
+      command: "pyenv install -s {{ python_version }}"
       args:
         chdir: "{{ home_dir }}"
 
     - name: python | pyenv set python global version
-      shell: "pyenv global {{ python_version }}"
+      command: "pyenv global {{ python_version }}"
       args:
         chdir: "{{ home_dir }}"
 

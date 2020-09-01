@@ -2,9 +2,6 @@
 - name: Include brew_essentials.yml
   include: brew_essentials.yml
 
-- name: Include python.yml
-  include: python.yml
-
 - name: Include dotfiles.yml
   include: dotfiles.yml
 
