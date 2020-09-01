@@ -38,9 +38,6 @@
 - name: Include gcloud.yml
   include: gcloud.yml
 
-- name: Include ansible_conf.yml
-  include: ansible_conf.yml
-
 - name: Include pianobar.yml
   include: pianobar.yml
 

@@ -10,7 +10,7 @@
         - "pyenv-virtualenv"
         - "pyenv-virtualenvwrapper"
 
-    - name: python | pyenv install python if it's not aleready installed
+    - name: python | pyenv install python if it's not already installed
       shell: "pyenv install -s {{ python_version }}"
       args:
         chdir: "{{ home_dir }}"

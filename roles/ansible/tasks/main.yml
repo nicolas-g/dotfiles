@@ -1,0 +1,46 @@
+---
+- block:
+    - name: ansible | Check if my_ansible.cfg file exists
+      stat:
+        path: roles/ansible/files/my_ansible.cfg
+      register: stat_result
+
+    - name: ansible | Deploy {{ home_dir }}/.ansible.cfg
+      copy:
+        src: ansible.cfg
+        dest: "{{ home_dir }}/.ansible.cfg"
+        mode: 0400
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      when: not stat_result.stat.exists
+
+    - name: ansible | Deploy my {{ home_dir }}/.ansible.cfg if the file is defined
+      copy:
+        src: my_ansible.cfg
+        dest: "{{ home_dir }}/.ansible.cfg"
+        mode: 0400
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      when: stat_result.stat.exists
+
+    - name: ansible | Install 1password CLI tool
+      homebrew_cask:
+        name: "1password-cli"
+        state: "present"
+      when: install_packages | d() | bool
+
+    - name: ansible | Set ANSIBLE_VAULT_PASS var
+      set_fact:
+        # 'op create item **password**' had issue with the Ansible onepassword lookup plugin.. I had to use 'op create item **login**'
+        ANSIBLE_VAULT_PASS: "{{ lookup('onepassword', 'Ansible Vault Password', field='password', vault='Engineering') }}"
+
+    - name: ansible | Deploy {{ home_dir }}/.vault_pass
+      copy:
+        content: "{{ ANSIBLE_VAULT_PASS }}"
+        dest: "{{ home_dir }}/.vault_pass"
+        mode: 0400
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      no_log: True
+
+  tags: ansible
