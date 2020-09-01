@@ -10,8 +10,8 @@
     - name: cron | Disable {{ item | basename }} launchctl services
       cron:
         name: "Disable {{ item | basename }}"
-        minute: "*/15"
-        hour: "*"
+        minute: "{{ disable_annoying_launchctl_services_cronjob_minute | default('*/15') }}"
+        hour: "{{ disable_annoying_launchctl_services_cronjob_hour | default('*') }}"
         job: "/bin/launchctl unload {{ item }} >/tmp/{{ item | basename }}_stdout.log 2>/tmp/{{ item | basename }}_stderr.log"
       become: yes
       become_method: sudo
