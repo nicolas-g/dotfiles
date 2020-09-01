@@ -20,6 +20,7 @@
   roles:
     - { role: check-prereqs, tags: ["check-prereqs-role"] }
     - { role: hashicorp-vault, tags: ["hashicorp-vault-role"] }
+    - { role: ssh, tags: ["ssh-role"] }
     - { role: dotfiles, tags: ["dotfiles-role"] }
     - { role: ansible, tags: ["ansible-role"] }
     - { role: terraform, tags: ["terraform-role"] }

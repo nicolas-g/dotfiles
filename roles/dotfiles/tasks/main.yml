@@ -26,9 +26,6 @@
 - name: Include azure.yml
   include: azure.yml
 
-- name: Include ssh.yml
-  include: ssh.yml
-
 - name: Include zsh.yml
   include: zsh.yml
 
