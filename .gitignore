@@ -10,5 +10,5 @@
 
 BitBar_Plugins/disabled
 
-my_vars.yml
-my_ansible.cfg
+# to ignore my_vars.yml,my_ansible.cfg etc..
+my_*.*
