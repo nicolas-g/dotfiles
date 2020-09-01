@@ -23,9 +23,6 @@
 - name: Include zsh.yml
   include: zsh.yml
 
-- name: Include gcloud.yml
-  include: gcloud.yml
-
 - name: Include pianobar.yml
   include: pianobar.yml
 

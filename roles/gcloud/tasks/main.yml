@@ -1,8 +1,10 @@
 ---
 - block:
-    - set_fact:
+    - name: gcloud | Set Gcloud secret facts
+      set_fact:
         GCLOUD_ACCOUNT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_ACCOUNT') }}"
         GCLOUD_PROJECT: "{{ lookup('lastpass', 'dotfiles/GCLOUD_PROJECT') }}"
+      no_log: True
 
     - name: gcloud | Install gcloud
       homebrew_cask:
@@ -11,7 +13,7 @@
       when: install_packages | d() | bool
       tags: brew_cask_install
 
-    - name: gcloud | Create {{ home_dir }}/.config/gcloud dir
+    - name: gcloud | Create {{ home_dir }}/.config/gcloud directories
       file:
         path: "{{ home_dir }}/.config/{{ item }}"
         state: directory
