@@ -48,7 +48,7 @@ Host *
   ControlPersist 6h
 
   # Disable roaming explicitly anyway for good
-  # Disabled after upgrading to macOS Sierra
+  # https://www.upguard.com/blog/fixing-the-new-openssh-roaming-bug
   UseRoaming no
 
   VerifyHostKeyDNS ask
@@ -58,11 +58,15 @@ Host *
   # otherwise it is easier to know which hosts your keys have access to
   HashKnownHosts yes
 
-  # macOS Sierra - add passphrases to keychain
+  {% if ansible_distribution == "MacOSX" -%}
+  # https://developer.apple.com/library/archive/technotes/tn2449/_index.html
+  # MacOS latest versions ssh-agent does not automatically load passphrases on the keychain during startup
+  # add passphrases to keychain
   UseKeychain yes
-
-  # Load keys into ssh-agent
+  # load keys into ssh-agent
   AddKeysToAgent yes
+  {% endif %}
+
   GSSAPIAuthentication no
   NoHostAuthenticationForLocalhost yes
   ForwardAgent no
