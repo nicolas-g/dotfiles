@@ -50,5 +50,5 @@
         owner: "{{ user }}"
         group: "{{ group }}"
         backup: True
-
+  when: run_aws | d() | bool
   tags: aws

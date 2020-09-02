@@ -31,4 +31,5 @@
         - vagrant
         - forwards
 
+  when: run_ssh | d() | bool
   tags: ssh

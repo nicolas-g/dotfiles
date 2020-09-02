@@ -27,5 +27,5 @@
     - { role: terraform, tags: ["terraform-role"] }
     - { role: aws, tags: ["aws-role"] }
     - { role: gcloud, tags: ["gcloud-role"] }
-    - { role: macos, tags: ["macos-role"] }
     - { role: cronjobs, tags: ["cronjobs-role"] }
+    - { role: macos, tags: ["macos-role"] }

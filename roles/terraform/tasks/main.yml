@@ -5,7 +5,7 @@
         name: sigsegv13/tgenv
         state: present
 
-    - name: terraform | Install Terraform relevant packages
+    - name: terraform | Install Terraform relevant packages # noqa 403 (Package installs should not use latest)
       homebrew:
         name: "{{ item.pkg_name }}"
         state: "latest"
@@ -53,4 +53,5 @@
     # - name: terraform | Install kubergrunt
     #   shell: "gruntwork-install --binary-name kubergrunt --repo https://github.com/gruntwork-io/kubergrunt --tag v0.5.8"
 
+  when: run_terraform | d() | bool
   tags: terraform

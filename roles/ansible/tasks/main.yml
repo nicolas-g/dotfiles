@@ -42,5 +42,5 @@
         owner: "{{ user }}"
         group: "{{ group }}"
       no_log: True
-
+  when: run_ansible | d() | bool
   tags: ansible

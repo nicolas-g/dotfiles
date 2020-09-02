@@ -14,3 +14,4 @@ ansible_system_hard_coded: "Darwin"
 
 ansible_supported_os: "MacOSX"
 ansible_supported_os_version: [10]
+run_check_prereqs: True

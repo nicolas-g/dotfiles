@@ -1,13 +1,13 @@
 ---
 - block:
-    - name: cron | Backup shell history
+    - name: cronjobs | Backup shell history
       cron:
         name: "Backup Shell history"
         minute: "0"
         hour: "13"
         job: "/usr/local/bin/ng_backup_history.sh"
 
-    - name: cron | Disable {{ item | basename }} launchctl services
+    - name: cronjobs | Disable {{ item | basename }} launchctl services
       cron:
         name: "Disable {{ item | basename }}"
         minute: "{{ disable_annoying_launchctl_services_cronjob_minute | default('*/15') }}"
@@ -23,5 +23,5 @@
         - "/Library/LaunchDaemons/com.opendns.osx.RoamingClientConfigUpdater.plist" # Cisco Umbrella Roaming Client
         - "/Library/LaunchDaemons/com.netskope.stagentsvc.plist" # Netskope
         - "/Library/LaunchDaemons/com.cylance.cyoptics_service.plist" # Cylance
-
-  tags: cron
+  when: run_cronjobs | d() | bool
+  tags: cronjobs

@@ -41,5 +41,5 @@
           - "WARNING: The playbook you are running is only marked as working with OS {{ ansible_supported_os }} version(s) {{ ansible_supported_os_version }}"
           - "The current OS and version detected is '{{ ansible_distribution }} {{ ansible_distribution_major_version }}'"
           - "Declare that this OS and version works after verification by setting the `ansible_supported_os` `ansible_supported_os_version` variable appropriately."
-
+  when: run_check_prereqs | d() | bool
   tags: [always, check-prereqs]
