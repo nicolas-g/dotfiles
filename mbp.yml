@@ -26,6 +26,7 @@
     - { role: ansible, tags: ["ansible-role"] }
     - { role: terraform, tags: ["terraform-role"] }
     - { role: aws, tags: ["aws-role"] }
+    - { role: azure, tags: ["azure-role"] }
     - { role: gcloud, tags: ["gcloud-role"] }
     - { role: cronjobs, tags: ["cronjobs-role"] }
     - { role: macos, tags: ["macos-role"] }

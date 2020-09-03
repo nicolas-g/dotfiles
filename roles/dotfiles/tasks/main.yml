@@ -17,9 +17,6 @@
 - name: Include alacritty.yml
   include: alacritty.yml
 
-- name: Include azure.yml
-  include: azure.yml
-
 - name: Include zsh.yml
   include: zsh.yml
 

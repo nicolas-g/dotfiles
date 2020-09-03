@@ -29,4 +29,5 @@
         global: yes
         state: present
 
+  when: run_azure | d() | bool
   tags: azure
