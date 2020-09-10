@@ -1,7 +1,0 @@
-# https://docs.ansible.com/ansible-lint/rules/default_rules.html
-skip_list:
-    # Lines should be no longer than 120 chars.
-    - '204'
-    # No 'galaxy_info' found
-    - '701'
-verbosity: 3
