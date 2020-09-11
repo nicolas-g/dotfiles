@@ -19,7 +19,7 @@
 
   roles:
     - { role: check-prereqs, tags: ["check-prereqs-role"] }
-    - { role: hashicorp-vault, tags: ["hashicorp-vault-role"] }
+    #- { role: hashicorp-vault, tags: ["hashicorp-vault-role"] }
     - { role: ssh, tags: ["ssh-role"] }
     - { role: python, tags: ["python-role"] }
     - { role: dotfiles, tags: ["dotfiles-role"] }
@@ -30,3 +30,4 @@
     - { role: gcloud, tags: ["gcloud-role"] }
     - { role: cronjobs, tags: ["cronjobs-role"] }
     - { role: macos, tags: ["macos-role"] }
+    - { role: host_files, tags: ["host_files-role"] }

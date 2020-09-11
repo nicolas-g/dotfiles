@@ -1,0 +1,30 @@
+---
+- block:
+    - name: host_files | Deploy update_hostFile.sh scrip
+      copy:
+        src: "ng_update_hostFile.sh"
+        dest: "/usr/local/bin/ng_update_hostFile.sh"
+        mode: 0755
+
+    - name: host_files | Deploy My custom Hosts files
+      copy:
+        owner: root
+        group: wheel
+        src: "{{ item }}"
+        dest: "/etc/{{ item }}"
+        mode: 0644
+      loop:
+        - "myBlackHosts"
+        - "myHosts"
+      become: yes
+      become_method: sudo
+
+    - name: host_files | Backup shell history
+      cron:
+        name: "Updaste /etc/hosts file"
+        special_time: daily
+        job: "/usr/local/bin/ng_update_hostFile.sh"
+      become: yes
+      become_method: sudo
+
+  tags: host_files
