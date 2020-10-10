@@ -9,6 +9,9 @@
       command: "xcode-select --install"
       when: check_xcode_command_line_tools is not defined
 
+    - name: Include mac-app-store.yml
+      include: mac-app-store.yml
+
     - name: Creates the "locate" database if it doesn't exist
       command:
         cmd: "launchctl load -w /System/Library/LaunchDaemons/com.apple.locate.plist"
@@ -21,5 +24,4 @@
 
     - name: Include macos-dock
       include: macos-dock.yml
-
   tags: macos

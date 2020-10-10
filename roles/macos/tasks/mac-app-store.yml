@@ -1,0 +1,20 @@
+---
+# https://github.com/mas-cli/mas
+- block:
+    - name: mac-app-store | Install tmux packages
+      homebrew:
+        name: "mas"
+        state: "present"
+      tags: brew
+      when: install_packages | d() | bool
+
+    - name: mac-app-store | Install tmux packages
+      command: "/usr/local/bin/mas install {{ item }}"
+      loop:
+        - "409183694" # Keynote
+        - "1370791134" # DigiDoc4 Client
+        - "1385638089" # miMind
+      register: cmd_result
+      changed_when: '"already installed" not in cmd_result.stdout'
+      when: install_packages | d() | bool
+  tags: mac-app-store
