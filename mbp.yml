@@ -31,3 +31,4 @@
     - { role: cronjobs, tags: ["cronjobs-role"] }
     - { role: macos, tags: ["macos-role"] }
     - { role: host_files, tags: ["host_files-role"] }
+    - { role: irssi, tags: ["irssi-role"] }
