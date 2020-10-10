@@ -1,0 +1,72 @@
+---
+# https://github.com/mathiasbynens/dotfiles/blob/master/.macos
+# https://github.com/lafarer/ansible-role-osx-defaults
+# https://wilsonmar.github.io/ansible-mac-osx-setup/
+# https://wilsonmar.github.io/mac-osx-terminal/
+
+- block:
+    - name: macos-defaults | Set MacOS lanuages
+      osx_defaults:
+        key: AppleLanguages
+        type: array
+        value:
+          - en
+          - el
+
+      # defaults read com.apple.HIToolbox.plist
+    - name: macos-defaults | Set MacOS Input lanuages
+      osx_defaults:
+        domain: com.apple.HIToolbox.plist
+        #key: AppleEnabledInputSources
+        key: "KeyboardLayout Name"
+        type: string
+        value: "Greek"
+        state: absent # <-
+        # value:
+        #   - 'InputSourceKind = "Keyboard Layout"'
+        #   - '"KeyboardLayout ID" = "-18944"'
+        #   - '"KeyboardLayout Name" = Greek'
+
+      # Hot corners
+      # Possible values:
+      #  0: no-op
+      #  2: Mission Control
+      #  3: Show application windows
+      #  4: Desktop
+      #  5: Start screen saver
+      #  6: Disable screen saver
+      #  7: Dashboard
+      # 10: Put display to sleep
+      # 11: Launchpad
+      # 12: Notification Center
+      # 13: Lock screen
+
+    - name: macos-defaults | Create {{ home_dir }}/Desktop/screenshots dir
+      file:
+        path: "{{ home_dir }}/Desktop/screenshots"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: macos-defaults | Set MacOS defaults
+      command: "{{ item }}"
+      loop:
+        # Disable the “Are you sure you want to open this application?” dialog
+        - defaults write com.apple.LaunchServices LSQuarantine -bool false
+        # Set Top Left Hot corner to Lock Screen (not working !)
+        - defaults write com.apple.dock wvous-tl-corner -int 13
+        # Save screenshots to the {{ home_dir }}/Desktop/screenshots
+        - defaults write com.apple.screencapture location -string "{{ home_dir }}/Desktop/screenshots"
+        # Finder: show hidden files by default
+        - defaults write com.apple.finder AppleShowAllFiles -bool true
+        # Display full POSIX path as Finder window title
+        - defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+        # Stop iTunes from responding to the keyboard media keys
+        - launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+        # Don’t show recent applications in Dock
+        - defaults write com.apple.dock show-recents -bool false
+        # Autohide Dock
+        - defaults write com.apple.dock autohide -bool true
+
+  tags: macos-defaults
