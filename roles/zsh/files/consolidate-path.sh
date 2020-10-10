@@ -11,8 +11,8 @@ result=":"
 
 IFS=:
 for p in $1; do
-	  [[ "$result" == *:"$p":* ]] || result="${result}${p}:"
-  done
+    [[ "$result" == *:"$p":* ]] || result="${result}${p}:"
+done
 
-  result="${result#:}"
-  echo "${result%:}"
+result="${result#:}"
+echo "${result%:}"

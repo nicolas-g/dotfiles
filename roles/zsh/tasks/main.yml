@@ -27,13 +27,13 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: zsh | Clone zsh-completions plugin repo
+    - name: zsh | Clone zsh-completions plugin repo # noqa 401 (Package installs should not use latest)
       git:
         repo: https://github.com/zsh-users/zsh-completions
         dest: "~/.oh-my-zsh/custom/plugins/zsh-completions"
         force: yes
 
-    - name: zsh | Clone zsh-syntax-highlighting plugin repo
+    - name: zsh | Clone zsh-syntax-highlighting plugin repo # noqa 401 (Package installs should not use latest)
       git:
         repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
         dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"

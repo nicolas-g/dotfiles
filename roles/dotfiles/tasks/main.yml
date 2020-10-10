@@ -14,9 +14,6 @@
 - name: Include alacritty.yml
   include: alacritty.yml
 
-- name: Include zsh.yml
-  include: zsh.yml
-
 - name: Include pianobar.yml
   include: pianobar.yml
 
