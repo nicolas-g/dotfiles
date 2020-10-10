@@ -1,14 +1,14 @@
 ---
 # https://github.com/mas-cli/mas
 - block:
-    - name: mac-app-store | Install tmux packages
+    - name: mac-app-store | Install package mas
       homebrew:
         name: "mas"
         state: "present"
       tags: brew
       when: install_packages | d() | bool
 
-    - name: mac-app-store | Install tmux packages
+    - name: mac-app-store | Install software from Apple Store
       command: "/usr/local/bin/mas install {{ item }}"
       loop:
         - "409183694" # Keynote
