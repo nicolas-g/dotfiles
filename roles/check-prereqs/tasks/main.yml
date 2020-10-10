@@ -29,7 +29,7 @@
         msg:
           - "WARNING: The playbook you are running is only marked as working with Ansible {{ ansible_supported_version }}"
           - "The executing version detected is {{ ansible_version.full }}."
-          - "Declare that this version works after verification by setting the `ansible_version_role` variable appropriately."
+          - "Declare that this version works after verification by setting the `ansible_supported_version` variable appropriately."
       run_once: true
 
     - name: check-prereqs | Check if target operating system is supported

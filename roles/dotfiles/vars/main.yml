@@ -1,5 +1,4 @@
 ---
-ansible_version_role: 2.9.7
 python_version: "3.7.6"
 
 homebrew_essentials:
@@ -18,8 +17,6 @@ homebrew_essentials:
   - kubernetes-cli
   - pre-commit
   - prettier
-  - tmux
-  - reattach-to-user-namespace # enable MacOS for tmux (pbcopy/pbpaste)
   - telnet
   - tree
   - watch
@@ -97,6 +94,7 @@ homebrew_cask_extras:
   - iterm2
   - laplock
   - minikube
+  - nightowl
   - signal
   - vagrant
   - virtualbox
@@ -120,6 +118,7 @@ zsh_plugins:
   - git-extras
   - colored-man-pages
   - colorize
+  - jsontools
   - pip
   - python
   - osx
@@ -157,7 +156,6 @@ zsh_plugins:
   #- iwhois
   #- gnu-utils
   #- jira
-  #- jsontools
   #- macports
   #- man
   #- kubectl
