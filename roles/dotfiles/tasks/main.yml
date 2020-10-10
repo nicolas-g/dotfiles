@@ -11,9 +11,6 @@
 - name: Include vim.yml
   include: vim.yml
 
-- name: Include tmux.yml
-  include: tmux.yml
-
 - name: Include alacritty.yml
   include: alacritty.yml
 

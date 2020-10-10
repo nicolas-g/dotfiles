@@ -23,6 +23,7 @@
     - { role: ssh, tags: ["ssh-role"] }
     - { role: python, tags: ["python-role"] }
     - { role: dotfiles, tags: ["dotfiles-role"] }
+    - { role: tmux, tags: ["tmux-role"] }
     - { role: ansible, tags: ["ansible-role"] }
     - { role: terraform, tags: ["terraform-role"] }
     - { role: aws, tags: ["aws-role"] }

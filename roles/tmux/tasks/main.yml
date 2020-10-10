@@ -1,5 +1,16 @@
 ---
 - block:
+    - name: tmux | Install tmux packages
+      homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - "tmux"
+        - "reattach-to-user-namespace" # enable MacOS for tmux (pbcopy/pbpaste)
+        - "urlview" # dependency for tmux-urlview plugin
+      tags: brew
+      when: install_packages | d() | bool
+
     - name: tmux | Create {{ home_dir }}/.tmux dir
       file:
         path: "{{ home_dir }}/.tmux"
@@ -16,7 +27,7 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: tmux | Clone tmux plugins
+    - name: tmux | Clone tmux plugins # noqa 401 (Package installs should not use latest)
       git:
         repo: "{{ item }}"
         dest: "~/.tmux/plugins/{{ item | basename }}"
@@ -29,7 +40,7 @@
         - https://github.com/tmux-plugins/tmux-sessionist
         - https://github.com/tmux-plugins/tmux-logging
         - https://github.com/tmux-plugins/tmux-open
-        - https://github.com/tmux-plugins/tmux-urlview
+        - https://github.com/tmux-plugins/tmux-urlview # requires "urlview" brew package
       notify:
         - "install and update plugins"
 
@@ -48,11 +59,5 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-
-    - name: tmux | Install urlview dependency for tmux-urlview plugin
-      homebrew:
-        name: "urlview"
-        state: "present"
-      when: install_packages | d() | bool
 
   tags: tmux
