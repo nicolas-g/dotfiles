@@ -65,14 +65,6 @@ homebrew_extras:
   - ripgrep
   - shellcheck
   - step
-  - zsh
-  - zsh-autosuggestions
-  - zsh-completions
-  - zsh-git-prompt
-  - zsh-history-substring-search
-  - zsh-lovers
-  - zsh-navigation-tools
-  - zsh-syntax-highlighting
 
 homebrew_cask_essentials:
   - 1password

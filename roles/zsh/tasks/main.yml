@@ -58,4 +58,11 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: tmux | Install zsh brew packages
+      homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop: "{{ zsh_brew_packages }}"
+      tags: brew
+      when: install_packages | d() | bool
   tags: zsh

@@ -1,4 +1,14 @@
 ---
+zsh_brew_packages:
+  - zsh
+  - zsh-autosuggestions
+  - zsh-completions
+  - zsh-git-prompt
+  - zsh-history-substring-search
+  - zsh-lovers
+  - zsh-navigation-tools
+  - zsh-syntax-highlighting
+
 # Standard plugins can be found in ~/.oh-my-zsh/plugins/*
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
