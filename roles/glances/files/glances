@@ -1,0 +1,38 @@
+
+[global]
+# Does Glances should check if a newer version is available on PyPI?
+check_update=true
+
+[quicklook]
+# Graphical percentage char used in the terminal user interface (default is |)
+percentage_char=@
+
+[cpu]
+steal_log=True
+
+### monitor the /tmp folder every minute
+#[folders]
+#folder_1_path=/tmp
+#folder_1_careful=2500
+#folder_1_warning=3000
+#folder_1_critical=3500
+#folder_1_refresh=60
+
+### Every 3 seconds (refresh) and if the enable key is true,
+### Glances will filter the running processes list thanks to the .*python.* regular expression (regex).
+### define the minimum (countmin) and/or maximum (countmax) process number. For example:
+#[amp_python]
+#enable=true
+#regex=.*python.*
+#refresh=3
+#countmin=1
+#countmax=2
+
+### You can export statistics to a Prometheus server through an exporter.
+### When the –export-prometheus is used, Glances creates a Prometheus exporter listening on <host:port> (define in the Glances configuration file).
+### glances --export prometheus
+#[prometheus]
+#host=localhost
+#port=9091
+#prefix=glances
+#labels=src:glances

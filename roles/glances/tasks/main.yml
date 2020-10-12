@@ -1,0 +1,17 @@
+---
+- block:
+    - name: glances | Install glances
+      homebrew:
+        name: "glances"
+        state: "present"
+      tags: brew
+      when: install_packages | d() | bool
+
+    - name: glances | Install glances
+      copy:
+        src: "glances"
+        dest: "/usr/local/etc/glances"
+        mode: "0644"
+        owner: "{{ user }}"
+        group: "admin"
+  tags: glances
