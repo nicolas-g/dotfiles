@@ -4,6 +4,7 @@ python_version: "3.7.6"
 homebrew_essentials:
   - coreutils
   - fzf
+  - gawk
   - git
   - git-extras
   - gnupg
