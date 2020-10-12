@@ -1,15 +1,23 @@
 ---
 - block:
+    # https://github.com/ohmyzsh/ohmyzsh
     - name: zsh | Download oh-my-zsh installer
       get_url:
-        url: https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh
-        dest: /tmp/oh-my-zsh-install.sh
-        mode: 0750
+        url: "https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+        dest: "/tmp/oh-my-zsh-install.sh"
+        mode: "0750"
 
     - name: packages | Install oh-my-zsh
       command: "sh /tmp/oh-my-zsh-install.sh"
       args:
         creates: "{{ home_dir }}/.oh-my-zsh"
+
+    # https://github.com/sindresorhus/pure
+    - name: zsh | npm install pure-prompt
+      npm:
+        name: "pure-prompt"
+        global: "yes"
+        state: "present"
 
     - name: zsh | Deploy {{ home_dir }}/.zshrc
       template:

@@ -1,0 +1,66 @@
+---
+# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Add wisely, as too many plugins slow down shell startup.
+# NOTE: Do not enable plugins vi-mode and virtualenv due to conflicts with pure prompt (https://github.com/sindresorhus/pure#oh-my-zsh)
+zsh_plugins:
+  - git
+  - git-extras
+  - colored-man-pages
+  - colorize
+  - jsontools
+  - pip
+  - python
+  - osx
+  - history-substring-search
+  # - aws # this plugin seems to be heavy and slow down
+  #- bundler
+  #- dotenv
+  #- osx
+  #- geeknote
+  #- autoenv
+  #- boot2docker
+  #- brew
+  #- cask
+  #- command-not-found
+  #- common-aliases
+  #- cp
+  #- docker
+  #- docker-compose
+  #- dotenv
+  #- geeknote
+  #- git-flow
+  #- git-flow-avh
+  #- git-hubflow
+  #- git-prompt
+  #- git-remote-branch
+  #- gitfast
+  #- github
+  #- gitignore
+  #- go
+  #- golang
+  #- gpg-agent
+  #- history
+  #- history-substring-search
+  #- httpie
+  #- iwhois
+  #- gnu-utils
+  #- jira
+  #- macports
+  #- man
+  #- kubectl
+  #- nmap
+  #- rsync
+  #- ssh-agent
+  #- themes
+  #- tmux
+  #- tmux-cssh
+  #- vagrant
+  #- vi-mode    # NOTE: Do not enable due to conflicts with pure prompt
+  #- vim-interaction
+  #- virtualenv # NOTE: Do not enable due to conflicts with pure prompt
+  #- virtualenvwrapper
+  #- zsh-navigation-tools
+  #- zsh_reload
+  #- repo
+  #- sudo
