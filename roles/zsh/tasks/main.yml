@@ -47,6 +47,13 @@
         dest: "~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
         force: yes
 
+      # add fzf-tab to your plugin list
+    - name: zsh | Clone zsh-completions plugin repo # noqa 401 (Package installs should not use latest)
+      git:
+        repo: "https://github.com/Aloxaf/fzf-tab"
+        dest: "~/.oh-my-zsh/custom/plugins/fzf-tab"
+        force: yes
+
     # Removes Tmux duplicates from PATH
     # https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
     # https://coderwall.com/p/4l16zq/pyenv-inside-tmux-with-zsh-on-a-mac
@@ -62,7 +69,15 @@
       homebrew:
         name: "{{ item }}"
         state: "present"
-      loop: "{{ zsh_brew_packages }}"
+      loop:
+        - zsh
+        - zsh-autosuggestions
+        - zsh-completions
+        - zsh-git-prompt
+        - zsh-history-substring-search
+        - zsh-lovers
+        - zsh-navigation-tools
+        - zsh-syntax-highlighting
       tags: brew
       when: install_packages | d() | bool
   tags: zsh
