@@ -40,6 +40,7 @@ homebrew_extras:
   - iproute2mac
   - istioctl
   - jq
+  - jid
   - yamllint
   - the_silver_searcher # ag
   - teleconsole
