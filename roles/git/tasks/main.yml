@@ -2,7 +2,7 @@
 - block:
     - name: git | Create {{ home_dir }}/{{ item }} dir
       file:
-        path: "{{ home_dir }}/{{ item}}"
+        path: "{{ home_dir }}/{{ item }}"
         state: directory
         mode: 0700
         owner: "{{ user }}"
@@ -36,4 +36,15 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: git | Install git packages
+      homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - "git"
+        - "git-extras"
+        - "git-lfs" # https://git-lfs.github.com
+        - "hub" # Github cli
+      tags: brew
+      when: install_packages | d() | bool
   tags: git

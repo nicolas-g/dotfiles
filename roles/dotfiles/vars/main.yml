@@ -5,8 +5,6 @@ homebrew_essentials:
   - coreutils
   - fzf
   - gawk
-  - git
-  - git-extras
   - gnupg
   - gnu-sed
   - gnu-tar
@@ -32,7 +30,6 @@ homebrew_extras:
   - go
   - googler
   - htop
-  - hub # Github cli
   - k3d
   - kops
   - kompose

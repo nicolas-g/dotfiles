@@ -25,3 +25,9 @@
 	program = /usr/local/MacGPG2/bin/gpg
 [hub]
 	protocol = https
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
