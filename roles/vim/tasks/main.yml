@@ -22,7 +22,7 @@
         - "vimrc"
         - "vimrc.plug"
 
-    - name: vim | Clone zsh-completions plugin repo
+    - name: vim | Clone zsh-completions plugin repo # noqa 401 (Package installs should not use latest)
       git:
         repo: https://github.com/ctrlpvim/ctrlp.vim
         dest: "{{ home_dir }}/.vim/bundle/ctrlp.vim"

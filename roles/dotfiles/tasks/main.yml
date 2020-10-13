@@ -5,9 +5,6 @@
 - name: Include dotfiles.yml
   include: dotfiles.yml
 
-- name: Include vim.yml
-  include: vim.yml
-
 - name: Include alacritty.yml
   include: alacritty.yml
 
