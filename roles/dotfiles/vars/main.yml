@@ -65,6 +65,7 @@ homebrew_extras:
   - ripgrep
   - shellcheck
   - step
+  - typora # live markdown editor
 
 homebrew_cask_essentials:
   - 1password
