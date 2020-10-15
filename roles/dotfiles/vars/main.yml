@@ -46,6 +46,7 @@ homebrew_extras:
   - teleconsole
   - tldr
   - figlet
+  - licecap # Screen Recordings in Gif
   - links
   - lftp
   - youtube-dl
