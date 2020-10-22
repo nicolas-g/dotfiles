@@ -30,6 +30,7 @@ homebrew_extras:
   - go
   - googler
   - htop
+  - httpie
   - k3d
   - kops
   - kompose
