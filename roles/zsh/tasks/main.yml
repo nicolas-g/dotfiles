@@ -70,6 +70,7 @@
         name: "{{ item }}"
         state: "present"
       loop:
+        - z # z - jump around , Tracks your most used directories, based on 'frequency'.
         - zsh
         - zsh-autosuggestions
         - zsh-completions
