@@ -15,14 +15,15 @@
 [alias]
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 
-        # to see the lines that changed :
-        # git lg -p
 [core]
         excludesfile = ~/.gitignore_global
+
 [commit]
 	gpgsign = true
+
 [gpg]
 	program = /usr/local/MacGPG2/bin/gpg
+
 [hub]
 	protocol = https
 
@@ -31,3 +32,6 @@
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[diff "sopsdiffer"]
+	textconv = sops -d

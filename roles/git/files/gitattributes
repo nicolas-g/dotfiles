@@ -1,0 +1,4 @@
+# So we can run git diff on files encrypted with Sops
+# and get a clean output
+*.yaml diff=sopsdiffer
+*.yml diff=sopsdiffer
