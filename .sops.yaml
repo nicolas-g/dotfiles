@@ -1,0 +1,31 @@
+# creation rules are evaluated sequentially,
+# the first rule match wins
+creation_rules:
+  # AWS KMS
+  - path_regex: \.aws\.yml$ # matches the pattern *.aws.yaml
+    kms: "arn:aws:kms:us-east-1:361156698868:key/a9b5992a-2cba-4a4f-ba54-7abfe540b2d3"
+    pgp: "7914BED36427AF0CA5804E6F6BB79E0176752876"
+
+  # GCP KMS
+  - path_regex: \.gcp\.yaml$
+    gcp_kms: "projects/mygcproject/locations/global/keyRings/mykeyring/cryptoKeys/thekey"
+    pgp: "7914BED36427AF0CA5804E6F6BB79E0176752876"
+
+  # Azure
+  - path_regex: \.azr\.yaml$
+    azure_keyvault: "https://sops-e0d79e3bad23460a.vault.azure.net/keys/sops-key/83979e18ec5c445f994a91c37f5a1add"
+    pgp: "7914BED36427AF0CA5804E6F6BB79E0176752876"
+
+  # HashiCorp Vault
+  - path_regex: \.hcv\.yaml$
+    hc_vault_uris: "http://localhost:8200/v1/sops/keys/thirdkey"
+    pgp: "7914BED36427AF0CA5804E6F6BB79E0176752876"
+
+  # Complex Multiple AWS KMS keys / Roles
+  - path_regex: \.awskms\.yaml$
+    kms: "arn:aws:kms:us-west-2:361527076523:key/5052f06a-5d3f-489e-b86c-57201e06f31e+arn:aws:iam::361527076523:role/hiera-sops-prod,arn:aws:kms:eu-central-1:361527076523:key/cb1fab90-8d17-42a1-a9d8-334968904f94+arn:aws:iam::361527076523:role/hiera-sops-prod"
+
+  # Finally, if the rules above have not matched, this one is a
+  # catchall that will encrypt the file using just PGP
+  # The absence of a path_regex means it will match everything
+  - pgp: "7914BED36427AF0CA5804E6F6BB79E0176752876"
