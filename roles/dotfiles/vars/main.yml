@@ -32,6 +32,7 @@ homebrew_extras:
   - htop
   - httpie
   - k3d
+  - k9s
   - kops
   - kompose
   - krew
