@@ -68,5 +68,7 @@
         - defaults write com.apple.dock show-recents -bool false
         # Autohide Dock
         - defaults write com.apple.dock autohide -bool true
+        # Unhide files Finder
+        - defaults write com.apple.Finder AppleShowAllFiles true
 
   tags: macos-defaults
