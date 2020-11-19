@@ -1,24 +1,40 @@
 ---
-- name: Include brew_essentials.yml
-  include: brew_essentials.yml
+- block:
+    - name: Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages: "{{ homebrew_essentials }}"
 
-- name: Include dotfiles.yml
-  include: dotfiles.yml
+    - name: Include brew_cask_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages: "{{ homebrew_cask_essentials }}"
 
-- name: Include alacritty.yml
-  include: alacritty.yml
+    - name: Include dotfiles.yml
+      include: dotfiles.yml
 
-- name: Include pianobar.yml
-  include: pianobar.yml
+    - name: Include alacritty.yml
+      include: alacritty.yml
 
-- name: Include open_vpn.yml
-  include: open_vpn.yml
+    - name: Include pianobar.yml
+      include: pianobar.yml
 
-- name: Include backup.yml
-  include: backup.yml
+    - name: Include open_vpn.yml
+      include: open_vpn.yml
 
-- name: Include codefresh.yml
-  include: codefresh.yml
+    - name: Include backup.yml
+      include: backup.yml
 
-- name: Include brew_extras.yml
-  include: brew_extras.yml
+    - name: Include codefresh.yml
+      include: codefresh.yml
+
+    - name: Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages: "{{ homebrew_extras }}"
+    - name: Include brew_cask_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages: "{{ homebrew_cask_extras}}"
+
+  tags: dotfiles

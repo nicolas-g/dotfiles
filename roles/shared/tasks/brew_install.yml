@@ -1,0 +1,20 @@
+---
+- block:
+    - name: shared/brew_install | Check for brew installed packages
+      shell: brew list | grep {{ item }}
+      register: brew_installed_list
+      loop: "{{ brew_packages }}"
+      ignore_errors: true
+      changed_when: false
+      check_mode: no
+      when: "brew_packages is defined"
+
+    - name: shared/brew_install | Install brew missing packages
+      homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop: "{{ brew_packages }}"
+      when: item not in brew_installed_list.results|map(attribute='stdout')
+
+  when: install_packages | d() | bool
+  tags: ["brew", "brew_install"]

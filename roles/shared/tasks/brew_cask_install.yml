@@ -1,0 +1,23 @@
+---
+- block:
+    - name: shared/brew_cask_install | Check for brew installed casks
+      shell: brew cask list | grep {{ item }}
+      register: brew_cask_installed_list
+      loop: "{{ brew_cask_packages }}"
+      ignore_errors: true
+      changed_when: false
+      check_mode: no
+      when: "brew_cask_packages is defined"
+      tags: brew_cask
+
+    - name: shared/brew_cask_install | Install brew missing casks
+      homebrew_cask:
+        name: "{{ item }}"
+        state: "present"
+      loop: "{{ brew_cask_packages }}"
+      when: "item not in brew_cask_installed_list.results|map(attribute='stdout')"
+      ignore_errors: True # for software that is already installed without homebrew
+      tags: brew_cask
+
+  when: install_packages | d() | bool
+  tags: ["brew", "brew_cask_install"]
