@@ -10,10 +10,7 @@ homebrew_essentials:
   - gnu-tar
   - gnu-time
   - gnu-which
-  - helm
   - lastpass-cli
-  - kubectx
-  - kubernetes-cli
   - pre-commit
   - prettier
   - telnet
@@ -31,13 +28,6 @@ homebrew_extras:
   - googler
   - htop
   - httpie
-  - k3d
-  - k9s
-  - kops
-  - kompose
-  - krew
-  - kube-ps1
-  - kustomize
   - ipcalc
   - iproute2mac
   - istioctl
@@ -55,7 +45,6 @@ homebrew_extras:
   - magic-wormhole
   - mtr
   - nmap
-  - octant
   - pass
   - parallel
   - peco
@@ -63,7 +52,6 @@ homebrew_extras:
   - prettyping
   - pwgen
   - pv
-  - rancher-cli
   - ripgrep
   - shellcheck
   - step
@@ -73,7 +61,6 @@ homebrew_cask_essentials:
   - 1password
   - alacritty
   - authy
-  - docker
   - dropbox
   - google-chrome
   - gpg-suite
@@ -88,7 +75,6 @@ homebrew_cask_extras:
   - firefox
   - iterm2
   - laplock
-  - minikube
   - nightowl
   - signal
   - vagrant

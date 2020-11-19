@@ -1,0 +1,16 @@
+---
+k8s_brew_packages:
+  - kubectx
+  - kubernetes-cli
+  - helm
+  - octant
+  - k3d
+  - k9s
+  - kompose
+  - krew
+  - kube-ps1
+  - kustomize
+  - rancher-cli
+k8s_brew_cask_packages:
+  - docker
+  - minikube

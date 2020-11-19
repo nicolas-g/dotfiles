@@ -1,0 +1,12 @@
+---
+- block:
+    - name: Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages: "{{ k8s_brew_packages }}"
+
+    - name: Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages: "{{ k8s_brew_cask_packages }}"
+  tags: k8s
