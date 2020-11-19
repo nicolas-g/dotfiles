@@ -9,4 +9,26 @@
       import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
       vars:
         brew_cask_packages: "{{ k8s_brew_cask_packages }}"
+
+    - name: k8s | Create ~/.config/octant/plugins/
+      file:
+        path: "~/.config/octant/plugins/"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: k8s | Download Octant Helm plugin
+      get_url:
+        url: "https://github.com/bloodorangeio/octant-helm/releases/download/v0.1.0/octant-helm_0.1.0_darwin_amd64.tar.gz"
+        dest: "/tmp/octant-helm_darwin_amd64.tar.gz"
+        mode: "0750"
+
+    - name: k8s | Unzip Octant Helm plugin
+      unarchive:
+        src: "/tmp/octant-helm_darwin_amd64.tar.gz"
+        dest: "~/.config/octant/plugins/"
+        exclude: "LICENSE"
+        remote_src: yes
+        mode: 0755
   tags: k8s
