@@ -10,6 +10,7 @@
       vars:
         brew_cask_packages: "{{ k8s_brew_cask_packages }}"
 
+    # https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
     - name: k8s | Deploy {{ home_dir }}/.kubectl_aliases
       copy:
         src: kubectl_aliases

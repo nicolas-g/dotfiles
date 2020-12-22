@@ -24,6 +24,7 @@ homebrew_extras:
   - bat
   - datamash
   - gist
+  - glow
   - go
   - googler
   - htop
