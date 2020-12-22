@@ -38,6 +38,15 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: git | Deploy {{ home_dir }}/.git_aliases
+      copy:
+        src: git_aliases
+        dest: "{{ home_dir }}/.git_aliases"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: aliases
+
     - name: git | Install git packages
       homebrew:
         name: "{{ item }}"

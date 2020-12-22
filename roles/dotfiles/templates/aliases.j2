@@ -48,32 +48,6 @@ echo "\n### Remote port forwarding ###"
 echo "# port on which th remote server will listen forward connections to my local machine"
 echo "ssh -R <remote-port>:localhost:<local-port> <jump-host>"'
 
-### Git
-alias g=git
-alias ga='git add'
-alias gb='git branch'
-alias gdmb="git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
-alias gba='git branch -a'
-alias gc='git commit -v'
-alias gcnv='git commit --no-verify'
-alias gco='git checkout'
-alias gd='git diff'
-alias gds='git diff --staged'
-alias gdm='git diff master'
-alias gpul='git pull'
-alias gl="git log --oneline --decorate --color"
-alias gp='git push'
-alias gst='git status'
-alias gnuke="git clean -df && git reset --hard"
-alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
-_gitLogLineToHash="echo {} | grep -o '[a-f0-9]\{7\}' | head -1"
-_viewGitLogLine="$_gitLogLineToHash | xargs -I % sh -c 'git show --color=always % | diff-so-fancy'"
-
-
-# HG ALIASES
-alias hgst='hg status'
-alias hgd='hg diff | $GIT_EDITOR -'
-alias hgo='hg outgoing'
 
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 # add support for ctrl+o to open selected file in VS Code
