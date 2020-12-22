@@ -10,10 +10,26 @@
       vars:
         brew_cask_packages: "{{ k8s_brew_cask_packages }}"
 
+    - name: k8s | Deploy {{ home_dir }}/.kubectl_aliases
+      copy:
+        src: kubectl_aliases
+        dest: "{{ home_dir }}/.kubectl_aliases"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: aliases
+
     - name: k8s | kubectl krew install starboard # noqa 305 Use shell only when shell functionality is required
-      shell: "kubectl krew install starboard"
+      shell: "kubectl krew install {{ item }}"
       register: cmd_result
       changed_when: '"it is already installed" not in cmd_result.stderr'
+      loop:
+        - advise-psp # Suggests PodSecurityPolicies for cluster.
+        - doctor # Scans your cluster and reports anomalies.
+        - get-all # Like `kubectl get all` but _really_ everything
+        - kubesec-scan # Scan Kubernetes resources with kubesec.io.
+        - popeye # Scans your clusters for potential resource issues
+        - starboard # Toolkit for finding risks in kubernetes resources
 
     - name: k8s | Import octant_plugins.yml
       import_tasks: "octant_plugins.yml"

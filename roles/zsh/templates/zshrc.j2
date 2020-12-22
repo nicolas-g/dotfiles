@@ -66,6 +66,9 @@ source /usr/local/etc/profile.d/z.sh
 
 source ~/.env
 source ~/.aliases
+
+[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+
 source ~/.functions
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -24,7 +24,7 @@
 
     - name: octant_plugins | Download Octant Starboard plugin
       get_url:
-        url: "https://github.com/aquasecurity/starboard-octant-plugin/releases/download/v0.6.0/starboard-octant-plugin_darwin_x86_64.tar.gz"
+        url: "https://github.com/aquasecurity/starboard-octant-plugin/releases/download/v0.7.1/starboard-octant-plugin_darwin_x86_64.tar.gz"
         dest: "/tmp/starboard-octant-plugin_darwin_amd64.tar.gz"
         mode: "0750"
 

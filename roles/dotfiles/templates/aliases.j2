@@ -24,15 +24,6 @@ alias fzf_grep='grep --line-buffered --color=never -r "" * | fzf'
 # with ag - respects .agignore and .gitignore
 alias fzf_ag='ag --nobreak --nonumbers --noheading . | fzf'
 
-# K8s
-alias ksys="kubectl -n kube-system"
-alias k="kubectl"
-alias kap='kubectl apply -f'
-alias kg='kubectl get'
-alias kl='kubectl logs '
-alias kx='kubectl exec -i -t'
-alias kctx="kubectx"
-alias kns="kubens"
 
 ### Nifty extras
 alias ng_tmux_devops='cd ; tmux attach -t DevOps || ~/.pyenv/versions/{{ python_version }}/envs/dotfiles/bin/tmuxp load ~/.tmux/devops_session.yml'
