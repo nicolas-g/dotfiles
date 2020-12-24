@@ -48,4 +48,10 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: dotfiles | Deploy /usr/local/bin/scpdot.sh
+      copy:
+        src: "scpdot.sh"
+        dest: "/usr/local/bin/scpdot.sh"
+        mode: 0755
+
   tags: configs
