@@ -2,6 +2,13 @@
 # http://tmuxp.git-pull.com/en/latest/examples.html#examples
 #
 session_name: DevOps
+start_directory: ~/
+#global_options:
+  #default-shell: /bin/sh
+  #default-command: /bin/sh
+#before_script: ./.tmuxp-before-script.sh
+#shell_command_before:
+#- '[ -f .venv/bin/activate ] && source .venv/bin/activate && reset'
 #environment:
 #  VAULT_ADDR=http://127.0.0.1:8200
 #  VAULT_UNSEAL_KEY=YYY
@@ -35,9 +42,18 @@ windows:
       - shell_command:
         - gst
         - unset PYENV_VERSION
-        -  kubeon
-  - window_name: Music
-    shell_command_before: pianobar
+        - kubeon
+  - window_name: Scratch
+    layout: main-horizontal
+    start_directory: ~/
     focus: true
     panes:
-      - blank
+      - focus: True
+      - shell_command: curl rate.sx/\?n=25
+      - shell_command: http -f POST https://egov.uscis.gov/casestatus/mycasestatus.do appReceiptNum=LIN1822851191  | grep LIN1822851191
+      - shell_command: pianobar
+    window_index: 9
+    options:
+      main-pane-height: 35
+    options_after:
+      synchronize-panes: off
