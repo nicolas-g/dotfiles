@@ -16,14 +16,17 @@ uscis_case_id="LIN1822851191"
 
 curl -s --retry 5 --retry-delay 15 -X POST -d "appReceiptNum=$uscis_case_id"  https://egov.uscis.gov/casestatus/mycasestatus.do | grep $uscis_case_id | grep $uscis_case_id > $tmp_file
 
+last_update_date=$(grep On $tmp_file | cut -d"," -f 1 | cut -d">" -f 2 | awk '{ print $2 $3}')
+
 current_case_status_hash=$(/usr/local/bin/md5sum $tmp_file | cut -d" " -f1)
 
 if [[ ${current_case_status_hash} == "${last_cases_status_hash}" ]]; then
     echo "NG| color=green"
     echo "---"
+    echo "Last case update: $last_update_date"
 else
     echo "NG!| color=red"
     echo "---"
-    #echo "Update"
+    echo "Last case update: $last_update_date"
     /usr/bin/say --rate 230 "Immigration status, updated"
 fi
