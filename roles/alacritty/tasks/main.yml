@@ -1,5 +1,10 @@
 ---
 - block:
+    - name: alacritty | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages: "alacritty"
+
     - name: alacritty | Create {{ home_dir }}/.config/alacritty dir
       file:
         path: "{{ home_dir }}/.config/alacritty"

@@ -27,6 +27,7 @@ homebrew_extras:
   - glow
   - go
   - googler
+  - gron
   - htop
   - httpie
   - ipcalc
@@ -60,7 +61,6 @@ homebrew_extras:
 
 homebrew_cask_essentials:
   - 1password
-  - alacritty
   - authy
   - dropbox
   - google-chrome

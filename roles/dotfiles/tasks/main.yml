@@ -13,9 +13,6 @@
     - name: Include dotfiles.yml
       include: dotfiles.yml
 
-    - name: Include alacritty.yml
-      include: alacritty.yml
-
     - name: Include pianobar.yml
       include: pianobar.yml
 
