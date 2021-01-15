@@ -1,5 +1,12 @@
 ---
 - block:
+    - name: pianobar | brew install pianobar
+      homebrew_cask:
+        name: "pianobar"
+        state: "present"
+      when: install_packages | d() | bool
+      tags: brew
+
     - name: pianobar | Set Pandora secrets
       set_fact:
         PANDORA_USER_NAME: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_NAME') }}"
