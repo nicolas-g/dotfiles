@@ -38,3 +38,4 @@
     - { role: host_files, tags: ["host_files-role"] }
     - { role: irssi, tags: ["irssi-role"] }
     - { role: glances, tags: ["glances-role"] }
+    - { role: saml2aws, tags: ["saml2aws-role"] }
