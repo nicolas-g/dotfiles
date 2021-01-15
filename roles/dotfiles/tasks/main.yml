@@ -1,18 +1,5 @@
 ---
 - block:
-    - name: Include brew_install.yml
-      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
-      vars:
-        brew_packages: "{{ homebrew_essentials }}"
-
-    - name: Include brew_cask_install.yml
-      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
-      vars:
-        brew_cask_packages: "{{ homebrew_cask_essentials }}"
-
-    - name: Include dotfiles.yml
-      include: dotfiles.yml
-
     - name: Include pianobar.yml
       include: pianobar.yml
 

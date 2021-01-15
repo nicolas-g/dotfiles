@@ -73,7 +73,9 @@ source ~/.env
 [ -f ~/.aliases.d/kubectl ] && source ~/.aliases.d/kubectl
 [ -f ~/.aliases.d/extras ] && source ~/.aliases.d/extras
 
-source ~/.functions
+# Functions
+[ -f ~/.functions.d/base ] && source ~/.functions.d/base
+[ -f ~/.functions.d/extras ] && source ~/.functions.d/extras
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

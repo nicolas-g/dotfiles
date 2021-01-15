@@ -17,4 +17,19 @@
         owner: "{{ user }}"
         group: "{{ group }}"
       tags: "aliases"
+
+    - name: base | Deploy {{ home_dir }}/.functions.d/extras
+      copy:
+        src: extras_functions
+        dest: "{{ home_dir }}/.functions.d/extras"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: functions
+
+    - name: dotfiles | Deploy /usr/local/bin/scpdot.sh
+      copy:
+        src: "scpdot.sh"
+        dest: "/usr/local/bin/scpdot.sh"
+        mode: 0755
   tags: extras

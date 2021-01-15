@@ -1,0 +1,7 @@
+#################
+### functions ###
+#################
+
+# Example: $ qps nginx-access.log , will count the line per second or in the example case the incoming web requests per second
+function ng_qps () { tail -f "$1" | pv --line-mode --rate --timer -b  > /dev/null ;}
+alias ng_rps='ng_qps'

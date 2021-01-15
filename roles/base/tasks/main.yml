@@ -1,37 +1,52 @@
 ---
 - block:
-    - name: configs | Create {{ home_dir }}/.config dir
+    - name: base | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages: "{{ homebrew_essentials }}"
+
+    - name: base | Include brew_cask_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages: "{{ homebrew_cask_essentials }}"
+
+    - name: base | Create {{ home_dir }}/.{{ item }} dir
       file:
-        path: "{{ home_dir }}/.config"
+        path: "{{ home_dir }}/.{{ item }}"
         state: directory
         mode: 0755
         owner: "{{ user }}"
         group: "{{ group }}"
+      loop:
+        - config
+        - aliases.d
+        - functions.d
 
-    - name: configs | Deploy {{ home_dir }}/.aliases.d/base
+    - name: base | Deploy {{ home_dir }}/.aliases.d/base
       template:
-        src: aliases.j2
+        src: base_aliases.j2
         dest: "{{ home_dir }}/.aliases.d/base"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
       tags: aliases
 
-    - name: configs | Deploy {{ home_dir }}/.functions
+    - name: base | Deploy {{ home_dir }}/.functions.d/base
       copy:
-        src: functions
-        dest: "{{ home_dir }}/.functions"
+        src: base_functions
+        dest: "{{ home_dir }}/.functions.d/base"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
       tags: functions
 
-    - set_fact:
+    - name: base | Set secret facts
+      set_fact:
         NS1_APIKEY: "{{ lookup('lastpass', 'dotfiles/NS1_APIKEY') }}"
         DATADOG_API_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_API_KEY') }}"
         DATADOG_APP_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_APP_KEY') }}"
 
-    - name: configs | Deploy {{ home_dir }}/.env
+    - name: base | Deploy {{ home_dir }}/.env
       template:
         src: env.j2
         dest: "{{ home_dir }}/.env"
@@ -40,7 +55,7 @@
         group: "{{ group }}"
       tags: env
 
-    - name: configs | Deploy {{ home_dir }}/.bashrc
+    - name: base | Deploy {{ home_dir }}/.bashrc
       copy:
         src: bashrc
         dest: "{{ home_dir }}/.bashrc"
@@ -49,10 +64,4 @@
         group: "{{ group }}"
       tags: aliases
 
-    - name: dotfiles | Deploy /usr/local/bin/scpdot.sh
-      copy:
-        src: "scpdot.sh"
-        dest: "/usr/local/bin/scpdot.sh"
-        mode: 0755
-
-  tags: configs
+  tags: base

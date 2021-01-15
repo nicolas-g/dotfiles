@@ -5,6 +5,9 @@
   gather_facts: no
   become: no
 
+  vars:
+    - python_version: "3.7.6"
+
   pre_tasks:
     - block:
         - name: mbp | Check if my_vars.yml file exists
@@ -24,6 +27,7 @@
     - { role: git, tags: ["git-role"] }
     - { role: python, tags: ["python-role"] }
     - { role: vim, tags: ["vim-role"] }
+    - { role: base, tags: ["base-role"] }
     - { role: dotfiles, tags: ["dotfiles-role"] }
     - { role: zsh, tags: ["zsh-role"] }
     - { role: tmux, tags: ["tmux-role"] }
