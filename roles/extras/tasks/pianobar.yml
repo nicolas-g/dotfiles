@@ -1,6 +1,7 @@
 ---
 - block:
-    - set_fact:
+    - name: pianobar | Set Pandora secrets
+      set_fact:
         PANDORA_USER_NAME: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_NAME') }}"
         PANDORA_USER_PASSWORD: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_PASSWORD') }}"
 

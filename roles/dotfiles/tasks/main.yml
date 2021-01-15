@@ -1,8 +1,5 @@
 ---
 - block:
-    - name: Include pianobar.yml
-      include: pianobar.yml
-
     - name: Include open_vpn.yml
       include: open_vpn.yml
 

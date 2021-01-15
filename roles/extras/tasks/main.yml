@@ -27,6 +27,9 @@
         group: "{{ group }}"
       tags: functions
 
+    - name: base | Include pianobar.yml
+      include: pianobar.yml
+
     - name: dotfiles | Deploy /usr/local/bin/scpdot.sh
       copy:
         src: "scpdot.sh"
