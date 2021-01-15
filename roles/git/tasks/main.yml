@@ -38,10 +38,10 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: git | Deploy {{ home_dir }}/.git_aliases
+    - name: git | Deploy {{ home_dir }}/.aliases.d/git
       copy:
         src: git_aliases
-        dest: "{{ home_dir }}/.git_aliases"
+        dest: "{{ home_dir }}/.aliases.d/git"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"

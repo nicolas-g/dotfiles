@@ -8,10 +8,10 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: configs | Deploy {{ home_dir }}/.aliases
+    - name: configs | Deploy {{ home_dir }}/.aliases.d/base
       template:
         src: aliases.j2
-        dest: "{{ home_dir }}/.aliases"
+        dest: "{{ home_dir }}/.aliases.d/base"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
@@ -47,6 +47,7 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
+      tags: aliases
 
     - name: dotfiles | Deploy /usr/local/bin/scpdot.sh
       copy:

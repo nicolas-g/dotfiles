@@ -26,6 +26,7 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
+      tags: ["zshrc-conf", "conf"]
 
     - name: zsh | Deploy {{ home_dir }}/.fzf.zsh
       copy:

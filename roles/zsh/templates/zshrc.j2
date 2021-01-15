@@ -1,5 +1,6 @@
 
-#ZSH_THEME="pygmalion, robbyrussell, agnoster"
+# https://zshthem.es/all/
+#ZSH_THEME="jonathan, pygmalion"
 ZSH_THEME="" # disable oh-my-zsh themes due to pure prompt (https://github.com/sindresorhus/pure#oh-my-zsh)
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
@@ -65,9 +66,12 @@ source /usr/local/share/zsh-history-substring-search/zsh-history-substring-searc
 source /usr/local/etc/profile.d/z.sh
 
 source ~/.env
-source ~/.aliases
-[ -f ~/.git_aliases ] && source ~/.git_aliases
-[ -f ~/.kubectl_aliases ] && source ~/.kubectl_aliases
+
+# Aliases
+[ -f ~/.aliases.d/base ] && source ~/.aliases.d/base
+[ -f ~/.aliases.d/git ] && source ~/.aliases.d/git
+[ -f ~/.aliases.d/kubectl ] && source ~/.aliases.d/kubectl
+[ -f ~/.aliases.d/extras ] && source ~/.aliases.d/extras
 
 source ~/.functions
 

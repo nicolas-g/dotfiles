@@ -1,0 +1,36 @@
+#####################
+### Extas Aliases ###
+#####################
+
+# http://marc-abramowitz.com/archives/2011/10/17/easy-access-to-truecrypt-from-the-command-line-in-os-x/
+alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
+
+alias glow='glow -p'
+
+### Hashicorp Vault
+alias ng_hv-server-start="vault server -config /keybase/private/nicolasg7/hvault/config.hcl &"
+alias ng_hv-server-kill="pkill vault"
+
+##### curl for useragents
+alias curlie="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\""
+alias curlff="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.0 (.NET CLR 3.5.30729)\""
+
+alias sshtunnel='
+echo "### Local port forwarding ###"
+echo "# forward connections from my local <local-port> to <target-machine>:<remote-port> through <jump-host> server"
+echo "ssh -N -L <local-port>:<target-machine>:<remote-port> <jump-host>"
+echo "-f \ Forks the process to the background"
+echo "-N \ do not execute remote command "
+echo "-n \ redirect stdin from /dev/null "
+echo "\n### Remote port forwarding ###"
+echo "# port on which th remote server will listen forward connections to my local machine"
+echo "ssh -R <remote-port>:localhost:<local-port> <jump-host>"'
+
+### Vagrant
+alias v="vagrant global-status"
+alias vup="vagrant up"
+alias vhalt="vagrant halt"
+alias vssh="vagrant ssh"
+alias vreload="vagrant reload"
+alias vrebuild="vagrant destroy --force && vagrant up"
+

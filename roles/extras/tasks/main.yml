@@ -8,4 +8,13 @@
       import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
       vars:
         brew_cask_packages: "{{ homebrew_cask_extras }}"
+
+    - name: extras | Deploy {{ home_dir }}/.aliases.d/extras
+      copy:
+        src: extras_aliases
+        dest: "{{ home_dir }}/.aliases.d/extras"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: "aliases"
   tags: extras
