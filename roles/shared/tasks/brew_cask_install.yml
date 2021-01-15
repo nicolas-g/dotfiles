@@ -1,7 +1,7 @@
 ---
 - block:
     - name: shared/brew_cask_install | Check for brew installed casks
-      shell: brew cask list | grep {{ item }}
+      shell: brew list --cask | grep {{ item }}
       register: brew_cask_installed_list
       loop: "{{ brew_cask_packages }}"
       ignore_errors: true

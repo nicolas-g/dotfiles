@@ -1,7 +1,7 @@
 ---
 - block:
     - name: shared/brew_install | Check for brew installed packages
-      shell: brew list | grep {{ item }}
+      shell: brew list --formula | grep {{ item }}
       register: brew_installed_list
       loop: "{{ brew_packages }}"
       ignore_errors: true
