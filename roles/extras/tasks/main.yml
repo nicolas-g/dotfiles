@@ -1,0 +1,11 @@
+---
+- block:
+    - name: extras | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages: "{{ homebrew_extras }}"
+    - name: extras | Include brew_cask_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages: "{{ homebrew_cask_extras }}"
+  tags: extras

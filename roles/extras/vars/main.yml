@@ -1,0 +1,65 @@
+---
+homebrew_extras:
+  - aircrack-ng
+  - aspell
+  - bat
+  - datamash
+  - gist
+  - glow
+  - go
+  - googler
+  - gron
+  - htop
+  - httpie
+  - ipcalc
+  - iproute2mac
+  - istioctl
+  - jq
+  - jid
+  - yamllint
+  - the_silver_searcher # ag
+  - teleconsole
+  - tldr
+  - figlet
+  - licecap # Screen Recordings in Gif
+  - links
+  - lftp
+  - youtube-dl
+  - magic-wormhole
+  - mtr
+  - nmap
+  - pass
+  - parallel
+  - peco
+  - pianobar
+  - prettyping
+  - pwgen
+  - pv
+  - ripgrep
+  - shellcheck
+  - step
+  - typora # live markdown editor
+
+homebrew_cask_extras:
+  - bitbar
+  - caffeine
+  - viber
+  - google-backup-and-sync
+  - firefox
+  - iterm2
+  - laplock
+  - nightowl
+  - signal
+  - vagrant
+  - virtualbox
+  - vlc
+  - cheatsheet
+  - whatsapp
+  - mpv
+  - remote-desktop-manager
+  - santa # binary whitelisting/blacklisting system for macOS
+  - selfcontrol # avoid distracting websites
+  - skitch
+  - vagrant-manager
+  - veracrypt
+  - wireshark

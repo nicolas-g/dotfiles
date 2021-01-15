@@ -24,14 +24,4 @@
 
     - name: Include codefresh.yml
       include: codefresh.yml
-
-    - name: Include brew_install.yml
-      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
-      vars:
-        brew_packages: "{{ homebrew_extras }}"
-    - name: Include brew_cask_install.yml
-      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
-      vars:
-        brew_cask_packages: "{{ homebrew_cask_extras}}"
-
   tags: dotfiles
