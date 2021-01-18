@@ -67,7 +67,7 @@
         group: "{{ group }}"
 
     - name: tmux | Install zsh brew packages
-      homebrew:
+      community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       loop:

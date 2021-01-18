@@ -1,7 +1,7 @@
 ---
 - block:
     - name: glances | Install glances
-      homebrew:
+      community.general.homebrew:
         name: "glances"
         state: "present"
       tags: brew

@@ -10,7 +10,7 @@
       when: "brew_packages is defined"
 
     - name: shared/brew_install | Install brew missing packages
-      homebrew:
+      community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       loop: "{{ brew_packages }}"

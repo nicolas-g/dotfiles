@@ -27,7 +27,7 @@
       no_log: True
 
     - name: aws | Install awscli
-      homebrew:
+      community.general.homebrew:
         name: "awscli,aws-iam-authenticator"
         state: "present"
       when: install_packages | d() | bool

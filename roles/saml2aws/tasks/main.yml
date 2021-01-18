@@ -1,12 +1,12 @@
 ---
 - block:
     - name: saml2aws | brew tap versent/homebrew-taps
-      homebrew_tap:
+      community.general.homebrew_tap:
         name: versent/homebrew-taps
         state: present
 
     - name: saml2aws | Install Terraform relevant packages # noqa 403 (Package installs should not use latest)
-      homebrew:
+      community.general.homebrew:
         name: "saml2aws"
         state: "latest"
       when: install_packages | d() | bool

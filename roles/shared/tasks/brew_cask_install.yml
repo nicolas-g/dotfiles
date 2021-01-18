@@ -11,7 +11,7 @@
       tags: brew_cask
 
     - name: shared/brew_cask_install | Install brew missing casks
-      homebrew_cask:
+      community.general.homebrew_cask:
         name: "{{ item }}"
         state: "present"
       loop: "{{ brew_cask_packages }}"

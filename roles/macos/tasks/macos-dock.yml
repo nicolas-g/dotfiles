@@ -1,7 +1,7 @@
 ---
 - block:
     - name: macos-dock | Install dockutil
-      homebrew:
+      community.general.homebrew:
         name: "dockutil"
         state: "present"
 

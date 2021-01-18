@@ -1,7 +1,7 @@
 ---
 - block:
     - name: tmux | Install tmux packages
-      homebrew:
+      community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       loop:

@@ -1,7 +1,7 @@
 ---
 - block:
     - name: pianobar | brew install pianobar
-      homebrew_cask:
+      community.general.homebrew_cask:
         name: "pianobar"
         state: "present"
       when: install_packages | d() | bool

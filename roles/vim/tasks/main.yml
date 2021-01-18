@@ -2,7 +2,7 @@
 - block:
     # required for Vim YouCompleteMe plugin to work on MacOS
     - name: vim | Install brew cmake/macvim
-      homebrew:
+      community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       when: install_packages | d() | bool

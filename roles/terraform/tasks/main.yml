@@ -1,12 +1,12 @@
 ---
 - block:
     - name: terraform | brew tap sigsegv13/tgenv
-      homebrew_tap:
+      community.general.homebrew_tap:
         name: sigsegv13/tgenv
         state: present
 
     - name: terraform | Install Terraform relevant packages # noqa 403 (Package installs should not use latest)
-      homebrew:
+      community.general.homebrew:
         name: "{{ item.pkg_name }}"
         state: "latest"
         install_options: "{{ item.install_options | default(omit) }}"

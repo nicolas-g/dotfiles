@@ -1,7 +1,7 @@
 ---
 - block:
     - name: python | Install pyenv
-      homebrew:
+      community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       when: install_packages | d() | bool

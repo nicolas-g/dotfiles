@@ -1,7 +1,7 @@
 ---
 - block:
     - name: irssi | Install irssi
-      homebrew:
+      community.general.homebrew:
         name: irssi
         state: "present"
       when: install_packages | d() | bool

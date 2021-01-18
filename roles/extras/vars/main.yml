@@ -3,7 +3,9 @@ homebrew_extras:
   - aircrack-ng
   - aspell
   - bat
+  - captin # caps lock notifies
   - datamash
+  - dozer # menu bar manager
   - gist
   - glow
   - go
@@ -26,6 +28,7 @@ homebrew_extras:
   - lftp
   - youtube-dl
   - magic-wormhole
+  - maccy # Clip board manager
   - mtr
   - nmap
   - pass

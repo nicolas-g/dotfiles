@@ -48,7 +48,7 @@
       tags: aliases
 
     - name: git | Install git packages
-      homebrew:
+      community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       loop:

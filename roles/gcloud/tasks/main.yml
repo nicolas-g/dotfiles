@@ -1,7 +1,7 @@
 ---
 - block:
     - name: gcloud | Install gcloud
-      homebrew_cask:
+      community.general.homebrew_cask:
         name: google-cloud-sdk
         state: "present"
       when: install_packages | d() | bool

@@ -30,6 +30,9 @@
     - name: base | Include pianobar.yml
       include: pianobar.yml
 
+    - name: base | Include openvpn.yml
+      include: openvpn.yml
+
     - name: dotfiles | Deploy /usr/local/bin/scpdot.sh
       copy:
         src: "scpdot.sh"

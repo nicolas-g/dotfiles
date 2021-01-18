@@ -1,7 +1,7 @@
 ---
 - block:
     - name: ansible | Check if my_ansible.cfg file exists
-      stat:
+      ansible.builtin.stat:
         path: roles/ansible/files/my_ansible.cfg
       register: stat_result
 
@@ -24,7 +24,7 @@
       when: stat_result.stat.exists
 
     - name: ansible | Install 1password CLI tool
-      homebrew_cask:
+      community.general.homebrew_cask:
         name: "1password-cli"
         state: "present"
       when: install_packages | d() | bool

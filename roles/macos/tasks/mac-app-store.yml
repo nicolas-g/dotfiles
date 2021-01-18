@@ -2,7 +2,7 @@
 # https://github.com/mas-cli/mas
 - block:
     - name: mac-app-store | Install package mas
-      homebrew:
+      community.general.homebrew:
         name: "mas"
         state: "present"
       tags: brew
