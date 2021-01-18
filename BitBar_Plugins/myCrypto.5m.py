@@ -14,9 +14,9 @@
 #
 import subprocess
 
-BTC_PRICE_ALERT=37500
-ETH_PRICE_ALERT=1250
-BCH_PRICE_ALERT=550
+BTC_PRICE_ALERT=37000
+ETH_PRICE_ALERT=1300
+BCH_PRICE_ALERT=500
 
 
 btc_cmd = "curl -s --retry 5 --retry-delay 15 https://api.coinbase.com/v2/prices/BTC-USD/buy | /usr/local/bin/jq '.data.amount'"
