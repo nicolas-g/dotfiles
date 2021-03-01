@@ -1,5 +1,6 @@
 ---
 k8s_brew_packages:
+  - argocd
   - kubectx
   - kubernetes-cli
   - helm
