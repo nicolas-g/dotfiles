@@ -14,7 +14,7 @@ repos:
 
   # Ansible lint playbooks
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v5.0.0a3
+    rev: v5.0.2
     hooks:
       - id: ansible-lint
         name: Ansible lint for playbooks
@@ -28,7 +28,7 @@ repos:
 
   # Ansible lint inventory
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v5.0.0a3
+    rev: v5.0.2
     hooks:
       - id: ansible-lint
         name: Ansible lint for inventory
