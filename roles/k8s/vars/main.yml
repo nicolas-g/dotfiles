@@ -12,6 +12,7 @@ k8s_brew_packages:
   - kube-ps1
   - kustomize
   - rancher-cli
+  - stern
 k8s_brew_cask_packages:
   - docker
   - minikube
