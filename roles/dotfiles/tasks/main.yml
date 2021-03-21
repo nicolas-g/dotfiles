@@ -2,7 +2,4 @@
 - block:
     - name: Include backup.yml
       include: backup.yml
-
-    - name: Include codefresh.yml
-      include: codefresh.yml
   tags: dotfiles
