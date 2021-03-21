@@ -15,9 +15,6 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - set_fact:
-        OPENVPN_XSPDEV_IP: "{{ lookup('lastpass', 'dotfiles/OpenVPN_XSPDEV', field='ip_address') }}"
-
     - name: openvpn | Deploy {{ home_dir }}/xspdev/xspdev.conf"
       template:
         src: ovpn.conf.j2

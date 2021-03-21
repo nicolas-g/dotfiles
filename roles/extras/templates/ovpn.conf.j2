@@ -1,5 +1,5 @@
 client
-remote {{ OPENVPN_XSPDEV_IP }} 1194       # Use the IP and not the DNS address !!!
+remote {{ lookup('community.general.passwordstore', 'dotfiles/openvpn_xspdev_ip') }} 1194       # Use the IP and not the DNS address !!!
 
 proto udp
 nobind
