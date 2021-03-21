@@ -3,7 +3,7 @@ contexts:
     type: APIKey
     name: default
     url: 'https://g.codefresh.io'
-    token: {{ CODEFRESH_API_KEY }}
+    token: {{ lookup('community.general.passwordstore', 'codefresh_api_key')}}
     beta: false
     onPrem: false
 current-context: default

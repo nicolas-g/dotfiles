@@ -1,22 +1,17 @@
 ---
 # https://codefresh-io.github.io/cli/completion/codefresh-completion/
-
 - block:
-    - name: codefresh | tap Codefresh homebrew repo
+    - name: codefresh | Tap Codefresh homebrew repo
       community.general.homebrew_tap:
         name: "codefresh-io/cli"
         state: present
       when: install_packages | d() | bool
 
-    - name: codefresh | install Codefresh CLI
+    - name: codefresh | Install Codefresh CLI
       community.general.homebrew:
         name: "codefresh"
         state: present
       when: install_packages | d() | bool
-
-    - name: codefresh | Set CODEFRESH_API_KEY secret fact
-      set_fact:
-        CODEFRESH_API_KEY: "{{ lookup('lastpass', 'dotfiles/CODEFRESH', field='API_KEY') }}"
 
     - name: codefresh | Deploy {{ home_dir }}/.cfconfig
       template:
@@ -25,5 +20,4 @@
         mode: 0600
         owner: "{{ user }}"
         group: "{{ group }}"
-
   tags: codefresh
