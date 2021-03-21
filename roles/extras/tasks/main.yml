@@ -33,6 +33,9 @@
     - name: base | Include openvpn.yml
       include: openvpn.yml
 
+    - name: base | Include codefresh.yml
+      include: codefresh.yml
+
     - name: dotfiles | Deploy /usr/local/bin/scpdot.sh
       copy:
         src: "scpdot.sh"
