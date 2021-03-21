@@ -19,7 +19,7 @@ hvac==0.10.4
 identify==1.5.13
 idna==2.8
 importlib-metadata==3.4.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 kaptan==0.5.12
 libtmux==0.8.2
 MarkupSafe==1.1.1
