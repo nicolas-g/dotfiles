@@ -8,24 +8,6 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: aws | Set secret facts
-      set_fact:
-        AWSxspdev_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='username') }}"
-        AWSxspdev_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspdev', field='password') }}"
-        AWSxspsb_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='username') }}"
-        AWSxspsb_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspsb', field='password') }}"
-        AWSxspstg_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='username') }}"
-        AWSxspstg_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspstg', field='password') }}"
-        AWSxspprod_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='username') }}"
-        AWSxspprod_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxspprod', field='password') }}"
-        AWSxsplegacy_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSxsplegacy', field='username') }}"
-        AWSxsplegacy_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSxsplegacy', field='password') }}"
-        AWSwnba_prod_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSwnba-prod', field='username') }}"
-        AWSwnba_prod_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSwnba-prod', field='password') }}"
-        AWSwnba_sbx2_access_key_id: "{{ lookup('lastpass', 'dotfiles/AWSwnba-sbx2', field='username') }}"
-        AWSwnba_sbx2_secret_access_key: "{{ lookup('lastpass', 'dotfiles/AWSwnba-sbx2', field='password') }}"
-      no_log: True
-
     - name: aws | Install awscli
       community.general.homebrew:
         name: "awscli,aws-iam-authenticator"
@@ -37,15 +19,6 @@
       copy:
         src: config
         dest: "{{ home_dir }}/.aws/config"
-        mode: 0400
-        owner: "{{ user }}"
-        group: "{{ group }}"
-        backup: True
-
-    - name: aws | Deploy {{ home_dir }}/.aws/credentials
-      template:
-        src: credentials.j2
-        dest: "{{ home_dir }}/.aws/credentials"
         mode: 0400
         owner: "{{ user }}"
         group: "{{ group }}"
