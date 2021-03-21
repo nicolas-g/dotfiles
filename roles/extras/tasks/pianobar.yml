@@ -7,11 +7,6 @@
       when: install_packages | d() | bool
       tags: brew
 
-    - name: pianobar | Set Pandora secrets
-      set_fact:
-        PANDORA_USER_NAME: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_NAME') }}"
-        PANDORA_USER_PASSWORD: "{{ lookup('lastpass', 'dotfiles/PANDORA_USER_PASSWORD') }}"
-
     - name: pianobar | Create {{ home_dir }}/.config/pianobar dir
       file:
         path: "{{ home_dir }}/.config/pianobar"

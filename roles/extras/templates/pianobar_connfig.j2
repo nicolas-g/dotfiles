@@ -2,8 +2,8 @@
 # https://github.com/PromyLOPh/pianobar/blob/master/contrib/config-example
 #
 
-user = {{ PANDORA_USER_NAME }}
-password = {{ PANDORA_USER_PASSWORD }}
+user = {{ lookup('community.general.passwordstore', 'dotfiles/pandora_user') }}
+password = {{ lookup('community.general.passwordstore', 'dotfiles/pandora_password') }}
 # or
 # password_command = gpg --decrypt ~/password
 
