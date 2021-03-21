@@ -4,6 +4,7 @@ homebrew_extras:
   - aspell
   - bat
   - captin # caps lock notifies
+  - colordiff
   - datamash
   - dozer # menu bar manager
   - gist
@@ -16,6 +17,7 @@ homebrew_extras:
   - ipcalc
   - iproute2mac
   - istioctl
+  - k6 # load testing
   - jq
   - jid
   - yamllint

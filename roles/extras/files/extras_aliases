@@ -2,6 +2,9 @@
 ### Extas Aliases ###
 #####################
 
+# https://github.com/daveewart/colordiff
+alias diff=colordiff
+
 # http://marc-abramowitz.com/archives/2011/10/17/easy-access-to-truecrypt-from-the-command-line-in-os-x/
 alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
 
