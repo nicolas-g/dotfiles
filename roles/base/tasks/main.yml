@@ -40,12 +40,6 @@
         group: "{{ group }}"
       tags: functions
 
-    - name: base | Set secret facts
-      set_fact:
-        NS1_APIKEY: "{{ lookup('lastpass', 'dotfiles/NS1_APIKEY') }}"
-        DATADOG_API_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_API_KEY') }}"
-        DATADOG_APP_KEY: "{{ lookup('lastpass', 'dotfiles/DATADOG_APP_KEY') }}"
-
     - name: base | Deploy {{ home_dir }}/.env
       template:
         src: env.j2
