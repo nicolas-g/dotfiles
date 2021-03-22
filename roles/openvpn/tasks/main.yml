@@ -15,7 +15,7 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: openvpn | Deploy {{ home_dir }}/xspdev/xspdev.conf"
+    - name: openvpn | Deploy {{ home_dir }}/.ovpn/xspdev/xspdev.conf"
       template:
         src: ovpn.conf.j2
         dest: "{{ home_dir }}/.ovpn/xspdev/xspdev.conf"
