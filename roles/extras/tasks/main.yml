@@ -30,9 +30,6 @@
     - name: base | Include pianobar.yml
       include: pianobar.yml
 
-    - name: base | Include openvpn.yml
-      include: openvpn.yml
-
     - name: base | Include codefresh.yml
       include: codefresh.yml
 
