@@ -3,12 +3,10 @@ homebrew_essentials:
   - coreutils
   - fzf
   - gawk
-  - gnupg
   - gnu-sed
   - gnu-tar
   - gnu-time
   - gnu-which
-  - lastpass-cli
   - pre-commit
   - prettier
   - telnet
@@ -17,10 +15,6 @@ homebrew_essentials:
   - wget
 
 homebrew_cask_essentials:
-  - 1password
-  - authy
   - dropbox
   - google-chrome
-  - gpg-suite
-  - keybase
   - slack

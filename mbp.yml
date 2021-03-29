@@ -45,4 +45,5 @@
     - { role: glances, tags: ["glances-role"] }
     - { role: saml2aws, tags: ["saml2aws-role"] }
     - { role: openvpn, tags: ["openvpn-role"] }
+    - { role: sec-tools, tags: ["sec-tools-role"] }
     - { role: extras, tags: ["extras-role"] }

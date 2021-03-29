@@ -1,0 +1,29 @@
+---
+- block:
+    - name: sec-tools | Install brew cask packages
+      community.general.homebrew_cask:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - 1password-cli
+        - 1password
+        - authy
+        - gpg-suite
+        - keybase
+        - veracrypt
+      tags: brew
+      when: install_packages | d() | bool
+
+    - name: sec-tools | Install brew packages
+      community.general.homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - aircrack-ng
+        - pass
+        - pass-otp
+        - gnupg
+        - lastpass-cli
+      tags: brew
+      when: install_packages | d() | bool
+  tags: sec-tools

@@ -1,6 +1,5 @@
 ---
 homebrew_extras:
-  - aircrack-ng
   - aspell
   - bat
   - captin # caps lock notifies
@@ -33,7 +32,6 @@ homebrew_extras:
   - maccy # Clip board manager
   - mtr
   - nmap
-  - pass
   - parallel
   - peco
   - prettyping
@@ -65,5 +63,4 @@ homebrew_cask_extras:
   - selfcontrol # avoid distracting websites
   - skitch
   - vagrant-manager
-  - veracrypt
   - wireshark
