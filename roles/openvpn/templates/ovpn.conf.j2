@@ -1,5 +1,6 @@
 client
-remote {{ lookup('community.general.passwordstore', 'dotfiles/openvpn_xspdev_ip') }} 1194       # Use the IP and not the DNS address !!!
+remote {{ item.value.remote_server_ip }} {{ item.value.remote_server_port | default('1194') }} # You must use the IP and not the DNS address !!!
+{# remote {{ lookup('community.general.passwordstore', 'dotfiles/openvpn_xspdev_ip') }} 1194       # Use the IP and not the DNS address !!! #}
 
 proto udp
 nobind
@@ -19,5 +20,5 @@ tls-auth ta.key 1
 cipher AES-256-CBC
 
 ca ca.crt
-cert ngeorgakopoulos.crt
-key ngeorgakopoulos.key
+cert {{ user }}.crt
+key {{ user }}.key

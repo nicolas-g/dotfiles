@@ -15,12 +15,28 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: openvpn | Deploy {{ home_dir }}/.ovpn/xspdev/xspdev.conf"
+    - name: openvpn | Return the entire password store dotfiles/openvpn
+      ansible.builtin.set_fact:
+        openvpn_dict: "{{ lookup('community.general.passwordstore', 'dotfiles/openvpn returnall=true')}}"
+
+    # NOTE: I tried different configurations but keep getting the bellow error:
+    # fatal: [localhost]: FAILED! => {"msg": "An unhandled exception occurred while running the lookup plugin 'dict'. Error was a <class 'ansible.errors.AnsibleError'>, original message: with_dict expects a dict"}
+    # for this reason I'm creating the vars file with the `copy` module and then use `include_vars`
+    - name: "openvpn | Create group_vars/all/openvpn.yml"
+      copy:
+        content: "{{ openvpn_dict }}"
+        dest: "group_vars/all/openvpn.yml"
+      check_mode: no
+
+    - name: "openvpn | Include vars group_vars/all/openvpn.yml"
+      include_vars: "group_vars/all/openvpn.yml"
+
+    - name: openvpn | Deploy {{ home_dir }}/.ovpn/{{ item.key }}/{{ item.key }}.conf
       template:
         src: ovpn.conf.j2
-        dest: "{{ home_dir }}/.ovpn/xspdev/xspdev.conf"
+        dest: "{{ home_dir }}/.ovpn/{{ item.key }}/{{ item.key }}.conf"
         mode: 0600
         owner: "{{ user }}"
         group: "{{ group }}"
-
+      loop: "{{ lookup('dict', openvpn) }}"
   tags: openvpn
