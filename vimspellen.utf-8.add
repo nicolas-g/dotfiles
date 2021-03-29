@@ -461,3 +461,5 @@ milicores
 vCPU
 LFS
 unarchive
+OpenVPN
+netcat
