@@ -65,6 +65,7 @@
         mode: 0755
         owner: "{{ user }}"
         group: "{{ group }}"
+      when: ansible_os_family == 'Darwin'
 
     - name: zsh | Install zsh brew packages
       community.general.homebrew:
