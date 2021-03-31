@@ -9,6 +9,7 @@
       import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
       vars:
         brew_cask_packages: "{{ k8s_brew_cask_packages }}"
+      when: ansible_os_family == 'Darwin'
 
     # https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
     - name: k8s | Deploy {{ home_dir }}/.aliases.d/kubectl
