@@ -5,7 +5,7 @@
       community.general.homebrew:
         name: "{{ item }}"
         state: "present"
-      when: install_packages | d() | bool
+      when: install_packages | d() | bool and ansible_os_family == 'Darwin'
       tags: brew
       loop:
         - "cmake"
