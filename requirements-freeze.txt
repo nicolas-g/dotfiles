@@ -19,7 +19,7 @@ hvac==0.10.4
 identify==1.5.13
 idna==2.8
 importlib-metadata==3.4.0
-Jinja2==2.11.1
+Jinja2==2.11.3
 kaptan==0.5.12
 libtmux==0.8.2
 MarkupSafe==1.1.1
@@ -30,7 +30,7 @@ pre-commit==2.9.3
 pycparser==2.19
 Pygments==2.8.1
 pyparsing==2.4.7
-PyYAML==5.3
+PyYAML==5.4.1
 requests==2.22.0
 rich==9.13.0
 ruamel.yaml==0.16.10
