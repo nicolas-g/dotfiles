@@ -1,6 +1,3 @@
 ---
 user: "{{ lookup('env','USER') }}"
-group: "staff"
-home_dir: "/Users/{{ user }}"
-
 install_packages: False

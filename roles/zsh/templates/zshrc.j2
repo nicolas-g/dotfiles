@@ -51,19 +51,19 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # works by default with oh-my-zsh installation
-## source /usr/local/opt/zsh-git-prompt/zshrc.sh
+## source {{ zsh_source_dir }}/opt/zsh-git-prompt/zshrc.sh
 
 # https://github.com/zsh-users/zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source {{ zsh_source_dir }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # https://github.com/zsh-users/zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source {{ zsh_source_dir }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # https://github.com/zsh-users/zsh-history-substring-search
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source {{ zsh_source_dir }}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # z track directories
-source /usr/local/etc/profile.d/z.sh
+source {{ zsh_source_dir }}/etc/profile.d/z.sh
 
 source ~/.env
 
@@ -93,7 +93,7 @@ export GPG_TTY
 # Enable Terraform logging
 export TF_LOG=1
 
-source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+source "{{ zsh_source_dir }}/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
 
 eval "$(pyenv init -)"

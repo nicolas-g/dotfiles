@@ -6,7 +6,10 @@
   become: no
 
   vars:
-    - python_version: "3.7.6"
+    group: "staff"
+    home_dir: "/Users/{{ user }}"
+    python_version: "3.7.6"
+    zsh_source_dir: "/usr/local"
 
   pre_tasks:
     - block:
