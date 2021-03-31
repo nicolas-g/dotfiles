@@ -66,7 +66,7 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: tmux | Install zsh brew packages
+    - name: zsh | Install zsh brew packages
       community.general.homebrew:
         name: "{{ item }}"
         state: "present"
