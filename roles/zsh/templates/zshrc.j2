@@ -81,7 +81,11 @@ source ~/.env
 
 # k8s krew plugin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+{% if ansible_distribution == "MacOSX" %}
+# Removes Tmux duplicates from PATH only in MacOS
 export PATH="$(consolidate-path "$PATH")"
+{% endif %}
 
 GPG_TTY=$(tty)
 export GPG_TTY
