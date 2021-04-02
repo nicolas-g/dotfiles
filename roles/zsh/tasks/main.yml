@@ -48,8 +48,8 @@
       tags: ["zshrc-conf", "conf"]
 
     - name: zsh | Deploy {{ home_dir }}/.fzf.zsh
-      copy:
-        src: "fzf.zsh"
+      template:
+        src: "fzf.zsh.j2"
         dest: "{{ home_dir }}/.fzf.zsh"
         mode: 0644
         owner: "{{ user }}"
