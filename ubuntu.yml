@@ -9,17 +9,17 @@
     group: "{{ user }}"
     home_dir: "/home/{{ user }}"
     python_version: "3.7.6"
-    zsh_source_dir: "/home/linuxbrew/.linuxbrew"
+    homebrew_prefix: "/home/linuxbrew/.linuxbrew"
     ansible_supported_os: "Ubuntu"
     ansible_supported_os_version: [18]
 
   pre_tasks:
     - block:
-        - name: mbp | Check if my_vars.yml file exists
+        - name: Check if my_vars.yml file exists
           stat:
             path: my_vars.yml
           register: stat_result
-        - name: mpb | Include my_vars.yml vars file
+        - name: Include my_vars.yml vars file
           include_vars:
             file: my_vars.yml
           when: stat_result.stat.exists
