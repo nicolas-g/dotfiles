@@ -52,6 +52,7 @@
         name: "{{ item }}"
         state: "present"
       loop:
+        - "diff-so-fancy"
         - "git"
         - "git-extras"
         - "git-lfs" # https://git-lfs.github.com
