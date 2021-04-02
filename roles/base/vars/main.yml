@@ -1,7 +1,6 @@
 ---
 homebrew_essentials:
   - coreutils
-  - fzf
   - gawk
   - gnu-sed
   - gnu-tar
