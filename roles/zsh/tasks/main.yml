@@ -6,7 +6,8 @@
         state: "present"
       loop:
         - fzf
-        - z # z - jump around , Tracks your most used directories, based on 'frequency'.
+        - npm # required for pure-prompt installation
+        - z
         - zsh
         - zsh-autosuggestions
         - zsh-completions
