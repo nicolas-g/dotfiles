@@ -1,5 +1,23 @@
 ---
 - block:
+    - name: zsh | Install shell related packages
+      community.general.homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - fzf
+        - z # z - jump around , Tracks your most used directories, based on 'frequency'.
+        - zsh
+        - zsh-autosuggestions
+        - zsh-completions
+        - zsh-git-prompt
+        - zsh-history-substring-search
+        - zsh-lovers
+        - zsh-navigation-tools
+        - zsh-syntax-highlighting
+      tags: brew
+      when: install_packages | d() | bool
+
     # https://github.com/ohmyzsh/ohmyzsh
     - name: zsh | Download oh-my-zsh installer
       get_url:
@@ -67,21 +85,4 @@
         group: "{{ group }}"
       when: ansible_os_family == 'Darwin'
 
-    - name: zsh | Install zsh brew packages
-      community.general.homebrew:
-        name: "{{ item }}"
-        state: "present"
-      loop:
-        - fzf
-        - z # z - jump around , Tracks your most used directories, based on 'frequency'.
-        - zsh
-        - zsh-autosuggestions
-        - zsh-completions
-        - zsh-git-prompt
-        - zsh-history-substring-search
-        - zsh-lovers
-        - zsh-navigation-tools
-        - zsh-syntax-highlighting
-      tags: brew
-      when: install_packages | d() | bool
   tags: zsh
