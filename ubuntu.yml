@@ -30,7 +30,7 @@
     - { role: base, tags: ["base-role"] }
     # - { role: ssh, tags: ["ssh-role"] }
     # - { role: git, tags: ["git-role"] }
-    - { role: python, tags: ["python-role"] }
+    #- { role: python, tags: ["python-role"] }
     - { role: vim, tags: ["vim-role"] }
     # - { role: dotfiles, tags: ["dotfiles-role"] }
     - { role: zsh, tags: ["zsh-role"] }
