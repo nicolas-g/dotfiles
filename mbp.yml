@@ -9,7 +9,7 @@
     group: "staff"
     home_dir: "/Users/{{ user }}"
     python_version: "3.7.6"
-    zsh_source_dir: "/usr/local"
+    homebrew_prefix: "/usr/local"
 
   pre_tasks:
     - block:
