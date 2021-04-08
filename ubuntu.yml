@@ -12,6 +12,7 @@
     homebrew_prefix: "/home/linuxbrew/.linuxbrew"
     ansible_supported_os: "Ubuntu"
     ansible_supported_os_version: [18]
+    cloud_sdk_python: "/usr/bin/python3"
 
   pre_tasks:
     - block:
@@ -29,10 +30,9 @@
     - { role: check-prereqs, tags: ["check-prereqs-role"] }
     - { role: base, tags: ["base-role"] }
     # - { role: ssh, tags: ["ssh-role"] }
-    # - { role: git, tags: ["git-role"] }
-    #- { role: python, tags: ["python-role"] }
+    - { role: git, tags: ["git-role"] }
+    - { role: python, tags: ["python-role"] }
     - { role: vim, tags: ["vim-role"] }
-    # - { role: dotfiles, tags: ["dotfiles-role"] }
     - { role: zsh, tags: ["zsh-role"] }
     # - { role: tmux, tags: ["tmux-role"] }
     # - { role: ansible, tags: ["ansible-role"] }
