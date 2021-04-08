@@ -31,7 +31,6 @@
     - { role: python, tags: ["python-role"] }
     - { role: vim, tags: ["vim-role"] }
     - { role: base, tags: ["base-role"] }
-    - { role: dotfiles, tags: ["dotfiles-role"] }
     - { role: zsh, tags: ["zsh-role"] }
     - { role: tmux, tags: ["tmux-role"] }
     - { role: alacritty, tags: ["alacritty-role"] }

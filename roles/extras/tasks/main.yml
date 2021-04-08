@@ -38,4 +38,7 @@
         src: "scpdot.sh"
         dest: "/usr/local/bin/scpdot.sh"
         mode: 0755
+
+    - name: Include backup.yml
+      include: backup.yml
   tags: extras

@@ -12,53 +12,7 @@ I"m using Ansible in order to setup my local dev machine and manage my dot files
 #### Project Layout
 
 ```
-roles/dotfiles
-├── defaults
-│   └── main.yml
-├── files
-│   ├── ansible.cfg
-│   ├── awscli_config
-│   ├── bashrc
-│   ├── functions
-│   ├── fzf.zsh
-│   ├── ng_backup.sh
-│   ├── tf_latest_install.sh
-│   ├── tmux-macos.conf
-│   ├── tmux.conf
-│   ├── tmux_devops_session.yml
-│   └── vimrc
-├── tasks
-│   ├── alacritty.yml
-│   ├── ansible_conf.yml
-│   ├── awscli.yml
-│   ├── check-prereqs.yml
-│   ├── dotfiles.yml
-│   ├── extras.yml
-│   ├── gcloud.yml
-│   ├── homebrew.yml
-│   ├── macos.yml
-│   ├── main.yml
-│   ├── open_vpn.yml
-│   ├── packages.yml
-│   ├── pianobar.yml
-│   ├── ssh.yml
-│   ├── terraform.yml
-│   ├── tmux.yml
-│   ├── vim.yml
-│   └── zsh.yml
-├── templates
-│   ├── alacritty.yml.j2
-│   ├── aliases.j2
-│   ├── awscli_credentials.j2
-│   ├── env.j2
-│   ├── gcloud_config.j2
-│   ├── gitconfig.j2
-│   ├── ovpn.conf.j2
-│   ├── pianobar_connfig.j2
-│   ├── ssh_config.j2
-│   └── zshrc.j2
-└── vars
-    └── main.yml
+TBD
 ```
 
 ## Installation requirements
@@ -74,7 +28,7 @@ run_me_first.sh
 Now you should be ready to run Ansible
 
 ```bash
-ansible-playbook dotfiles.yml -v -D
+ansible-playbook mbp.yml -v -D
 ```
 
 ## Todo
