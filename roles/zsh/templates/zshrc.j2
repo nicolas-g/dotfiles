@@ -81,6 +81,10 @@ source ~/.env
 
 # k8s krew plugin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+{% if homebrew_prefix == '/home/linuxbrew/.linuxbrew' %}
+# Make sure {{ homebrew_prefix }}/bin it's in the PATH when homebrew is installed in Linux
+export PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+{% endif %}
 
 {% if ansible_distribution == "MacOSX" %}
 # Removes Tmux duplicates from PATH only in MacOS
@@ -103,3 +107,4 @@ eval "$(pyenv virtualenv-init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
+if [ -e {{ home_dir }}/.nix-profile/etc/profile.d/nix.sh ]; then . {{ home_dir }}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
