@@ -1,0 +1,9 @@
+#############################
+### Security Tool Aliases ###
+#############################
+
+{% if ansible_distribution == "MacOSX" %}
+### MacOS
+# Don't use NetCat BSD Version but the Homebrew version
+alias nc=/usr/local/bin/nc
+{% endif %}

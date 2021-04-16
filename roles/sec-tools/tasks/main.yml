@@ -8,6 +8,7 @@
         - 1password-cli
         - 1password
         - authy
+        - cryptomator
         - gpg-suite
         - keybase
         - veracrypt
@@ -24,6 +25,16 @@
         - pass-otp
         - gnupg
         - lastpass-cli
+        - netcat
       tags: brew
       when: install_packages | d() | bool
+
+    - name: base | Deploy {{ home_dir }}/.aliases.d/sec_tools
+      template:
+        src: sec_aliases.j2
+        dest: "{{ home_dir }}/.aliases.d/sec_tools"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: aliases
   tags: sec-tools
