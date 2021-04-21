@@ -31,13 +31,6 @@
       args:
         creates: "{{ home_dir }}/.oh-my-zsh"
 
-    # https://github.com/sindresorhus/pure
-    - name: zsh | npm install pure-prompt
-      npm:
-        name: "pure-prompt"
-        global: "yes"
-        state: "present"
-
     - name: zsh | Deploy {{ home_dir }}/.zshrc
       template:
         src: "zshrc.j2"
@@ -73,6 +66,13 @@
         repo: "https://github.com/Aloxaf/fzf-tab"
         dest: "~/.oh-my-zsh/custom/plugins/fzf-tab"
         force: yes
+
+    # https://github.com/sindresorhus/pure
+    - name: zsh | npm install pure-prompt
+      npm:
+        name: "pure-prompt"
+        global: "yes"
+        state: "present"
 
     # Removes Tmux duplicates from PATH
     # https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
