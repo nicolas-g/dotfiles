@@ -34,9 +34,11 @@
 
     - name: terraform | Install Terraform environments
       command: "{{ homebrew_prefix }}/bin/tfenv install {{ item }}"
-      loop:
+      with_items:
         - "latest"
         - "latest:^0.12"
+        - "latest:^0.13"
+        - "latest:^0.15"
       register: "cmd_result"
       changed_when: "'already installed' not in cmd_result.stdout"
 
