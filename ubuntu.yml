@@ -36,7 +36,7 @@
     - { role: zsh, tags: ["zsh-role"] }
     # - { role: tmux, tags: ["tmux-role"] }
     # - { role: ansible, tags: ["ansible-role"] }
-    # - { role: terraform, tags: ["terraform-role"] }
+    - { role: terraform, tags: ["terraform-role"] }
     - { role: k8s, tags: ["k8s-role"] }
     # - { role: aws, tags: ["aws-role"] }
     # - { role: azure, tags: ["azure-role"] }
