@@ -33,13 +33,12 @@
         mode: 0400
 
     - name: terraform | Install Terraform environments
-      command: "/usr/local/bin/tfenv install {{ item }}"
+      command: "{{ homebrew_prefix }}/bin/tfenv install {{ item }}"
       loop:
         - "latest"
-        - "latest:^0.11"
         - "latest:^0.12"
-      register: cmd_result
-      changed_when: '"already installed" not in cmd_result.stdout'
+      register: "cmd_result"
+      changed_when: "'already installed' not in cmd_result.stdout"
 
     - name: terraform | Install Terragrunt
       command: "/usr/local/bin/tgenv install latest"
