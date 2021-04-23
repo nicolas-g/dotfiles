@@ -43,7 +43,7 @@
       changed_when: "'already installed' not in cmd_result.stdout"
 
     - name: terraform | Install Terragrunt
-      command: "/usr/local/bin/tgenv install latest"
+      command: "{{ homebrew_prefix }}/bin/tgenv install latest"
       register: cmd_result
       changed_when: '"already installed" not in cmd_result.stdout'
 
