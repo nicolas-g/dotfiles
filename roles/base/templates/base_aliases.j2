@@ -28,10 +28,18 @@ alias fzf_ag='ag --nobreak --nonumbers --noheading . | fzf'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
 # add support for ctrl+o to open selected file in VS Code
 
+# https://termbin.com/
+# cat ~/some_file.txt | nc termbin.com 9999
+# ls -la | nc termbin.com 9999
+# echo less typing now! | tb
+alias tb="nc termbin.com 9999"
+
 ### OSX
 {% if ansible_distribution == "MacOSX" %}
 alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 {% endif %}
 
+### Terraform
+alias tf="terraform"
 alias run-terraform="~/src/{{ github_work_organization }}/NGTerraform/bin/run-terraform"
 alias terraform-resource-update.sh="~/src/{{ github_work_organization }}/NGTerraform/bin/terraform-resource-update.sh"
