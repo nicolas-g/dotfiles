@@ -109,3 +109,5 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
 if [ -e {{ home_dir }}/.nix-profile/etc/profile.d/nix.sh ]; then . {{ home_dir }}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+complete -o nospace -C {{ homebrew_prefix }}/Cellar/tfenv/2.2.0/versions/0.15.0/terraform terraform
