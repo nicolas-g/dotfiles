@@ -36,6 +36,7 @@
         force: yes
         depth: 1
       loop:
+        - https://github.com/tmux-plugins/tpm # Tmux Plugin Manager
         - https://github.com/tmux-plugins/tmux-yank
         - https://github.com/tmux-plugins/tmux-resurrect
         - https://github.com/tmux-plugins/tmux-continuum
