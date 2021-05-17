@@ -4,6 +4,7 @@ homebrew_extras:
   - bat
   - captin # caps lock notifies
   - colordiff
+  - croc # file transfer
   - datamash
   - dozer # menu bar manager
   - gist
