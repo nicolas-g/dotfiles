@@ -34,7 +34,7 @@
     - { role: python, tags: ["python-role"] }
     - { role: vim, tags: ["vim-role"] }
     - { role: zsh, tags: ["zsh-role"] }
-    # - { role: tmux, tags: ["tmux-role"] }
+    - { role: tmux, tags: ["tmux-role"] }
     # - { role: ansible, tags: ["ansible-role"] }
     - { role: terraform, tags: ["terraform-role"] }
     - { role: k8s, tags: ["k8s-role"] }
