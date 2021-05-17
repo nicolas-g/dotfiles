@@ -52,6 +52,7 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
+      when: ansible_os_family == 'Darwin'
       tags: ["conf", "tmux-conf"]
 
     - name: tmux | Deploy {{ home_dir }}/.tmux/devops_session.yml
