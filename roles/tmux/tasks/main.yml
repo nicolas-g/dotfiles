@@ -6,10 +6,16 @@
         state: "present"
       loop:
         - "tmux"
-        - "reattach-to-user-namespace" # enable MacOS for tmux (pbcopy/pbpaste)
         - "urlview" # dependency for tmux-urlview plugin
       tags: brew
       when: install_packages | d() | bool
+
+    - name: tmux | Install reattach-to-user-namespace to enable MacOS pbcopy/pbpaste
+      community.general.homebrew:
+        name: "reattach-to-user-namespace"
+        state: "present"
+      tags: brew
+      when: install_packages | d() | bool and ansible_os_family == 'Darwin'
 
     - name: tmux | Create {{ home_dir }}/.tmux dir
       file:
