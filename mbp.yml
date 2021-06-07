@@ -8,7 +8,7 @@
   vars:
     group: "staff"
     home_dir: "/Users/{{ user }}"
-    python_version: "3.7.6"
+    python_version: "3.8.9"
     homebrew_prefix: "/usr/local"
 
   pre_tasks:

@@ -1,0 +1,17 @@
+---
+- block:
+    - name: tinyproxy | Install tinyproxy
+      community.general.homebrew:
+        name: "tinyproxy"
+        state: "present"
+      tags: brew
+      when: install_packages | d() | bool
+
+    - name: tinyproxy | Deploy /usr/local/etc/tinyproxy/tinyproxy.conf
+      template:
+        src: tinyproxy.conf.j2
+        dest: "/usr/local/etc/tinyproxy/tinyproxy.conf"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  tags: tinyproxy
