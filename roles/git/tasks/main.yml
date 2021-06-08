@@ -52,7 +52,7 @@
         name: "{{ item }}"
         state: "present"
       loop:
-        - "diff-so-fancy"
+        - "diff-so-fancy" # Use -u with diff for unified outputand pipe the output to diff-so-fancy: `diff -u file_a file_b | diff-so-fancy`
         - "git"
         - "git-extras"
         - "git-lfs" # https://git-lfs.github.com

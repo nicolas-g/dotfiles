@@ -14,9 +14,11 @@
 
 [alias]
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        dsf = diff --color
 
 [core]
         excludesfile = ~/.gitignore_global
+        pager = diff-so-fancy | less --tabs=4 -RFX
 
 [commit]
 	gpgsign = true
@@ -35,3 +37,12 @@
 
 [diff "sopsdiffer"]
 	textconv = sops -d
+
+[diff]
+        tool = vimdiff
+
+[pager]
+       dsf = diff-so-fancy | less --tabs=4 -RFXS
+
+[interactive]
+-       diffFilter = diff-so-fancy --patch
