@@ -67,7 +67,6 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: check-merge-conflict
-      # - id: detect-aws-credentials
       - id: detect-private-key
       - id: requirements-txt-fixer
         # - id: end-of-file-fixer
@@ -132,3 +131,12 @@ repos:
     rev: v2.2.1
     hooks:
       - id: prettier
+
+  - repo: https://github.com/zricethezav/gitleaks
+    rev: v7.5.0
+    hooks:
+      - id: gitleaks
+        args:
+          # - --config-path
+          # - .gitleaks.toml
+          - --verbose
