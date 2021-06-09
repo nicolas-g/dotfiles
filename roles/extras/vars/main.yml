@@ -2,7 +2,6 @@
 homebrew_extras:
   - aspell
   - bat
-  - captin # caps lock notifies
   - colordiff
   - croc # file transfer
   - datamash
