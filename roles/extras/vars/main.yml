@@ -55,7 +55,6 @@ homebrew_cask_extras:
   - vagrant
   - virtualbox
   - vlc
-  - cheatsheet
   - whatsapp
   - mpv
   - remote-desktop-manager
