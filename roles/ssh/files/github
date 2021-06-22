@@ -1,0 +1,10 @@
+
+Host github.com-nicolasg
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_ed25519
+
+Host github.com-ngeorgakopoulos-deloitte
+	HostName github.com
+	User git
+	IdentityFile ~/.ssh/id_ed25519_ngeorgakopoulos-deloitte

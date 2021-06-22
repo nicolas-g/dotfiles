@@ -28,8 +28,9 @@
         owner: "{{ user }}"
         group: "{{ group }}"
       loop:
-        - vagrant
+        - github
         - forwards
+        - vagrant
 
   when: run_ssh | d() | bool
   tags: ssh
