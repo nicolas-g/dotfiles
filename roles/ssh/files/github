@@ -1,10 +1,11 @@
+# git clone git@github.com-<Host>:<Org>/<repo>.git
 
-Host github.com-nicolasg
+Host github.com-personal
 	HostName github.com
 	User git
-	IdentityFile ~/.ssh/id_ed25519
+	IdentityFile ~/.ssh/id_ed25519_ngpersonal
 
-Host github.com-ngeorgakopoulos-deloitte
+Host github.com-work
 	HostName github.com
 	User git
-	IdentityFile ~/.ssh/id_ed25519_ngeorgakopoulos-deloitte
+	IdentityFile ~/.ssh/id_ed25519_ngwork

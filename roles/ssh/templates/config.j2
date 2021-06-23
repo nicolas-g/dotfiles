@@ -40,14 +40,6 @@ Host *
   ServerAliveInterval 30
   TCPKeepAlive yes
 
-  # Speed up SSH session creation
-  # by sharing multiple sessions over a single network connection
-  # reuse already established TCP connection
-  ControlMaster auto
-  # Use `%C` instead of `%r@%h:%p` to fix unix listener too long for Unix domain socket
-  ControlPath ~/.ssh/sockets/%C
-  ControlPersist 6h
-
   # Disable roaming explicitly anyway for good
   # https://www.upguard.com/blog/fixing-the-new-openssh-roaming-bug
   UseRoaming no
@@ -73,3 +65,15 @@ Host *
   ForwardAgent no
   ForwardX11 no
   ForwardX11Trusted yes
+
+Host * !github.com-personal !github.com-work !github.com
+  # We don't want to use ssh sockets for github since it sommeitmes
+  # messes up with the different ssh config for personal/work accounts
+  #
+  # Speed up SSH session creation
+  # by sharing multiple sessions over a single network connection
+  # reuse already established TCP connection
+  ControlMaster auto
+  # Use `%C` instead of `%r@%h:%p` to fix unix listener too long for Unix domain socket
+  ControlPath ~/.ssh/sockets/%C
+  ControlPersist 6h
