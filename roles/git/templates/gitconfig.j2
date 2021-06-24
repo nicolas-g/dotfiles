@@ -18,7 +18,9 @@
 
 [core]
         excludesfile = ~/.gitignore_global
+        hookspath =  ~/.githooks
         pager = diff-so-fancy | less --tabs=4 -RFX
+        sshCommand = /usr/bin/ssh -i ~/.ssh/id_ed25519_ngpersonal
 
 [commit]
 	gpgsign = true
@@ -45,4 +47,4 @@
        dsf = diff-so-fancy | less --tabs=4 -RFXS
 
 [interactive]
--       diffFilter = diff-so-fancy --patch
+       diffFilter = diff-so-fancy --patch
