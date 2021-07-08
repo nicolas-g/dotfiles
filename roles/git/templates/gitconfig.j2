@@ -7,7 +7,7 @@
         #
         # test by running:
         # echo "test" | gpg --clearsign
-        signingkey = 6BB79E0176752876
+        signingkey = {{ github_signingkey }}
 
 [includeIf "gitdir:src/{{ github_work_organization }}/"]
     path = ~/src/{{ github_work_organization }}/.gitconfig
@@ -18,7 +18,7 @@
 
 [core]
         excludesfile = ~/.gitignore_global
-        hookspath =  ~/.githooks
+        #hookspath =  ~/.githooks
         pager = diff-so-fancy | less --tabs=4 -RFX
         sshCommand = /usr/bin/ssh -i ~/.ssh/id_ed25519_ngpersonal
 
