@@ -37,6 +37,7 @@ homebrew_extras:
   - prettyping
   - pwgen
   - pv
+  - restic # backup
   - ripgrep
   - shellcheck
   - step
