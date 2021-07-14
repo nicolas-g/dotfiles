@@ -14,7 +14,7 @@ repos:
 
   # Ansible lint playbooks
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v5.0.2
+    rev: v5.1.0a1
     hooks:
       - id: ansible-lint
         name: Ansible lint for playbooks
@@ -28,7 +28,7 @@ repos:
 
   # Ansible lint inventory
   - repo: https://github.com/ansible/ansible-lint.git
-    rev: v5.0.2
+    rev: v5.1.0a1
     hooks:
       - id: ansible-lint
         name: Ansible lint for inventory
@@ -63,7 +63,7 @@ repos:
   #       entry: yamllint --strict -f parsable
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+    rev: v4.0.1
     hooks:
       - id: trailing-whitespace
       - id: check-merge-conflict
@@ -122,13 +122,13 @@ repos:
         verbose: true
 
   - repo: https://github.com/milin/giticket
-    rev: v1.1
+    rev: v1.3
     hooks:
       - id: giticket
         args: ["--regex=TOK-[0-9]", "--format={ticket} {commit_msg}"] # Optional
 
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v2.2.1
+    rev: v2.3.2
     hooks:
       - id: prettier
 
@@ -140,3 +140,16 @@ repos:
           # - --config-path
           # - .gitleaks.toml
           - --verbose
+
+  - repo: https://github.com/gruntwork-io/pre-commit
+    # Pin to v0.1.11 because v0.1.12 broke terraform-fmt. It no longer persists formatting changes to disk.
+    # See: https://github.com/gruntwork-io/pre-commit/releases/tag/v0.1.12
+    rev: v0.1.12 # Get the latest from: https://github.com/gruntwork-io/pre-commit/releases
+    hooks:
+      - id: terraform-fmt
+      - id: terraform-validate
+      - id: tflint
+        #      - id: shellcheck
+      - id: gofmt
+      - id: golint
+      - id: terragrunt-hclfmt
