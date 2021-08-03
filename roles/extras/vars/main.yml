@@ -60,7 +60,6 @@ homebrew_cask_extras:
   - mpv
   - remote-desktop-manager
   - santa # binary whitelisting/blacklisting system for macOS
-  - selfcontrol # avoid distracting websites
   - skitch
   - vagrant-manager
   - wireshark
