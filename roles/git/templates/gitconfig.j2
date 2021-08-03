@@ -8,6 +8,10 @@
         # test by running:
         # echo "test" | gpg --clearsign
         signingkey = {{ github_signingkey }}
+[init]
+       # configure the initial branch name to use in all of your new repositories
+       defaultBranch = master
+
 
 [includeIf "gitdir:src/{{ github_work_organization }}/"]
     path = ~/src/{{ github_work_organization }}/.gitconfig
