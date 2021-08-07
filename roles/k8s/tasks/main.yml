@@ -35,6 +35,7 @@
         - rbac-tool # visualize, config etc..
         - starboard # Toolkit for finding risks in kubernetes resources
         - tunnel # ktunel
+        - view-secret
 
     - name: k8s | Import octant_plugins.yml
       import_tasks: "octant_plugins.yml"
