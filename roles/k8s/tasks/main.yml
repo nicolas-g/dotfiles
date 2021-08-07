@@ -30,8 +30,11 @@
         - doctor # Scans your cluster and reports anomalies.
         - get-all # Like `kubectl get all` but _really_ everything
         - kubesec-scan # Scan Kubernetes resources with kubesec.io.
+        - multinet # outputs Pods' network-status
         - popeye # Scans your clusters for potential resource issues
+        - rbac-tool # visualize, config etc..
         - starboard # Toolkit for finding risks in kubernetes resources
+        - tunnel # ktunel
 
     - name: k8s | Import octant_plugins.yml
       import_tasks: "octant_plugins.yml"
