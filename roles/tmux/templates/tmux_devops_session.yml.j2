@@ -14,17 +14,6 @@ start_directory: ~/
 #  VAULT_UNSEAL_KEY=YYY
 #  VAULT_ROOT_TOKEN=XXX
 windows:
-  - window_name: Ansible
-    start_directory: ~/src/{{ github_work_organization }}/NGAnsible/
-    panes:
-      - shell_command:
-        - gst
-        - unset PYENV_VERSION
-  - window_name: Terraform
-    start_directory: ~/src/{{ github_work_organization }}/NGTErraform
-    panes:
-      - shell_command:
-        - gst
   - window_name: Dot
     start_directory: ~/src/nicolas-g/dotfiles
     panes:
