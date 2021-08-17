@@ -10,7 +10,7 @@
 
     - name: aws | Install awscli
       community.general.homebrew:
-        name: "awscli,aws-iam-authenticator"
+        name: "awscli,aws-iam-authenticator,aws-vpn-client"
         state: "present"
       when: install_packages | d() | bool
       tags: brew
