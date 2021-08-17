@@ -6,6 +6,7 @@ homebrew_extras:
   - croc # file transfer
   - datamash
   - dozer # menu bar manager
+  - gettext # EnvSubst
   - gist
   - glow
   - go
