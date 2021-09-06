@@ -17,3 +17,5 @@
 
 # END section for OpenVPN Client SSL sites
 
+10.0.0.1 hyrule01
+10.0.0.2 bettina
