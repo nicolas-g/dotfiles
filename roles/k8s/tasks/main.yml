@@ -32,10 +32,13 @@
         - kubesec-scan # Scan Kubernetes resources with kubesec.io.
         - multinet # outputs Pods' network-status
         - popeye # Scans your clusters for potential resource issues
+        - preflight
         - rbac-tool # visualize, config etc..
         - starboard # Toolkit for finding risks in kubernetes resources
+        - support-bundle
         - tunnel # ktunel
         - view-secret
+      tags: krew
 
     - name: k8s | Import octant_plugins.yml
       import_tasks: "octant_plugins.yml"

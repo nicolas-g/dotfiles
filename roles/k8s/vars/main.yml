@@ -1,9 +1,11 @@
 ---
 k8s_brew_packages:
   - argocd
+  # - docker # Replaced by Rancher Desktop
+  # - docker-machine # Replaced by Rancher Desktop
   - kubectx
-  - kubernetes-cli
-  - helm
+  # - kubectl # Replaced by Rancher Desktop
+  # - helm # Replaced by Rancher Desktop
   - octant
   - k3d
   - k9s
@@ -11,8 +13,7 @@ k8s_brew_packages:
   - krew
   - kube-ps1
   - kustomize
-  - rancher-cli
   - stern
 k8s_brew_cask_packages:
-  - docker
-  - minikube
+  - rancher # Rancher Desktop
+  - virtualbox
