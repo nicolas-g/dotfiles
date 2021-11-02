@@ -4,16 +4,23 @@
 # Add wisely, as too many plugins slow down shell startup.
 # NOTE: Do not enable plugins vi-mode and virtualenv due to conflicts with pure prompt (https://github.com/sindresorhus/pure#oh-my-zsh)
 zsh_plugins:
+  - command-not-found
+  - gcloud
   - git
   - git-extras
   - colored-man-pages
   - colorize
   - fzf-tab
   - jsontools
+  - kubectl # https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl
   - pip
   - python
+  - pyenv
   - osx
   - history-substring-search
+  - terraform
+  - transfer
+  - web-search
   # - aws # this plugin seems to be heavy and slow down
   #- bundler
   #- dotenv
@@ -49,7 +56,6 @@ zsh_plugins:
   #- jira
   #- macports
   #- man
-  #- kubectl
   #- nmap
   #- rsync
   #- ssh-agent
