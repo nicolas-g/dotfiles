@@ -11,8 +11,8 @@
 # and know when the latest case status hash is different in order to alert
 
 tmp_file="/tmp/uscis_lin_hash.txt"
-last_cases_status_hash="f9121deed5eead4672c17c0d07107d7c"
-uscis_case_id="LIN1822851191"
+last_cases_status_hash="25ab1157fa7d9bdc3bebd373b8d1fd75" #"5193666c3110d57a7dec7ab184ad0167" #0cace5e185e984ab3adf7a4b14111d11"
+uscis_case_id="IOE9042268493" #LIN1822851191"
 
 curl -s --retry 5 --retry-delay 15 -X POST -d "appReceiptNum=$uscis_case_id"  https://egov.uscis.gov/casestatus/mycasestatus.do | grep $uscis_case_id | grep $uscis_case_id > $tmp_file
 
