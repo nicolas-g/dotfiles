@@ -32,10 +32,10 @@ https://github.com/jakehilborn/displayplacer
 Enable Keybase in Finder
 TBD
 
-
 ### Uninstall Walkme
 
 find "string id"
+
 ```
 global ❯ find $HOME/Library/Application\ Support/Google -depth -path '*walkme*'
 
@@ -43,6 +43,7 @@ global ❯ find $HOME/Library/Application\ Support/Google -depth -path '*walkme*
 ```
 
 remove using the "string id"
+
 ```
 global ❯ find $HOME/Library/Application\ Support/Google -depth -path '*fckonodhlfjlkndmedanenhgdnbopbmh*' -delete
 ```
