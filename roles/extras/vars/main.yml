@@ -59,6 +59,7 @@ homebrew_cask_extras:
   - vlc
   - whatsapp
   - mpv
+  - numi
   - remote-desktop-manager
   - santa # binary whitelisting/blacklisting system for macOS
   - skitch
