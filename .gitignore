@@ -13,5 +13,8 @@ BitBar_Plugins/disabled
 # to ignore my_vars.yml,my_ansible.cfg etc..
 my_*.*
 
+# except anything that has "example" in the filename
+!*example*
+
 # this is created on the fly due to password store limitation
 group_vars/all/openvpn.yml

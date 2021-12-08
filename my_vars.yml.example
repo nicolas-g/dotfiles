@@ -1,0 +1,30 @@
+---
+keybase_user_id: jdoe
+
+# Github Personal
+personal_email: "jdoe@gmail.com"
+github_name: "John Doe"
+github_email: "2202932+jdoe@users.noreply.github.com"
+github_signingkey: "XXXYYYZZZ"
+
+# Github Work
+github_work_organization: "ACME"
+github_work_name: "John Doe"
+github_work_email: "86323109+jdoe-acme@users.noreply.github.com"
+github_work_signingkey: "WWWSSSRRR"
+
+gcloud_configs:
+  - { account: 'jdoe@dacme.com', project: 'XYZ', zone: 'us-east1-b', region: 'us-east1' }
+
+# irssi
+irssi_real_name: "jdoe"
+irssi_user_name: "jdoe"
+irssi_nick: "jdoe"
+
+# saml2aws
+saml2aws_profile_name: "xyz-okta-provider"
+saml2aws_url: "https://acme-ms.okta.com/home/amazon_aws/XYZ/111"
+saml2aws_username: "jdoe"
+saml2aws_provider: "Okta"
+saml2aws_mfa: "PUSH"
+saml2aws_aws_profile: "aws_profile"
