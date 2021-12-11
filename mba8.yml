@@ -1,0 +1,50 @@
+#!/usr/bin/env ansible-playbook mba8.yml -D --check --ask-become-pass
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  become: no
+
+  vars:
+    group: "staff"
+    home_dir: "/Users/{{ user }}"
+    python_version: "3.8.10"
+    homebrew_prefix: "/opt/homebrew"
+
+  pre_tasks:
+    - block:
+        - name: mbp | Check if my_vars.yml file exists
+          stat:
+            path: my_vars.yml
+          register: stat_result
+        - name: mpb | Include my_vars.yml vars file
+          include_vars:
+            file: my_vars.yml
+          when: stat_result.stat.exists
+      tags: always
+
+  roles:
+    - { role: check-prereqs, tags: ["check-prereqs-role"] }
+    - { role: ssh, tags: ["ssh-role"] }
+    - { role: base, tags: ["base-role"] }
+    - { role: git, tags: ["git-role"] }
+    - { role: python, tags: ["python-role"] }
+    - { role: vim, tags: ["vim-role"] }
+    - { role: zsh, tags: ["zsh-role"] }
+    - { role: tmux, tags: ["tmux-role"] }
+    - { role: alacritty, tags: ["alacritty-role"] }
+    - { role: ansible, tags: ["ansible-role"] }
+    - { role: k8s, tags: ["k8s-role"] }
+    - { role: aws, tags: ["aws-role"] }
+    - { role: azure, tags: ["azure-role"] }
+    - { role: gcloud, tags: ["gcloud-role"] }
+    - { role: cronjobs, tags: ["cronjobs-role"] }
+    - { role: macos, tags: ["macos-role"] }
+    - { role: host_files, tags: ["host_files-role"] }
+    - { role: irssi, tags: ["irssi-role"] }
+    - { role: glances, tags: ["glances-role"] }
+    - { role: saml2aws, tags: ["saml2aws-role"] }
+    - { role: openvpn, tags: ["openvpn-role"] }
+    - { role: sec-tools, tags: ["sec-tools-role"] }
+    - { role: terraform, tags: ["terraform-role"] }
+    - { role: extras, tags: ["extras-role"] }
