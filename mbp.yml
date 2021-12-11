@@ -1,4 +1,4 @@
-#!/usr/bin/env ansible-playbook mbp.yml -D --check --ask-become-pass --ask-vault-pass
+#!/usr/bin/env ansible-playbook dmbp.yml -D --check --ask-become-pass
 ---
 - hosts: localhost
   connection: local
@@ -25,7 +25,6 @@
 
   roles:
     - { role: check-prereqs, tags: ["check-prereqs-role"] }
-    #- { role: hashicorp-vault, tags: ["hashicorp-vault-role"] }
     - { role: ssh, tags: ["ssh-role"] }
     - { role: base, tags: ["base-role"] }
     - { role: git, tags: ["git-role"] }
