@@ -16,15 +16,13 @@
       loop:
         - "myBlackHosts"
         - "myHosts"
-      become: yes
-      become_method: sudo
 
     - name: host_files | Backup shell history
       cron:
         name: "Updaste /etc/hosts file"
         special_time: daily
         job: "/usr/local/bin/ng_update_hostFile.sh"
-      become: yes
-      become_method: sudo
 
+  become: yes
+  become_method: sudo
   tags: host_files

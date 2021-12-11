@@ -8,4 +8,6 @@
       loop:
         - "ng_backup_all.sh"
         - "ng_backup_history.sh"
+      become: yes
+      become_method: sudo
   tags: backup

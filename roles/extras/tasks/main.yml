@@ -38,6 +38,8 @@
         src: "scpdot.sh"
         dest: "/usr/local/bin/scpdot.sh"
         mode: 0755
+      become: yes
+      become_method: sudo
 
     - name: Include backup.yml
       include: backup.yml
