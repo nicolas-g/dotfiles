@@ -1,15 +1,15 @@
 ---
 - block:
     - name: k8s | Include brew_install.yml
-      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
-      vars:
-        brew_packages: "{{ k8s_brew_packages }}"
-
-    - name: k8s | Include brew_install.yml
       import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
       vars:
         brew_cask_packages: "{{ k8s_brew_cask_packages }}"
       when: ansible_os_family == 'Darwin'
+
+    - name: k8s | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages: "{{ k8s_brew_packages }}"
 
     # https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
     - name: k8s | Deploy {{ home_dir }}/.aliases.d/kubectl
@@ -26,18 +26,19 @@
       register: cmd_result
       changed_when: '"it is already installed" not in cmd_result.stderr'
       loop:
-        - advise-psp # Suggests PodSecurityPolicies for cluster.
-        - doctor # Scans your cluster and reports anomalies.
         - get-all # Like `kubectl get all` but _really_ everything
-        - kubesec-scan # Scan Kubernetes resources with kubesec.io.
-        - multinet # outputs Pods' network-status
-        - popeye # Scans your clusters for potential resource issues
         - preflight
         - rbac-tool # visualize, config etc..
-        - starboard # Toolkit for finding risks in kubernetes resources
         - support-bundle
-        - tunnel # ktunel
         - view-secret
+        ## The bellow krew plugins don't support M1 Architecture yet
+        # - advise-psp # Suggests PodSecurityPolicies for cluster.
+        # - doctor # Scans your cluster and reports anomalies.
+        # - kubesec-scan # Scan Kubernetes resources with kubesec.io.
+        # - multinet # outputs Pods' network-status
+        # - popeye # Scans your clusters for potential resource issues
+        # - starboard # Toolkit for finding risks in kubernetes resources
+        # - tunnel # ktunel
       tags: krew
 
     - name: k8s | Import octant_plugins.yml
