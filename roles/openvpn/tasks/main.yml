@@ -31,6 +31,15 @@
     - name: "openvpn | Include vars group_vars/all/openvpn.yml"
       include_vars: "group_vars/all/openvpn.yml"
 
+    - name: openvpn | Create {{ home_dir }}/.ovpn/{{ item.key }} dir
+      file:
+        path: "{{ home_dir }}/.ovpn/{{ item.key }}"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop: "{{ lookup('dict', openvpn) }}"
+
     - name: openvpn | Deploy {{ home_dir }}/.ovpn/{{ item.key }}/{{ item.key }}.conf
       template:
         src: ovpn.conf.j2
