@@ -8,12 +8,18 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: aws | Install awscli
-      community.general.homebrew:
-        name: "awscli,aws-iam-authenticator,aws-vpn-client"
-        state: "present"
-      when: install_packages | d() | bool
-      tags: brew
+    - name: aws | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages:
+          - "awscli"
+          - "aws-iam-authenticator"
+
+    - name: aws | Include brew_cask_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages:
+          - "aws-vpn-client"
 
     - name: aws | Deploy {{ home_dir }}/.aws/config
       copy:
