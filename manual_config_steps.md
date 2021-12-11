@@ -2,6 +2,19 @@
 
 Steps that I haven't automate yet or there are not possible to be automated and are currently performed manually.
 
+
+### Misc
+
+```
+open /Applications/Maccy.app
+#Preferences -> Launch at login
+```
+
+```
+open /Applications/Dozer.app
+#Preferences -> Launch at login
+```
+
 ### Track Pad
 
 Trackpad 3 fingers drag
