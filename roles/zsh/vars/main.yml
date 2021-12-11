@@ -16,7 +16,7 @@ zsh_plugins:
   - pip
   - python
   - pyenv
-  - osx
+  - macos
   - history-substring-search
   - terraform
   - transfer
