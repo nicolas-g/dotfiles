@@ -33,11 +33,14 @@
 
     - name: zsh | Deploy {{ home_dir }}/.zshrc
       template:
-        src: "zshrc.j2"
-        dest: "{{ home_dir }}/.zshrc"
+        src: "{{ item }}.j2"
+        dest: "{{ home_dir }}/.{{ item }}"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
+      loop:
+        - "zshrc"
+        - "zprofile"
       tags: ["zshrc-conf", "conf"]
 
     - name: zsh | Deploy {{ home_dir }}/.fzf.zsh
@@ -67,12 +70,15 @@
         dest: "~/.oh-my-zsh/custom/plugins/fzf-tab"
         force: yes
 
-    # https://github.com/sindresorhus/pure
-    - name: zsh | npm install pure-prompt
-      npm:
-        name: "pure-prompt"
-        global: "yes"
-        state: "present"
+    - block:
+        - name: zsh | npm install pure-prompt
+          npm:
+            name: "pure-prompt"
+            global: "yes"
+            state: "present"
+      rescue:
+        - debug:
+            msg: " zsh | You might need to run 'npm install -g npm@latest' the first time this fails and re-run Ansible again"
 
     # Removes Tmux duplicates from PATH
     # https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
@@ -84,6 +90,8 @@
         mode: 0755
         owner: "{{ user }}"
         group: "{{ group }}"
+      become: yes
+      become_method: sudo
       when: ansible_os_family == 'Darwin'
 
   tags: zsh
