@@ -46,6 +46,8 @@ export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 # Pure prompt
+fpath+={{ homebrew_prefix }}/share/zsh/site-functions
+
 # oh-my-zsh overrides the prompt so Pure must be activated after source $ZSH/oh-my-zsh.sh
 autoload -U promptinit; promptinit
 prompt pure
