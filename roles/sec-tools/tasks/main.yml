@@ -20,7 +20,10 @@
         name: "{{ item }}"
         state: "present"
       loop:
-        - aircrack-ng
+        # Aircrack not supported for M1 architecture yet
+        # https://github.com/aircrack-ng/aircrack-ng/issues/1957
+        # https://github.com/aircrack-ng/aircrack-ng/issues/2214
+        # - aircrack-ng
         - pass
         - pass-otp
         - gnupg

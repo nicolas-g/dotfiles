@@ -10,7 +10,7 @@
     - name: glances | Install glances
       copy:
         src: "glances"
-        dest: "/usr/local/etc/glances"
+        dest: "{{ homebrew_prefix }}/etc/glances"
         mode: "0644"
         owner: "{{ user }}"
         group: "admin"

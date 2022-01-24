@@ -5,7 +5,6 @@ homebrew_extras:
   - colordiff
   - croc # file transfer
   - datamash
-  - dozer # menu bar manager
   - gettext # EnvSubst
   - gist
   - glow
@@ -22,15 +21,12 @@ homebrew_extras:
   - jid
   - yamllint
   - the_silver_searcher # ag
-  - teleconsole
   - tldr
   - figlet
-  - licecap # Screen Recordings in Gif
   - links
   - lftp
   - youtube-dl
   - magic-wormhole
-  - maccy # Clip board manager
   - mtr
   - nmap
   - parallel
@@ -42,26 +38,28 @@ homebrew_extras:
   - ripgrep
   - shellcheck
   - step
-  - typora # live markdown editor
 
 homebrew_cask_extras:
   - bitbar
   - caffeine
+  - dozer # menu bar manager
   - viber
-  - google-backup-and-sync
   - firefox
   - iterm2
-  - laplock
-  - nightowl
+    #  - laplock # not available anymore ?
+  - licecap # Screen Recordings in Gif
   - signal
   - vagrant
-  - virtualbox
+  # - virtualbox # Not supported for M1 architecture yet
   - vlc
   - whatsapp
+  - maccy # Clip board manager
   - mpv
+  - nightowl
   - numi
   - remote-desktop-manager
   - santa # binary whitelisting/blacklisting system for macOS
   - skitch
+  - typora # live markdown editor
   - vagrant-manager
   - wireshark

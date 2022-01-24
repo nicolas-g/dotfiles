@@ -15,7 +15,7 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: irssi | Deploy {{ home_dir }}/.config
+    - name: irssi | Deploy {{ home_dir }}/.irssi/config
       template:
         src: irssi_config.j2
         dest: "{{ home_dir }}/.irssi/config"

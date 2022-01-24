@@ -30,6 +30,9 @@
     - name: base | Include pianobar.yml
       include: pianobar.yml
 
+    - name: base | Include insta360.yml
+      include: insta360.yml
+
     - name: base | Include codefresh.yml
       include: codefresh.yml
 
@@ -38,6 +41,8 @@
         src: "scpdot.sh"
         dest: "/usr/local/bin/scpdot.sh"
         mode: 0755
+      become: yes
+      become_method: sudo
 
     - name: Include backup.yml
       include: backup.yml
