@@ -33,11 +33,14 @@
 
     - name: zsh | Deploy {{ home_dir }}/.zshrc
       template:
-        src: "zshrc.j2"
-        dest: "{{ home_dir }}/.zshrc"
+        src: "{{ item }}.j2"
+        dest: "{{ home_dir }}/.{{ item }}"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
+      loop:
+        - "zshrc"
+        - "zprofile"
       tags: ["zshrc-conf", "conf"]
 
     - name: zsh | Deploy {{ home_dir }}/.fzf.zsh
@@ -85,5 +88,4 @@
         owner: "{{ user }}"
         group: "{{ group }}"
       when: ansible_os_family == 'Darwin'
-
   tags: zsh
