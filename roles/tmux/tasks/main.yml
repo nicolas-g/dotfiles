@@ -6,6 +6,7 @@
         state: "present"
       loop:
         - "tmux"
+        - "tmate"
         - "urlview" # dependency for tmux-urlview plugin
       tags: brew
       when: install_packages | d() | bool
