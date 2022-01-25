@@ -69,45 +69,45 @@ repos:
       - id: check-merge-conflict
       - id: detect-private-key
       - id: requirements-txt-fixer
-        # - id: end-of-file-fixer
-        # - id: mixed-line-ending
-        # - id: check-byte-order-marker
-        # - id: check-executables-have-shebangs
-        # - id: debug-statements
-        # - id: flake8
-        # - id: check-yaml
-        types: [yaml]
-        #files: .*\.(yaml|yml)$
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix, lf]
+      # - id: check-byte-order-marker
+      # - id: check-executables-have-shebangs
+      # - id: debug-statements
+      # - id: flake8
+      # - id: check-yaml
+      # files: .*\.(yaml|yml)$
 
-        # github.com/jumanjihouse/pre-commit-hooks
-        # markdownlint
-        # shellcheck
-        #
-        # github.com/Lucas-C/pre-commit-hooks-nodejs
-        # markdown-toc
-        #
-        # github.com/detailyang/pre-commit-shell
-        # shell-lint
-        #
-        # github.com/bemeurer/beautysh
-        # beautysh
-        #
-        # github.com/antonbabenko/pre-commit-terraform
-        # terraform_fmt # Rewrites all Terraform configuration files to a canonical format.
-        # terraform_docs # Inserts input and output documentation into README.md (using terraform-docs).
-        # terraform_docs_without_aggregate_type_defaults # Inserts input and output documentation into README.md (using terraform-docs).
-        # terraform_docs_replace # Overwrite content of README.md with terraform-docs.
-        # terraform_validate # Validates all Terraform configuration files.
-        # terraform_tflint # Validates all Terraform configuration files with TFLint.
-        # terragrunt_fmt # Rewrites all Terragrunt configuration files to a canonical format.
-        #
-        # github.com/openstack-dev/bashate
-        # bashate - This hook runs bashate for linting shell scripts
-        #
-        # github.com/codespell-project/codespell
-        # codespell - Checks for common misspellings in text files.
+      # github.com/jumanjihouse/pre-commit-hooks
+      # markdownlint
+      # shellcheck
+      #
+      # github.com/Lucas-C/pre-commit-hooks-nodejs
+      # markdown-toc
+      #
+      # github.com/detailyang/pre-commit-shell
+      # shell-lint
+      #
+      # github.com/bemeurer/beautysh
+      # beautysh
+      #
+      # github.com/antonbabenko/pre-commit-terraform
+      # terraform_fmt # Rewrites all Terraform configuration files to a canonical format.
+      # terraform_docs # Inserts input and output documentation into README.md (using terraform-docs).
+      # terraform_docs_without_aggregate_type_defaults # Inserts input and output documentation into README.md (using terraform-docs).
+      # terraform_docs_replace # Overwrite content of README.md with terraform-docs.
+      # terraform_validate # Validates all Terraform configuration files.
+      # terraform_tflint # Validates all Terraform configuration files with TFLint.
+      # terragrunt_fmt # Rewrites all Terragrunt configuration files to a canonical format.
+      #
+      # github.com/openstack-dev/bashate
+      # bashate - This hook runs bashate for linting shell scripts
+      #
+      # github.com/codespell-project/codespell
+      # codespell - Checks for common misspellings in text files.
 
-        #
+      #
 
   #- repo: https://github.com/openstack-dev/bashate
   - repo: https://github.com/openstack/bashate
@@ -148,8 +148,8 @@ repos:
     hooks:
       - id: terraform-fmt
       - id: terraform-validate
-      - id: tflint
-        #      - id: shellcheck
+      - id: tflint #requires: tflint.hcl
+        #- id: shellcheck
       - id: gofmt
       - id: golint
       - id: terragrunt-hclfmt
