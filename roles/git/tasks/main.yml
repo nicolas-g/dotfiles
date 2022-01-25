@@ -53,6 +53,7 @@
         name: "{{ item }}"
         state: "present"
       loop:
+        - "gh" # GitHub CLI
         - "diff-so-fancy" # Use -u with diff for unified outputand pipe the output to diff-so-fancy: `diff -u file_a file_b | diff-so-fancy`
         - "git"
         - "git-extras"
@@ -60,4 +61,17 @@
         - "hub" # Github cli
       tags: brew
       when: install_packages | d() | bool
+
+    - name: git | Install github cli extensions
+      shell: "gh extension install {{ item }}"
+      register: cmd_result
+      changed_when: "'there is already an installed extension' not in cmd_result.stderr"
+      failed_when: "'there is already an installed extension' not in cmd_result.stderr"
+      loop:
+        - yusukebe/gh-markdown-preview # preview markdown files locally
+        - dlvhdr/gh-prs # nice UI dashboards with PRs
+        - vilmibm/gh-user-status
+        - mislav/gh-branch
+        - redraw/gh-install
+      tags: gh-extensions
   tags: git
