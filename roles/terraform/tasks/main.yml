@@ -13,6 +13,7 @@
       when: install_packages | d() | bool
       loop:
         - { pkg_name: "tfenv" }
+        - { pkg_name: "tflint" }
         - { pkg_name: "tgenv" }
         - { pkg_name: "terraformer" }
       tags: brew
