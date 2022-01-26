@@ -16,6 +16,7 @@
         - { pkg_name: "tflint" }
         - { pkg_name: "tgenv" }
         - { pkg_name: "terraformer" }
+        - { pkg_name: "terraform-docs" }
       tags: brew
 
     - name: terraform | Create ~/.tfenv directory
