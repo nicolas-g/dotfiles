@@ -28,4 +28,15 @@
         group: "{{ group }}"
       loop: "{{ gcloud_configs }}"
 
+    - name: gcloud | Install gcloud components
+      command: "{{ homebrew_prefix }}/bin/gcloud components install {{ item }}"
+      register: cmd_result
+      loop:
+        - "config-connector"
+        - "cloud-build-local"
+        - "gsutil"
+        - "nomos"
+      changed_when: '"All components are up to date" not in cmd_result.stderr'
+      tags: this
+
   tags: gcloud
