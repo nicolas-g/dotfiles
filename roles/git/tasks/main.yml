@@ -67,6 +67,7 @@
       register: cmd_result
       changed_when: "'there is already an installed extension' not in cmd_result.stderr"
       failed_when: "'there is already an installed extension' not in cmd_result.stderr"
+      # For a list of gh extensions -> https://github.com/topics/gh-extension
       loop:
         - yusukebe/gh-markdown-preview # preview markdown files locally
         - dlvhdr/gh-prs # nice UI dashboards with PRs
