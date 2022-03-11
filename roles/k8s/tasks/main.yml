@@ -21,12 +21,13 @@
         group: "{{ group }}"
       tags: aliases
 
-    - name: k8s | kubectl krew install starboard # noqa 305 Use shell only when shell functionality is required
+    - name: k8s | kubectl krew install plugins # noqa 305 Use shell only when shell functionality is required
       shell: "kubectl krew install {{ item }}"
       register: cmd_result
       changed_when: '"it is already installed" not in cmd_result.stderr'
       loop:
         - get-all # Like `kubectl get all` but _really_ everything
+        - neat
         - preflight
         - rbac-tool # visualize, config etc..
         - support-bundle
