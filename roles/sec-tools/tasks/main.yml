@@ -11,6 +11,7 @@
         - cryptomator
         - gpg-suite
         - keybase
+        - ots # one time secret
         - veracrypt
       tags: brew
       when: install_packages | d() | bool
