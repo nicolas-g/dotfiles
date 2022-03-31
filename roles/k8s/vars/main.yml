@@ -1,6 +1,7 @@
 ---
 k8s_brew_packages:
   - argocd
+  - datree
   # - docker # Replaced by Rancher Desktop
   # - docker-machine # Replaced by Rancher Desktop
   - kubectx

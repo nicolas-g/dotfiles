@@ -26,10 +26,12 @@
       register: cmd_result
       changed_when: '"it is already installed" not in cmd_result.stderr'
       loop:
+        - datree
         - get-all # Like `kubectl get all` but _really_ everything
         - neat
         - preflight
         - rbac-tool # visualize, config etc..
+        - resource-capacity
         - support-bundle
         - view-secret
         ## The bellow krew plugins don't support M1 Architecture yet
@@ -44,4 +46,22 @@
 
     - name: k8s | Import octant_plugins.yml
       import_tasks: "octant_plugins.yml"
+
+    - name: k8s | Create {{ home_dir }}/.datree dir
+      file:
+        path: "{{ home_dir }}/.datree"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: datree
+
+    - name: k8s | Deploy {{ home_dir }}/.datree/config.yaml
+      template:
+        src: datree_config.yaml.j2
+        dest: "{{ home_dir }}/.datree/config.yaml"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: datree
   tags: k8s
