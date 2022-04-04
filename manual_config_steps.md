@@ -2,7 +2,6 @@
 
 Steps that I haven't automate yet or there are not possible to be automated and are currently performed manually.
 
-
 ### Misc
 
 ```
@@ -44,6 +43,18 @@ https://github.com/jakehilborn/displayplacer
 
 Enable Keybase in Finder
 TBD
+
+### 1paqssword
+
+https://developer.1password.com/docs/cli/get-started#turn-on-biometric-unlock
+
+Turn on biometric unlock
+
+- Open 1Password.
+- Click the account or collection at the top of the sidebar and choose Preferences > Security.
+- Select Touch ID.
+- Click Developer in the sidebar.
+- Select Biometric Unlock for 1Password CLI.
 
 ### Uninstall Walkme
 
