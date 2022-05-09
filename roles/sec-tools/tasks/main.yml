@@ -29,6 +29,7 @@
         - pass-otp
         - gnupg
         - lastpass-cli
+        - mitmproxy
         - netcat
       tags: brew
       when: install_packages | d() | bool
