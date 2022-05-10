@@ -1,0 +1,4 @@
+github.com:
+    user: {{ github_work_id }}
+    oauth_token: {{ lookup('community.general.passwordstore', 'dotfiles/ng_work_github_personal_access_token') }}
+    git_protocol: ssh
