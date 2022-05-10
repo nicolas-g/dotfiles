@@ -62,6 +62,15 @@
       tags: brew
       when: install_packages | d() | bool
 
+    - name: git | Create {{ home_dir }}/.config/gh dir
+      file:
+        path: "{{ home_dir }}/.config/gh"
+        state: directory
+        mode: 0751
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: gh
+
     - name: git | Configure github cli
       template:
         src: github_cli_{{ item }}.yml.j2
