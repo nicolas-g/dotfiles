@@ -87,7 +87,7 @@
       shell: "gh extension install {{ item }}"
       register: cmd_result
       changed_when: "'there is already an installed extension' not in cmd_result.stderr"
-      failed_when: "'there is already an installed extension' not in cmd_result.stderr"
+      failed_when: "'there is already an installed extension' not in cmd_result.stderr and cmd_result.stderr | length > 0"
       # For a list of gh extensions -> https://github.com/topics/gh-extension
       loop:
         - yusukebe/gh-markdown-preview # preview markdown files locally
@@ -95,5 +95,6 @@
         - vilmibm/gh-user-status
         - mislav/gh-branch
         - redraw/gh-install
+        - dlvhdr/gh-dash
       tags: gh-extensions
   tags: git
