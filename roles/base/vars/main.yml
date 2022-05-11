@@ -15,6 +15,6 @@ homebrew_essentials:
 
 homebrew_cask_essentials:
   - dropbox
-  - google-chrome
+  - brave-browser
   - obsidian
   - slack
