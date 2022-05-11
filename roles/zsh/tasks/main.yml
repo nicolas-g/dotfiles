@@ -91,6 +91,5 @@
         owner: "{{ user }}"
         group: "{{ group }}"
       become: yes
-      become_method: sudo
       when: ansible_os_family == 'Darwin'
   tags: zsh
