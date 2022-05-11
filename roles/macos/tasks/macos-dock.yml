@@ -6,7 +6,7 @@
         state: "present"
 
     - name: macos-dock | Remove all crap from Dock
-      command: dockutil --remove '{{ item }}'
+      command: "{{ homebrew_prefix }}/bin/dockutil --remove '{{ item }}'"
       ignore_errors: true
       with_items: "{{ dockitems_to_remove }}"
 
