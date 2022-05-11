@@ -8,10 +8,11 @@
         - 1password-cli
         - 1password
         - authy
+        - bitwarden
         - cryptomator
         - gpg-suite
         - keybase
-        - ots # one time secret
+        - protonvpn
         - veracrypt
       tags: brew
       when: install_packages | d() | bool
@@ -31,6 +32,7 @@
         - lastpass-cli
         - mitmproxy
         - netcat
+        - ots # one time secret
       tags: brew
       when: install_packages | d() | bool
 
