@@ -11,6 +11,7 @@ homebrew_extras:
   - go
   - googler
   - gron
+  - gotop
   - htop
   - httpie
   - ipcalc
@@ -61,6 +62,7 @@ homebrew_cask_extras:
   - remote-desktop-manager
   - santa # binary whitelisting/blacklisting system for macOS
   - skitch
+  - telegram
   - typora # live markdown editor
   - vagrant-manager
   - wireshark

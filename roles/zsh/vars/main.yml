@@ -24,7 +24,6 @@ zsh_plugins:
   # - aws # this plugin seems to be heavy and slow down
   #- bundler
   #- dotenv
-  #- osx
   #- geeknote
   #- autoenv
   #- boot2docker
