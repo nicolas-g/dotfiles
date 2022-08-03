@@ -1,0 +1,9 @@
+---
+- block:
+    - name: upbound | Install upbound CLI # noqa 403 (Package installs should not use latest)
+      community.general.homebrew:
+        name: "upbound/tap/up"
+        state: "latest"
+      when: install_packages | d() | bool
+      tags: brew
+  tags: upbound
