@@ -11,6 +11,14 @@
       vars:
         brew_packages: "{{ k8s_brew_packages }}"
 
+    - name: k8s | Deploy {{ home_dir }}/.zshrc.d/
+      template:
+        src: gke_cloud_auth.zsh.j2
+        dest: "{{ home_dir }}/.zshrc.d/gke_cloud_auth.zsh"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
     # https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
     - name: k8s | Deploy {{ home_dir }}/.aliases.d/kubectl
       copy:

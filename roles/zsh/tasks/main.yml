@@ -31,6 +31,14 @@
       args:
         creates: "{{ home_dir }}/.oh-my-zsh"
 
+    - name: zsh | Create {{ home_dir }}/.zshrc.d dir
+      file:
+        path: "{{ home_dir }}/.zshrc.d"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
     - name: zsh | Deploy {{ home_dir }}/.zshrc
       template:
         src: "{{ item }}.j2"
@@ -64,7 +72,7 @@
         force: yes
 
       # add fzf-tab to your plugin list
-    - name: zsh | Clone zsh-completions plugin repo # noqa 401 (Package installs should not use latest)
+    - name: zsh | Clone fzf-tab plugin repo # noqa 401 (Package installs should not use latest)
       git:
         repo: "https://github.com/Aloxaf/fzf-tab"
         dest: "~/.oh-my-zsh/custom/plugins/fzf-tab"

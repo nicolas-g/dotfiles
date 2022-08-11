@@ -98,7 +98,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 # Enable Terraform logging
-export TF_LOG=1
+export TF_LOG=0
 
 source "{{ homebrew_prefix }}/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
@@ -110,6 +110,13 @@ eval "$(pyenv virtualenv-init -)"
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/vault vault
 
-if [ -e {{ home_dir }}/.nix-profile/etc/profile.d/nix.sh ]; then . {{ home_dir }}/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/ngeorgakopoulos/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-complete -o nospace -C {{ homebrew_prefix }}/Cellar/tfenv/2.2.0/versions/0.15.0/terraform terraform
+
+#for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
+for conf in "$HOME/.zshrc.d/"*.zsh; do
+  source "${conf}"
+done
+unset conf

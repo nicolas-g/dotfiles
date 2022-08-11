@@ -21,6 +21,7 @@ zsh_plugins:
   - terraform
   - transfer
   - web-search
+  - z
   # - aws # this plugin seems to be heavy and slow down
   #- bundler
   #- dotenv
