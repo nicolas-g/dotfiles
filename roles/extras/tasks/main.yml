@@ -46,4 +46,7 @@
 
     - name: Include backup.yml
       include: backup.yml
+
+    - name: Include speedtest.yml
+      include: speedtest.yml
   tags: extras

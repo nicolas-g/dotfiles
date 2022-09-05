@@ -1,0 +1,15 @@
+---
+# https://www.speedtest.net/apps/cli
+- block:
+    - name: speedtest | Tap Speedtest homebrew repo
+      community.general.homebrew_tap:
+        name: "teamookla/speedtest"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: speedtest | Install Speedtest CLI
+      community.general.homebrew:
+        name: "speedtest"
+        state: present
+      when: install_packages | d() | bool
+  tags: speedtest
