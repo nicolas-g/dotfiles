@@ -4,6 +4,7 @@ homebrew_extras:
   - bat
   - colordiff
   - croc # file transfer
+  - cmatrix # screen saver
   - datamash
   - gettext # EnvSubst
   - gist
@@ -56,6 +57,7 @@ homebrew_cask_extras:
   - vlc
   - whatsapp
   - maccy # Clip board manager
+  - motrix # Download manager
   - mpv
   - nightowl
   - numi
