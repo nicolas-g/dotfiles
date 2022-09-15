@@ -1,0 +1,32 @@
+---
+# https://github.com/ankitpokhrel/jira-cli
+- block:
+    - name: jira-cli | Tap ankitpokhrel/jira-cli homebrew repo
+      community.general.homebrew_tap:
+        name: "ankitpokhrel/jira-cli"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: jira-cli | Install Jira CLI
+      community.general.homebrew:
+        name: "jira-cli"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: jira-cli | Create {{ home_dir }}/.config/jira  dir
+      file:
+        path: "{{ home_dir }}/.config/.jira"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: jira-cli | Deploy {{ home_dir }}/.config/.jira/config.yml
+      template:
+        src: jira-cli_config.yml.j2
+        dest: "{{ home_dir }}/.config/.jira/.config.yml"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+  tags: jira-cli

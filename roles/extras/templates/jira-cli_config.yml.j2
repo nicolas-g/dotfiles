@@ -1,0 +1,70 @@
+board:
+    id: 287
+    name: TOKSCA board
+    type: kanban
+epic:
+    name: customfield_10002
+    link: customfield_10000
+installation: Local
+issue:
+    fields:
+        custom:
+            - name: Story Points
+              key: customfield_10006
+              schema:
+                datatype: number
+            - name: Epic Link
+              key: customfield_10000
+              schema:
+                datatype: any
+            - name: Flagged
+              key: customfield_10221
+              schema:
+                datatype: array
+                items: option
+            - name: Epic Name
+              key: customfield_10002
+              schema:
+                datatype: string
+    types:
+        - id: "10001"
+          name: Epic
+          handle: ""
+          subtask: false
+        - id: "10002"
+          name: Story
+          handle: ""
+          subtask: false
+        - id: "10100"
+          name: Task
+          handle: ""
+          subtask: false
+        - id: "10000"
+          name: Sub-task
+          handle: ""
+          subtask: true
+        - id: "10603"
+          name: New Server
+          handle: ""
+          subtask: false
+        - id: "10804"
+          name: Vulnerability
+          handle: ""
+          subtask: false
+        - id: "10805"
+          name: Vulnerable Host
+          handle: ""
+          subtask: false
+        - id: "10701"
+          name: Initiative
+          handle: ""
+          subtask: false
+        - id: "10702"
+          name: Hux Solution
+          handle: ""
+          subtask: false
+login: {{ jira_cli_login }}
+project:
+    key: TOKSCA
+    type: ""
+server: {{ jira_cli_server }}

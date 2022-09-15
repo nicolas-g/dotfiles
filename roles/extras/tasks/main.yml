@@ -49,4 +49,7 @@
 
     - name: Include speedtest.yml
       include: speedtest.yml
+
+    - name: Include jira-cli.yml
+      include: jira-cli.yml
   tags: extras
