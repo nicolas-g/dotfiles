@@ -1,15 +1,14 @@
 ---
 - block:
-    # required for Vim YouCompleteMe plugin to work on MacOS
-    - name: vim | Install brew cmake/macvim
+    - name: vim | Install brew macvim/nodejs
       community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       when: install_packages | d() | bool and ansible_os_family == 'Darwin'
       tags: brew
       loop:
-        - "cmake"
         - "macvim"
+        - "nodejs" # Required by coc autocomplete
 
     - name: vim | Deploy {{ home_dir }}/.{{ item }}
       copy:
