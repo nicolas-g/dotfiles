@@ -18,6 +18,17 @@
 " | `PlugSnapshot[!] [output path]`     | Generate script for restoring the current snapshot of the plugins
 " ------------------------------------------------------------------
 
+" Install vim-plug itself if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
+
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
+  \| PlugInstall --sync | source $MYVIMRC
+\| endif
+
 call plug#begin('~/.vim/plugged')
 
 " Vim help for vim-plug itself (:help plug-options)
@@ -55,11 +66,8 @@ Plug 'junegunn/vim-github-dashboard' "https://github.com/junegunn/vim-github-das
 " Plug 'junegunn/seoul256.vim'
 " Plug 'junegunn/limelight.vim'
 
-" Post-update hooks:
-" some plugins that require extra steps after installation or update. In that
-" case, use `do` option to describe the task to be performed.
-" NOTE: For MacOS it requires cmake/macvim to work
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Code completion like YouCompleteMe (https://github.com/neoclide/coc.nvim)
 
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
 

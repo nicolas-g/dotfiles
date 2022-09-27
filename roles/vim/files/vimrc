@@ -1,9 +1,9 @@
 
 
-" Automatically install Plug if Vim starts without it
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Automatically install vim-plug if Vim starts without it
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -46,12 +46,6 @@ au BufNewFile,BufRead *.py set tabstop=4 softtabstop=4 shiftwidth=4 textwidth=79
 
 " For other full stack development
 au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth=2
-
-" YouCompleteMe configs
-
-let g:ycm_autoclose_preview_window_after_completion=1 " ensures that the auto-complete window goes away when you’re done with it
-let g:ycm_path_to_python_interpreter='/usr/bin/python' " you need to first run `cd ~/.vim/plugged/YouCompleteMe && /usr/bin/python install.py`
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR> "defines a shortcut for goto definition
 
 " make your code look pretty after installing syntastic and vim-flake8 plugins
 let python_highlight_all=1
