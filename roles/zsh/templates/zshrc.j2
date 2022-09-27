@@ -98,7 +98,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 # Enable Terraform logging
-export TF_LOG=0
+export TF_LOG=OFF # Valid levels are: [TRACE DEBUG INFO WARN ERROR OFF]
 
 source "{{ homebrew_prefix }}/opt/kube-ps1/share/kube-ps1.sh"
 PS1='$(kube_ps1)'$PS1
