@@ -1,3 +1,25 @@
+### Manual post tasks
+
+- System Preferences -> Touch ID (set Apple ID finger print)
+- System Preferences -> Desktop & Screen saver -> Screen saver -> Hot Corners
+- System Preferences -> Dock : (size,automatically hide and show the dock)
+- iTerm2 -> Preferences -> Load preferences from a custom folder or URL
+- add wroskspaces in Slack
+  ** spotinst.slack.com
+  ** kubernetes.slack.com
+  ** istio.slack.com
+  ** rancher-users.slack.com
+  ** confluentcommunity.slack.com
+  ** datadoghq.slack.com
+- 2F auth
+  ** use "g" number
+  ** enable master password
+- setup DasKeyboard (https://www.youtube.com/watch?v=St2jUxnCVKI)
+
+```
+Go to System Preferences > Security & Privacy and give Full Disk Access to Alacritty.
+```
+
 # Manual Config Steps
 
 Steps that I haven't automate yet or there are not possible to be automated and are currently performed manually.
@@ -41,8 +63,23 @@ https://github.com/jakehilborn/displayplacer
 
 ### Keybase
 
+Settings
+Files
 Enable Keybase in Finder
+Advanced
+uncheck -> Always stay logged in
+
+### Cryptomator
+
 TBD
+
+### Misc
+
+open:
+
+- Caffeine (keep active)
+- Dozer (organize/hide menus)
+- Bitbar
 
 ### 1paqssword
 
@@ -55,6 +92,23 @@ Turn on biometric unlock
 - Select Touch ID.
 - Click Developer in the sidebar.
 - Select Biometric Unlock for 1Password CLI.
+
+### Telegram
+
+Link devices, 2 profiles
+"GR"
+"US"
+
+### Set Up HTTPS by Default in Your Browser
+
+brave://settings/security?search=privacy
+
+- Toggle “Always use secure connections”
+
+brave://settings/security?search=security
+
+- Toggle "Use secure DNS"
+- Select With Custom and choose Cloudflare (1.1.1.1) as a service provider from the drop-down menu
 
 ### Uninstall Walkme
 
