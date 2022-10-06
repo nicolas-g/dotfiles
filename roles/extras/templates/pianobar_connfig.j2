@@ -2,6 +2,18 @@
 # https://github.com/PromyLOPh/pianobar/blob/master/contrib/config-example
 #
 
+# First you need access to a socks 5 proxy, If you have an ssh server running in the US
+# or any country where pandora streams, you can spin up a proxy connection by running the following command:
+#
+# ssh -D 1337 -f -C -q -N username@yourserver.com
+#
+# Then in your config:
+# proxy = socks5://127.0.0.1:1337/
+#
+
+# Using Tor
+proxy = socks5://127.0.0.1:9050/
+
 user = {{ lookup('community.general.passwordstore', 'dotfiles/pandora_user') }}
 password = {{ lookup('community.general.passwordstore', 'dotfiles/pandora_password') }}
 # or
