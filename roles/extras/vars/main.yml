@@ -67,4 +67,5 @@ homebrew_cask_extras:
   - telegram
   - typora # live markdown editor
   - vagrant-manager
+  - warp # CLI Terminal
   - wireshark
