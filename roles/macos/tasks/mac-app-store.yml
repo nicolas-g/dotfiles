@@ -11,7 +11,7 @@
     - name: mac-app-store | Install software from Apple Store
       command: "{{ homebrew_prefix }}/bin/mas install {{ item }}"
       loop:
-        - "409183694"  # Keynote
+        - "409183694" # Keynote
         - "1370791134" # DigiDoc4 Client
         - "1385638089" # miMind
         - "1480068668" # FaceBook Messenger
