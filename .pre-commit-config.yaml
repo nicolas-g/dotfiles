@@ -67,17 +67,22 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: check-merge-conflict
+      - id: check-case-conflict
+      - id: check-symlinks
+      - id: destroyed-symlinks
       - id: detect-private-key
+      - id: fix-byte-order-marker
+      - id: check-yaml
+        exclude: templates/
+        #files: .*\.(yaml|yml)$
       - id: requirements-txt-fixer
       - id: end-of-file-fixer
       - id: mixed-line-ending
         args: [--fix, lf]
-      # - id: check-byte-order-marker
+
       # - id: check-executables-have-shebangs
       # - id: debug-statements
       # - id: flake8
-      # - id: check-yaml
-      # files: .*\.(yaml|yml)$
 
       # github.com/jumanjihouse/pre-commit-hooks
       # markdownlint
