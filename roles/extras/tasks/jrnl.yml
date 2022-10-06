@@ -1,0 +1,25 @@
+---
+- block:
+    - name: jrnl | brew install jrnl
+      community.general.homebrew:
+        name: "jrnl"
+        state: "present"
+      when: install_packages | d() | bool
+      tags: brew
+
+    - name: jrnl | Create {{ home_dir }}/.config/jrnl dir
+      file:
+        path: "{{ home_dir }}/.config/jrnl"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: jrnl | Deploy {{ home_dir }}/.config/jrnl/jrnl.yaml
+      template:
+        src: jrnl.yaml.j2
+        dest: "{{ home_dir }}/.config/jrnl/jrnl.yaml"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  tags: jrnl
