@@ -35,12 +35,17 @@
       changed_when: '"it is already installed" not in cmd_result.stderr'
       loop:
         - datree
+        - discover
         - get-all # Like `kubectl get all` but _really_ everything
+        - liqo
+        - kc #List, switch, add, delete and more interactive operations to manage kubeconfig.
         - neat
         - preflight
         - rbac-tool # visualize, config etc..
         - resource-capacity
+        - starboard # Toolkit for finding risks in kubernetes resources
         - support-bundle
+        - tunnel # ktunel
         - view-secret
         ## The bellow krew plugins don't support M1 Architecture yet
         # - advise-psp # Suggests PodSecurityPolicies for cluster.
@@ -48,8 +53,7 @@
         # - kubesec-scan # Scan Kubernetes resources with kubesec.io.
         # - multinet # outputs Pods' network-status
         # - popeye # Scans your clusters for potential resource issues
-        # - starboard # Toolkit for finding risks in kubernetes resources
-        # - tunnel # ktunel
+        # - volsync
       tags: krew
 
     - name: k8s | Import octant_plugins.yml
