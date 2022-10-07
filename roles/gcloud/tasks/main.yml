@@ -19,6 +19,15 @@
         - "gcloud/configurations"
         - "gcloud/credentials"
 
+    - name: gcloud | Deploy {{ home_dir }}/.aliases.d/gcloud
+      copy:
+        src: gcloud_aliases
+        dest: "{{ home_dir }}/.aliases.d/gcloud"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: "aliases"
+
     - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}
       template:
         src: config.j2
