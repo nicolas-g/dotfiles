@@ -17,6 +17,7 @@ zsh_plugins:
   - python
   - pyenv
   - macos
+  - zsh-nvm
   - history-substring-search
   - terraform
   - transfer

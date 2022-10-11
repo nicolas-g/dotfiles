@@ -78,6 +78,13 @@
         dest: "~/.oh-my-zsh/custom/plugins/fzf-tab"
         force: yes
 
+      # add nvm to your plugin list
+    - name: zsh | Clone nvm plugin repo # noqa 401 (Package installs should not use latest)
+      git:
+        repo: "https://github.com/lukechilds/zsh-nvm"
+        dest: "~/.oh-my-zsh/custom/plugins/zsh-nvm"
+        force: yes
+
     - block:
         - name: zsh | npm install pure-prompt
           npm:
