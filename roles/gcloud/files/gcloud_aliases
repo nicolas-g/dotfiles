@@ -4,4 +4,4 @@
 alias gkeiap='HTTPS_PROXY="" gcloud compute ssh $BASTION --project $PROJECT --zone $ZONE -- -L 8888:localhost:8888 -N -q -f'
 
 # Get GKE credentials
-alias gkeauth='TTPS_PROXY="" gcloud container clusters get-credentials $GKE_CLUSTER --region $GKE_CLUSTER_REGION --project $PROJECT'
+alias gkecred='HTTPS_PROXY="" gcloud container clusters get-credentials $GKE_CLUSTER --region $GKE_CLUSTER_REGION --project $PROJECT'
