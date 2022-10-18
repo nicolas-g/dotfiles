@@ -14,6 +14,7 @@
         brew_packages:
           - "awscli"
           - "aws-iam-authenticator"
+          - "aws-vault" # Supports password-store, Use the --backend flag or AWS_VAULT_BACKEND environment variable to specify.
 
     - name: aws | Include brew_cask_install.yml
       import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
