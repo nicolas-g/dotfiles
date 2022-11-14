@@ -158,3 +158,13 @@ repos:
       - id: gofmt
       - id: golint
       - id: terragrunt-hclfmt
+
+  - repo: https://github.com/gruntwork-io/pre-commit
+    hooks:
+      - id: helmlint
+    rev: v0.1.9
+  - repo: https://github.com/norwoodj/helm-docs
+    hooks:
+      - id: helm-docs
+        files: (README\.md\.gotmpl|(Chart|requirements|values)\.yaml)$
+    rev: v1.3.0
