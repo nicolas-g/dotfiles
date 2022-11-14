@@ -5,8 +5,8 @@
 # https://github.com/daveewart/colordiff
 alias diff=colordiff
 
-# http://marc-abramowitz.com/archives/2011/10/17/easy-access-to-truecrypt-from-the-command-line-in-os-x/
-alias truecrypt='/Applications/TrueCrypt.app/Contents/MacOS/Truecrypt --text'
+# https://veracrypt.fr/en/Command%20Line%20Usage.html
+alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text'
 
 alias glow='glow -p'
 
@@ -36,4 +36,3 @@ alias vhalt="vagrant halt"
 alias vssh="vagrant ssh"
 alias vreload="vagrant reload"
 alias vrebuild="vagrant destroy --force && vagrant up"
-
