@@ -1,0 +1,72 @@
+
+## https://github.com/torproject/tor/blob/main/src/config/torrc.sample.in
+
+## Tor opens a SOCKS proxy on port 9050 by default -- even if you don't
+## configure one below. Set "SOCKSPort 0" if you plan to run Tor only
+## as a relay, and not make any local application connections yourself.
+#SOCKSPort 9050 # Default: Bind to localhost:9050 for local connections.
+#SOCKSPort 192.168.0.1:9100 # Bind to this address:port too.
+
+## Entry policies to allow/deny SOCKS requests based on IP address.
+## First entry that matches wins. If no SOCKSPolicy is set, we accept
+## all (and only) requests that reach a SOCKSPort. Untrusted users who
+## can access your SOCKSPort may be able to learn about the connections
+## you make.
+#SOCKSPolicy accept 192.168.0.0/16
+#SOCKSPolicy accept6 FC00::/7
+#SOCKSPolicy reject *
+
+## Logs go to stdout at level "notice" unless redirected by something
+## else, like one of the below lines. You can have as many Log lines as
+## you want.
+##
+## We advise using "notice" in most cases, since anything more verbose
+## may provide sensitive information to an attacker who obtains the logs.
+##
+## Send all messages of level 'notice' or higher to /opt/homebrew/var/log/tor/notices.log
+#Log notice file /opt/homebrew/var/log/tor/notices.log
+## Send every possible message to /opt/homebrew/var/log/tor/debug.log
+#Log debug file /opt/homebrew/var/log/tor/debug.log
+## Use the system log instead of Tor's logfiles
+#Log notice syslog
+## To send all messages to stderr:
+#Log debug stderr
+
+## Uncomment this to start the process in the background... or use
+## --runasdaemon 1 on the command line. This is ignored on Windows;
+## see the FAQ entry if you want Tor to run as an NT service.
+#RunAsDaemon 1
+
+## The directory for keeping all the keys/etc. By default, we store
+## things in $HOME/.tor on Unix, and in Application Data\tor on Windows.
+#DataDirectory /opt/homebrew/var/lib/tor
+
+## The port on which Tor will listen for local connections from Tor
+## controller applications, as documented in control-spec.txt.
+#ControlPort 9051
+
+
+
+## Add the following lines to make the Tor Browser use exit nodes
+## from specified country only, e.g. from the United States:
+ExitNodes {us}
+
+## enable StrictNodes to make sure that Tor will stick to your specified exit nodes even if that means failure
+StrictNodes 1
+
+## - More Examples - ##
+## You can also specify a list of countries whose IP addresses should be used as an exit point:
+# ExitNodes {kr},{ru},{sy},{cn}
+
+## Use entry nodes with IP addresses from specified countries only:
+#EntryNodes {country_code},{country_code},...
+#StrictNodes 1
+
+## Never use nodes from these countries, when building a circuit:
+#ExcludeNodes {country_code},{country_code},...
+#StrictNodes 1
+
+## Never use nodes from these countries when picking an exit
+## (nodes listed in ExcludeNodes are automatically in this list):
+#ExcludeExitNodes {country_code},{country_code},...
+#StrictNodes 1

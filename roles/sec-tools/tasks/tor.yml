@@ -1,0 +1,23 @@
+---
+# $ brew services restart tor
+# Or, if you don't want/need a background service you can just run `tor` binary
+
+# Configuration file "/opt/homebrew/etc/tor/torrc" not present, using reasonable defaults.
+# Read configuration file "/Users/ngeorgakopoulos/.torrc".
+
+- block:
+    - name: tor | brew install tor
+      community.general.homebrew:
+        name: "tor"
+        state: "present"
+      when: install_packages | d() | bool
+      tags: brew
+
+    - name: tor | Deploy {{ home_dir }}/.torrc
+      template:
+        src: torrc.j2
+        dest: "{{ home_dir }}/.torrc"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  tags: tor

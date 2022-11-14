@@ -9,6 +9,7 @@
         - 1password
         - authy
         - bitwarden
+        - cloudflare-warp
         - cryptomator
         - gpg-suite
         - keybase
@@ -33,6 +34,7 @@
         - mitmproxy
         - netcat
         - ots # one time secret
+        - sops
       tags: brew
       when: install_packages | d() | bool
 
@@ -44,4 +46,8 @@
         owner: "{{ user }}"
         group: "{{ group }}"
       tags: aliases
+
+    - name: Include tor.yml
+      include: tor.yml
+
   tags: sec-tools
