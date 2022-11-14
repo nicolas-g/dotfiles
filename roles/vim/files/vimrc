@@ -51,7 +51,7 @@ au BufNewFile,BufRead *.js, *.html, *.css set tabstop=2 softtabstop=2 shiftwidth
 let python_highlight_all=1
 syntax on
 
-set spell spelllang=en " (or `en_us`)
+set spell spelllang=en,programming " (or `en_us`)
 set spellfile=~/src/nicolas-g/dotfiles/vimspellen.utf-8.add "  the name of your spellfile must end in .{encoding}.add where {encoding} is the character encoding of the file
 
 " wrap at 68 characters and turn on spell checking, but only for Git commit messages

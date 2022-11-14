@@ -67,7 +67,7 @@ Plug 'junegunn/vim-github-dashboard' "https://github.com/junegunn/vim-github-das
 " Plug 'junegunn/limelight.vim'
 
 " Use release branch (recommend)
-Plug 'neoclide/coc.nvim', {'branch': 'release'} "Code completion like YouCompleteMe (https://github.com/neoclide/coc.nvim)
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Code completion like YouCompleteMe
 
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeFind'] } "Loads only when opening NERDTree
 
@@ -81,5 +81,8 @@ Plug 'fatih/vim-go', { 'for' : ['go', 'markdown'] } "Loads only when editing gol
 " Terraform
 Plug 'hashivim/vim-terraform'
 Plug 'juliosueiras/vim-terraform-completion'
+
+" spellcheck dictionary for programmers
+Plug 'psliwka/vim-dirtytalk', { 'do': ':DirtytalkUpdate' }
 
 call plug#end()
