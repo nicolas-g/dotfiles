@@ -36,11 +36,13 @@ homebrew_extras:
   - prettyping
   - pwgen
   - pv
+  - ranger
   - restic # backup
   - ripgrep
   - rpl
   - shellcheck
   - step
+  - trash-cli
 
 homebrew_cask_extras:
   - bitbar
