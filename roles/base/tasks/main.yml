@@ -31,7 +31,7 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-      tags: aliases
+      tags: ["aliases", "base-aliases"]
 
     - name: base | Deploy {{ home_dir }}/.functions.d/base
       copy:
@@ -58,6 +58,6 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-      tags: aliases
+      tags: ["aliases", "base-aliases"]
 
   tags: base

@@ -38,14 +38,14 @@
       tags: brew
       when: install_packages | d() | bool
 
-    - name: base | Deploy {{ home_dir }}/.aliases.d/sec_tools
+    - name: sec-tools | Deploy {{ home_dir }}/.aliases.d/sec_tools
       template:
         src: sec_aliases.j2
         dest: "{{ home_dir }}/.aliases.d/sec_tools"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-      tags: aliases
+      tags: ["aliases", "sec-tool-aliases"]
 
     - name: Include tor.yml
       include: tor.yml

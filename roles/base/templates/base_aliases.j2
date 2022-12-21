@@ -18,7 +18,7 @@ alias cat='bat -up --paging never'
 alias ping='prettyping --nolegend'
 alias vi='vim'
 {% if ansible_distribution == "MacOSX" %}
-alias sed='/usr/local/bin/gsed'
+alias sed='{{ homebrew_prefix }}/bin/gsed'
 {% endif %}
 alias fzf_preview="fzf --preview 'head -100 {}'"
 alias fzf_grep='grep --line-buffered --color=never -r "" * | fzf'

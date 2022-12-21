@@ -26,7 +26,7 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-      tags: "aliases"
+      tags: ["aliases", "gcloud-aliases"]
 
     - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}
       template:
