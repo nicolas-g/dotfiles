@@ -1,9 +1,11 @@
 ---
 k8s_brew_packages:
   - argocd
+  - dive # tool for exploring each layer in a docker image
   - datree
   # - docker # Replaced by Rancher Desktop
   # - docker-machine # Replaced by Rancher Desktop
+  - docker-slim
   - kubectx
   # - kubectl # Replaced by Rancher Desktop
   # - helm # Replaced by Rancher Desktop
