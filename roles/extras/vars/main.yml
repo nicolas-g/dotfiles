@@ -31,6 +31,7 @@ homebrew_extras:
   - magic-wormhole
   - mtr
   - nmap
+  - oras
   - parallel
   - peco
   - prettyping
@@ -49,6 +50,7 @@ homebrew_cask_extras:
   - caffeine
   - dozer # menu bar manager
   - viber
+  - vscodium
   - firefox
   - iterm2
     #  - laplock # not available anymore ?
