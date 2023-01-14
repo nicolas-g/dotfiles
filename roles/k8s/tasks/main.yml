@@ -39,7 +39,11 @@
         - get-all # Like `kubectl get all` but _really_ everything
         - liqo
         - kc #List, switch, add, delete and more interactive operations to manage kubeconfig.
+        - permissions #This plugin lets you trace ServiceAccounts to Roles, RoleBindings and permissions to troubleshoot the bindings and transitive permission assignments.
+        - unlimited # Display information about running containers with no CPU and memory limits set so you can detect potential noisy neighbors and optimize cluster's performance and resource consumption.
         - neat
+        - nodepools # List node pools/groups in the current cluster, alongside a count of how many nodes there are in each pool/group and their type.
+        - oomd # Display pods and their corresponding containers which have recently been 'OOMKilled'
         - preflight
         - rbac-tool # visualize, config etc..
         - resource-capacity
@@ -47,7 +51,9 @@
         - support-bundle
         - tunnel # ktunel
         - view-secret
+        #
         ## The bellow krew plugins don't support M1 Architecture yet
+        #
         # - advise-psp # Suggests PodSecurityPolicies for cluster.
         # - doctor # Scans your cluster and reports anomalies.
         # - kubesec-scan # Scan Kubernetes resources with kubesec.io.
