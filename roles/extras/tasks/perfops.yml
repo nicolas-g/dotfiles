@@ -1,0 +1,15 @@
+---
+# https://perfops.net/cli
+- block:
+    - name: perfops | Tap perfops homebrew repo
+      community.general.homebrew_tap:
+        name: "ProspectOne/perfops"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: perfops | Install perfops CLI
+      community.general.homebrew:
+        name: "perfops"
+        state: present
+      when: install_packages | d() | bool
+  tags: perfops
