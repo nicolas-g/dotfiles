@@ -2,147 +2,157 @@
 
 A never ending project..
 
-I"m using Ansible in order to setup my local dev machine and manage my dot files as for example:
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
+
+![Image of dotfiles](dotfiles.png)
+
+If you are new to dotfiles see https://dotfiles.github.io/, when you search GitHub for [dotfiles](https://github.com/search?q=dotfiles), you will see there are over 180k repositories after one goal: Store user’s dotfiles in a shareable and repeatable manor.
+
+I am using Ansible to configure my local development machine and manage my dot files, such as:
 
 - shell aliases, environments
 - homebrew packages
 - various configs for MacOS, vim, git, ansible, tmux and zsh/bash
 - etc ...
 
-#### Project Layout
+There many are other general-purpose [dotfiles utilities](https://dotfiles.github.io/utilities/) that seem to be more popular.
 
-```
-TBD
-```
+The reason I am utilizing Ansible is that it is my preferred tool for managing my dotfiles. Other tools were not as mature or popular when I first began version controlling my dotfiles. As an agent-less configuration management tool, Ansible appears to be a suitable solution for my needs:
 
-## Installation requirements
+- There is no agent constantly running and consuming resources
+- Ansible provides greater power and control when implementing updates. Typically, I prefer to manually test and evaluate the changes before incorporating them into the version controlled configuration management system
+- Creating custom installation scripts in languages such as Bash or other programming languages can be a flexible solution, but it comes at the cost of investing more time in developing a personalized approach
 
-Run
+## Requirements
 
-```
-run_me_first.sh
-```
+### Install Homebrew
 
-## Usage
-
-Now you should be ready to run Ansible
+:warning: Replace `/opt/homebrew/` by `/home/linuxbrew/.linuxbrew` if it's different in Linux
 
 ```bash
-ansible-playbook mbp.yml -v -D
+# https://brew.sh/
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Add Homebrew to your PATH in /Users/$USER/.zprofile or /Users/$USER/.profile (if bash)
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/$USER/.zprofile
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# https://docs.brew.sh/Analytics#opting-out
+export HOMEBREW_NO_ANALYTICS=1
+brew analytics off
 ```
 
-## Todo
+### Install Keybase
 
-### Local monitoring
-
-https://github.com/prometheus/node_exporter/issues/610
-
-I am using below command to run a node_export docker container on Mac.
-
-```
-docker run -d -p 9100:9100 \
-  -v "/proc:/host/proc:ro" \
-  -v "/sys:/host/sys:ro" \
-  -v "/:/rootfs:ro" \
-  --net="host" \
-  quay.io/prometheus/node-exporter \
-    -collector.procfs /host/proc \
-    -collector.sysfs /host/sys \
-    -collector.filesystem.ignored-mount-points "^/(sys|proc|dev|host|etc)($|/)"
+```bash
+brew install --cask keybase
+brew install gnupg
 ```
 
-The container can be run but the port number 9100 is not listenning. Is there anything need to be configured on Mac? As I know, Mac doesn't have /proc directory.
+:warning: If you get an error like `kbfuse.fs can't be opened because apple cannot check it for malicious software`,
+right click on Keybase Application and click open, if you are still having issues follow the bellow steps:
 
-Here is the command that worked for me on Docker for Mac:
+- https://iboysoft.com/howto/enable-system-extension-m1-mac.html#!
+  > 1. Shut down your Mac and press the Touch ID button and then quickly hold it downs until it says "Loading up startup options".
+  > 2. Click Options and then click Continue to boot the M1 Mac to macOS Recovery Mode.
+  > 3. Select Startup Security Utility from the Utilities menu.
+  > 4. When you see the startup disk, click it and click on Security Policy...
+  > 5. In Startup Security Utility, choose Reduced Security and check the option: Allow user management of kernel extensions from identified developers.
 
-```
-docker service create --name node \
- --mode global \
- --mount type=bind,source=/proc,target=/host/proc \
- --mount type=bind,source=/sys,target=/host/sys \
- --mount type=bind,source=/,target=/rootfs \
- --network prom \
- prom/node-exporter \
-  --path.procfs /host/proc \
-  --path.sysfs /host/sys \
-  --collector.filesystem.ignored-mount-points "^/(sys|proc|dev|host|etc)($|/)"
-```
+### Install Git
 
-prom is a separately created overlay network.
-
-### Others
-
-- zsh auto notify : https://github.com/MichaelAquilina/zsh-auto-notify
-
-Update App Store apps
-
-```
-sudo softwareupdate -i -a
+```bash
+xcode-select --install
+brew install git
+mkdir ~/src/nicolas-g/
+cd ~/src/nicolas-g/
+git clone --depth 1 git@github.com:nicolas-g/dotfiles.git
+cd ~/src/nicolas-g/dotfiles
 ```
 
-check how to use already installed :
+### Install [password-store](https://www.passwordstore.org/)
 
-- https://github.com/psprint/zsh-navigation-tools
-- https://grml.org/zsh/#zshlovers
-
-create virtual_envs (ansible/magic-wormhole ?)
-
-fonts : https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c491c9/install.sh#L238
-
-#### Kubectl
-
-https://github.com/ahmetb/kubectl-aliases
-kube-ps1 is not working (https://github.com/jonmosco/kube-ps1)
-kubectl plugin list / https://github.com/kubernetes-sigs/krew
-
-#### Tmux
-
-https://github.com/samoshkin/tmux-config
-https://github.com/jonmosco/kube-tmux/blob/master/kube.tmux
-
-OSX defaults:
-https://github.com/mathiasbynens/dotfiles/blob/master/.macos#L415
-https://github.com/paulirish/dotfiles/blob/master/.osx#L163
-https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-https://github.com/atomantic/dotfiles/blob/0f1df7b11e12482d955e4f2e0109529325c491c9/install.sh#L514
-https://github.com/mathiasbynens/dotfiles/blob/master/.macos
-https://github.com/driesvints/dotfiles/blob/master/.macos
-
-#### iTerm key for similar ctrl + > move
-
-```
-Preferences > Keys (or Preferences > Profiles > Keys)
-Click the plus.
-move forward one word
-
-option+right
-send escape sequence
-f
-move back one word
-
-option+left
-send escape sequence
-b
+```bash
+brew install pass
 ```
 
-### Manual post tasks
-
-- System Preferences -> Touch ID (set Apple ID finger print)
-- System Preferences -> Desktop & Screen saver -> Screen saver -> Hot Corners
-- System Preferences -> Dock : (size,automatically hide and show the dock)
-- iTerm2 -> Preferences -> Load preferences from a custom folder or URL
-- add wroskspaces in Slack
-  ** spotinst.slack.com
-  ** kubernetes.slack.com
-  ** istio.slack.com
-  ** rancher-users.slack.com
-  ** confluentcommunity.slack.com
-  ** datadoghq.slack.com
-- 2F auth
-  ** use "g" number
-  ** enable master password
-- setup DasKeyboard (https://www.youtube.com/watch?v=St2jUxnCVKI)
+list keys from kybase and gpg
 
 ```
-Go to System Preferences > Security & Privacy and give Full Disk Access to Alacritty.
+keybase pgp list
+
+# list public keys
+gpg -K
+
+# list private keys
+gpg -k
+
+
+# import all keys form keybase to gpg locally
+keybase pgp pull-private --all
+```
+
+In case of error other things that could help
+
+```
+brew install gnupg pinentry-mac
+echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+echo "batch" >> ~/.gnupg/gpg.conf
+restart the laptop
+```
+
+Clone an existing repo from Keybase locally
+
+```
+git clone keybase://private/${keybase_user_id}/password-store ~/.password-store
+```
+
+test passwordstore is working
+
+```
+pass {{ path_to_password_store }}
+```
+
+### Install Python
+
+```bash
+brew install pyenv
+pyenv install 3.10:latest
+#or
+pyenv install -s 3.10.4
+
+
+pyenv virtualenv 3.10.4 global
+pyenv global global
+pyenv global 3.10.4
+
+pyenv virtualenv 3.10.4 dotfiles
+pyenv local dotfiles
+
+pip3 install --upgrade pip
+pip3 install virtualenv
+brew link pyenv
+arch -x86_64 pyenv install -s 3.10.4
+
+cd ~/src/nicolas-g/dotfiles
+pip install -r requirements.txt
+```
+
+### Install Ansible
+
+```
+echo ${secret} > ~/.vault_pass
+vi ~/src/nicolas-g/dotfiles/my_vars.yaml
+```
+
+If python/pyenv hast not been setup in previous step
+
+```
+mkdir -p ~/venv
+virtualenv -p python3 ~/venv/ansible
+source ~/venv/ansible/bin/activate
+pip install -r requirements.txt
+
+ansible-galaxy collection install -r requirements.yml -f
+ansible-playbook ${playbook}.yml -D -v -e install_packages=true
 ```
