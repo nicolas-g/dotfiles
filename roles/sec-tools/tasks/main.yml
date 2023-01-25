@@ -35,6 +35,7 @@
         - netcat
         - ots # one time secret
         - sops
+        - trivy
       tags: brew
       when: install_packages | d() | bool
 
