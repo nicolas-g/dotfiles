@@ -1,0 +1,32 @@
+---
+- block:
+    - name: ngrok | Install ngrok
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages: "ngrok"
+
+    - name: ngrok | Set config path for macOS
+      set_fact:
+        ngrok_config_path: "{{ home_dir }}/Library/Application\ Support/ngrok"
+      when: ansible_system == 'Darwin'
+    - name: ngrok | Set config path for Linux
+      set_fact:
+        ngrok_config_path: "{{ home_dir }}/.config/ngrok"
+      when: ansible_system == 'Linux'
+
+    - name: ngrok | Create {{ ngrok_config_path }}
+      file:
+        path: "{{ ngrok_config_path }}"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: ngrok | Deploy
+      template:
+        src: ngrok.yml.j2
+        dest: "{{ ngrok_config_path  }}/ngrok.yml"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  tags: ngrok

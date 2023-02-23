@@ -45,6 +45,9 @@
     - name: Include speedtest.yml
       include: speedtest.yml
 
+    - name: Include ngrok.yml
+      include: ngrok.yml
+
     - name: Include jira-cli.yml
       include: jira-cli.yml
 
