@@ -36,6 +36,15 @@
         group: "{{ group }}"
       tags: ["conf", "tmux-conf"]
 
+    - name: tmux | Deploy {{ home_dir }}/.tmate.conf
+      template:
+        src: tmate.conf.j2
+        dest: "{{ home_dir }}/.tmate.conf"
+        mode: 0400
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: ["conf", "tmux-conf", "tmate", "tmate-conf"]
+
     - name: tmux | Clone tmux plugins # noqa 401 (Package installs should not use latest)
       git:
         repo: "{{ item }}"
