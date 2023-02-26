@@ -39,6 +39,9 @@
     - name: Include backup.yml
       include: backup.yml
 
+    - name: Include nerd-fonts.yml
+      include: nerd-fonts.yml
+
     - name: Include jrnl.yml
       include: jrnl.yml
 

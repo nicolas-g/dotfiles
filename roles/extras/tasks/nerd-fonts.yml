@@ -1,0 +1,15 @@
+---
+# https://github.com/ryanoasis/nerd-fonts
+- block:
+    - name: nerd-fonts | Tap cask-fonts homebrew repo
+      community.general.homebrew_tap:
+        name: "homebrew/cask-fonts"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: nerd-fonts | Install hack nerd fonts
+      community.general.homebrew_cask:
+        name: "font-hack-nerd-font"
+        state: present
+      when: install_packages | d() | bool
+  tags: nerd-fonts
