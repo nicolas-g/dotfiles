@@ -59,6 +59,12 @@ right click on Keybase Application and click open, if you are still having issue
   > 4. When you see the startup disk, click it and click on Security Policy...
   > 5. In Startup Security Utility, choose Reduced Security and check the option: Allow user management of kernel extensions from identified developers.
 
+Install MacFuse so Keybase can work with Finder, FUSE extends macOS by adding support for user space file systems.
+
+```bash
+brew install macfuse
+```
+
 ### Install Git
 
 ```bash
