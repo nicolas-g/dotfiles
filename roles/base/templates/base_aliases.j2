@@ -43,3 +43,9 @@ alias reloaddns="dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias tf="terraform"
 alias run-terraform="~/src/{{ github_work_organization }}/NGTerraform/bin/run-terraform"
 alias terraform-resource-update.sh="~/src/{{ github_work_organization }}/NGTerraform/bin/terraform-resource-update.sh"
+
+function note {
+  echo "date: $(date)" >> {{ personal_notes_location }}
+  echo "$@" >>  {{ personal_notes_location }}
+  echo "" >> {{ personal_notes_location }}
+}
