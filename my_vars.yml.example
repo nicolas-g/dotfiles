@@ -8,13 +8,17 @@ github_email: "2202932+jdoe@users.noreply.github.com"
 github_signingkey: "XXXYYYZZZ"
 
 # Github Work
+github_work_id: "john-doe-work"
 github_work_organization: "ACME"
 github_work_name: "John Doe"
 github_work_email: "86323109+jdoe-acme@users.noreply.github.com"
 github_work_signingkey: "WWWSSSRRR"
 
+personal_notes_location: "~/my_notes.txt"
+
 gcloud_configs:
   - { account: 'jdoe@dacme.com', project: 'XYZ', zone: 'us-east1-b', region: 'us-east1' }
+  - { account: 'ngeorgakopoulos@ocg.deloitte.com', project: 'ABC'}
 
 # irssi
 irssi_real_name: "jdoe"
@@ -28,3 +32,7 @@ saml2aws_username: "jdoe"
 saml2aws_provider: "Okta"
 saml2aws_mfa: "PUSH"
 saml2aws_aws_profile: "aws_profile"
+
+# Jira CLI
+jira_cli_login: jdoe@acme.com
+jira_cli_server: https://jira.acme.com
