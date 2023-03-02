@@ -41,6 +41,7 @@ homebrew_extras:
   - restic # backup
   - ripgrep
   - rpl
+  - slides
   - shellcheck
   - step
   - trash-cli
