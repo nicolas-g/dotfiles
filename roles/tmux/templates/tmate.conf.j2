@@ -1,2 +1,11 @@
 set tmate-api-key "{{ lookup('community.general.passwordstore', 'dotfiles/tmate') }}"
 set tmate-session-name "dmbp"
+
+## this will enable read/write and restrict only ssh sessions (not https)
+# set tmate-authorized-keys "~/.ssh/tmate_authorized_keys"
+
+## if you Host your own tmate servers:
+# set -g tmate-server-host "ssh.tmate.io"
+# set -g tmate-server-port 22
+# set -g tmate-server-rsa-fingerprint     "SHA256:XYZ"
+# set -g tmate-server-ed25519-fingerprint "SHA256:XYZ"
