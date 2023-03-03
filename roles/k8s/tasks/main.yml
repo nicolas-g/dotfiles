@@ -20,14 +20,17 @@
         group: "{{ group }}"
 
     # https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
-    - name: k8s | Deploy {{ home_dir }}/.aliases.d/kubectl
+    - name: k8s | Deploy {{ home_dir }}/.aliases.d/{{ item }}
       copy:
-        src: kubectl_aliases
-        dest: "{{ home_dir }}/.aliases.d/kubectl"
+        src: "{{ item }}_aliases"
+        dest: "{{ home_dir }}/.aliases.d/{{ item }}"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-      tags: aliases
+      with_items:
+        - "docker"
+        - "kubectl"
+      tags: ["aliases", "k8s-aliases"]
 
     - name: k8s | kubectl krew install plugins # noqa 305 Use shell only when shell functionality is required
       shell: "kubectl krew install {{ item }}"

@@ -1,5 +1,8 @@
 
-# K8s
+# Kubectl Aliases
+alias kctx="kubectx"
+alias kns="kubens"
+
 alias k="kubectl"
 alias ksys="kubectl -n kube-system"
 alias kap='kubectl apply -f'
@@ -10,9 +13,6 @@ alias ksysgpo='kubectl --namespace=kube-system get pod'
 alias kgsvcoyaml='kubectl get service -o=yaml'
 alias kgsvcwn='watch kubectl get service --namespace'
 alias kgsvcslwn='watch kubectl get service --show-labels --namespace'
-
-alias kctx="kubectx"
-alias kns="kubens"
 
 alias krm='kubectl delete'
 alias krmf='kubectl delete -f'
