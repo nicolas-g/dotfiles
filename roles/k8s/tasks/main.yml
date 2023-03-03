@@ -62,9 +62,6 @@
         # - volsync
       tags: krew
 
-    - name: k8s | Import octant_plugins.yml
-      import_tasks: "octant_plugins.yml"
-
     - name: k8s | Create {{ home_dir }}/.datree dir
       file:
         path: "{{ home_dir }}/.datree"

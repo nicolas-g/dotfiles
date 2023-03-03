@@ -12,7 +12,6 @@ k8s_brew_packages:
   # - kubectl # Replaced by Rancher Desktop
   # - helm # Replaced by Rancher Desktop
   - norwoodj/tap/helm-docs
-  - octant
   - k3d
   - k9s
   - kompose
