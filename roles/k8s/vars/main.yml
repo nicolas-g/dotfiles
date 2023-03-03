@@ -1,14 +1,17 @@
 ---
 k8s_brew_packages:
   - argocd
+  - colima # Container runtimes on macOS/Linux with minimal setup
   - dive # tool for exploring each layer in a docker image
   - datree
   # - docker # Replaced by Rancher Desktop
   # - docker-machine # Replaced by Rancher Desktop
   - docker-slim
+  - ytt # Carvel ytt (yaml templating tool)
   - kubectx
   # - kubectl # Replaced by Rancher Desktop
   # - helm # Replaced by Rancher Desktop
+  - norwoodj/tap/helm-docs
   - octant
   - k3d
   - k9s
