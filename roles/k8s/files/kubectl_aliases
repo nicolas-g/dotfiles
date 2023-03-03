@@ -1,7 +1,4 @@
 
-# docker
-alias docker=nerdctl
-
 # K8s
 alias k="kubectl"
 alias ksys="kubectl -n kube-system"
