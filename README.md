@@ -127,7 +127,6 @@ pyenv install 3.10:latest
 #or
 pyenv install -s 3.10.4
 
-
 pyenv virtualenv 3.10.4 global
 pyenv global global
 pyenv global 3.10.4
@@ -144,16 +143,26 @@ cd ~/src/nicolas-g/dotfiles
 pip install -r requirements.txt
 ```
 
+### Install Python on Linux
+
+```bash
+sudo apt-get update
+sudo apt-get install build-essential
+sudo apt-get -y install build-essential libssl-dev libffi-dev python-dev
+sudo apt install python3-pip
+sudo pip3 -y install virtualenv
+```
+
 ### Install Ansible
 
-```
+```bash
 echo ${secret} > ~/.vault_pass
 vi ~/src/nicolas-g/dotfiles/my_vars.yaml
 ```
 
 If python/pyenv hast not been setup in previous step
 
-```
+```bash
 mkdir -p ~/venv
 virtualenv -p python3 ~/venv/ansible
 source ~/venv/ansible/bin/activate
