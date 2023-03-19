@@ -61,11 +61,7 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
 fi
 
-# Pure prompt
-fpath+={{ homebrew_prefix }}/share/zsh/site-functions
-## oh-my-zsh overrides the prompt so Pure must be activated after source $ZSH/oh-my-zsh.sh
-autoload -U promptinit; promptinit
-prompt pure
+eval "$(starship init zsh)"
 
 # works by default with oh-my-zsh installation
 ## source {{ homebrew_prefix }}/opt/zsh-git-prompt/zshrc.sh
@@ -122,14 +118,9 @@ PS1='$(kube_ps1)'$PS1
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-### Ansible Hashicrop Vault ###
-#autoload -U +X bashcompinit && bashcompinit
-#complete -o nospace -C /usr/local/bin/vault vault
-
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/ngeorgakopoulos/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 
 #for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
 for conf in "$HOME/.zshrc.d/"*.zsh; do

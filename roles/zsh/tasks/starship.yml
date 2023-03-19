@@ -1,0 +1,17 @@
+---
+- block:
+    - name: starship | Install starship
+      community.general.homebrew:
+        name: "starship"
+        state: "present"
+      when: install_packages | d() | bool
+      tags: brew
+
+    - name: starship | Deploy starship.toml
+      copy:
+        src: "starship.toml"
+        dest: "~/.config/starship.toml"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  tags: starship

@@ -19,6 +19,7 @@ zsh_plugins:
   - macos
   - zsh-nvm
   - history-substring-search
+  - starship
   - terraform
   - transfer
   - web-search

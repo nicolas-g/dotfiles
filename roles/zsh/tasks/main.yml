@@ -6,7 +6,6 @@
         state: "present"
       loop:
         - fzf
-        - npm # required for pure-prompt installation
         - z
         - zsh
         - zsh-autosuggestions
@@ -85,16 +84,6 @@
         dest: "~/.oh-my-zsh/custom/plugins/zsh-nvm"
         force: yes
 
-    - block:
-        - name: zsh | npm install pure-prompt
-          npm:
-            name: "pure-prompt"
-            global: "yes"
-            state: "present"
-      rescue:
-        - debug:
-            msg: " zsh | You might need to run 'npm install -g npm@latest' the first time this fails and re-run Ansible again"
-
     # Removes Tmux duplicates from PATH
     # https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
     # https://coderwall.com/p/4l16zq/pyenv-inside-tmux-with-zsh-on-a-mac
@@ -107,4 +96,8 @@
         group: "{{ group }}"
       become: yes
       when: ansible_os_family == 'Darwin'
+
+    - name: zsh | install starship.yml
+      include: starship.yml
+
   tags: zsh
