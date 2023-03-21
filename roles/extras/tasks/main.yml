@@ -16,7 +16,7 @@
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
-      tags: "aliases"
+      tags: ["aliases", "extra-aliases"]
 
     - name: base | Deploy {{ home_dir }}/.functions.d/extras
       copy:

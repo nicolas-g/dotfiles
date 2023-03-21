@@ -10,11 +10,9 @@ alias ng_pyservethis="python -c 'import SimpleHTTPServer; SimpleHTTPServer.test(
 alias ..='cd ..'               	# Go up one directory
 alias ...='cd ../..'        	# Go up two directories
 alias ....='cd ../../..'    	# And for good measure
-alias ll='ls -lhG'  		# -l long listing, human readable, no group info
 alias tu='top -o cpu'   	# sorted by cpu
 alias tm='top -o vsize' 	# sorted by memory
 alias top="sudo htop"
-alias cat='bat -up --paging never'
 alias ping='prettyping --nolegend'
 alias vi='vim'
 {% if ansible_distribution == "MacOSX" %}

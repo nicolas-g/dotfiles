@@ -2,6 +2,14 @@
 ### Extas Aliases ###
 #####################
 
+alias cat='bat -up --paging never'
+
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
+
 # https://github.com/daveewart/colordiff
 alias diff=colordiff
 
@@ -9,10 +17,6 @@ alias diff=colordiff
 alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text'
 
 alias glow='glow -p'
-
-### Hashicorp Vault
-alias ng_hv-server-start="vault server -config /keybase/private/nicolasg7/hvault/config.hcl &"
-alias ng_hv-server-kill="pkill vault"
 
 ##### curl for useragents
 alias curlie="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\""

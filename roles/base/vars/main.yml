@@ -6,6 +6,7 @@ homebrew_essentials:
   - gnu-tar
   - gnu-time
   - gnu-which
+  - npm # required for prettier,azure login etc..
   - pre-commit
   - prettier
   - telnet
