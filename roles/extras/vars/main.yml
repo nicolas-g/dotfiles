@@ -3,6 +3,7 @@ homebrew_extras:
   - aspell
   - bat
   - colordiff
+  - copier
   - croc # file transfer
   - cmatrix # screen saver
   - datamash
