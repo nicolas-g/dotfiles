@@ -10,6 +10,9 @@ alias la='ls -a'
 alias lla='ls -la'
 alias lt='ls --tree'
 
+# example:  echo less typing now! | tb
+alias tb="nc termbin.com 9999"
+
 # https://github.com/daveewart/colordiff
 alias diff=colordiff
 
