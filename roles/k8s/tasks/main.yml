@@ -85,4 +85,13 @@
 
     - name: k8s | Import upbound.yml
       import_tasks: "upbound.yml"
+
+    - name: k8s | Deploy {{ home_dir }}/.zshrc.d/docker_exports.zsh
+      copy:
+        src: docker_exports.zsh
+        dest: "{{ home_dir }}/.zshrc.d/docker_exports.zsh"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
   tags: k8s
