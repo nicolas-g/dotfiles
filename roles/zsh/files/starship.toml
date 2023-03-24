@@ -1,5 +1,173 @@
 
-# ~/.config/starship.toml
+
+# Symbols database - https://www.nerdfonts.com/cheat-sheet
+# https://starship.rs/config
+
+format = '''
+[┌─── ](bold green)$directory $git_branch$git_state$git_status$python$gcloud${custom.iap}$env_var$cmd_duration
+[└─$time $kubernetes\$](bold green) '''
+
+# Wait 10 milliseconds for starship to check files under the current directory.
+scan_timeout = 10
+# Disable the blank line at the start of the prompt
+add_newline = false
+
+[fill]
+symbol = " "
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
+style = "blue"
+read_only = " "
+truncation_length = 4
+truncate_to_repo = false
+#
+# [character]
+# success_symbol = "[❯](purple)"
+# error_symbol = "[❯](red)"
+# vicmd_symbol = "[❮](green)"
+
+[git_branch]
+symbol = " "
+format = "[$branch$symbol]($style)"
+style = "bright-black"
+
+[username]
+# shows active user's username
+style_user = 'white bold'
+style_root = 'black bold'
+format = 'user: [$user]($style) '
+disabled = true
+show_always = true
+
+[env_var]
+format = ' \(HTTPS_PROXY=[$env_value]($style)\) '
+variable = 'HTTPS_PROXY'
+#style = 'black bold dimmed'
+style = "bold white"
+#default = 'OO'
+# [env_var.USER]
+disabled = false
+
+[jobs]
+# shows the current number of jobs running in background (ctr+z / fg)
+symbol = ""
+style = "bold red"
+number_threshold = 1
+format = '[$symbol$number]($style) '
+
+# [git_status]
+# format = '([\[$all_status$ahead_behind\]]($style) )'
+# style = "cyan"
+#
+# [git_state]
+# format = '\([$state( $progress_current/$progress_total)]($style)\) '
+# style = "bright-black"
+#
+# [git_metrics]
+# disabled = false
+#
+
+[cmd_duration]
+# shows how long the last command took to execute
+format = "[$duration]($style)"
+style = "yellow"
+
+#
+# [memory_usage]
+# symbol = " "
+#
+
+[time]
+disabled = false
+#format = '🕙[$time]($style)'
+format = '🕙'
+time_format = '%T'
+time_range = '03:30:00-08:00:00'
+style = "bold white"
+
+[line_break]
+# separates the prompt into two lines
+disabled = true
+
+[memory_usage]
+# shows current system memory and swap usage
+disabled = true
+threshold = -1
+symbol = ' '
+style = 'bold dimmed green'
+
+[status]
+# displays the exit code of the previous command
+style = 'bg:blue'
+symbol = '🔴 '
+format = '[\[$symbol$common_meaning$signal_name$maybe_int\]]($style) '
+map_symbol = true
+disabled = true
 
 [gcloud]
-format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+format = '[$symbol\($active\)]($style) '
+style = 'bold yellow'
+symbol = ""
+disabled = false
+
+[aws]
+format = 'on [$symbol($profile )(\($region\) )]($style)'
+style = 'bold blue'
+symbol = '󰸏 '
+[aws.region_aliases]
+us-east-1 = 'use1'
+[aws.profile_aliases]
+CompanyGroupFrobozzOnCallAccess = 'Frobozz'
+
+[battery]
+full_symbol = '🔋 '
+charging_symbol = '⚡️ '
+
+[[battery.display]]
+threshold = 15
+style = 'bold red'
+discharging_symbol = '💀 '
+
+[python]
+symbol = ''
+pyenv_version_name = true
+format='[(${symbol}\($virtualenv\) )]($style)'
+disabled = false
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+disabled= true
+
+[helm]
+format = 'helm [⎈ $version](bold white) '
+
+[kubernetes]
+#format = '[☸ ($cluster)\($namespace\)](dimmed green) '
+format = '\([☸|($cluster):$namespace\)](dimmed green) '
+disabled = false
+#detect_folders = ['/tmp']  #,'k8s','private/tmp']"
+#detect_files = ['k8s']
+[kubernetes.context_aliases]
+'k3d-k3s-default' = 'k3d'
+'gke_.*_(?P<var_cluster>[\w-]+)' = 'gke-$var_cluster'
+
+[custom.iap]
+when = "ps aux | grep start-iap-tunnel | grep '8888'"
+command = "ps -o etime= -p $(ps aux | grep start-iap-tunnel | grep '8888' | awk '{print $2}')"
+style = "red"
+format = "[󱠽 $output]($style) "
+
+# [custom. readme]
+# detect_files = ['README.md', 'README']
+# detect_folders = ['src']
+# detect_extensions = ['js']
+#
+# style = "red"
+# symbol = "R"
+# command = "wc -l README* | awk '{print $1}'"
+# format = "[$symbol $output]($style)"
+
+# [custom.home]
+# when = "test $HOME = $PWD"
+# format = "YOU ARE HOME"
