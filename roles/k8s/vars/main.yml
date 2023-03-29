@@ -17,7 +17,6 @@ k8s_brew_packages:
   - k9s
   - kompose
   - krew
-  - kube-ps1
   - kustomize
   - stern
   - velero
