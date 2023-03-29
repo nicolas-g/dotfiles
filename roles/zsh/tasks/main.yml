@@ -92,4 +92,13 @@
     - name: zsh | install starship.yml
       include: starship.yml
 
+    - name: zsh | Deploy {{ home_dir }}/.aliases.d/{{ item }}
+      copy:
+        src: "zsh_aliases"
+        dest: "{{ home_dir }}/.aliases.d/zsh"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: ["aliases", "zsh-aliases"]
+
   tags: zsh
