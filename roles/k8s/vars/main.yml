@@ -9,6 +9,7 @@ k8s_brew_packages:
   - docker-slim
   - lazydocker
   - ytt # Carvel ytt (yaml templating tool)
+  - vladimirvivien/oss-tools/ktop
   - kubectx
   # - kubectl # Replaced by Rancher Desktop
   # - helm # Replaced by Rancher Desktop
