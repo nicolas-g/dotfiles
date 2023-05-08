@@ -14,6 +14,8 @@ homebrew_extras:
   - googler
   - gron
   - gotop
+  - hcloud # Hetzner
+  - howdoi
   - htop
   - httpie
   - ipcalc
@@ -51,6 +53,7 @@ homebrew_extras:
   - whalebrew
 
 homebrew_cask_extras:
+  - binance
   - bitbar
   - caffeine
   - dozer # menu bar manager
@@ -59,6 +62,7 @@ homebrew_cask_extras:
   - firefox
   - iterm2
     #  - laplock # not available anymore ?
+  - keycastr # keystroke visualizer
   - licecap # Screen Recordings in Gif
   - signal
   - vagrant
