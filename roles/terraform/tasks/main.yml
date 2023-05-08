@@ -42,5 +42,18 @@
       register: cmd_result
       changed_when: '"already installed" not in cmd_result.stdout'
 
+    # tgswitch seems to be the same with tgenv but tgenv seems to be abandoned, last update is from 2020..
+    # - name: terraform | Tap warrensbox/tap/tgswitch homebrew repo
+    #   community.general.homebrew_tap:
+    #     name: "warrensbox/tap/tgswitch"
+    #     state: present
+    #   when: install_packages | d() | bool
+    #
+    # - name: terraform | Install Terragrunt
+    #   community.general.homebrew:
+    #     name: "tgswitch"
+    #     state: present
+    #   when: install_packages | d() | bool
+
   when: run_terraform | d() | bool
   tags: terraform
