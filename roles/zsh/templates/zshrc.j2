@@ -84,6 +84,7 @@ source ~/.env
 [ -f ~/.aliases.d/kubectl ] && source ~/.aliases.d/kubectl
 [ -f ~/.aliases.d/extras ] && source ~/.aliases.d/extras
 [ -f ~/.aliases.d/sec_tools ] && source ~/.aliases.d/sec_tools
+[ -f ~/.aliases.d/vim ] && source ~/.aliases.d/vim
 
 # Functions
 [ -f ~/.functions.d/base ] && source ~/.functions.d/base
@@ -114,8 +115,11 @@ eval "$(pyenv virtualenv-init -)"
 
 eval $(thefuck --alias fff)
 
+# For LunarVIM
+export PATH="{{ home_dir }}/.local/bin:$PATH"
+
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/ngeorgakopoulos/.rd/bin:$PATH"
+export PATH="{{ home_dir }}/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 #for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
