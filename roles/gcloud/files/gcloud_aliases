@@ -1,12 +1,12 @@
 # Create a connection tunnel with a GKE clusters through a Bastion host
 # This requires that tiny proxy is running on a bastion host and accessible through the network (or through IAP)
-alias giap='HTTPS_PROXY="" gcloud compute ssh $BASTION --project $PROJECT_ID --zone $ZONE -- -L 8888:localhost:8888 -N -q -f && echo "\nNOTE: dont forget to run export HTTPS_PROXY=localhost:8888 or gkecred"'
+alias giap='HTTPS_PROXY="" gcloud compute ssh $BASTION --project $PROJECT_ID --zone $BASTION_ZONE -- -L 8888:localhost:8888 -N -q -f && echo "\nNOTE: dont forget to run export HTTPS_PROXY=localhost:8888 or gkecred"'
 
 # Easily kill IAP tunnel
-alias gkill_iap='kill $(lsof -t -i:8888)'
+alias giapkill='kill $(lsof -t -i:8888)'
 
 # Get GKE credentials
 alias gkecred='HTTPS_PROXY="" gcloud container clusters get-credentials $GKE_CLUSTER --region $GKE_CLUSTER_REGION --project $PROJECT_ID'
 
 # Gcloud SSH to VM
-alias gssh='HTTPS_PROXY="" gcloud compute ssh $BASTION --project $PROJECT_ID --zone $ZONE --tunnel-through-iap'
+alias gssh='HTTPS_PROXY="" gcloud compute ssh $BASTION --project $PROJECT_ID --zone $BASTION_ZONE --tunnel-through-iap'
