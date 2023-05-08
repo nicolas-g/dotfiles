@@ -43,7 +43,7 @@
       loop:
         - "config-connector"
         - "cloud-build-local"
-        - "gke-gcloud-auth-plugin" #Kubectl authentication plugin (https://cloud.google.com/blog/products/containers-kubernetes/kubectl-auth-changes-in-gke)
+        - "gke-gcloud-auth-plugin"
         - "gsutil"
         - "nomos"
       changed_when: '"All components are up to date" not in cmd_result.stderr'
