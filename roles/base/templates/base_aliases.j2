@@ -18,7 +18,8 @@ alias vi='vim'
 {% if ansible_distribution == "MacOSX" %}
 alias sed='{{ homebrew_prefix }}/bin/gsed'
 {% endif %}
-alias fzf_preview="fzf --preview 'head -100 {}'"
+alias fzf_preview="fzf --preview 'bat --color=always {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
+
 alias fzf_grep='grep --line-buffered --color=never -r "" * | fzf'
 # with ag - respects .agignore and .gitignore
 alias fzf_ag='ag --nobreak --nonumbers --noheading . | fzf'
