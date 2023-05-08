@@ -8,6 +8,7 @@
       tags: brew
       loop:
         - "macvim"
+        - "neovim"
         - "nodejs" # Required by coc autocomplete
 
     - name: vim | Deploy {{ home_dir }}/.{{ item }}
@@ -31,5 +32,14 @@
       pip:
         name: powerline-status
       when: install_packages | d() | bool
+
+    - name: vim | Deploy {{ home_dir }}/.aliases.d/{{ item }}
+      copy:
+        src: "vim_aliases"
+        dest: "{{ home_dir }}/.aliases.d/vim"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: ["aliases", "vim-aliases"]
 
   tags: vim
