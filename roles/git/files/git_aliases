@@ -14,6 +14,7 @@ alias gdm='git diff master'
 alias gpul='git pull'
 alias gl="git log --graph --oneline --decorate --color"
 alias gp='git push'
+alias ggpush='git push origin "$(git_current_branch)"'
 alias gst='git status'
 alias gnuke="git clean -df && git reset --hard"
 alias glNoGraph='git log --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr% C(auto)%an" "$@"'
