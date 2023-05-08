@@ -12,8 +12,9 @@ homebrew_extras:
   - glow
   - go
   - googler
-  - gron
   - gotop
+  - gron
+  - gum
   - hcloud # Hetzner
   - howdoi
   - htop
