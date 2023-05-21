@@ -42,6 +42,7 @@
         - get-all # Like `kubectl get all` but _really_ everything
         - liqo
         - kc #List, switch, add, delete and more interactive operations to manage kubeconfig.
+        - kubesec-scan # Scan Kubernetes resources with kubesec.io.
         - permissions #This plugin lets you trace ServiceAccounts to Roles, RoleBindings and permissions to troubleshoot the bindings and transitive permission assignments.
         - unlimited # Display information about running containers with no CPU and memory limits set so you can detect potential noisy neighbors and optimize cluster's performance and resource consumption.
         - neat
@@ -59,7 +60,6 @@
         #
         # - advise-psp # Suggests PodSecurityPolicies for cluster.
         # - doctor # Scans your cluster and reports anomalies.
-        # - kubesec-scan # Scan Kubernetes resources with kubesec.io.
         # - multinet # outputs Pods' network-status
         # - popeye # Scans your clusters for potential resource issues
         # - volsync
