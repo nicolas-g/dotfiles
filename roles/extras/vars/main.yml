@@ -11,7 +11,6 @@ homebrew_extras:
   - gist
   - glow
   - go
-  - googler
   - gotop
   - gron
   - gum
@@ -21,7 +20,6 @@ homebrew_extras:
   - httpie
   - ipcalc
   - iproute2mac
-  - istioctl
   - k6 # load testing
   - jq
   - jid
@@ -74,7 +72,6 @@ homebrew_cask_extras:
   - maccy # Clip board manager
   - motrix # Download manager
   - mpv
-  - nightowl
   - numi
   - remote-desktop-manager
   - santa # binary whitelisting/blacklisting system for macOS
