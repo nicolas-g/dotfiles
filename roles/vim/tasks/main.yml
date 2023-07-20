@@ -7,7 +7,6 @@
       when: install_packages | d() | bool and ansible_os_family == 'Darwin'
       tags: brew
       loop:
-        - "macvim"
         - "neovim"
         - "nodejs" # Required by coc autocomplete
 
