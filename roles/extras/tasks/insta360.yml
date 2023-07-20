@@ -11,5 +11,6 @@
       community.general.homebrew_cask:
         name: "insta360-studio"
         state: present
+      become: yes
       when: install_packages | d() | bool
   tags: insta360
