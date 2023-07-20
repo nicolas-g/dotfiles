@@ -11,6 +11,7 @@
         - bitwarden
         - cloudflare-warp
         - cryptomator
+        - dopplerhq/cli/doppler
         - gpg-suite
         - keybase
         - protonvpn
