@@ -12,6 +12,16 @@
         brew_cask_packages: "{{ homebrew_cask_essentials }}"
       when: ansible_os_family == 'Darwin'
 
+    - name: base | Create /usr/local/bin dir
+      file:
+        path: "/usr/local/bin"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      become: yes
+      when: ansible_os_family == 'Darwin'
+
     - name: base | Create {{ home_dir }}/.{{ item }} dir
       file:
         path: "{{ home_dir }}/.{{ item }}"
