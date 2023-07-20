@@ -42,9 +42,9 @@
       register: cmd_result
       loop:
         - "config-connector"
-        - "cloud-build-local"
+        #- "cloud-build-local" # No ARM versions yet
         - "gke-gcloud-auth-plugin"
         - "gsutil"
-        - "nomos"
+        #- "nomos" # No ARM versions yet
       changed_when: '"All components are up to date" not in cmd_result.stderr'
   tags: gcloud
