@@ -33,9 +33,6 @@
     - name: base | Include insta360.yml
       include: insta360.yml
 
-    - name: base | Include codefresh.yml
-      include: codefresh.yml
-
     - name: Include backup.yml
       include: backup.yml
 
