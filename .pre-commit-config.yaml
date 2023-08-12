@@ -156,13 +156,18 @@ repos:
       - id: tflint #requires: tflint.hcl
         #- id: shellcheck
       - id: gofmt
-      - id: golint
       - id: terragrunt-hclfmt
+
+  - repo: https://github.com/golangci/golangci-lint
+    rev: v1.54.0
+    hooks:
+      - id: golangci-lint
 
   - repo: https://github.com/gruntwork-io/pre-commit
     hooks:
       - id: helmlint
     rev: v0.1.9
+
   - repo: https://github.com/norwoodj/helm-docs
     hooks:
       - id: helm-docs

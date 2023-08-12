@@ -15,6 +15,7 @@
         - gpg-suite
         - keybase
         - protonvpn
+        - tailscale
         - veracrypt
       tags: brew
       when: install_packages | d() | bool

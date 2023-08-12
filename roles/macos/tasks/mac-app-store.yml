@@ -15,7 +15,6 @@
         - "1370791134" # DigiDoc4 Client
         - "1385638089" # miMind
         - "1480068668" # FaceBook Messenger
-        - "1475387142" # Tailscale/WireGuard
         - "1489026302" # Unplug Alarm
       register: cmd_result
       changed_when: '"already installed" not in cmd_result.stdout'
