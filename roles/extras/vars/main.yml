@@ -33,6 +33,7 @@ homebrew_extras:
   - lsd
   - youtube-dl
   - magic-wormhole
+  - charmbracelet/tap/mods
   - mtr
   - nmap
   - oras
@@ -54,7 +55,6 @@ homebrew_extras:
 
 homebrew_cask_extras:
   - binance
-  - bitbar
   - caffeine
   - dozer # menu bar manager
   - viber
@@ -81,3 +81,4 @@ homebrew_cask_extras:
   - vagrant-manager
   - warp # CLI Terminal
   - wireshark
+  - xbar
