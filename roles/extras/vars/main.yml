@@ -33,6 +33,7 @@ homebrew_extras:
   - lsd
   - youtube-dl
   - magic-wormhole
+  - multipass # local cloud instances or VMs by Canonical
   - charmbracelet/tap/mods
   - mtr
   - nmap
