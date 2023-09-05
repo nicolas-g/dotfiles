@@ -30,6 +30,7 @@
       loop:
         - github
         - forwards
+        - overthewire
         - vagrant
 
   when: run_ssh | d() | bool

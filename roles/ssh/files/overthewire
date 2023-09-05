@@ -1,0 +1,7 @@
+
+# ssh -o PubkeyAuthentication=no -o PasswordAuthentication=yes bandit0@bandit.labs.overthewire.org -p 2220
+
+Host bandit.labs.overthewire.org
+    Port 2220
+    PubkeyAuthentication no
+    PasswordAuthentication yes
