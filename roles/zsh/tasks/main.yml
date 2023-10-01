@@ -12,7 +12,6 @@
         - zsh-completions
         - zsh-git-prompt
         - zsh-lovers
-        - zsh-navigation-tools
         - zsh-syntax-highlighting
       tags: brew
       when: install_packages | d() | bool

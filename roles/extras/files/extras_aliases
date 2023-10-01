@@ -20,6 +20,7 @@ alias diff=colordiff
 alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text'
 
 alias glow='glow -p'
+alias ai='mods'
 
 alias hdi='howdoi'
 
