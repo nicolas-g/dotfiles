@@ -1,0 +1,36 @@
+---
+- block:
+    - name: lunar_vim | Install Lunar Vim if it is not installed already
+      command: >
+        bash -c "LV_BRANCH='release-{{ lunar_vim_release }}/neovim-{{ neovim_release }}' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-{{ lunar_vim_release }}/neovim-{{ neovim_release }}/utils/installer/install.sh)"
+      args:
+        creates: "{{ home_dir }}/.local/bin/lvim"
+
+    - name: lunar_vim | Create {{ home_dir }}/.config/lvim/lua/user dir
+      file:
+        path: "{{ home_dir }}/.config/lvim/lua/user"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: lunar_vim | Deploy {{ home_dir }}/.config/lvim/config.lua
+      copy:
+        src: "config.lua"
+        dest: "{{ home_dir }}/.config/lvim/config.lua"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: lunar_vim | Deploy {{ home_dir }}/.config/lvim/lua/user/{{ item }}
+      copy:
+        src: "{{ item }}"
+        dest: "{{ home_dir }}/.config/lvim/lua/user/{{ item }}"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop:
+        - "keymaps.lua"
+        - "options.lua"
+        - "plugins.lua"
+  tags: lunar_vim
