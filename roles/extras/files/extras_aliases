@@ -2,7 +2,7 @@
 ### Extas Aliases ###
 #####################
 
-alias cat='bat -up --paging never'
+alias cat='bat -p -P'
 
 alias ls='lsd'
 alias l='ls -l'
