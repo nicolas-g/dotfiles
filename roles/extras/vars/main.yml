@@ -75,7 +75,6 @@ homebrew_cask_extras:
   - mpv
   - numi
   - remote-desktop-manager
-  - santa # binary whitelisting/blacklisting system for macOS
   - skitch
   - telegram
   - typora # live markdown editor
