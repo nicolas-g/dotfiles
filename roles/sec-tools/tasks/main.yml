@@ -1,5 +1,9 @@
 ---
 - block:
+    - name: sec-tools | Include gpg.yml
+      include: gpg.yml
+      when: ansible_os_family == 'Darwin'
+
     - name: sec-tools | Install brew cask packages
       community.general.homebrew_cask:
         name: "{{ item }}"
@@ -11,7 +15,6 @@
         - bitwarden
         - cryptomator
         - dopplerhq/cli/doppler
-        - gpg-suite
         - keybase
         - protonvpn
         - tailscale

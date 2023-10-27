@@ -1,0 +1,39 @@
+---
+- block:
+    - name: gpg | Get stats of /usr/local/bin/gpg
+      stat:
+        path: /usr/local/bin/gpg
+      register: gpg_stat
+
+    - name: gpg | Unlink it's a symlink and pointing to /usr/local/MacGPG2/bin/gpg2
+      file:
+        path: /usr/local/bin/gpg
+        state: absent
+      when: gpg_stat.stat.islnk is defined and gpg_stat.stat.islnk and gpg_stat.stat.lnk_target == '/usr/local/MacGPG2/bin/gpg2'
+
+    - name: gpg | brew cask install gpg
+      community.general.homebrew_cask:
+        name: "gpg-suite"
+        state: present
+      when: install_packages | d() | bool
+      tags: brew
+
+    - name: gpg | Create ~/.gnupg dir
+      file:
+        path: "{{ home_dir }}/.gnupg"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: gpg | Deploy {{ home_dir }}/.gnupg/{{ item}}
+      copy:
+        src: "{{ item }}"
+        dest: "{{ home_dir }}/.gnupg/{{ item }}"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop:
+        - gpg.conf
+        - gpg-agent.conf
+  tags: gpg
