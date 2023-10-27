@@ -30,9 +30,6 @@
     - name: base | Include pianobar.yml
       include: pianobar.yml
 
-    - name: base | Include insta360.yml
-      include: insta360.yml
-
     - name: Include backup.yml
       include: backup.yml
 
