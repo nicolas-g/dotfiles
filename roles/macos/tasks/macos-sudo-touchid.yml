@@ -1,0 +1,16 @@
+---
+- block:
+    # There is an issue for this to work in Alacritty with tmux, it is actually a tmux
+    # issue. This does work if you are not running tmux in Alacritty.
+    # see -> https://github.com/alacritty/alacritty/issues/1549 .
+
+    - name: macos-sudo-touchid | Enable Touch ID for sudo
+      copy:
+        src: sudo_local
+        dest: "/etc/pam.d/sudo_local"
+        owner: root
+        group: wheel
+        mode: "0444"
+      become: yes
+      become_method: sudo
+  tags: macos-sudo-touchid

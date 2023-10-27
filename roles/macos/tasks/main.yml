@@ -15,4 +15,8 @@
 
     - name: Include macos-dock
       include: macos-dock.yml
+
+    - name: Include macos-sudo-touchid
+      include: macos-sudo-touchid.yml
+
   tags: macos
