@@ -67,7 +67,8 @@ homebrew_cask_extras:
   - licecap # Screen Recordings in Gif
   - signal
   - vagrant
-  - virtualbox-beta # supported for M1 architecture
+  #- virtualbox
+  #- virtualbox-beta # supported for M1 architecture
   - vlc
   - whatsapp
   - maccy # Clip board manager
@@ -78,6 +79,7 @@ homebrew_cask_extras:
   - skitch
   - telegram
   - typora # live markdown editor
+  - utm # Virtualization
   - vagrant-manager
   - warp # CLI Terminal
   - wireshark

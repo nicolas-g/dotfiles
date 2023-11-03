@@ -4,7 +4,7 @@ k8s_brew_packages:
   - colima # Container runtimes on macOS/Linux with minimal setup
   - dive # tool for exploring each layer in a docker image
   - datree
-  # - docker # Replaced by Rancher Desktop
+  - docker
   # - docker-machine # Replaced by Rancher Desktop
   - docker-slim
   - istioctl
@@ -24,5 +24,4 @@ k8s_brew_packages:
   - velero
 k8s_brew_cask_packages:
   - openlens
-  - rancher # Rancher Desktop
-  #- virtualbox
+  #- rancher # Rancher Desktop
