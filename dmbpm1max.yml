@@ -8,7 +8,7 @@
   vars:
     group: "staff"
     home_dir: "/Users/{{ user }}"
-    python_version: "3.10.4"
+    python_version: "3.10.11"
     homebrew_prefix: "/opt/homebrew"
     terraform_preferred_version: "1.0.11"
 
