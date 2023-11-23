@@ -72,6 +72,7 @@ homebrew_cask_extras:
   - vlc
   - whatsapp
   - maccy # Clip board manager
+  - messenger # Facebook Messenger
   - motrix # Download manager
   - mpv
   - numi
