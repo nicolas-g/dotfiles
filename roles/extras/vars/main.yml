@@ -57,7 +57,6 @@ homebrew_extras:
 homebrew_cask_extras:
   - binance
   - caffeine
-  - dozer # menu bar manager
   - viber
   - vscodium
   - firefox
