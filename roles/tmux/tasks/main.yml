@@ -63,6 +63,12 @@
       notify:
         - "install and update plugins"
 
+    - name: tmux | Change default_logging_key to 'L'
+      ansible.builtin.lineinfile:
+        path: ~/.tmux/plugins/tmux-logging/scripts/variables.sh
+        regexp: "^default_logging_key"
+        line: 'default_logging_key="L" # Shift-L'
+
     - name: tmux | Deploy {{ home_dir }}/.tmux/tmux-macos.conf
       copy:
         src: tmux-macos.conf
