@@ -12,10 +12,8 @@
 # To allow the same kube context to work on the host and the container:
 127.0.0.1 kubernetes.docker.internal
 # End of section
-# BEGIN section for OpenVPN Client SSL sites
-127.94.0.1      client.openvpn.net
 
-# END section for OpenVPN Client SSL sites
-
-10.0.0.1 hyrule01
-10.0.0.2 bettina
+## My Hosts
+{% for server in my_hosts %}
+{{ server.ip_address }} {{ server.server_name }}
+{% endfor %}

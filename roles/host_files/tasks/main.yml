@@ -6,16 +6,21 @@
         dest: "/usr/local/bin/ng_update_hostFile.sh"
         mode: 0755
 
-    - name: host_files | Deploy My custom Hosts files
+    - name: host_files | Deploy My custom BlackHosts file
       copy:
         owner: root
         group: wheel
-        src: "{{ item }}"
-        dest: "/etc/{{ item }}"
+        src: "myBlackHosts"
+        dest: "/etc/myBlackHosts"
         mode: 0644
-      loop:
-        - "myBlackHosts"
-        - "myHosts"
+
+    - name: host_files | Deploy custom myHosts file
+      template:
+        owner: root
+        group: wheel
+        src: "myHosts"
+        dest: "/etc/myHosts"
+        mode: 0644
 
     - name: host_files | Backup shell history
       cron:
