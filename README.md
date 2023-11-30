@@ -52,7 +52,7 @@ brew install gnupg
 :warning: If you get an error like `kbfuse.fs can't be opened because apple cannot check it for malicious software`,
 right click on Keybase Application and click open, if you are still having issues follow the bellow steps:
 
-- https://iboysoft.com/howto/enable-system-extension-m1-mac.html#!
+- https://iboysoft.com/howto/enable-system-extension-m1-mac.html#
   > 1. Shut down your Mac and press the Touch ID button and then quickly hold it downs until it says "Loading up startup options".
   > 2. Click Options and then click Continue to boot the M1 Mac to macOS Recovery Mode.
   > 3. Select Startup Security Utility from the Utilities menu.
@@ -70,9 +70,9 @@ brew install macfuse
 ```bash
 xcode-select --install
 brew install git
-mkdir ~/src/nicolas-g/
+mkdir -p ~/src/nicolas-g/
 cd ~/src/nicolas-g/
-git clone --depth 1 git@github.com:nicolas-g/dotfiles.git
+git clone --depth 1 https://github.com/nicolas-g/dotfiles.git
 cd ~/src/nicolas-g/dotfiles
 ```
 
@@ -102,12 +102,14 @@ In case of error other things that could help
 
 ```
 brew install gnupg pinentry-mac
-echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+echo "pinentry-program $HOMEBREW_PREFIX/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+
 echo "batch" >> ~/.gnupg/gpg.conf
 restart the laptop
 ```
 
 Clone an existing repo from Keybase locally
+NOTE: Replace keybase_user_id !!!
 
 ```
 git clone keybase://private/${keybase_user_id}/password-store ~/.password-store
@@ -123,20 +125,31 @@ pass {{ path_to_password_store }}
 
 ```bash
 brew install pyenv
+brew install pyenv-virtualenv
 pyenv install 3.10:latest
 #or
 pyenv install -s 3.10.4
 
-pyenv virtualenv 3.10.4 global
+pyenv global 3.10.4
+
 pyenv global global
 pyenv global 3.10.4
 
+cd ~/src/nicolas-g/dotfiles
 pyenv virtualenv 3.10.4 dotfiles
 pyenv local dotfiles
+
+# Add pyenv initializer to shell startup script
+echo 'eval "$(pyenv init --path)"' >> ~/.zprofile
+
+# Reload your profile
+source ~/.zprofile
 
 pip3 install --upgrade pip
 pip3 install virtualenv
 brew link pyenv
+
+# ?? arch: posix_spawnp: pyenv: Bad CPU type in executable
 arch -x86_64 pyenv install -s 3.10.4
 
 cd ~/src/nicolas-g/dotfiles
@@ -156,7 +169,6 @@ sudo pip3 -y install virtualenv
 ### Install Ansible
 
 ```bash
-echo ${secret} > ~/.vault_pass
 vi ~/src/nicolas-g/dotfiles/my_vars.yaml
 ```
 
@@ -167,7 +179,11 @@ mkdir -p ~/venv
 virtualenv -p python3 ~/venv/ansible
 source ~/venv/ansible/bin/activate
 pip install -r requirements.txt
+```
 
+```bash
 ansible-galaxy collection install -r requirements.yml -f
 ansible-playbook ${playbook}.yml -D -v -e install_packages=true
 ```
+
+See [manual_config_steps.md]
