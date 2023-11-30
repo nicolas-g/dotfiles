@@ -1,0 +1,12 @@
+---
+- block:
+    - name: golang | brew install golangci-lint
+      community.general.homebrew:
+        name: "{{ item }}"
+        state: "present"
+      loop:
+        - "golang"
+        - "golangci-lint"
+      when: install_packages | d() | bool
+      tags: brew
+  tags: golang
