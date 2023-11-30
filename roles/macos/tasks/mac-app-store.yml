@@ -11,11 +11,9 @@
     - name: mac-app-store | Install software from Apple Store
       command: "{{ homebrew_prefix }}/bin/mas install {{ item }}"
       loop:
-        - "409183694" # Keynote
-        - "1370791134" # DigiDoc4 Client
+        # To find the App ID  `mas search <app-name>` or `map list`
+        - "6443843900" # iBar
         - "1385638089" # miMind
-        - "1480068668" # FaceBook Messenger
-        # - "1489026302" # Unplug Alarm (requires payment)
       register: cmd_result
       changed_when: '"already installed" not in cmd_result.stdout'
       when: install_packages | d() | bool
