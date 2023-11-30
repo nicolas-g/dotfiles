@@ -8,6 +8,10 @@
 
 - open preferences -> enable PIN / Touch ID
 
+### Dropbox
+
+- Login
+
 ### SSH
 
 ```
@@ -19,6 +23,21 @@ cat ~/.ssh/id_ed25519_ngpersonal.pub| pbcopy
 
 ```
 open https://github.com/settings/keys
+```
+
+### pre-commit
+
+-
+
+```bash
+ln -s ~/src/nicolas-g/dotfiles/.pre-commit-config.yaml .;  ln -s ~/src/nicolas-g/dotfiles/.prettierrc.yaml .
+pre-commit install --install-hooks
+```
+
+### GoLang
+
+```
+go install golang.org/x/lint/golint@latest
 ```
 
 ### Brave
@@ -68,6 +87,9 @@ Go to System Preferences > Security & Privacy and give Full Disk Access to Alacr
 ```
 open /Applications/Maccy.app
 #Preferences -> Launch at login
+Launch at login
+Check for updates automatically
+increase history size to 999
 ```
 
 ```
@@ -80,6 +102,16 @@ open /Applications/Dozer.app
 - System Preferences -> Touch ID (set Apple ID finger print)
 - System Preferences -> Desktop & Screen saver -> Screen saver -> Hot Corners
 - System Preferences -> Dock : (size,automatically hide and show the dock)
+
+#### Finder
+
+Finder -> Settings ... -> Sidebar tab -> check user home
+
+#### System Settings
+
+System Settings -> Control Center -> Bluetooth -> "Show in menu bar"
+
+- pair bluetooth devices
 
 #### Track Pad
 
@@ -156,6 +188,10 @@ mkdir -p ~/src/nicolas-g/wiki
   ** rancher-users.slack.com
   ** confluentcommunity.slack.com
   ** datadoghq.slack.com
+
+### xbar
+
+- configure plugins folder
 
 ### DasKeyboard
 
