@@ -61,7 +61,6 @@ homebrew_cask_extras:
   - vscodium
   - firefox
   - iterm2
-    #  - laplock # not available anymore ?
   - keycastr # keystroke visualizer
   - licecap # Screen Recordings in Gif
   - signal

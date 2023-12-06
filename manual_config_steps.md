@@ -212,3 +212,7 @@ remove using the "string id"
 ```
 global ❯ find $HOME/Library/Application\ Support/Google -depth -path '*fckonodhlfjlkndmedanenhgdnbopbmh*' -delete
 ```
+
+### Laplock
+
+- https://mac.softpedia.com/get/Utilities/Laplock.shtml#download
