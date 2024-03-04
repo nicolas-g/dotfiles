@@ -44,7 +44,14 @@ alias run-terraform="~/src/{{ github_work_organization }}/NGTerraform/bin/run-te
 alias terraform-resource-update.sh="~/src/{{ github_work_organization }}/NGTerraform/bin/terraform-resource-update.sh"
 
 function note {
-  echo "date: $(date)" >> {{ personal_notes_location }}
-  echo "$@" >>  {{ personal_notes_location }}
-  echo "" >> {{ personal_notes_location }}
+  # Check if target directory exists
+  if ! [ -f {{ personal_notes_location }} ]; then
+    echo "\e[31mFAIL: Target directory {{ personal_notes_location }} does not exist! \e[0m"
+    return 1  # Exit the function with an error code
+  fi
+
+  # Append date and the note to file
+  echo "" >> ~/src/wiki/0_Projects/ParkingLot.md
+  echo "### date: $(date)" >> ~/src/wiki/0_Projects/ParkingLot.md
+  echo "- $@" >>  ~/src/wiki/0_Projects/ParkingLot.md
 }
