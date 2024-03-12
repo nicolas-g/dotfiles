@@ -9,6 +9,7 @@
         - "pyenv"
         - "pyenv-virtualenv"
         - "pyenv-virtualenvwrapper"
+        - "pipx"
 
     - name: python | pyenv install python if it's not already installed
       command: "pyenv install -s {{ python_version }}"
