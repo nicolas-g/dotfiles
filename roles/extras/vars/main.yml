@@ -18,6 +18,7 @@ homebrew_extras:
   - howdoi
   - htop
   - httpie
+  - iftop
   - ipcalc
   - iproute2mac
   - k6 # load testing
@@ -37,6 +38,7 @@ homebrew_extras:
   - charmbracelet/tap/mods
   - mtr
   - nmap
+  - ncdu # NCurses Disk Usage
   - oras
   - parallel
   - peco
@@ -71,10 +73,10 @@ homebrew_cask_extras:
   - whatsapp
   - maccy # Clip board manager
   - messenger # Facebook Messenger
+  - microsoft-remote-desktop
   - motrix # Download manager
   - mpv
   - numi
-  - remote-desktop-manager
   - skitch
   - telegram
   - typora # live markdown editor
