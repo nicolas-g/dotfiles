@@ -1,0 +1,25 @@
+---
+- block:
+    - name: atuin | Install atuin
+      community.general.homebrew:
+        name: "atuin"
+        state: "present"
+      when: install_packages | d() | bool
+      tags: brew
+
+    - name: atuin | Create {{ home_dir }}/.config/atuin dir
+      file:
+        path: "{{ home_dir }}/.config/atuin"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: atuin | Deploy atuin config.toml
+      copy:
+        src: "atuin_config.toml"
+        dest: "~/.config/atuin/config.toml"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  tags: atuin

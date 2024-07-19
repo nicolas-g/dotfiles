@@ -88,6 +88,9 @@
       become: yes
       when: ansible_os_family == 'Darwin'
 
+    - name: zsh | install atuin.yml
+      include: atuin.yml
+
     - name: zsh | install starship.yml
       include: starship.yml
 
