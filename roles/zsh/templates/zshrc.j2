@@ -107,6 +107,29 @@ export PATH="$(consolidate-path "$PATH")"
 GPG_TTY=$(tty)
 export GPG_TTY
 
+## Auto Notify Plugin ##
+# Set threshold to 10 seconds
+export AUTO_NOTIFY_THRESHOLD=10
+# list of ignored commands
+export AUTO_NOTIFY_IGNORE=(
+'vi'
+'vim'
+'nvim'
+'less'
+'more'
+'man'
+'tig'
+'watch'
+'git commit'
+'top'
+'htop'
+'ssh'
+'nano'
+'sleep'
+'ping'
+#'docker pull'
+)
+
 # Enable Terraform logging
 export TF_LOG=OFF # Valid levels are: [TRACE DEBUG INFO WARN ERROR OFF]
 
