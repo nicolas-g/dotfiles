@@ -75,6 +75,13 @@
         dest: "~/.oh-my-zsh/custom/plugins/fzf-tab"
         force: yes
 
+      # add auto-notify tab to your plugin list
+    - name: zsh | Clone auto-notify plugin repo # noqa 401 (Package installs should not use latest)
+      git:
+        repo: "https://github.com/MichaelAquilina/zsh-auto-notify"
+        dest: "~/.oh-my-zsh/custom/plugins/auto-notify"
+        force: yes
+
     # Removes Tmux duplicates from PATH
     # https://apple.stackexchange.com/questions/248813/tmux-always-modify-my-zsh-path
     # https://coderwall.com/p/4l16zq/pyenv-inside-tmux-with-zsh-on-a-mac

@@ -5,6 +5,7 @@
 zsh_plugins:
   - aliases
   - alias-finder
+  - auto-notify
   - gcloud
   - git-extras
   - fzf-tab
