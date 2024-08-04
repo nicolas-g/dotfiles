@@ -10,6 +10,7 @@ zsh_plugins:
   - git-extras
   - fzf-tab
   - jsontools
+  - you-should-use
   - terraform
   - transfer
   - web-search

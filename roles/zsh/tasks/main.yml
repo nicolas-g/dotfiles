@@ -75,11 +75,18 @@
         dest: "~/.oh-my-zsh/custom/plugins/fzf-tab"
         force: yes
 
-      # add auto-notify tab to your plugin list
+      # add auto-notify to your plugin list
     - name: zsh | Clone auto-notify plugin repo # noqa 401 (Package installs should not use latest)
       git:
         repo: "https://github.com/MichaelAquilina/zsh-auto-notify"
         dest: "~/.oh-my-zsh/custom/plugins/auto-notify"
+        force: yes
+
+      # add you-should-use to your plugin list
+    - name: zsh | Clone zsh-you-should-use plugin repo # noqa 401 (Package installs should not use latest)
+      git:
+        repo: "https://github.com/MichaelAquilina/zsh-you-should-use"
+        dest: "~/.oh-my-zsh/custom/plugins/you-should-use"
         force: yes
 
     # Removes Tmux duplicates from PATH
