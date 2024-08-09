@@ -11,11 +11,12 @@
       loop:
         - 1password-cli
         - 1password
-        - authy
         - bitwarden
         - cryptomator
         - dopplerhq/cli/doppler
+        - monero-wallet
         - keybase
+        - ledger-live
         - protonvpn
         - tailscale
         - veracrypt
