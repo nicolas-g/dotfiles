@@ -19,6 +19,8 @@
         - ledger-live
         - protonvpn
         - tailscale
+        - termshark
+        - wireshark
         - veracrypt
       tags: brew
       when: install_packages | d() | bool

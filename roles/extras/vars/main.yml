@@ -84,5 +84,4 @@ homebrew_cask_extras:
   - utm # Virtualization
   - vagrant-manager
   - warp # CLI Terminal
-  - wireshark
   - xbar
