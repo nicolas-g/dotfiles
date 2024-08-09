@@ -1,0 +1,15 @@
+---
+# https://github.com/Julien-cpsn/ATAC
+- block:
+    - name: atac | Tap atac homebrew repo
+      community.general.homebrew_tap:
+        name: "julien-cpsn/atac"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: atac | Install atac CLI
+      community.general.homebrew:
+        name: "atac"
+        state: present
+      when: install_packages | d() | bool
+  tags: atac
