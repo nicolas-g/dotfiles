@@ -57,6 +57,9 @@
     - name: Include perfops.yml
       include: perfops.yml
 
+    - name: Include aerospace.yml
+      include: aerospace.yml
+
     - name: extras | Deploy /usr/local/bin/scpdot.sh
       copy:
         src: "scpdot.sh"

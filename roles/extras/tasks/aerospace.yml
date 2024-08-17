@@ -1,0 +1,15 @@
+---
+# https://github.com/nikitabobko/AeroSpace
+- block:
+    - name: aerospace | Tap aerospace homebrew repo
+      community.general.homebrew_tap:
+        name: "nikitabobko/tap"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: aerospace | Install aerospace CLI
+      community.general.homebrew:
+        name: "aerospace"
+        state: present
+      when: install_packages | d() | bool
+  tags: aerospace
