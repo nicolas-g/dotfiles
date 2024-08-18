@@ -79,7 +79,6 @@ homebrew_cask_extras:
   - numi
   - skitch
   - telegram
-  - typora # live markdown editor
   - utm # Virtualization
   - vagrant-manager
   - warp # CLI Terminal
