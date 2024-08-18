@@ -1,0 +1,4 @@
+---
+homebrew_ai:
+  - "charmbracelet/tap/mods"
+  - "ollama"

@@ -49,3 +49,4 @@
     - { role: sec-tools, tags: ["sec-tools-role"] }
     - { role: terraform, tags: ["terraform-role"] }
     - { role: extras, tags: ["extras-role"] }
+    - { role: ai, tags: ["ai-role"] }

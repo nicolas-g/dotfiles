@@ -1,0 +1,15 @@
+---
+- block:
+    - name: ai | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages: "{{ homebrew_ai }}"
+
+    - name: ai | Deploy mods.yml config file
+      copy:
+        src: mods.yml
+        dest: "/Users/nicolasg/Library/Application Support/mods/mods.yml"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  tags: ai
