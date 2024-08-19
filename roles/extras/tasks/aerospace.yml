@@ -12,4 +12,20 @@
         name: "aerospace"
         state: present
       when: install_packages | d() | bool
+
+    - name: aerospace | Create ~/.config/aerospace dir
+      file:
+        path: "~/.config/aerospace"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: aerospace | Deploy aerospace.toml
+      copy:
+        src: "aerospace.toml"
+        dest: "~/.config/aerospace/aerospace.toml"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
   tags: aerospace
