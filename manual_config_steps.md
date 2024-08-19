@@ -216,3 +216,9 @@ global ❯ find $HOME/Library/Application\ Support/Google -depth -path '*fckonod
 ### Laplock
 
 - https://mac.softpedia.com/get/Utilities/Laplock.shtml#download
+
+### Mission Control / Aerospace fix
+
+- Missoin control doesn't like how Aerospace hide windows, if you open mission control and want to have a better view:
+  - Open `Desktop & Dock`
+  - enable `Group windows by application`
