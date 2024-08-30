@@ -17,6 +17,7 @@ alias ping='prettyping --nolegend'
 alias vi='vim'
 {% if ansible_distribution == "MacOSX" %}
 alias sed='{{ homebrew_prefix }}/bin/gsed'
+alias grep='{{ homebrew_prefix }}/bin/ggrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 {% endif %}
 alias fzf_preview="fzf --preview 'bat --color=always {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 
