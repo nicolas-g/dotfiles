@@ -7,19 +7,30 @@
       when: install_packages | d() | bool
       tags: brew
 
-    - name: jrnl | Create {{ home_dir }}/.config/jrnl dir
+    - name: jrnl | Create {{ jrnl_config_dir }} config dir
       file:
-        path: "{{ home_dir }}/.config/jrnl"
+        path: "{{ jrnl_config_dir }}"
         state: directory
         mode: 0700
         owner: "{{ user }}"
         group: "{{ group }}"
 
-    - name: jrnl | Deploy {{ home_dir }}/.config/jrnl/jrnl.yaml
+    - name: jrnl | Deploy {{ jrnl_config_dir }}/jrnl.yaml
       template:
         src: jrnl.yaml.j2
-        dest: "{{ home_dir }}/.config/jrnl/jrnl.yaml"
+        dest: "{{ jrnl_config_dir }}/jrnl.yaml"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
+
+    - name: jrnl | Create {{ home_dir }}/.jrnl data dir
+      file:
+        path: "{{ jrnl_data_dir }}"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+  vars:
+    jrnl_data_dir: "{{ home_dir }}/.jrnl"
+    jrnl_config_dir: "{{ home_dir }}/.config/jrnl"
   tags: jrnl
