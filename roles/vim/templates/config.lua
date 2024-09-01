@@ -32,5 +32,6 @@ pcall(function()
 end)
 
 -- Enable Spelling
+vim.opt.spellfile = "{{ home_dir }}/src/nicolas-g/dotfiles/vimspellen.utf-8.add"
 vim.opt.spell = true
 vim.opt.spelllang = { "en" }

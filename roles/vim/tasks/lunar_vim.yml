@@ -15,7 +15,7 @@
         group: "{{ group }}"
 
     - name: lunar_vim | Deploy {{ home_dir }}/.config/lvim/config.lua
-      copy:
+      template:
         src: "config.lua"
         dest: "{{ home_dir }}/.config/lvim/config.lua"
         mode: 0644
