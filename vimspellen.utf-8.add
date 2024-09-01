@@ -18,7 +18,6 @@ InstallOS
 dmg
 keycast
 https
-https
 github
 dotfiles
 brew
@@ -42,7 +41,6 @@ utf8
 uname
 macos
 TPM
-https
 www
 youtube
 GCE
@@ -69,8 +67,6 @@ CMD
 WORKDIR
 ENV
 review
-https
-https
 Dockerfile
 centos
 ARG
@@ -114,7 +110,6 @@ MANPATH
 ARCHFLAGS
 cli
 rsa
-https
 GoogleCloudPlatform
 pydevops
 reauthor
@@ -368,10 +363,8 @@ venvs
 virtualenvs
 dns
 debug
-debug
 POC
 md
-https
 FQDN
 Sinek
 autoscaler
@@ -472,8 +465,6 @@ tmpfs
 MySQL
 Bigtable
 CloudComposer
-https
-https
 SLA
 BGP
 Loadbalancer
@@ -568,7 +559,6 @@ DevSecOps
 Filestore
 filestore
 tmate
-containers
 containers
 path
 nfs
