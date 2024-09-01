@@ -31,6 +31,6 @@ pcall(function()
   require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
 end)
 
-# Enable Spelling
+-- Enable Spelling
 vim.opt.spell = true
 vim.opt.spelllang = { "en" }
