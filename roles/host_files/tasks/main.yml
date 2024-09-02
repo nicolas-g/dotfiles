@@ -22,7 +22,15 @@
         dest: "/etc/myHosts"
         mode: 0644
 
-    - name: host_files | Backup shell history
+    - name: host_files | Deploy custom whitelistHost file
+      template:
+        owner: root
+        group: wheel
+        src: "whiteHosts"
+        dest: "/etc/whitelistHost"
+        mode: 0644
+
+    - name: host_files | Deploy ng_update_hostFile.sh
       cron:
         name: "Updaste /etc/hosts file"
         special_time: daily
