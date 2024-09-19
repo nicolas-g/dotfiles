@@ -41,6 +41,8 @@
         - mitmproxy
         - netcat
         - ots # one time secret
+        - suricata
+        - snort
         - sops
         - trivy
       tags: brew
