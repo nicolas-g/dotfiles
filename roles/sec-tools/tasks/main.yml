@@ -45,6 +45,7 @@
         - snort
         - sops
         - trivy
+        - zeek
       tags: brew
       when: install_packages | d() | bool
 
