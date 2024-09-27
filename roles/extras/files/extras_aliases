@@ -20,7 +20,6 @@ alias diff=colordiff
 alias veracrypt='/Applications/VeraCrypt.app/Contents/MacOS/VeraCrypt --text'
 
 alias glow='glow -p'
-alias ai='mods'
 
 alias hdi='howdoi'
 
@@ -46,3 +45,7 @@ alias vhalt="vagrant halt"
 alias vssh="vagrant ssh"
 alias vreload="vagrant reload"
 alias vrebuild="vagrant destroy --force && vagrant up"
+
+# AI
+alias ai='mods'
+alias fb="docker run --rm  -i -v ~/.config/fabric/:/root/.config/fabric/ fabric-ai fabric"
