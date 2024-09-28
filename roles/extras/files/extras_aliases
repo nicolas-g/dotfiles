@@ -48,4 +48,45 @@ alias vrebuild="vagrant destroy --force && vagrant up"
 
 # AI
 alias ai='mods'
-alias fb="docker run --rm  -i -v ~/.config/fabric/:/root/.config/fabric/ fabric-ai fabric"
+
+
+fb() {
+    # -t 0 checks if the standard input (file descriptor 0) is coming from a terminal
+    if [ -t 0 ]; then
+        # Standard input is from a terminal (no pipe)
+        # If there’s no piped input, we use -ti (interactive terminal) options
+        docker run --rm -ti -v ~/.config/fabric/:/root/.config/fabric/ fabric-ai fabric "$@"
+    else
+        # Standard input is from a pipe
+        # If there is piped input, we use -i (interactive without terminal) option
+        docker run --rm -i -v ~/.config/fabric/:/root/.config/fabric/ fabric-ai fabric "$@"
+    fi
+}
+
+ol_update() {
+    # Declare a local array variable 'models'
+    local models
+    # Set the Internal Field Separator (IFS) to newline to handle names with spaces
+    IFS=$'\n' models=(
+        # Populate the 'models' array with the output from the following command pipeline
+        $(ollama list |             # List all models using 'ollama list'
+          awk '{ print $1 }' |      # Extract the first column (model names)
+          ag latest |               # Filter lines containing 'latest' using 'ag' (the_silver_searcher)
+          cut -d':' -f1)            # Cut the string at ':' and take the first field (model name before ':')
+    )
+
+    # Iterate over each model name in the 'models' array
+    for i in "${models[@]}"; do
+        # Print the model name
+        echo "LLM Model $i"
+        # Pull the model using 'ollama pull'
+        ollama pull "$i"
+    done
+}
+
+ng_update_all() {
+    omz update;
+    brew upgrade;
+    fb -U
+    ol_update
+}
