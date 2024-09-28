@@ -1,0 +1,26 @@
+---
+- block:
+    - name: ntfy | Create {{ home_dir }}/.config/ntfy dir
+      file:
+        path: "{{ home_dir }}/.config/ntfy"
+        state: directory
+        mode: 0700
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: ntfy | Deploy {{ home_dir }}/.config/ntfy/default-topic.txt
+      template:
+        src: ntfy_default-topic.txt.j2
+        dest: "{{ home_dir }}/.config/ntfy/default-topic.txt"
+        mode: 0600
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: ntfy | Deploy /usr/local/bin/ntfy.sh
+      copy:
+        src: "ntfy.sh"
+        dest: "/usr/local/bin/ntfy.sh"
+        mode: 0755
+      # become: yes
+      # become_method: sudo
+  tags: ntfy

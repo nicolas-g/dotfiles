@@ -60,6 +60,9 @@
     - name: Include aerospace.yml
       include: aerospace.yml
 
+    - name: Include ntfy.yml
+      include: ntfy.yml
+
     - name: extras | Deploy /usr/local/bin/scpdot.sh
       copy:
         src: "scpdot.sh"
