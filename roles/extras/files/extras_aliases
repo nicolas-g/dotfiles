@@ -89,4 +89,8 @@ ng_update_all() {
     brew upgrade;
     fb -U
     ol_update
+    mas outdated
+    mas upgrade
+    mas outdated
+    mas list
 }
