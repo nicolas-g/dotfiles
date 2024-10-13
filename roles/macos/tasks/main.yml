@@ -19,10 +19,11 @@
     - name: Include macos-sudo-touchid
       include: macos-sudo-touchid.yml
 
-      # prevent iTunes or Apple Music from launching
-    - name: macos | Install noTunes
+    - name: macos | Install noTunes and TopNotch
       community.general.homebrew:
-        name: "notunes"
+        # noTunes  - Prevents iTunes or Apple Music from launching
+        # TopNotch - Makes the notch disappear (see manual steps)
+        name: "notunes,topnotch"
         state: "present"
       tags: brew
       when: install_packages | d() | bool
