@@ -19,4 +19,12 @@
     - name: Include macos-sudo-touchid
       include: macos-sudo-touchid.yml
 
+      # prevent iTunes or Apple Music from launching
+    - name: macos | Install noTunes
+      community.general.homebrew:
+        name: "notunes"
+        state: "present"
+      tags: brew
+      when: install_packages | d() | bool
+
   tags: macos
