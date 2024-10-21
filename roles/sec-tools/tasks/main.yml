@@ -13,13 +13,12 @@
         - 1password
         - bitwarden
         - cryptomator
-        - dopplerhq/cli/doppler
+        - mitmproxy
         - monero-wallet
         - keybase
         - ledger-live
         - protonvpn
         - tailscale
-        - termshark
         - wireshark
         - veracrypt
       tags: brew
@@ -34,16 +33,20 @@
         # https://github.com/aircrack-ng/aircrack-ng/issues/1957
         # https://github.com/aircrack-ng/aircrack-ng/issues/2214
         # - aircrack-ng
+        - dopplerhq/cli/doppler
+        - clamav
         - pass
         - pass-otp
+        - gopass
         - gnupg
         - lastpass-cli
-        - mitmproxy
         - netcat
         - ots # one time secret
+        - sshuttle
         - suricata
         - snort
         - sops
+        - termshark
         - trivy
         - zeek
       tags: brew
@@ -60,5 +63,13 @@
 
     - name: Include tor.yml
       include: tor.yml
+
+    - name: sec-tools | Deploy {{ home_dir }}/.zshrc.d/docker_exports.zsh
+      copy:
+        src: gopass-completion.zsh
+        dest: "{{ home_dir }}/.zshrc.d/gopass-completion.zsh"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
 
   tags: sec-tools
