@@ -70,4 +70,11 @@
         mode: 0755
       become: yes
       become_method: sudo
+
+    - name: extras | Force link Homebrew curl
+      shell: brew link --force curl
+      args:
+        creates: /opt/homebrew/bin/curl
+      tags: this
+
   tags: extras

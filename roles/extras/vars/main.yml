@@ -35,7 +35,6 @@ homebrew_extras:
   - lsd
   - youtube-dl
   - magic-wormhole
-  - multipass # local cloud instances or VMs by Canonical
   - mtr
   - nmap
   - ncdu # NCurses Disk Usage
@@ -74,6 +73,7 @@ homebrew_cask_extras:
   - whatsapp
   - maccy # Clip board manager
   - messenger # Facebook Messenger
+  - multipass # local cloud instances or VMs by Canonical
   - windows-app # Replaces deprecated microsoft-remote-desktop
   - motrix # Download manager
   - mpv
