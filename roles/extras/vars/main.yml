@@ -74,7 +74,7 @@ homebrew_cask_extras:
   - whatsapp
   - maccy # Clip board manager
   - messenger # Facebook Messenger
-  - microsoft-remote-desktop
+  - windows-app # Replaces deprecated microsoft-remote-desktop
   - motrix # Download manager
   - mpv
   - numi
