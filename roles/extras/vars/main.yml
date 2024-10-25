@@ -62,7 +62,6 @@ homebrew_cask_extras:
   - viber
   - vscodium
   - firefox
-  - iterm2
   - keycastr # keystroke visualizer
   - licecap # Screen Recordings in Gif
   - signal
