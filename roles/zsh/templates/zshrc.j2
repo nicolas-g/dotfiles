@@ -108,8 +108,8 @@ GPG_TTY=$(tty)
 export GPG_TTY
 
 ## Auto Notify Plugin ##
-# Set threshold to 10 seconds
-export AUTO_NOTIFY_THRESHOLD=10
+# Set threshold in seconds
+export AUTO_NOTIFY_THRESHOLD=300
 # list of ignored commands
 export AUTO_NOTIFY_IGNORE=(
 'vi'
@@ -125,7 +125,6 @@ export AUTO_NOTIFY_IGNORE=(
 'htop'
 'ssh'
 'nano'
-'sleep'
 'ping'
 #'docker pull'
 )
