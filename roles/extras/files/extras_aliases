@@ -86,6 +86,7 @@ ol_update() {
 
 ng_update_all() {
     omz update;
+    lvim +LvimUpdate +q
     brew upgrade;
     fb -U
     ol_update
