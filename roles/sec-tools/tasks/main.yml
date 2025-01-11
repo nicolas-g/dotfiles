@@ -17,6 +17,7 @@
         - monero-wallet
         - keybase
         - ledger-live
+        - lulu # Firewall
         - protonvpn
         - tailscale
         - wireshark
