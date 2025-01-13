@@ -4,9 +4,16 @@
     # issue. This does work if you are not running tmux in Alacritty.
     # see -> https://github.com/alacritty/alacritty/issues/1549 .
 
+    # pam-reattach required for sudo TouchId to work for tmux
+    - name: macos-sudo-touchid | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_install.yml"
+      vars:
+        brew_packages:
+          - "pam-reattach"
+
     - name: macos-sudo-touchid | Enable Touch ID for sudo
-      copy:
-        src: sudo_local
+      template:
+        src: sudo_local.j2
         dest: "/etc/pam.d/sudo_local"
         owner: root
         group: wheel

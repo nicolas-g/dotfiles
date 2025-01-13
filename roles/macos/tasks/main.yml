@@ -19,6 +19,9 @@
     - name: Include macos-sudo-touchid
       include: macos-sudo-touchid.yml
 
+    - name: Include disable-microsoft-autoupdate.yml
+      include: disable-microsoft-autoupdate.yml
+
     - name: macos | Install noTunes and TopNotch
       community.general.homebrew:
         # noTunes  - Prevents iTunes or Apple Music from launching
