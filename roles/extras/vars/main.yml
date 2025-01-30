@@ -77,6 +77,7 @@ homebrew_cask_extras:
   - motrix # Download manager
   - mpv
   - numi
+  - raycast
   - skitch
   - telegram
   - utm # Virtualization

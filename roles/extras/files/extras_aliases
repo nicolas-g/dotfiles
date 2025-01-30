@@ -27,6 +27,10 @@ alias hdi='howdoi'
 alias curlie="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)\""
 alias curlff="curl -H \"User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.9.0.8) Gecko/2009032609 Firefox/3.0.0 (.NET CLR 3.5.30729)\""
 
+### SSH
+# sshuttle MacOS Workaround
+alias sshuttle='sudo pfctl -f /etc/pf.conf; sshuttle'
+
 alias sshtunnel='
 echo "### Local port forwarding ###"
 echo "# forward connections from my local <local-port> to <target-machine>:<remote-port> through <jump-host> server"
