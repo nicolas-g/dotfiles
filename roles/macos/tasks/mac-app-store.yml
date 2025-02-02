@@ -12,7 +12,6 @@
       command: "{{ homebrew_prefix }}/bin/mas install {{ item }}"
       loop:
         # To find the App ID  `mas search <app-name>` or `map list`
-        - "6443843900" # iBar
         - "1385638089" # miMind
       register: cmd_result
       changed_when: '"already installed" not in cmd_result.stdout'
