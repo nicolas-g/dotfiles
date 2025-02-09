@@ -64,11 +64,11 @@ brave://settings/security?search=security
 
 ### Keybase
 
-- Settings
-- Files
-- Enable Keybase in Finder
-- Advanced
-- Uncheck -> Always stay logged in
+- Settings -> Files -> Enable Finder integration - "Mac FUSE" (Benjamin Fleischer developer)
+
+- Settings -> Advanced -> Uncheck [] Always stay logged in
+  - or if this is not working do:
+- MacOS -> System Settings -> "General" -> Login Items & Extensions -> Remove Keybase from the Open at Login list
 
 ### Cryptomator
 
