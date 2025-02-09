@@ -34,6 +34,7 @@
         # https://github.com/aircrack-ng/aircrack-ng/issues/1957
         # https://github.com/aircrack-ng/aircrack-ng/issues/2214
         # - aircrack-ng
+        - tailscale
         - dopplerhq/cli/doppler
         - clamav
         - pass
