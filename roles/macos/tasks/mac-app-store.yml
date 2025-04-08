@@ -13,6 +13,7 @@
       loop:
         # To find the App ID  `mas search <app-name>` or `map list`
         - "1385638089" # miMind
+        - "6714467650" # Perplexity
       register: cmd_result
       changed_when: '"already installed" not in cmd_result.stdout'
       when: install_packages | d() | bool
