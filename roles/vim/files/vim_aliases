@@ -1,4 +1,4 @@
 
 # Vim Aliases
-alias vi="lvim"
-alias vim="lvim"
+alias vi="nvim"
+alias vim="nvim"

@@ -41,6 +41,9 @@
         group: "{{ group }}"
       tags: ["aliases", "vim-aliases"]
 
+    - name: vim | Include neovim.yml
+      include: neovim.yml
+
     - name: vim | Include lunar_vim.yml
       include: lunar_vim.yml
 

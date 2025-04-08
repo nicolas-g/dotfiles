@@ -1,0 +1,57 @@
+---
+- block:
+    - name: neovim | Clone LayyVim starter repo # noqa 401 (Package installs should not use latest)
+      git:
+        repo: https://github.com/LazyVim/starter
+        dest: "~/.config/nvim"
+        #force: yes
+
+    - name: neovim | Create Neovim directories
+      file:
+        path: "{{ home_dir }}/.config/{{ item }}"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      with_items:
+        - "nvim"
+        - "nvim/lua"
+
+    - name: neovim | Deploy {{ home_dir }}/.config/nvim config files
+      copy:
+        src: "nvim_{{ item }}"
+        dest: "{{ home_dir }}/.config/nvim/{{ item }}"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      with_items:
+        - "init.lua"
+        - "lazyvim.json"
+        - "stylua.toml"
+
+    - name: neovim | Deploy {{ home_dir }}/.config/nvim/lua/config files
+      copy:
+        src: "nvim_lua_config_{{ item }}.lua"
+        dest: "{{ home_dir }}/.config/nvim/lua/config/{{ item }}.lua"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      with_items:
+        - "keymaps"
+        - "lazy"
+        - "options"
+
+    - name: neovim | Deploy {{ home_dir }}/.config/nvim/lua/plugins files
+      copy:
+        src: "nvim_lua_plugins_{{ item }}.lua"
+        dest: "{{ home_dir }}/.config/nvim/lua/plugins/{{ item }}.lua"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      with_items:
+        - "avante"
+        - "colorscheme"
+        - "snacks"
+        - "treesitter"
+
+  tags: neovim
