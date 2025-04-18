@@ -137,7 +137,9 @@ eval "$(pyenv virtualenv-init -)"
 
 eval "$(atuin init zsh --disable-up-arrow)"
 
-eval $(thefuck --alias fff)
+eval "$(thefuck --alias fff)"
+
+eval "$(navi widget zsh)"
 
 # For LunarVIM
 export PATH="{{ home_dir }}/.local/bin:$PATH"
