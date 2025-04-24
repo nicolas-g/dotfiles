@@ -15,9 +15,9 @@
         group: "{{ group }}"
 
     - name: alacritty | Deploy {{ home_dir }}/.config/alacritty/config
-      template:
-        src: alacritty.yml.j2
-        dest: "{{ home_dir }}/.config/alacritty/alacritty.yml"
+      copy:
+        src: alacritty.toml
+        dest: "{{ home_dir }}/.config/alacritty/alacritty.toml"
         mode: 0644
         owner: "{{ user }}"
         group: "{{ group }}"
