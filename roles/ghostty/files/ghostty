@@ -1,0 +1,21 @@
+# Reload default keybindings (cant change setting: `reload_config`):
+# Linux:  pressing ctrl+shift+,
+# MacOS:  cmd+shift+,
+
+background-opacity = 0.8
+config-file = ghostty-theme
+
+# Font oppacity
+custom-shader = ./shaders/bloom025.glsl
+
+# Cursor blink effect
+custom-shader = ./shaders/cursor_blaze_no_trail.glsl
+
+# Trail shader fade effect
+custom-shader = ./shaders/cursor_smear_fade.glsl
+
+# Retro green terminal
+#custom-shader = ./shaders/retro-terminal.glsl
+
+#  Matrix Rain Shader
+#  https://www.shadertoy.com/view/lsXSDn

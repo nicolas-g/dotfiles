@@ -1,0 +1,41 @@
+---
+- block:
+    - name: ghostty | Include brew_install.yml
+      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
+      vars:
+        brew_cask_packages:
+          - "ghostty"
+
+    - name: ghostty | Create {{ home_dir }}/.config/ directories
+      file:
+        path: "{{ home_dir }}/.config/{{ item }}"
+        state: directory
+        mode: 0755
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop:
+        - "ghostty"
+        - "ghostty/shaders"
+
+    - name: ghostty | Deploy {{ home_dir }}/.config/ghostty/config
+      copy:
+        src: ghostty
+        dest: "{{ home_dir }}/.config/ghostty/config"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+    - name: ghostty | Deploy {{ home_dir }}/.config/ghostty/shaders/
+      copy:
+        src: "shaders/{{ item }}"
+        dest: "{{ home_dir }}/.config/ghostty/shaders/{{ item }}"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop:
+        - "bloom025.glsl"
+        - "cursor_blaze_no_trail.glsl"
+        - "cursor_smear_fade.glsl"
+        - "retro-terminal.glsl"
+
+  tags: ghostty
