@@ -16,8 +16,8 @@
         group: "{{ group }}"
 
     - name: atuin | Deploy atuin config.toml
-      copy:
-        src: "atuin_config.toml"
+      template:
+        src: "atuin_config.toml.j2"
         dest: "~/.config/atuin/config.toml"
         mode: 0600
         owner: "{{ user }}"

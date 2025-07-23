@@ -30,6 +30,7 @@
 
 ## address of the sync server
 # sync_address = "https://api.atuin.sh"
+sync_address = "{{ atuin_sync_address }}:{{ atuin_tcp_port }}"
 
 ## how often to sync history. note that this is only triggered when a command
 ## is ran, so sync intervals may well be longer
@@ -230,4 +231,4 @@ records = true
 # systemd_socket = false
 
 ## The port that should be used for TCP on non unix systems
-# tcp_port = 8889
+tcp_port = {{ atuin_tcp_port }}
