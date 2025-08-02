@@ -89,13 +89,23 @@ ol_update() {
 }
 
 ng_update_all() {
-    omz update;
-    lvim +LvimUpdate +q
+
+    echo "\n# Upgrading Homebrew:\n"
     brew upgrade;
+
+    echo "\n# Updating Fabric patterns:\n"
     fb -U
+
+    echo "\n# Updating Ollama:\n"
     ol_update
+
+    echo "\n# Update App Store applications:\n"
     mas outdated
     mas upgrade
     mas outdated
     mas list
+
+    echo "\n# Upgrading OhMyZsh:\n"
+    #lvim +LvimUpdate +q
+    omz update;
 }
