@@ -37,6 +37,7 @@
       register: cmd_result
       changed_when: '"it is already installed" not in cmd_result.stderr'
       loop:
+        - cnpg #Cloud native Postgres
         - datree
         - discover
         - get-all # Like `kubectl get all` but _really_ everything
