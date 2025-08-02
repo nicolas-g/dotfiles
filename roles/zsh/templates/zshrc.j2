@@ -72,9 +72,6 @@ source {{ homebrew_prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # https://github.com/zsh-users/zsh-syntax-highlighting
 source {{ homebrew_prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# z track directories
-source {{ homebrew_prefix }}/etc/profile.d/z.sh
-
 source ~/.env
 
 # Aliases
@@ -129,9 +126,6 @@ export AUTO_NOTIFY_IGNORE=(
 #'docker pull'
 )
 
-# Enable Terraform logging
-export TF_LOG=OFF # Valid levels are: [TRACE DEBUG INFO WARN ERROR OFF]
-
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -140,6 +134,8 @@ eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(thefuck --alias fff)"
 
 eval "$(navi widget zsh)"
+
+eval "$(zoxide init zsh)"
 
 # For LunarVIM
 export PATH="{{ home_dir }}/.local/bin:$PATH"
@@ -154,4 +150,4 @@ for conf in "$HOME/.zshrc.d/"*.zsh; do
 done
 unset conf
 
-export EDITOR=lvim
+export EDITOR=nvim

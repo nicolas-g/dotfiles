@@ -6,7 +6,7 @@
         state: "present"
       loop:
         - fzf
-        - z
+        - zoxide
         - zsh
         - zsh-autosuggestions
         - zsh-completions
