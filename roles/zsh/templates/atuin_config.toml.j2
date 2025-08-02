@@ -43,7 +43,13 @@ sync_frequency = "10m"
 
 ## which filter mode to use
 ## possible values: global, host, session, directory
+# - search across all global history
+# - search from only the current host
+# - search from only the current session
+#   - for history a shell session isolated from each other
+# - search from only the current directory
 # filter_mode = "global"
+
 
 ## With workspace filtering enabled, Atuin will filter for commands executed
 ## in any directory within a git repository tree (default: false)
