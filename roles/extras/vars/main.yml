@@ -41,11 +41,11 @@ homebrew_extras:
   - ncdu # NCurses Disk Usage
   - oras
   - parallel
+  - pearcleaner # MacOS uninstaller/cleanner
   - peco
   - prettyping
   - pwgen
   - pv
-  - ranger
   - restic # backup
   - ripgrep
   - rpl
@@ -53,6 +53,7 @@ homebrew_extras:
   - shellcheck
   - step
   - sshs
+  - superfile
   - thefuck
   - trash-cli
   - whalebrew
