@@ -1,0 +1,14 @@
+---
+- block:
+    - name: globalping | Tap ankitpokhrel/globalping homebrew repo
+      community.general.homebrew_tap:
+        name: "jsdelivr/globalping"
+        state: present
+      when: install_packages | d() | bool
+
+    - name: globalping | Install
+      community.general.homebrew:
+        name: "globalping"
+        state: present
+      when: install_packages | d() | bool
+  tags: globalping

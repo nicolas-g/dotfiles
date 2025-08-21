@@ -27,6 +27,9 @@
         group: "{{ group }}"
       tags: functions
 
+    - name: base | Include globalping.yml
+      include: globalping.yml
+
     - name: base | Include golang.yml
       include: golang.yml
 
