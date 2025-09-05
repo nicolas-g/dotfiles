@@ -2,6 +2,9 @@
 # Linux:  pressing ctrl+shift+,
 # MacOS:  cmd+shift+,
 
+# Window state includes their position, size, tabs, splits, etc..
+window-save-state = always
+
 background-opacity = 0.8
 config-file = ghostty-theme
 
