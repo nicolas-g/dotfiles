@@ -15,6 +15,7 @@ homebrew_extras:
   - gotop
   - gron
   - gum
+  - gurk # Signal CLI
   - hcloud # Hetzner
   - howdoi
   - htop
