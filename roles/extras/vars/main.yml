@@ -78,7 +78,6 @@ homebrew_cask_extras:
   - messenger # Facebook Messenger
   - multipass # local cloud instances or VMs by Canonical
   - windows-app # Replaces deprecated microsoft-remote-desktop
-  - motrix # Download manager
   - mpv
   - numi
   - raycast
