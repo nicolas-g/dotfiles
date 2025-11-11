@@ -38,7 +38,6 @@
       changed_when: '"it is already installed" not in cmd_result.stderr'
       loop:
         - cnpg #Cloud native Postgres
-        - datree
         - discover
         - get-all # Like `kubectl get all` but _really_ everything
         - liqo
@@ -65,24 +64,6 @@
         # - popeye # Scans your clusters for potential resource issues
         # - volsync
       tags: krew
-
-    - name: k8s | Create {{ home_dir }}/.datree dir
-      file:
-        path: "{{ home_dir }}/.datree"
-        state: directory
-        mode: 0755
-        owner: "{{ user }}"
-        group: "{{ group }}"
-      tags: datree
-
-    - name: k8s | Deploy {{ home_dir }}/.datree/config.yaml
-      template:
-        src: datree_config.yaml.j2
-        dest: "{{ home_dir }}/.datree/config.yaml"
-        mode: 0644
-        owner: "{{ user }}"
-        group: "{{ group }}"
-      tags: datree
 
     - name: k8s | Import upbound.yml
       import_tasks: "upbound.yml"

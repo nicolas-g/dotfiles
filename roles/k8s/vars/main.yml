@@ -3,7 +3,6 @@ k8s_brew_packages:
   - argocd
   - colima # Container runtimes on macOS/Linux with minimal setup
   - dive # tool for exploring each layer in a docker image
-  - datree
   - docker
   # - docker-machine # Replaced by Rancher Desktop
   - docker-slim

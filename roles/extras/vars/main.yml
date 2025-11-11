@@ -84,6 +84,5 @@ homebrew_cask_extras:
   - skitch
   - telegram
   - utm # Virtualization
-  - vagrant-manager
   - warp # CLI Terminal
   - xbar
