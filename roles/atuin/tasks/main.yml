@@ -1,12 +1,5 @@
 ---
 - block:
-    - name: atuin | Install atuin
-      community.general.homebrew:
-        name: "atuin"
-        state: "present"
-      when: install_packages | d() | bool
-      tags: brew
-
     - name: atuin | Create {{ home_dir }}/.config/atuin dir
       file:
         path: "{{ home_dir }}/.config/atuin"
