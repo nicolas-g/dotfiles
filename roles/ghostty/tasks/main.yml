@@ -25,6 +25,14 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: ghostty | Deploy {{ home_dir }}/.config/ghostty/ghostty-theme
+      copy:
+        src: ghostty-theme
+        dest: "{{ home_dir }}/.config/ghostty/ghostty-theme"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
     - name: ghostty | Deploy {{ home_dir }}/.config/ghostty/shaders/
       copy:
         src: "shaders/{{ item }}"
