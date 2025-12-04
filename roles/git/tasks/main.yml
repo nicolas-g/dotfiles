@@ -48,20 +48,6 @@
         group: "{{ group }}"
       tags: aliases
 
-    - name: git | Install git packages
-      community.general.homebrew:
-        name: "{{ item }}"
-        state: "present"
-      loop:
-        - "gh" # GitHub CLI
-        - "diff-so-fancy" # Use -u with diff for unified outputand pipe the output to diff-so-fancy: `diff -u file_a file_b | diff-so-fancy`
-        - "git"
-        - "git-extras"
-        - "git-lfs" # https://git-lfs.github.com
-        - "lazygit"
-      tags: brew
-      when: install_packages | d() | bool
-
     - name: git | Create {{ home_dir }}/.config/gh dir
       file:
         path: "{{ home_dir }}/.config/gh"
