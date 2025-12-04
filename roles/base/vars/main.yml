@@ -1,23 +1,4 @@
 ---
 homebrew_essentials:
-  - coreutils
-  - gawk
-  - gnu-sed
-  - gnu-tar
-  - gnu-time
-  - gnu-which
-  - grep
-  - npm # required for prettier,azure login etc..
-  - pre-commit
-  - prettier
-  - telnet
-  - tree
-  - watch
-  - wget
-
-homebrew_cask_essentials:
-  - dropbox
-  - brave-browser
-  - obsidian
-  - slack
-  - synology-drive
+  - gnu-time #!
+  - npm # required for prettier,azure login etc.. #!

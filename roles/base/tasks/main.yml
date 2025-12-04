@@ -6,19 +6,13 @@
         brew_packages: "{{ homebrew_essentials }}"
       when: ansible_os_family == 'Darwin'
 
-    - name: base | Include brew_cask_install.yml
-      import_tasks: "../../../roles/shared/tasks/brew_cask_install.yml"
-      vars:
-        brew_cask_packages: "{{ homebrew_cask_essentials }}"
-      when: ansible_os_family == 'Darwin'
-
     - name: base | Create /usr/local/bin dir
       file:
         path: "/usr/local/bin"
         state: directory
         mode: 0755
-        owner: "{{ user }}"
-        group: "{{ group }}"
+        owner: "root"
+        group: "wheel"
       become: yes
       when: ansible_os_family == 'Darwin'
 

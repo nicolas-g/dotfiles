@@ -14,10 +14,7 @@ alias tu='top -o cpu'   	# sorted by cpu
 alias tm='top -o vsize' 	# sorted by memory
 alias top="sudo htop"
 alias ping='prettyping --nolegend'
-alias vi='vim'
-{% if ansible_distribution == "MacOSX" %}
-alias grep='{{ homebrew_prefix }}/bin/ggrep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-{% endif %}
+alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
 alias fzf_preview="fzf --preview 'bat --color=always {}' --bind shift-up:preview-page-up,shift-down:preview-page-down"
 
 alias fzf_grep='grep --line-buffered --color=never -r "" * | fzf'
