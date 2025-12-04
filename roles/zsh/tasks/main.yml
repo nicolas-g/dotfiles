@@ -102,10 +102,6 @@
       become: yes
       when: ansible_os_family == 'Darwin'
 
-#TBD
-#    - name: zsh | install starship.yml
-#      include: starship.yml
-
     - name: zsh | Deploy {{ home_dir }}/.aliases.d/{{ item }}
       copy:
         src: "zsh_aliases"
