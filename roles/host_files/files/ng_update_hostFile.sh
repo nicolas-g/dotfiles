@@ -23,9 +23,14 @@ cp /etc/hosts /etc/hosts.bak
 curl -s -o /etc/StevenBlackHosts https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts
 
 # unify hosts files (myHosts,myBlackHosts & StevenBlackHosts
-{ echo "# Last updated $(date)" ; cat /etc/myHosts ; cat /etc/myBlackHosts ; cat /etc/StevenBlackHosts; } > /etc/hosts;
+{
+  echo "# Last updated $(date)"
+  cat /etc/myHosts
+  cat /etc/myBlackHosts
+  cat /etc/StevenBlackHosts
+} >/etc/hosts
 
 while IFS= read -r whiteHost; do
-    # It must be GNU sed or else it will fail!
-    gsed -i "/${whiteHost}/d" /etc/hosts
-done < /etc/whitelistHost
+  # It must be GNU sed or else it will fail!
+  sed -i "/${whiteHost}/d" /etc/hosts
+done </etc/whitelistHost
