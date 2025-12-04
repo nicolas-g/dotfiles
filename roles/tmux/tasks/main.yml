@@ -6,8 +6,7 @@
         state: "present"
       loop:
         - "tmux"
-        - "tmate"
-        - "urlview" # dependency for tmux-urlview plugin
+#!TBD        - "urlview" # dependency for tmux-urlview plugin
       tags: brew
       when: install_packages | d() | bool
 
@@ -36,15 +35,6 @@
         group: "{{ group }}"
       tags: ["conf", "tmux-conf"]
 
-    - name: tmux | Deploy {{ home_dir }}/.tmate.conf
-      template:
-        src: tmate.conf.j2
-        dest: "{{ home_dir }}/.tmate.conf"
-        mode: 0400
-        owner: "{{ user }}"
-        group: "{{ group }}"
-      tags: ["conf", "tmux-conf", "tmate", "tmate-conf"]
-
     - name: tmux | Clone tmux plugins # noqa 401 (Package installs should not use latest)
       git:
         repo: "{{ item }}"
@@ -59,7 +49,7 @@
         - https://github.com/tmux-plugins/tmux-sessionist
         - https://github.com/tmux-plugins/tmux-logging
         - https://github.com/tmux-plugins/tmux-open
-        - https://github.com/tmux-plugins/tmux-urlview # requires "urlview" brew package
+  #! TBD      - https://github.com/tmux-plugins/tmux-urlview # requires "urlview" brew package
       notify:
         - "install and update plugins"
 
