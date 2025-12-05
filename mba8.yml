@@ -32,7 +32,6 @@
     - { role: vim, tags: ["vim-role"] }
     - { role: zsh, tags: ["zsh-role"] }
     - { role: tmux, tags: ["tmux-role"] }
-    - { role: alacritty, tags: ["alacritty-role"] }
     - { role: ansible, tags: ["ansible-role"] }
     - { role: k8s, tags: ["k8s-role"] }
     - { role: aws, tags: ["aws-role"] }

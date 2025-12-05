@@ -32,12 +32,9 @@ dockitems_to_persist:
   - name: Slack
     path: /Applications/Slack.app
     pos: 5
-  - name: Alacritty
-    path: /Applications/Alacritty.app
-    pos: 6
   - name: Viber
     path: /Applications/Viber.app
-    pos: 7
+    pos: 6
   - name: WhatsApp
     path: /Applications/WhatsApp.app
-    pos: 8
+    pos: 7

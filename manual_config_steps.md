@@ -74,12 +74,6 @@ brave://settings/security?search=security
 
 - TBD
 
-### Alacritty
-
-```
-Go to System Preferences > Security & Privacy and give Full Disk Access to Alacritty.
-```
-
 ### Misc
 
 - Caffeine (keep active)
