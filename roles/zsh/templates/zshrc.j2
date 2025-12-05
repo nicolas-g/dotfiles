@@ -61,16 +61,19 @@ if type brew &>/dev/null; then
   autoload -Uz compinit
 fi
 
-eval "$(starship init zsh)"
+# TBD
+#eval "$(starship init zsh)"
 
 # works by default with oh-my-zsh installation
 ## source {{ homebrew_prefix }}/opt/zsh-git-prompt/zshrc.sh
 
+#TBD
 # https://github.com/zsh-users/zsh-autosuggestions
-source {{ homebrew_prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source {{ homebrew_prefix }}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+#TBD
 # https://github.com/zsh-users/zsh-syntax-highlighting
-source {{ homebrew_prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source {{ homebrew_prefix }}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source ~/.env
 
@@ -129,25 +132,18 @@ export AUTO_NOTIFY_IGNORE=(
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-eval "$(atuin init zsh --disable-up-arrow)"
 
-eval "$(thefuck --alias fff)"
-
-eval "$(navi widget zsh)"
-
-eval "$(zoxide init zsh)"
-
-# For LunarVIM
-export PATH="{{ home_dir }}/.local/bin:$PATH"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="{{ home_dir }}/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
-#for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
-for conf in "$HOME/.zshrc.d/"*.zsh; do
+# The (N) tells Zsh: "If no files match, generate an empty list."
+for conf in "$HOME/.zshrc.d/"*.zsh(N); do
   source "${conf}"
 done
 unset conf
+
+eval "$(zoxide init zsh)"
+
+# TBD
+#eval "$(atuin init zsh --disable-up-arrow)"
+#eval "$(thefuck --alias fff)"
+#eval "$(navi widget zsh)"
 
 export EDITOR=nvim

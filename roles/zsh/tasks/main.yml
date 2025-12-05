@@ -1,18 +1,14 @@
 ---
 - block:
+    # TBD: packages now installed through Devbox
+    # still install completions and lovers ?
     - name: zsh | Install shell related packages
       community.general.homebrew:
         name: "{{ item }}"
         state: "present"
       loop:
-        - fzf
-        - zoxide
-        - zsh
-        - zsh-autosuggestions
         - zsh-completions
-        - zsh-git-prompt
         - zsh-lovers
-        - zsh-syntax-highlighting
       tags: brew
       when: install_packages | d() | bool
 
