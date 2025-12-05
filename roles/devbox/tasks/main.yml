@@ -1,0 +1,23 @@
+---
+- block:
+    - name: devbox | Create {{ item }} config files
+      copy:
+        src: "{{ item }}"
+        dest: "{{ home_dir }}/.local/share/devbox/global/current/{{ item }}"
+        state: directory
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      loop:
+        - devbox.json
+        - devbox.lock
+
+    - name: devbox | Deploy {{ home_dir }}/.zshrc.d/{{ item }}
+      copy:
+        src: devbox.zsh
+        dest: "{{ home_dir }}/.zshrc.d/devbox.zsh"
+        mode: 0644
+        owner: "{{ user }}"
+        group: "{{ group }}"
+
+  tags: devbox
