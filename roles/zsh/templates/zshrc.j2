@@ -90,8 +90,6 @@ source ~/.env
 [ -f ~/.functions.d/base ] && source ~/.functions.d/base
 [ -f ~/.functions.d/extras ] && source ~/.functions.d/extras
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # k8s krew plugin
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 {% if homebrew_prefix == '/home/linuxbrew/.linuxbrew' %}
@@ -132,13 +130,13 @@ export AUTO_NOTIFY_IGNORE=(
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-
 # The (N) tells Zsh: "If no files match, generate an empty list."
 for conf in "$HOME/.zshrc.d/"*.zsh(N); do
   source "${conf}"
 done
 unset conf
 
+source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 # TBD

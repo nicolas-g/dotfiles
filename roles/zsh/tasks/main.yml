@@ -44,14 +44,6 @@
         - "zprofile"
       tags: ["zshrc-conf", "conf"]
 
-    - name: zsh | Deploy {{ home_dir }}/.fzf.zsh
-      template:
-        src: "fzf.zsh.j2"
-        dest: "{{ home_dir }}/.fzf.zsh"
-        mode: 0644
-        owner: "{{ user }}"
-        group: "{{ group }}"
-
     - name: zsh | Clone zsh-completions plugin repo # noqa 401 (Package installs should not use latest)
       git:
         repo: https://github.com/zsh-users/zsh-completions
