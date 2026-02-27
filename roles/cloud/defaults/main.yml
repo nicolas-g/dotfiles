@@ -1,0 +1,4 @@
+---
+run_aws: True
+run_azure: False
+run_gcp: False

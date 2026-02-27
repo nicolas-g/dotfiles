@@ -28,14 +28,14 @@
         group: "{{ group }}"
       tags: ["aliases", "gcloud-aliases"]
 
-    - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}
-      template:
-        src: config.j2
-        dest: "{{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}"
-        mode: 0644
-        owner: "{{ user }}"
-        group: "{{ group }}"
-      loop: "{{ gcloud_configs }}"
+#    - name: gcloud | Deploy {{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}
+#      template:
+#        src: gcloud_config.j2
+#        dest: "{{ home_dir }}/.config/gcloud/configurations/config_{{ item.project }}"
+#        mode: 0644
+#        owner: "{{ user }}"
+#        group: "{{ group }}"
+#      loop: "{{ gcloud_configs }}"
 
     - name: gcloud | Install gcloud components
       command: "{{ homebrew_prefix }}/bin/gcloud components install {{ item }}"
@@ -47,4 +47,5 @@
         - "gsutil"
         #- "nomos" # No ARM versions yet
       changed_when: '"All components are up to date" not in cmd_result.stderr'
+  when: run_gcp | d() | bool
   tags: gcloud
