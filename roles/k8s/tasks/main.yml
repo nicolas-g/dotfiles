@@ -19,6 +19,22 @@
         owner: "{{ user }}"
         group: "{{ group }}"
 
+    - name: k8s | Get kubectl client version
+      command: kubectl version --client -o json
+      register: kubectl_version
+      changed_when: false
+      tags: k8s-aliases
+
+    # Upate kubectl completion where there is a new kubectl client version update
+    - name: k8s | Generate kubectl completion
+      copy:
+        dest: "{{ home_dir }}/.oh-my-zsh/custom/completions/_kubectl"
+        content: "{{ lookup('pipe', 'kubectl completion zsh') }}"
+        mode: "0644"
+        owner: "{{ user }}"
+        group: "{{ group }}"
+      tags: k8s-aliases
+
     # https://github.com/ahmetb/kubectl-aliases/blob/master/.kubectl_aliases
     - name: k8s | Deploy {{ home_dir }}/.aliases.d/{{ item }}
       copy:
