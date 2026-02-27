@@ -56,11 +56,6 @@ fi
 export ZSH=$HOME/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-if type brew &>/dev/null; then
-  FPATH="$(brew --prefix)/share/zsh-completions:${FPATH}"
-  autoload -Uz compinit
-fi
-
 # works by default with oh-my-zsh installation
 ## source {{ homebrew_prefix }}/opt/zsh-git-prompt/zshrc.sh
 
@@ -81,7 +76,7 @@ source ~/.env
 [ -f ~/.aliases.d/kubectl ] && source ~/.aliases.d/kubectl
 [ -f ~/.aliases.d/extras ] && source ~/.aliases.d/extras
 [ -f ~/.aliases.d/sec_tools ] && source ~/.aliases.d/sec_tools
-[ -f ~/.aliases.d/vim ] && source ~/.aliases.d/vim
+[ -f ~/.aliases.d/neovim ] && source ~/.aliases.d/neovim
 
 # Functions
 [ -f ~/.functions.d/base ] && source ~/.functions.d/base
